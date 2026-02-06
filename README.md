@@ -1,7 +1,16 @@
 # fuint会员营销系统介绍
 
 #### 介绍
-fuint会员营销系统是一套开源的实体店铺会员管理和营销系统。系统基于前后端分离的架构，后端采用<b>Java SpringBoot</b> + <b>Mysql</b>，前端基于当前流行的<b>Uniapp</b>，<b>Element UI</b>，支持小程序、h5。主要功能包含电子优惠券、储值卡、实体卡、集次卡（计次卡）、短信发送、储值卡、会员积分、会员等级权益体系，支付收款等会员日常营销工具。本系统适用于各类实体店铺，如生鲜、零售超市、酒吧、酒店、汽车4S店、鲜花店、奶茶店、甜品店、餐饮店、农家乐等，是实体店铺会员营销必备的一款利器。
+fuint会员营销系统是一套基于**领域驱动设计(DDD)**的开源实体店铺会员管理和营销SaaS系统。系统基于前后端分离的架构，后端采用<b>Java SpringBoot</b> + <b>PostgreSQL/MySQL</b> + <b>MyBatis Plus</b>，前端基于当前流行的<b>Uniapp</b>，<b>Element UI</b>，支持小程序、h5。
+
+**核心特性:**
+- 🏗️ **DDD 分层架构**: 采用领域驱动设计,清晰的分层架构(接口层、应用层、领域层、基础设施层)
+- 🏢 **多租户支持**: 基于 tenant_id 的数据隔离,支持 SaaS 多租户模式
+- 🗄️ **数据库迁移**: 集成 Flyway,支持版本化的数据库变更管理
+- 🔄 **PostgreSQL 优先**: 原生支持 PostgreSQL,兼容 MySQL
+- 🔒 **严格分层**: DO/Entity 分离,领域模型与数据模型解耦
+
+主要功能包含电子优惠券、储值卡、实体卡、集次卡（计次卡）、短信发送、储值卡、会员积分、会员等级权益体系，支付收款等会员日常营销工具。本系统适用于各类实体店铺，如生鲜、零售超市、酒吧、酒店、汽车4S店、鲜花店、奶茶店、甜品店、餐饮店、农家乐等，是实体店铺会员营销必备的一款利器。
 以下是前台的页面展示：
 <p><img src="https://fuint-cn.oss-cn-shenzhen.aliyuncs.com/screenshots/g1.png?v=1" alt="前台页面1"></p>
 <p><img src="https://fuint-cn.oss-cn-shenzhen.aliyuncs.com/screenshots/g2.png?v=2" alt="前台页面2"></p>
@@ -28,41 +37,133 @@ fuint侧重于线下实体店的私域流量的运营，同时提供会员端小
 </p>
 
 #### 软件架构
-后端：JAVA SpringBoot + MYSQL Mybatis Plus + Redis
-前端：采用基于Vue的Uniapp、Element UI，前后端分离，支持微信小程序、h5等
+
+**DDD 分层架构:**
+```
+fuint/
+├── fuint-boot                  # 🚀 启动模块 (唯一 SpringBootApplication)
+├── fuint-common                # 🧰 纯工具 & 常量 (无业务依赖)
+├── fuint-framework             # 🧱 技术基础设施 (多租户、安全、缓存)
+├── fuint-domain                # 🧠 领域层 (业务核心逻辑)
+├── fuint-infrastructure        # 🗄️ 基础设施实现 (DB/Redis/MQ/OSS)
+├── fuint-application           # 🎯 应用层 (用例编排)
+└── fuint-interface             # 🌐 接口层 (REST API)
+```
+
+**技术栈:**
+
+后端技术<br>
+1.1 SpringBoot 2.5.12<br>
+1.2 MyBatis Plus 3.5+ (多租户插件)<br>
+1.3 PostgreSQL 14+ / MySQL 8.0+<br>
+1.4 Flyway (数据库版本管理)<br>
+1.5 SpringSecurity + JWT<br>
+1.6 Redis<br>
+1.7 HikariCP (连接池)<br>
+1.8 Swagger UI<br>
+1.9 Maven<br>
+
+前端技术<br>
+2.1 Vue 2.x<br>
+2.2 Uniapp (跨平台)<br>
+2.3 Element UI<br>
+2.4 Node.js<br>
+
 <p>后台截图：</p>
 <p><img src="https://fuint-cn.oss-cn-shenzhen.aliyuncs.com/screenshots/login.png?v=fuint" alt="登录界面"></p>
 <p><img src="https://fuint-cn.oss-cn-shenzhen.aliyuncs.com/screenshots/homeV2.png?v=fuint" alt="首页"></p>
 
-前端使用技术<br>
-2.1 Vue<br>
-2.2 Uniapp<br>
-2.3 Element UI
-2.4 Nodejs
+**架构特点:**
 
-后端使用技术<br>
-1.1 SpringBoot<br>
-1.2 Mybatis Plus<br>
-1.3 Maven<br>
-1.4 SpringSecurity<br>
-1.5 Druid<br>
-1.6 Slf4j<br>
-1.7 Fastjson<br>
-1.8 JWT<br>
-1.9 Redis<br>
-1.10 Quartz<br>
-1.11 Mysql 5.7或8版<br>
-1.12 Swagger UI<br>
+1. **领域驱动设计(DDD)**
+   - 清晰的分层架构,职责明确
+   - DO(数据对象) 与 Entity(领域实体) 分离
+   - 仓储模式,领域层定义接口,基础设施层实现
+
+2. **多租户支持**
+   - 基于 `tenant_id` 的共享数据库隔离
+   - MyBatis Plus 自动拦截 SQL,注入租户条件
+   - 支持混合隔离策略 (共享DB/独立Schema/独立DB)
+
+3. **数据库迁移**
+   - Flyway 版本化管理数据库变更
+   - 支持多环境 (开发/测试/生产)
+   - 可追溯的变更历史
+
+4. **依赖关系**
+   ```
+   fuint-boot
+       ↓
+   fuint-interface
+       ↓
+   fuint-application
+       ↓
+   fuint-domain  ←←←  fuint-infrastructure
+       ↓                      ↓
+   fuint-common  ←←←  fuint-framework
+   ```
 
 
 #### 安装步骤
-软件环境版本：jdk 1.8、mysql 5.7或5.8、Redis任意版本
-1. 导入db目录下的fuint-db.sql数据库文件。
-2. 修改configure目录下的配置文件。
-3. 将工程导入Idea，并安装插件：Lombok Plugin。
-3. 使用maven执行install，打jar包（在fuint-application/target目录），把jar包上传并执行启动：
-   nohup java -Dfile.encoding=UTF-8 -Xmx2048m -Xms2048m -Xss256k -Xmn1024m -jar fuint-application-1.0.0.jar
-<p>提示：无后端和linux基础的朋友，可以使用<b>宝塔</b>部署，非常方便简单。</p>
+
+**环境要求:**
+- JDK 1.8+
+- PostgreSQL 14+ 或 MySQL 8.0+
+- Redis 5.0+
+- Maven 3.6+
+
+**数据库初始化 (推荐 PostgreSQL):**
+```bash
+# PostgreSQL 安装后创建数据库
+createdb fuint_db
+
+# 使用 Flyway 自动迁移
+# 系统启动时会自动执行 db/migration 下的 SQL 脚本
+```
+
+**配置文件:**
+```bash
+# 修改 config/dev/application-dev.yml 或 config/prod/application-prod.yml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fuint_db
+    username: postgres
+    password: your_password
+
+  # 多租户配置
+  fuint:
+    tenant:
+      enabled: true
+      default-strategy: SHARED_DATABASE  # 共享数据库模式
+```
+
+**编译运行:**
+```bash
+# 1. 克隆项目
+git clone https://github.com/your-repo/fuint.git
+
+# 2. 安装依赖
+mvn clean install -DskipTests
+
+# 3. 启动项目 (开发环境)
+cd fuint-boot
+mvn spring-boot:run -Dspring.profiles.active=dev
+
+# 4. 生产部署 (打包)
+mvn clean package -DskipTests
+nohup java -Dfile.encoding=UTF-8 \
+  -Xmx2048m -Xms2048m -Xss256k -Xmn1024m \
+  -Dspring.profiles.active=prod \
+  -jar fuint-boot/target/fuint-boot-1.0.0.jar &
+```
+
+**使用宝塔部署:**
+<p>无后端和linux基础的朋友，推荐使用<b>宝塔面板</b>部署，非常方便简单。</p>
+
+**访问系统:**
+- 后台管理: http://localhost:8080
+- 接口文档: http://localhost:8080/swagger-ui.html
+- 默认账号: admin / 123456
 
 
 #### 前台使用说明
@@ -99,10 +200,16 @@ fuint侧重于线下实体店的私域流量的运营，同时提供会员端小
 <p><img src="https://fuint-cn.oss-cn-shenzhen.aliyuncs.com/screenshots/cashier-1.png?v=fuint3.0.8" alt="收银结算"></p>
 
 #### 开发计划
-1. 完善的报表统计；
-2. 分享助力、分享领券、分享获得积分；
-3. 员工提成、分销功能；
-4. 更多营销工具，比如签到等。
+1. ✅ DDD 架构重构,清晰的分层设计；
+2. ✅ 多租户支持,SaaS 模式；
+3. ✅ PostgreSQL 原生支持；
+4. ✅ Flyway 数据库版本管理；
+5. 🔄 完善的报表统计；
+6. 🔄 分享助力、分享领券、分享获得积分；
+7. 🔄 员工提成、分销功能；
+8. 🔄 更多营销工具，比如签到等；
+9. 🔄 GraphQL API 支持；
+10. 🔄 微服务架构演进 (Spring Cloud)。
 
 
 #### 允许使用范围：

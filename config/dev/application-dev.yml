@@ -1,0 +1,104 @@
+# ========================================
+# Fuint 2.0 开发环境配置
+# ========================================
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  jetty:
+    threads:
+      max: 200
+      min: 10
+
+spring:
+  application:
+    name: fuint
+
+  # 数据源配置 (PostgreSQL 优先)
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/fuint_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: postgres
+    password: postgres
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: FuintHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+
+  # Flyway 配置
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    validate-on-migrate: true
+    locations: classpath:db/migration
+    encoding: UTF-8
+    out-of-order: false
+
+  # Redis 配置
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 0
+    timeout: 3000
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+
+  # Session 配置
+  session:
+    store-type: redis
+    timeout: 3600
+
+# MyBatis Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.fuint.infrastructure.persistence.entity
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: status
+      logic-delete-value: D
+      logic-not-delete-value: A
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+
+# Fuint 多租户配置
+fuint:
+  tenant:
+    enabled: true
+    default-strategy: SHARED_DATABASE
+    # 特定租户的隔离策略(可选)
+    tenant-strategies:
+      100: SEPARATE_DATABASE  # 租户100使用独立数据库
+
+# Swagger 配置
+swagger:
+  enabled: true
+  title: Fuint 会员营销系统 API
+  description: DDD 架构 + 多租户 SaaS 系统
+  version: 2.0.0
+  contact:
+    name: FSQ
+    url: https://www.fuint.cn
+    email: fsq@fuint.cn
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.fuint: DEBUG
+    com.baomidou.mybatisplus: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"

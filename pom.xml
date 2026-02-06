@@ -8,12 +8,20 @@
     <artifactId>fuint</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
-    <description>fuint project root</description>
+    <description>fuint project root - DDD Architecture</description>
     <modules>
+        <!-- 保留旧模块 (兼容) -->
         <module>fuint-utils</module>
         <module>fuint-repository</module>
-        <module>fuint-application</module>
         <module>fuint-framework</module>
+
+        <!-- 新 DDD 架构模块 -->
+        <module>fuint-common</module>
+        <module>fuint-domain</module>
+        <module>fuint-infrastructure</module>
+        <module>fuint-application</module>
+        <module>fuint-interface</module>
+        <module>fuint-boot</module>
     </modules>
 
     <parent>
@@ -29,7 +37,9 @@
         <jedis.version>2.9.0</jedis.version>
         <kryo.version>4.0.2</kryo.version>
         <mysql.version>8.0.25</mysql.version>
-        <mybatis-plus.version>3.1.0</mybatis-plus.version>
+        <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
+        <postgresql.version>42.5.4</postgresql.version>
+        <flyway.version>8.5.13</flyway.version>
     </properties>
 
     <dependencies>

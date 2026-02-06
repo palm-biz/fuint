@@ -1,0 +1,41 @@
+.
+├── config
+│   ├── dev
+│   └── prod
+├── configure
+│   ├── dev
+│   └── prod
+├── db
+├── fuint-application
+│   └── src
+│       └── main
+├── fuint-application-new
+│   └── src
+│       └── main
+├── fuint-boot
+│   └── src
+│       └── main
+├── fuint-common
+│   └── src
+│       └── main
+├── fuint-domain
+│   └── src
+│       └── main
+├── fuint-framework
+│   └── src
+│       └── main
+├── fuint-infrastructure
+│   └── src
+│       └── main
+├── fuint-interface
+│   └── src
+│       └── main
+├── fuint-repository
+│   └── src
+│       └── main
+├── fuint-utils
+│   └── src
+│       └── main
+└── sbin
+
+38 directories

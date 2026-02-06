@@ -1,0 +1,13 @@
+# ========================================
+# Fuint 2.0 Spring Boot 配置文件
+# 外部化配置加载
+# ========================================
+
+spring:
+  profiles:
+    active: ${ENV_PROFILE:dev}  # 默认开发环境
+
+  config:
+    import:
+      - optional:file:./config/${spring.profiles.active}/application-${spring.profiles.active}.yml
+      - optional:classpath:application-${spring.profiles.active}.yml
