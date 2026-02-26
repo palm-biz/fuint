@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-# yanhe-biz
+# biz
 #
 # chkconfig:   2345 80 20
 # description: Starts and stops a single elasticsearch instance on this system
 #
 
 ### BEGIN INIT INFO
-# Provides: yanhe-biz
+# Provides: biz
 # Required-Start: $network $named
 # Required-Stop: $network $named
 # Default-Start: 2 3 4 5
@@ -19,8 +19,8 @@ if [ -f /etc/rc.d/init.d/functions ]; then
     . /etc/rc.d/init.d/functions
 fi
 
-# Sets the default values for yanhe-biz variables used in this script
-BIZ_HOME="/opt/yanhe/biz-server/target/"
+# Sets the default values for biz variables used in this script
+BIZ_HOME="/opt/biz/server/target/"
 LOG_DIR="/var/log/"
 PID_DIR="/var/run/"
 
@@ -58,7 +58,7 @@ start() {
     cd $BIZ_HOME
     echo -n $"Starting $prog: "
     # if not running, start it up here, usually something like "daemon $exec"
-    java -Dfile.encoding=UTF-8 -Xmx2048m -Xms2048m -Xss256k -Xmn1024m -jar biz-application.jar >> $LOG_DIR/yanhe-biz.log
+    java -Dfile.encoding=UTF-8 -Xmx2048m -Xms2048m -Xss256k -Xmn1024m -jar biz-application.jar >> $LOG_DIR/biz.log
     echo $! > $pidfile
     retval=$?
     echo
