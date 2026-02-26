@@ -1,0 +1,18 @@
+package cloud.palmbiz.framework.service;
+
+import cloud.palmbiz.framework.dto.ExcelExportDto;
+
+/**
+ * 导出Excel文件业务接口
+ */
+public interface ExportService {
+
+    /**
+     * 直接导出本地文件
+     *
+     * @param data srcPath 文件相对路径
+     *             srcTemplateFileName 文件名称
+     *             out 输出流
+     */
+    void exportLocalFile(ExcelExportDto data) throws Exception;
+}

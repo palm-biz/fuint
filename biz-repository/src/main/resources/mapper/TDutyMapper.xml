@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.repository.cloud.plambiz.TDutyMapper">
+<mapper namespace="mapper.repository.cloud.palmbiz.TDutyMapper">
 
-    <select id="findByStatus" resultType="model.repository.cloud.plambiz.TDuty">
+    <select id="findByStatus" resultType="model.repository.cloud.palmbiz.TDuty">
         select * from t_duty u
         where u.status = #{status}
         <if test="merchantId != null and merchantId > 0">
@@ -10,7 +10,7 @@
         </if>
     </select>
 
-    <select id="findByName" resultType="model.repository.cloud.plambiz.TDuty">
+    <select id="findByName" resultType="model.repository.cloud.palmbiz.TDuty">
         select * from t_duty u
         where u.DUTY_NAME = #{name}
         <if test="merchantId != null and merchantId > 0">
@@ -18,7 +18,7 @@
         </if>
     </select>
 
-    <select id="findByIdIn" resultType="model.repository.cloud.plambiz.TDuty">
+    <select id="findByIdIn" resultType="model.repository.cloud.palmbiz.TDuty">
         select * from t_duty where duty_id in
         <foreach collection="ids" item="id" separator="," open="(" close=")">
             #{id}

@@ -1,16 +1,16 @@
-package cloud.plambiz.common.service.impl;
+package cloud.palmbiz.common.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cloud.plambiz.framework.annoation.OperationServiceLog;
-import cloud.plambiz.framework.exception.BusinessCheckException;
-import cloud.plambiz.framework.pagination.PaginationRequest;
-import cloud.plambiz.framework.pagination.PaginationResponse;
-import cloud.plambiz.repository.model.${className};
-import cloud.plambiz.common.service.${tableClass}Service;
-import cloud.plambiz.common.enums.StatusEnum;
-import cloud.plambiz.repository.mapper.${className}Mapper;
+import cloud.palmbiz.framework.annoation.OperationServiceLog;
+import cloud.palmbiz.framework.exception.BusinessCheckException;
+import cloud.palmbiz.framework.pagination.PaginationRequest;
+import cloud.palmbiz.framework.pagination.PaginationResponse;
+import cloud.palmbiz.repository.model.${className};
+import cloud.palmbiz.common.service.${tableClass}Service;
+import cloud.palmbiz.common.enums.StatusEnum;
+import cloud.palmbiz.repository.mapper.${className}Mapper;
 import com.github.pagehelper.PageHelper;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang.StringUtils;

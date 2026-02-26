@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cloud.plambiz</groupId>
-    <artifactId>fuint</artifactId>
+    <groupId>cloud.palmbiz</groupId>
+    <artifactId>palmbiz</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
-    <description>fuint project root</description>
+    <description>PalmBiz project root</description>
     <modules>
         <module>biz-utils</module>
         <module>biz-repository</module>

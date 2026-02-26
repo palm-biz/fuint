@@ -1,6 +1,6 @@
-package cloud.plambiz.repository.mapper;
+package cloud.palmbiz.repository.mapper;
 
-import cloud.plambiz.repository.model.${className};
+import cloud.palmbiz.repository.model.${className};
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.repository.cloud.plambiz.MtCommissionRuleItemMapper">
+<mapper namespace="mapper.repository.cloud.palmbiz.MtCommissionRuleItemMapper">
     <update id="deleteByRuleId">
         update mt_commission_rule_item set STATUS = 'D',UPDATE_TIME=#{updateTime} where RULE_ID = #{ruleId}
     </update>
-    <select id="getEffectiveCommissionList" resultType="model.repository.cloud.plambiz.MtCommissionRuleItem">
+    <select id="getEffectiveCommissionList" resultType="model.repository.cloud.palmbiz.MtCommissionRuleItem">
         SELECT t1.*
         FROM `mt_commission_rule_item` t1
         INNER JOIN (

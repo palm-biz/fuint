@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.repository.cloud.plambiz.MtUploadShippingLogMapper">
-    <select id="getUploadShippingLogList" resultType="bean.repository.cloud.plambiz.UploadShippingLogBean">
+<mapper namespace="mapper.repository.cloud.palmbiz.MtUploadShippingLogMapper">
+    <select id="getUploadShippingLogList" resultType="bean.repository.cloud.palmbiz.UploadShippingLogBean">
         SELECT o.ID,o.ORDER_SN,u.`STATUS` FROM mt_order o LEFT JOIN mt_upload_shipping_log u ON o.ID = u.`ORDER_ID`
         WHERE o.PAY_STATUS = 'B'
         AND u.`STATUS` IS NULL

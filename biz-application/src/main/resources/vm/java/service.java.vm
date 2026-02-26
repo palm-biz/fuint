@@ -1,10 +1,10 @@
-package cloud.plambiz.common.service;
+package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.plambiz.framework.pagination.PaginationRequest;
-import cloud.plambiz.framework.pagination.PaginationResponse;
-import cloud.plambiz.repository.model.${className};
-import cloud.plambiz.framework.exception.BusinessCheckException;
+import cloud.palmbiz.framework.pagination.PaginationRequest;
+import cloud.palmbiz.framework.pagination.PaginationResponse;
+import cloud.palmbiz.repository.model.${className};
+import cloud.palmbiz.framework.exception.BusinessCheckException;
 
 /**
  * ${moduleName}业务接口

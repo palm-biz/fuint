@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.repository.cloud.plambiz.MtConfirmLogMapper">
+<mapper namespace="mapper.repository.cloud.palmbiz.MtConfirmLogMapper">
     <select id="getConfirmNum" resultType="long">
        SELECT COUNT(0) FROM mt_confirm_log where USER_COUPON_ID = #{userCouponId} and status = 'A'
     </select>
@@ -16,7 +16,7 @@
         </if>
     </select>
 
-    <select id="getOrderConfirmLogList" resultType="model.repository.cloud.plambiz.MtConfirmLog">
+    <select id="getOrderConfirmLogList" resultType="model.repository.cloud.palmbiz.MtConfirmLog">
         select * from mt_confirm_log o where o.ORDER_ID = #{orderId} and status = 'A'
     </select>
 </mapper>

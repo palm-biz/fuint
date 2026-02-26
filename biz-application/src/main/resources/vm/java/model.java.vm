@@ -1,4 +1,4 @@
-package cloud.plambiz.repository.model;
+package cloud.palmbiz.repository.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

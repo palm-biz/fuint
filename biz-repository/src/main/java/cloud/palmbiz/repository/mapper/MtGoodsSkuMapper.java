@@ -1,0 +1,16 @@
+package cloud.palmbiz.repository.mapper;
+
+import cloud.palmbiz.repository.model.MtGoodsSku;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+/**
+ * 商品SKU表 Mapper 接口
+ */
+public interface MtGoodsSkuMapper extends BaseMapper<MtGoodsSku> {
+
+    List<MtGoodsSku> getBySkuNo(@Param("skuNo") String skuNo);
+
+}
