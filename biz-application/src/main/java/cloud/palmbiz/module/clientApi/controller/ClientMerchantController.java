@@ -14,6 +14,7 @@ import cloud.palmbiz.repository.model.MtStaff;
 import cloud.palmbiz.repository.model.MtUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -42,7 +43,7 @@ public class ClientMerchantController extends BaseController {
     /**
      * 查询商户信息
      *
-     * @param request  Request对象
+     * @param request Request对象
      */
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     @CrossOrigin
@@ -65,26 +66,32 @@ public class ClientMerchantController extends BaseController {
 
         outParams.put("confirmInfo", confirmInfo);
 
-        // 收款额
+        // 商户 ID
+        Integer merchantId=confirmInfo.getMerchantId();
+        // 门店 ID
+        Integer storeId=confirmInfo.getStoreId();
+        // 开始时间
         Date beginTime = DateUtil.getDayBegin();
+        // 结束时间
         Date endTime = DateUtil.getDayEnd();
-        BigDecimal payMoney = orderService.getPayMoney(confirmInfo.getStoreId(), beginTime, endTime);
+        // 收款额
+        BigDecimal payMoney = orderService.getPayMoney(merchantId, storeId, beginTime, endTime);
         outParams.put("payMoney", payMoney);
 
         // 总会员数
-        Long userCount = memberService.getUserCount(confirmInfo.getStoreId());
+        Long userCount = memberService.getUserCount(merchantId, storeId);
         outParams.put("userCount", userCount);
 
         // 今日订单数
-        BigDecimal orderCount = orderService.getOrderCount(confirmInfo.getStoreId(), beginTime, endTime);
+        BigDecimal orderCount = orderService.getOrderCount(merchantId, storeId, beginTime, endTime);
         outParams.put("orderCount", orderCount);
 
         // 核销券数
-        Long confirmCount = confirmLogService.getConfirmCount(confirmInfo.getStoreId(), beginTime, endTime);
+        Long confirmCount = confirmLogService.getConfirmCount(merchantId, storeId, beginTime, endTime);
         outParams.put("couponCount", confirmCount);
 
         // 今日活跃会员数
-        Long todayUser = memberService.getActiveUserCount(confirmInfo.getStoreId(), beginTime, endTime);
+        Long todayUser = memberService.getActiveUserCount(merchantId, storeId, beginTime, endTime);
         outParams.put("todayUser", todayUser);
 
         return getSuccessResult(outParams);
