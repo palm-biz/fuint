@@ -20,14 +20,14 @@ if [ -f /etc/rc.d/init.d/functions ]; then
 fi
 
 # Sets the default values for yanhe-biz variables used in this script
-FUINT_HOME="/opt/yanhe/biz-server/target/"
+BIZ_HOME="/opt/yanhe/biz-server/target/"
 LOG_DIR="/var/log/"
 PID_DIR="/var/run/"
 
 prog="biz-server"
 pidfile="$PID_DIR/${prog}.pid"
 
-export FUINT_JAVA_OPTS
+export BIZ_JAVA_OPTS
 export JAVA_HOME
 
 lockfile=/var/lock/subsys/$prog
@@ -55,7 +55,7 @@ start() {
         touch "$pidfile"
     fi
 
-    cd $FUINT_HOME
+    cd $BIZ_HOME
     echo -n $"Starting $prog: "
     # if not running, start it up here, usually something like "daemon $exec"
     java -Dfile.encoding=UTF-8 -Xmx2048m -Xms2048m -Xss256k -Xmn1024m -jar biz-application.jar >> $LOG_DIR/yanhe-biz.log

@@ -30,6 +30,6 @@ public class Constants {
     public static final int HTTP_RESPONSE_CODE_USER_LOGIN_ERROR = 403;
     public static final int HTTP_RESPONSE_CODE_NOLOGIN = 1001;
 
-    public static final String SESSION_USER = "FUINT_USER";
-    public static final String SESSION_ADMIN_USER = "FUINT_ADMIN_USER";
+    public static final String SESSION_USER = "BIZ_USER";
+    public static final String SESSION_ADMIN_USER = "BIZ_ADMIN_USER";
 }

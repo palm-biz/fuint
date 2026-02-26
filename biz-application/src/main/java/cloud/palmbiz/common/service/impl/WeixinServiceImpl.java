@@ -109,7 +109,7 @@ public class WeixinServiceImpl implements WeixinService {
 
     private static final String REFUND_NOTIFY_URL = "/clientApi/pay/weixinRefundNotify";
 
-    private static final String FUINT_ACCESS_TOKEN_PRE = "FUINT_ACCESS_TOKEN";
+    private static final String BIZ_ACCESS_TOKEN_PRE = "BIZ_ACCESS_TOKEN";
 
     /**
      * 获取微信accessToken
@@ -129,7 +129,7 @@ public class WeixinServiceImpl implements WeixinService {
             wxAppId = env.getProperty("wxpay.appId");
             wxAppSecret = env.getProperty("wxpay.appSecret");
         }
-        String tokenKey = FUINT_ACCESS_TOKEN_PRE + platForm;
+        String tokenKey = BIZ_ACCESS_TOKEN_PRE + platForm;
         if (merchantId != null && merchantId > 0) {
             MtMerchant mtMerchant = merchantService.queryMerchantById(merchantId);
             if (mtMerchant != null && StringUtil.isNotEmpty(mtMerchant.getWxAppId()) && StringUtil.isNotEmpty(mtMerchant.getWxAppSecret())) {
