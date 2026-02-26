@@ -5,9 +5,6 @@ import com.fuint.utils.PropertiesUtil;
 
 /**
  * 控制器基类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class BaseController {
 

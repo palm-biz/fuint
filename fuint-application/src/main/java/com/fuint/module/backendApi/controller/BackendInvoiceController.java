@@ -24,9 +24,6 @@ import java.util.Map;
 
 /**
  * 发票管理类controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-发票相关接口")
 @RestController

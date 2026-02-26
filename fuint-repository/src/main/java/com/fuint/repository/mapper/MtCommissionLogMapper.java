@@ -6,9 +6,6 @@ import org.apache.ibatis.annotations.Param;
 
 /**
  *  佣金记录 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MtCommissionLogMapper extends BaseMapper<MtCommissionLog> {
 

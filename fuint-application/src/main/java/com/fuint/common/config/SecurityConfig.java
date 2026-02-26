@@ -15,9 +15,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 /**
  * 安全中心配置
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Configuration
 @EnableWebSecurity

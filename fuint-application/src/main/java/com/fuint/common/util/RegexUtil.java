@@ -7,9 +7,6 @@ import java.util.regex.Pattern;
 
 /**
  * 校验工具类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class RegexUtil {
 

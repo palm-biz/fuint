@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 分佣提成规则表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_commission_rule")

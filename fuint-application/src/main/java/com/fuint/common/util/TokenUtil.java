@@ -17,9 +17,6 @@ import java.util.Random;
 
 /**
  * 登录Token服务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Component
 public class TokenUtil {

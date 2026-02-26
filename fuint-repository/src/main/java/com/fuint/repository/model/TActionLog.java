@@ -12,9 +12,6 @@ import lombok.Data;
 
 /**
  * 后台操作日志表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("t_action_log")

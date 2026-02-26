@@ -10,9 +10,6 @@ import lombok.Data;
 
 /**
  * 规格表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_goods_spec")

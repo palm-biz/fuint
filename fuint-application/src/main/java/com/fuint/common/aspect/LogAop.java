@@ -20,9 +20,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * 控制器日志
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Component  // 声明组件
 @Aspect // 声明切面

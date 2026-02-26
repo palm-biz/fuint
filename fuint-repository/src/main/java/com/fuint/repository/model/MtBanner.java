@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 首页banner
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_banner")

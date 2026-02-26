@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * 地区实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class RegionDto implements Serializable {

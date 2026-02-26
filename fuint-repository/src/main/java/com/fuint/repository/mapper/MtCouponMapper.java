@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * 卡券信息表 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MtCouponMapper extends BaseMapper<MtCoupon> {
 

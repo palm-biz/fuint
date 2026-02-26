@@ -9,9 +9,6 @@ import java.util.Map;
 
 /**
  * 开卡赠礼接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface OpenGiftService {
 

@@ -9,9 +9,6 @@ import java.util.List;
 
 /**
  * 短信验证码表 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MtVerifyCodeMapper extends BaseMapper<MtVerifyCode> {
 

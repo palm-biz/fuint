@@ -13,9 +13,6 @@ import java.text.SimpleDateFormat;
 
 /**
  * 导出Excel文件业务实现类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Service
 public class ExportServiceImpl implements ExportService {

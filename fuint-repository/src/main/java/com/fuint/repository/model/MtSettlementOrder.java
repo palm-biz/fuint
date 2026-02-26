@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 结算订单表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_settlement_order")

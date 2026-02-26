@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 余额明细分页请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class BalancePage extends PageParam implements Serializable {

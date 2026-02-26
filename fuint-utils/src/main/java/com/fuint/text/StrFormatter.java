@@ -4,9 +4,6 @@ import com.fuint.utils.StringUtil;
 
 /**
  * 字符串格式化
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class StrFormatter {
 

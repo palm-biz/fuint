@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 分佣对象枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum CommissionTargetEnum {
     MEMBER("member", "会员分销"),

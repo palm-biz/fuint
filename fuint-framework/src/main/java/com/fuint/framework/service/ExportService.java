@@ -4,9 +4,6 @@ import com.fuint.framework.dto.ExcelExportDto;
 
 /**
  * 导出Excel文件业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface ExportService {
 

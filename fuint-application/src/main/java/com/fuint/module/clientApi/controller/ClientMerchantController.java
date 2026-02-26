@@ -22,9 +22,6 @@ import java.util.Map;
 
 /**
  * 商家相关controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @RestController
 @RequestMapping(value = "/clientApi/merchant")

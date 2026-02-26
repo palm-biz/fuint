@@ -7,9 +7,6 @@ import java.util.Map;
 
 /**
  * 消息体Body信息
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class Body implements Serializable {

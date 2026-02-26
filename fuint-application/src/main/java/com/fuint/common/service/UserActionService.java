@@ -8,9 +8,6 @@ import com.fuint.repository.model.MtUserAction;
 
 /**
  * 会员行为业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface UserActionService extends IService<MtUserAction> {
 

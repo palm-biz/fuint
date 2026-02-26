@@ -10,9 +10,6 @@ import java.util.List;
 
 /**
  * 商品分类业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface CateService extends IService<MtGoodsCate> {
 

@@ -8,9 +8,6 @@ import java.util.Date;
 
 /**
  * 发放卡券记录请求DTO
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class ReqSendLogDto implements Serializable {

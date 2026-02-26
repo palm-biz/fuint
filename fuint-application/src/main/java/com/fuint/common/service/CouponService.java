@@ -16,9 +16,6 @@ import java.util.List;
 
 /**
  * 卡券业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface CouponService extends IService<MtCoupon> {
 

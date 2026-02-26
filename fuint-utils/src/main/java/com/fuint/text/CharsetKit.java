@@ -7,9 +7,6 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * 字符集工具类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class CharsetKit {
     /** ISO-8859-1 */

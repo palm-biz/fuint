@@ -19,9 +19,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 余额接口controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="商户端-余额相关接口")
 @RestController

@@ -11,9 +11,6 @@ import java.util.Properties;
 
 /**
  * 图形验证码组件配置
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Configuration
 public class CaptchaConfig {

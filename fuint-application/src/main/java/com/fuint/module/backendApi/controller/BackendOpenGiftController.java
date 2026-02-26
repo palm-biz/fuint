@@ -26,9 +26,6 @@ import java.util.Map;
 
 /**
  * 开卡赠礼管理controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-开卡赠礼相关接口")
 @RestController

@@ -2,9 +2,6 @@ package com.fuint.common.vo.printer;
 
 /**
  * 打印机状态
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum PrinterStatusType {
 

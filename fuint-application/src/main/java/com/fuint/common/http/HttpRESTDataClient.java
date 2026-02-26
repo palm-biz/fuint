@@ -26,9 +26,6 @@ import org.apache.http.client.HttpClient;
 
 /**
  * 调用REST接口并解析数据
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Component
 public class HttpRESTDataClient {

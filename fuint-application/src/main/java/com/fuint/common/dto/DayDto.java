@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 日期Dto
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class DayDto implements Serializable {

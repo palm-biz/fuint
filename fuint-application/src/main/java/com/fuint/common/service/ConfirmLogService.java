@@ -12,9 +12,6 @@ import java.util.List;
 
 /**
  * 核销记录业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface ConfirmLogService extends IService<MtConfirmLog> {
 

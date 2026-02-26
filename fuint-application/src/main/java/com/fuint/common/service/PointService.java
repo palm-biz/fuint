@@ -9,9 +9,6 @@ import com.fuint.repository.model.MtPoint;
 
 /**
  * 积分业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface PointService extends IService<MtPoint> {
 

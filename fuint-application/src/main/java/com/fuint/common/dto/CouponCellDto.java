@@ -6,9 +6,6 @@ import java.util.List;
 
 /**
  * 卡券导入单元实体
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class CouponCellDto {

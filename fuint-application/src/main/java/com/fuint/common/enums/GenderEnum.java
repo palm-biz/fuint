@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 性别枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum GenderEnum {
 

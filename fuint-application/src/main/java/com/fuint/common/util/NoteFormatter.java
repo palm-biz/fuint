@@ -7,9 +7,6 @@ import java.text.DecimalFormat;
 
 /**
  * 小票格式化器
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class NoteFormatter {
     /**

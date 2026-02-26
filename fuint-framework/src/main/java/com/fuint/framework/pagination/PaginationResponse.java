@@ -8,8 +8,6 @@ import java.util.List;
  * 分页请求响应结果对象
  *
  * @param <T>
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class PaginationResponse<T> implements Serializable {
 

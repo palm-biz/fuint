@@ -10,9 +10,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * redis 缓存工具
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Slf4j
 public class RedisUtil {

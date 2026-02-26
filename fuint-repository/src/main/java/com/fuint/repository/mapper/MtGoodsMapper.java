@@ -10,9 +10,6 @@ import java.util.List;
 
 /**
  *  商品 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MtGoodsMapper extends BaseMapper<MtGoods> {
 

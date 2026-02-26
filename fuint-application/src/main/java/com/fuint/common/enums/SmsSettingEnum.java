@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 短信配置项枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum SmsSettingEnum {
     IS_CLOSE("isClose", "是否关闭短信功能"),

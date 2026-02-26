@@ -10,9 +10,6 @@ import com.fuint.repository.model.MtUserGroup;
 
 /**
  * 会员分组业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MemberGroupService extends IService<MtUserGroup> {
 

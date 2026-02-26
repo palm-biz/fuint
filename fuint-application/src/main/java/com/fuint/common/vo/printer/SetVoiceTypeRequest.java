@@ -2,9 +2,6 @@ package com.fuint.common.vo.printer;
 
 /**
  * 设置打印机语音类型请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class SetVoiceTypeRequest extends RestRequest {
 

@@ -5,9 +5,6 @@ import java.util.List;
 
 /**
  * 批量添加或删除打印机结果
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class PrinterResult{
 

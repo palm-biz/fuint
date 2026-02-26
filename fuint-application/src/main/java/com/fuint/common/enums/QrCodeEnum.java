@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 二维码枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum QrCodeEnum {
     TABLE("table", "桌码二维码", "pages/category/index"),

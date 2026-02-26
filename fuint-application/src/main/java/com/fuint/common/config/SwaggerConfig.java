@@ -12,9 +12,6 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 /**
  * Swagger接口文档
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Configuration
 public class SwaggerConfig {

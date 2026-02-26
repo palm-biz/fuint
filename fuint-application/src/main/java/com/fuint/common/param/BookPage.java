@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 预约分页请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class BookPage extends PageParam implements Serializable {

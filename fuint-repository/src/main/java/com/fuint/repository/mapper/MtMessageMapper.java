@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  *  消息 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MtMessageMapper extends BaseMapper<MtMessage> {
 

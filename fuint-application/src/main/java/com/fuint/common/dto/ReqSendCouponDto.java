@@ -4,9 +4,6 @@ import java.io.Serializable;
 
 /**
  * 发放卡券请求DTO
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class ReqSendCouponDto implements Serializable {
 

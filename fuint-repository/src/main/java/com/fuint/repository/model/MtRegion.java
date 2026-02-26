@@ -10,9 +10,6 @@ import lombok.Data;
 
 /**
  * 省市区数据表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_region")

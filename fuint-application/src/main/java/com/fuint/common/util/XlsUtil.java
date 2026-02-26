@@ -20,9 +20,6 @@ import java.util.List;
 
 /**
  * Excel表格工具类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class XlsUtil {
 

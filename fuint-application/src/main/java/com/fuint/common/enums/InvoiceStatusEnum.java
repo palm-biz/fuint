@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 开票状态枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum InvoiceStatusEnum {
 

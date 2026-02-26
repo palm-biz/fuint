@@ -2,9 +2,6 @@ package com.fuint.common.config;
 
 /**
  * 消息定义
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class Message {
     public static final String PARAM_ERROR = "参数出错";

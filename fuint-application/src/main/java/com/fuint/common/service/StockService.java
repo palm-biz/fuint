@@ -13,9 +13,6 @@ import java.util.Map;
 
 /**
  * 库存业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface StockService extends IService<MtStock> {
 

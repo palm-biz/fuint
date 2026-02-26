@@ -19,9 +19,6 @@ import java.util.Map;
 
 /**
  * 订单业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface OrderService extends IService<MtOrder> {
 

@@ -12,9 +12,6 @@ import lombok.Data;
 
 /**
  * 发票实体
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_invoice")

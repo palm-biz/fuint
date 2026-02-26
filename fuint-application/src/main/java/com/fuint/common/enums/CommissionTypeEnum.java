@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 分佣提成类型
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum CommissionTypeEnum {
     GOODS("goods", "商品订单"),

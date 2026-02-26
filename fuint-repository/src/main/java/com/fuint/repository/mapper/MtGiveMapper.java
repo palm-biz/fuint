@@ -9,9 +9,6 @@ import java.util.List;
 
 /**
  * 转赠记录表 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MtGiveMapper extends BaseMapper<MtGive> {
 

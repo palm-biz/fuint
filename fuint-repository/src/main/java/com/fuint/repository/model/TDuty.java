@@ -10,9 +10,6 @@ import lombok.Data;
 
 /**
  * 角色表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("t_duty")

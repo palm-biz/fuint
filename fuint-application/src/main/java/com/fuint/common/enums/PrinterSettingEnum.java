@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 云打印设置
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum PrinterSettingEnum {
 

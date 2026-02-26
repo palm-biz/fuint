@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 请求参数实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class ParamDto implements Serializable {

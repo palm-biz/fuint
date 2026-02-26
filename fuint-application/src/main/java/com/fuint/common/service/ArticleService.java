@@ -11,9 +11,6 @@ import java.util.Map;
 
 /**
  * 文章业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface ArticleService extends IService<MtArticle> {
 

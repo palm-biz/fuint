@@ -12,9 +12,6 @@ import java.util.Map;
 
 /**
  * 短信模板业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface SmsTemplateService extends IService<MtSmsTemplate> {
 

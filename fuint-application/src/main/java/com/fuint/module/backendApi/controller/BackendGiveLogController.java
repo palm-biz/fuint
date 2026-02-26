@@ -38,9 +38,6 @@ import static com.fuint.common.util.XlsUtil.objectConvertToString;
 
 /**
  * 转赠管理类controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-转赠相关接口")
 @RestController

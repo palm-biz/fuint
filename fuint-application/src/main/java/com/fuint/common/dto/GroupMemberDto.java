@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 分组会员DTO
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class GroupMemberDto implements Serializable {

@@ -10,9 +10,6 @@ import com.fuint.repository.model.MtCommissionRule;
 
 /**
  * 分销提成规则业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface CommissionRuleService extends IService<MtCommissionRule> {
 

@@ -11,9 +11,6 @@ import java.util.List;
 
 /**
  * 会员等级业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface UserGradeService extends IService<MtUserGrade> {
 

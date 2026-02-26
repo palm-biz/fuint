@@ -6,8 +6,6 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class PropertiesUtil {
 

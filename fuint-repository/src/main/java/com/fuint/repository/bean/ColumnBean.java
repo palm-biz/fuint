@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 表结构字段实体
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class ColumnBean implements Serializable {

@@ -34,9 +34,6 @@ import java.util.Map;
 
 /**
  * 后台操作日志
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Component
 @Aspect

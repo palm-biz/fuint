@@ -25,9 +25,6 @@ import java.util.stream.Collectors;
 
 /**
  * 配置业务接口实现类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Service
 @AllArgsConstructor(onConstructor_= {@Lazy})

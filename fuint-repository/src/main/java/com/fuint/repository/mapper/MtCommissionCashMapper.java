@@ -6,9 +6,6 @@ import org.apache.ibatis.annotations.Param;
 
 /**
  *  提现记录 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MtCommissionCashMapper extends BaseMapper<MtCommissionCash> {
 

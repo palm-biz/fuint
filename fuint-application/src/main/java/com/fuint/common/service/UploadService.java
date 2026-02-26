@@ -5,9 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 文件上传服务类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface UploadService {
 

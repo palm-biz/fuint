@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 分佣状态
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum CommissionStatusEnum {
     NORMAL("A", "待结算"),

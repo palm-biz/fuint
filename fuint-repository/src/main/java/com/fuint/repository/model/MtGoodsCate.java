@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 商品分类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_goods_cate")

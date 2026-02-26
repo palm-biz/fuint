@@ -35,9 +35,6 @@ import static com.fuint.common.util.XlsUtil.objectConvertToString;
 
 /**
  * 订单管理controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-订单相关接口")
 @RestController

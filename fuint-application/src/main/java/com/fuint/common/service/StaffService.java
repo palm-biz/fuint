@@ -11,9 +11,6 @@ import java.util.Map;
 
 /**
  * 店铺员工业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface StaffService extends IService<MtStaff> {
 

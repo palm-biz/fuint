@@ -9,9 +9,6 @@ import lombok.Data;
 
 /**
  * 结算实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class SettlementDto implements Serializable {

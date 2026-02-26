@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 充值配置项枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum BalanceSettingEnum {
     RECHARGE_RULE("rechargeRule", "充值规则"),

@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 支付状态
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum PayStatusEnum {
     WAIT("A", "待支付"),

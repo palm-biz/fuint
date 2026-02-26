@@ -7,9 +7,6 @@ import lombok.Data;
 
 /**
  * 微信V3支付Bean
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Component
 @PropertySource("file:${env.properties.path}/${env.profile}/application.properties")

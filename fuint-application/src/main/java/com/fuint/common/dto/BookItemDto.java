@@ -9,9 +9,6 @@ import lombok.Data;
 
 /**
  * 预约订单Dto
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class BookItemDto implements Serializable {

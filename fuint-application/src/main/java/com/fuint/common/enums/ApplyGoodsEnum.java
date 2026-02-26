@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 卡券适用商品
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum ApplyGoodsEnum {
     ALL_GOODS("allGoods", "全场通用"),

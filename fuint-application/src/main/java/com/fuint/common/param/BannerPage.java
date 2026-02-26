@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 焦点图分页请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class BannerPage extends PageParam implements Serializable {

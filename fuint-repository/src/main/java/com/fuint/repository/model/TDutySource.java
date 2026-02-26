@@ -9,9 +9,6 @@ import lombok.Data;
 
 /**
  * 角色权限对象
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("t_duty_source")

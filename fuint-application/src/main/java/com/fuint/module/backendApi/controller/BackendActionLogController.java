@@ -23,9 +23,6 @@ import java.util.Map;
 
 /**
  * 后台日志管理控制器
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-日志相关接口")
 @RestController

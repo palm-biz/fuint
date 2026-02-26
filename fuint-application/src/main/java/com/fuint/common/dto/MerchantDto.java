@@ -7,9 +7,6 @@ import lombok.Data;
 
 /**
  * 商户实体
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class MerchantDto implements Serializable {

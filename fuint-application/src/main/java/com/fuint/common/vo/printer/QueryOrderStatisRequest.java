@@ -2,9 +2,6 @@ package com.fuint.common.vo.printer;
 
 /**
  * 查询订单统计请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class QueryOrderStatisRequest extends RestRequest {
 

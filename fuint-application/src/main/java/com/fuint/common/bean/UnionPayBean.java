@@ -7,9 +7,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * 云闪付支付Bean
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @Component

@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 订单模式
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum OrderModeEnum {
     EXPRESS("express", "配送"),

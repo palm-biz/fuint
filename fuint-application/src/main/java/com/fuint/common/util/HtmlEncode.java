@@ -2,9 +2,6 @@ package com.fuint.common.util;
 
 /**
  * HtmlEncode 工具类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class HtmlEncode {
 

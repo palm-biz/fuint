@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 库存管理记录表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_stock")

@@ -6,9 +6,6 @@ import com.fuint.repository.model.MtVerifyCode;
 
 /**
  * 图形验证码接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface VerifyCodeService extends IService<MtVerifyCode> {
 

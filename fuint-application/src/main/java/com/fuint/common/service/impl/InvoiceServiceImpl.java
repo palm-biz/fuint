@@ -33,9 +33,6 @@ import java.util.*;
 
 /**
  * 发票服务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Service
 @AllArgsConstructor(onConstructor_= {@Lazy})

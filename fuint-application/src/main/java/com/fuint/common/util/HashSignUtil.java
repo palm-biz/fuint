@@ -7,9 +7,6 @@ import java.util.Formatter;
 
 /**
  * 哈稀签名工具类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class HashSignUtil {
 

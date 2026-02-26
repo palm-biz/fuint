@@ -34,9 +34,6 @@ import java.util.Map;
 
 /**
  * 打印机管理类controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-打印机相关接口")
 @RestController

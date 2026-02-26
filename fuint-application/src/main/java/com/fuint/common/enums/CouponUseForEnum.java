@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 卡券使用专项枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum CouponUseForEnum {
     MEMBER_GRADE("memberGrade", "升级会员等级专用"),

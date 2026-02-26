@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 交易配置项枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum OrderSettingEnum {
     DELIVERY_FEE("deliveryFee", "订单配送费用"),

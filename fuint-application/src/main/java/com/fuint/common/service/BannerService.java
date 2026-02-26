@@ -12,9 +12,6 @@ import java.util.Map;
 
 /**
  * 焦点图业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface BannerService extends IService<MtBanner> {
 

@@ -20,9 +20,6 @@ import java.util.List;
 
 /**
  * 会员消息定时任务
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @EnableScheduling
 @Component("messageJob")

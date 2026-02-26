@@ -6,9 +6,6 @@ import org.apache.ibatis.annotations.Param;
 
 /**
  * 店铺商品 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MtStoreGoodsMapper extends BaseMapper<MtStoreGoods> {
 

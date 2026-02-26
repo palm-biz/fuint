@@ -42,9 +42,6 @@ import java.util.*;
 
 /**
  * 卡券业务实现类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Service
 @AllArgsConstructor(onConstructor_= {@Lazy})

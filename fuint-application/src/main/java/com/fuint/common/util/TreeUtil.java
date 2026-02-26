@@ -10,9 +10,6 @@ import com.fuint.utils.StringUtil;
 
 /**
  * 树形展示工具类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class TreeUtil {
 

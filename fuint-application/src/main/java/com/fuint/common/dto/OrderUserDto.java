@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 下单用户DTO
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class OrderUserDto implements Serializable {

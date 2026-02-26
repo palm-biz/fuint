@@ -7,9 +7,6 @@ import java.math.BigDecimal;
 
 /**
  * 发票请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class InvoiceParam implements Serializable {

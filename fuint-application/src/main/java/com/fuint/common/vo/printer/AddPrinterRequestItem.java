@@ -2,9 +2,6 @@ package com.fuint.common.vo.printer;
 
 /**
  * 添加打印机请求项
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class AddPrinterRequestItem {
 

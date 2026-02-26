@@ -8,8 +8,6 @@ import java.util.regex.Pattern;
  * 校验工具类
  *
  * 统一返回值: true-校验成功(合法) false-校验失败(非法)
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class ValidationUtil {
 

@@ -6,8 +6,6 @@ import java.io.Serializable;
 
 /**
  * 购物车列表请求参数
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class CartListParam extends PageParam implements Serializable {

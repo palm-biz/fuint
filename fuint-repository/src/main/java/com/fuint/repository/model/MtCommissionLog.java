@@ -12,9 +12,6 @@ import lombok.Data;
 
 /**
  * 佣金记录表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_commission_log")

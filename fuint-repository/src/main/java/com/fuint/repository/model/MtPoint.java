@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 会员积分记录表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_point")

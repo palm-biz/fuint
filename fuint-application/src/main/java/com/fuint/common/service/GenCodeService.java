@@ -7,9 +7,6 @@ import com.fuint.repository.model.TGenCode;
 
 /**
  * 代码生成服务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface GenCodeService {
 

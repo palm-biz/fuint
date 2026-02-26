@@ -21,9 +21,6 @@ import java.util.*;
 
 /**
  * 基于 apache httpClient4.5的HTTP工具类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class HttpClientUtil {
 

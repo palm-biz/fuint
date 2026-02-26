@@ -8,9 +8,6 @@ import lombok.Data;
 
 /**
  * 会员排行对象
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @ApiModel(value = "会员排行对象", description = "会员排行对象")

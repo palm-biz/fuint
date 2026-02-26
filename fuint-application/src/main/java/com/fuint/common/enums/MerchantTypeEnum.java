@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 商户类型枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum MerchantTypeEnum {
     RESTAURANT("restaurant", "餐饮：餐厅、奶茶、酒店等"),

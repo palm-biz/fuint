@@ -6,9 +6,6 @@ import java.util.Date;
 
 /**
  * 后台登录返回信息
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class LoginResponse implements Serializable {

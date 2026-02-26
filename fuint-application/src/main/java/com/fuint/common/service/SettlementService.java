@@ -9,9 +9,6 @@ import com.fuint.repository.model.MtSettlement;
 
 /**
  * 订单结算相关业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface SettlementService {
 

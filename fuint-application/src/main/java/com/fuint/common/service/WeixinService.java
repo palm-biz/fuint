@@ -13,9 +13,6 @@ import java.util.Date;
 
 /**
  * 微信相关业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface WeixinService {
 

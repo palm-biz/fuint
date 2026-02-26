@@ -8,9 +8,6 @@ import java.util.Date;
 
 /**
  * 售后表 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MtRefundMapper extends BaseMapper<MtRefund> {
 

@@ -10,9 +10,6 @@ import com.fuint.repository.model.MtCommissionLog;
 
 /**
  * 分销提成记录业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface CommissionLogService extends IService<MtCommissionLog> {
 

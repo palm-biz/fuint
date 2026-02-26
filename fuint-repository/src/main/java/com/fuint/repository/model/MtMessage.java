@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 系统消息
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_message")

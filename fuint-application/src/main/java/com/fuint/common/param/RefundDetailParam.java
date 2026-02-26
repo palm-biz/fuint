@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 售后订单详情请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class RefundDetailParam implements Serializable {

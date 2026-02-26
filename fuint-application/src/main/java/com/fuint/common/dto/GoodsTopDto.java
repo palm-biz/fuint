@@ -8,9 +8,6 @@ import java.math.BigDecimal;
 
 /**
  * 商品排行DTO
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class GoodsTopDto implements Serializable {

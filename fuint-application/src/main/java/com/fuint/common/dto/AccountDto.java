@@ -7,9 +7,6 @@ import java.util.Date;
 
 /**
  * 后台账户实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class AccountDto {

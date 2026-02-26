@@ -2,9 +2,6 @@ package com.fuint.common.vo.printer;
 
 /**
  * 请求公共参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class RestRequest {
 

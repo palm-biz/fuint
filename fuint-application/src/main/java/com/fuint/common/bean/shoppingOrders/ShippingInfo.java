@@ -10,9 +10,6 @@ import java.util.List;
 
 /**
  * 上传发货信息
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @Builder

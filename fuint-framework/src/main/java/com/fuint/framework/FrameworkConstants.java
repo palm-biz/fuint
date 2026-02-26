@@ -1,8 +1,6 @@
 package com.fuint.framework;
 
 /**
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class FrameworkConstants {
 

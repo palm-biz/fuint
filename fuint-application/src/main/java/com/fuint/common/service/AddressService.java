@@ -8,9 +8,6 @@ import java.util.Map;
 
 /**
  * 收货地址业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface AddressService extends IService<MtAddress> {
 

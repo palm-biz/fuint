@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 后台角色枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum AdminRoleEnum {
     ADMIN("1", "超级管理员","admin"),

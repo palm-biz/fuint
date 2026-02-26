@@ -9,9 +9,6 @@ import lombok.Data;
 
 /**
  * 商品排行对象
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @ApiModel(value = "商品排行对象", description = "商品排行对象")

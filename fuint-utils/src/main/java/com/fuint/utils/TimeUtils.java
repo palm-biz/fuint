@@ -6,9 +6,6 @@ import java.util.Date;
 
 /**
  * 时间相关的工具类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class TimeUtils {
     /**

@@ -10,9 +10,6 @@ import java.io.IOException;
 
 /**
  * 跨域支持
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Component
 public class CORSFilter extends OncePerRequestFilter {

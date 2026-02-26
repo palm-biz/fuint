@@ -2,9 +2,6 @@ package com.fuint.common.vo.printer;
 
 /**
  * 云喇叭播放语音请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class VoiceRequest extends RestRequest {
 

@@ -8,9 +8,6 @@ import com.fuint.repository.model.MtSendLog;
 
 /**
  * 发券记录业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface SendLogService extends IService<MtSendLog> {
 

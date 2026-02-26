@@ -11,9 +11,6 @@ import java.util.Map;
 
 /**
  * 快递100查询工具
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class KD100Util {
 

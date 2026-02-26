@@ -26,9 +26,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 商户卡券接口controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="商户端-卡券相关接口")
 @RestController

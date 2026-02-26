@@ -7,8 +7,6 @@ import java.util.List;
 
 /**
  * 删除购物车请求参数
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class CartClearParam extends PageParam implements Serializable {

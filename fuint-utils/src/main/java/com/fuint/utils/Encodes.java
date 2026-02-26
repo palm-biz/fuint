@@ -11,9 +11,6 @@ import org.apache.commons.lang.StringEscapeUtils;
 
 /**
  * 编码转换工具类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class Encodes {
 

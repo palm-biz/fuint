@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 全局设置表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_setting")

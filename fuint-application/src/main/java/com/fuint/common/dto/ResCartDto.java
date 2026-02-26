@@ -9,9 +9,6 @@ import java.util.List;
 
 /**
  * 购物车返回DTO
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class ResCartDto implements Serializable {

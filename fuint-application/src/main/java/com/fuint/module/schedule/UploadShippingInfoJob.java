@@ -22,9 +22,6 @@ import java.util.Map;
 
 /**
  * 微信小程序上传发货处理定时任务
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @EnableScheduling
 @Component("UploadShippingInfoJob")

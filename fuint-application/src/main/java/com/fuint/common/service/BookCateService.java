@@ -10,9 +10,6 @@ import java.util.List;
 
 /**
  * 预约类别业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface BookCateService extends IService<MtBookCate> {
 

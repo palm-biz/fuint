@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 会员来源渠道
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum MemberSourceEnum {
     BACKEND_ADD("backend_add", "后台添加"),

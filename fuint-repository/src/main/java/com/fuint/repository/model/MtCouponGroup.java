@@ -12,9 +12,6 @@ import lombok.Data;
 
 /**
  * 优惠券组
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_coupon_group")

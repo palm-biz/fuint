@@ -13,9 +13,6 @@ import java.util.List;
 
 /**
  * 预约业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface BookService extends IService<MtBook> {
 

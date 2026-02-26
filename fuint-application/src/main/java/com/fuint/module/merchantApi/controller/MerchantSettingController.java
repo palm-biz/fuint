@@ -23,9 +23,6 @@ import java.util.Map;
 
 /**
  * 商户相关controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="商户端-商户设置相关接口")
 @RestController

@@ -6,8 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

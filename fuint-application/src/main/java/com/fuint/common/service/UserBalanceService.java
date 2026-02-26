@@ -8,9 +8,6 @@ import com.fuint.repository.model.MtUserBalance;
 
 /**
  * 会员余额业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface UserBalanceService extends IService<MtUserBalance> {
 

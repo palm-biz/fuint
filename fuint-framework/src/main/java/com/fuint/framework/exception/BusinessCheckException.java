@@ -2,9 +2,6 @@ package com.fuint.framework.exception;
 
 /**
  * 业务检查异常
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class BusinessCheckException extends Exception {
     private static final long serialVersionUID = 1L;

@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 卡券发放记录表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_send_log")

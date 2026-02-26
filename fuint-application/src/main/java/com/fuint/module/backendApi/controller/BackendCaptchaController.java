@@ -22,9 +22,6 @@ import java.io.IOException;
 
 /**
  * 图形验证码接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-图形验证码相关接口")
 @Controller

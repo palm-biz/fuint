@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 卡券类型枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum CouponTypeEnum {
     COUPON("C", "优惠券"),

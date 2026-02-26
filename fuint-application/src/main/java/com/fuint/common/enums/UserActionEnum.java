@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 会员行为枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum UserActionEnum {
     REGISTER("register", "注册会员"),

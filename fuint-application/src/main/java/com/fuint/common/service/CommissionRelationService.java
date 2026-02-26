@@ -10,9 +10,6 @@ import com.fuint.repository.model.MtUser;
 
 /**
  * 分销提成关系业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface CommissionRelationService extends IService<MtCommissionRelation> {
 

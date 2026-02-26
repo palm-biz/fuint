@@ -37,9 +37,6 @@ import java.util.Map;
 
 /**
  * 支付类controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="会员端-支付相关接口")
 @RestController

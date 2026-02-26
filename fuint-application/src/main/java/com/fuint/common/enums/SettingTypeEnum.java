@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 配置类型枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum SettingTypeEnum {
     POINT("point", "积分配置"),

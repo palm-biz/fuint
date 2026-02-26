@@ -7,9 +7,6 @@ import java.io.Serializable;
 
 /**
  * 充值规则实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class RechargeRuleDto implements Serializable {

@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 打印机分页请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class PrinterPage extends PageParam implements Serializable {

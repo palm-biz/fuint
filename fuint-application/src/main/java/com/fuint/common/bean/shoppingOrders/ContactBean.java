@@ -9,9 +9,6 @@ import java.io.Serializable;
 
 /**
  * 联系人Bean
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @Builder

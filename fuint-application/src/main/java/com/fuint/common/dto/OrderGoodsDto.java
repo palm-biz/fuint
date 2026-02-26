@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * 订单商品实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class OrderGoodsDto implements Serializable {

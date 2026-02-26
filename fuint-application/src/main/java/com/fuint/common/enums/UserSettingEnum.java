@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 会员配置项枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum UserSettingEnum {
     GET_COUPON_NEED_PHONE("getCouponNeedPhone", "领券是否需要手机号码"),

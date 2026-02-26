@@ -15,9 +15,6 @@ import java.awt.image.BufferedImage;
 
 /**
  * 图形验证码插件服务类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Service
 @AllArgsConstructor(onConstructor_= {@Lazy})

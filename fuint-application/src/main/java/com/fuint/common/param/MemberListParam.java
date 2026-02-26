@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 会员列表请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class MemberListParam extends PageParam implements Serializable {

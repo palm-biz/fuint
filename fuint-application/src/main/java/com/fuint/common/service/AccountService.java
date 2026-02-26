@@ -15,9 +15,6 @@ import java.util.List;
 
 /**
  * 后台账号接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface AccountService extends IService<TAccount> {
 

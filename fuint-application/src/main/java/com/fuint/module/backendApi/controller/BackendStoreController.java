@@ -31,9 +31,6 @@ import java.util.Map;
 
 /**
  * 店铺管理类controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-店铺相关接口")
 @RestController

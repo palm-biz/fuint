@@ -7,9 +7,6 @@ import java.util.List;
 
 /**
  *  后台账号角色 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface TAccountDutyMapper extends BaseMapper<TAccountDuty> {
 

@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 帐号分页请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class AccountPage extends PageParam implements Serializable {

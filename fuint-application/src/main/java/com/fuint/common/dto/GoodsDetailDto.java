@@ -10,9 +10,6 @@ import java.util.List;
 
 /**
  * 商品详情实体
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class GoodsDetailDto implements Serializable {

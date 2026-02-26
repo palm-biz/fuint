@@ -4,9 +4,6 @@ import com.fuint.common.vo.printer.RestRequest;
 
 /**
  * 云打印公共配置类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class PrinterConfig {
 

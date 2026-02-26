@@ -14,9 +14,6 @@ import java.util.List;
 
 /**
  * 商品DTO
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class GoodsDto implements Serializable {

@@ -8,9 +8,6 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * MD5工具类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class MD5Util {
     private static final Logger logger = LoggerFactory.getLogger(MD5Util.class);

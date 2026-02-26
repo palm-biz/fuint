@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 订单结算状态
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum SettleStatusEnum {
     WAIT("A", "待确认"),

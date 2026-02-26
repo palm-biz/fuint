@@ -19,9 +19,6 @@ import java.util.Map;
 
 /**
  * Http协议上传图片工具类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class HttpPostUploadUtil {
 

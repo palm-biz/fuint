@@ -5,9 +5,6 @@ import lombok.Data;
 
 /**
  * 微信会员卡实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class WxCardDto {

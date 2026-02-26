@@ -5,9 +5,6 @@ import com.fuint.common.dto.AccountInfo;
 
 /**
  * 用户认证工具
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class AuthUserUtil {
 

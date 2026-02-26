@@ -5,9 +5,6 @@ import java.util.Map;
 
 /**
  * 分页实体对象
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class PaginationRequest implements Serializable {
 

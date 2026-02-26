@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 分销提成邀请记录分页请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class CommissionRelationPage extends PageParam implements Serializable {

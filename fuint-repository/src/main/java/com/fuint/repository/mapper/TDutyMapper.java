@@ -7,9 +7,6 @@ import java.util.List;
 
 /**
  * 角色表 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface TDutyMapper extends BaseMapper<TDuty> {
 

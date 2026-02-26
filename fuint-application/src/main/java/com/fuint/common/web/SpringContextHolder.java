@@ -6,8 +6,6 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Service
 public class SpringContextHolder implements ApplicationContextAware {

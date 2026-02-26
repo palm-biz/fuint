@@ -28,9 +28,6 @@ import java.util.Map;
 
 /**
  * 会员卡券核销流水
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-券核销流水相关接口")
 @RestController

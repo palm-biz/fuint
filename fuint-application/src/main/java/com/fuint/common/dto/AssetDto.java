@@ -5,9 +5,6 @@ import lombok.Data;
 
 /**
  * 个人资产实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class AssetDto {

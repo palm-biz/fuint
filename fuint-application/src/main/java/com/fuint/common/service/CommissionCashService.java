@@ -12,9 +12,6 @@ import com.fuint.repository.model.MtCommissionCash;
 
 /**
  * 分销提成记录业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface CommissionCashService extends IService<MtCommissionCash> {
 

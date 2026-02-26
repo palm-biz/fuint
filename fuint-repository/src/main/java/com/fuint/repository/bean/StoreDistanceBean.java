@@ -7,9 +7,6 @@ import lombok.Data;
 
 /**
  * 店铺距离对象
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @ApiModel(value = "店铺距离对象", description = "店铺距离对象")

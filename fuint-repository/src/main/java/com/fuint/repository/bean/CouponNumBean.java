@@ -7,9 +7,6 @@ import lombok.Data;
 
 /**
  * 卡券数量对象
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @ApiModel(value = "卡券数量对象", description = "卡券数量对象")

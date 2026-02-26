@@ -29,9 +29,6 @@ import java.util.Map;
 
 /**
  * 卡券接口controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="会员端-卡券相关接口")
 @RestController

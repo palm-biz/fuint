@@ -10,9 +10,6 @@ import lombok.Data;
 
 /**
  * 平台实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("t_platform")

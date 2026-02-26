@@ -9,9 +9,6 @@ import java.util.List;
 
 /**
  * 售后实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class RefundDto implements Serializable {

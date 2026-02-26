@@ -4,9 +4,6 @@ import com.alibaba.fastjson.JSON;
 
 /**
  * H5支付Bean
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class H5SceneInfo {
     private H5 h5_info;

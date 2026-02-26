@@ -21,9 +21,6 @@ import java.util.*;
 
 /**
  * 导航管理controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags = "管理端-积分相关接口")
 @RestController

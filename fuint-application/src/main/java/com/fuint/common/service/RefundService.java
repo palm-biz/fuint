@@ -13,9 +13,6 @@ import java.util.Map;
 
 /**
  * 售后业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface RefundService extends IService<MtRefund> {
 

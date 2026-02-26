@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 订单类型
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum OrderTypeEnum {
 

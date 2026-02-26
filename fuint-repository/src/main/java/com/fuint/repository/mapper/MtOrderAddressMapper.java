@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * 订单收货地址记录表 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MtOrderAddressMapper extends BaseMapper<MtOrderAddress> {
 

@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 微信小程序上传发货信息实体
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_upload_shipping_log")

@@ -14,9 +14,6 @@ import java.util.Map;
 
 /**
  * 发票业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface InvoiceService extends IService<MtInvoice> {
 

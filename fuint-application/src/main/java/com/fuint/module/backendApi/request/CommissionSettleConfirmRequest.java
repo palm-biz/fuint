@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 分佣提成提现确认参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class CommissionSettleConfirmRequest implements Serializable {

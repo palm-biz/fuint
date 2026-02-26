@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 后台登录拦截
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class AdminUserInterceptor implements AsyncHandlerInterceptor {
 

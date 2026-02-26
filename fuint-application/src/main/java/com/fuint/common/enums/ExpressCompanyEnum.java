@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 物流公司枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum ExpressCompanyEnum {
 

@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 平台类型枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum PlatformTypeEnum {
 

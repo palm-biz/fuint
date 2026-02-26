@@ -7,9 +7,6 @@ import java.util.Date;
 
 /**
  * 打印机请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class PrinterParam implements Serializable {

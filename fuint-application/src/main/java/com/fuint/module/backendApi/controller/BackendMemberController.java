@@ -35,9 +35,6 @@ import java.util.*;
 
 /**
  * 会员管理类controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-会员相关接口")
 @RestController

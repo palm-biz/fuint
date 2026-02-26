@@ -31,9 +31,6 @@ import java.util.*;
 
 /**
  * 支付宝相关接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Service
 @AllArgsConstructor(onConstructor_= {@Lazy})

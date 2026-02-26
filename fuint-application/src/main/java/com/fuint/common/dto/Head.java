@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 消息体头信息
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class Head implements Serializable {

@@ -20,9 +20,6 @@ import java.util.*;
 
 /**
  * 分销提成计算定时任务
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @EnableScheduling
 @Component("CommissionJob")

@@ -11,9 +11,6 @@ import java.util.List;
 
 /**
  * 会员个人信息 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MtUserMapper extends BaseMapper<MtUser> {
 

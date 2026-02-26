@@ -31,9 +31,6 @@ import java.util.*;
 
 /**
  * 商品库存管理管理controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-商品库存管理相关接口")
 @RestController

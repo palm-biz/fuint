@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 时间Dto
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class TimeDto implements Serializable {

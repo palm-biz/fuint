@@ -13,9 +13,6 @@ import java.util.Optional;
 
 /**
  * DateUtil 工具类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class DateUtil {
     public static final String PATTERN_ISO_DATE = "yyyy-MM-dd";

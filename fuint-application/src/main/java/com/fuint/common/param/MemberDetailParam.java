@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 会员详情请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class MemberDetailParam implements Serializable {

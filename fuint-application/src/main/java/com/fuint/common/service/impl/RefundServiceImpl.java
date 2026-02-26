@@ -33,9 +33,6 @@ import java.util.*;
 
 /**
  * 售后接口实现类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Service
 @AllArgsConstructor(onConstructor_= {@Lazy})

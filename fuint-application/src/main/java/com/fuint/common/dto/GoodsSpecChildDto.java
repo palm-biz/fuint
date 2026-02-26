@@ -7,9 +7,6 @@ import java.io.Serializable;
 
 /**
  * 商品规格子类实体
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class GoodsSpecChildDto implements Serializable {

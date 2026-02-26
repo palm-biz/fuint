@@ -39,9 +39,6 @@ import java.util.*;
 
 /**
  * 商品管理controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-商品相关接口")
 @RestController

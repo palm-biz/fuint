@@ -2,9 +2,6 @@ package com.fuint.common.vo.printer;
 
 /**
  * 删除打印机请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class DelPrinterRequest extends RestRequest {
 

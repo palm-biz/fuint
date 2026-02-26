@@ -15,9 +15,6 @@ import java.io.UnsupportedEncodingException;
 
 /**
  * Excel工具
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class ExcelUtil {
 

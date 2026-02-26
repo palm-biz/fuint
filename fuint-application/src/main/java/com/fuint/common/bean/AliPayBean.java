@@ -7,9 +7,6 @@ import lombok.Data;
 
 /**
  * 支付宝支付Bean
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @Component

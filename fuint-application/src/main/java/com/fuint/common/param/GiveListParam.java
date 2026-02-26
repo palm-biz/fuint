@@ -6,8 +6,6 @@ import java.io.Serializable;
 
 /**
  * 转增记录列表请求参数
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class GiveListParam extends PageParam implements Serializable {

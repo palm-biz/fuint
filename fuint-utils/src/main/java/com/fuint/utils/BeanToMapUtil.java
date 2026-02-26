@@ -10,8 +10,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class BeanToMapUtil {
     /**

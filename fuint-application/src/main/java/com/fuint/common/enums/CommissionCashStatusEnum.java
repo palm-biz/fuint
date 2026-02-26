@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 分佣结算状态
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum CommissionCashStatusEnum {
     WAIT("A", "待确认"),

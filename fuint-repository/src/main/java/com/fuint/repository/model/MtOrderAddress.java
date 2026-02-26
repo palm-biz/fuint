@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 订单收货地址记录表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_order_address")

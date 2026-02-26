@@ -31,9 +31,6 @@ import java.util.Map;
 
 /**
  * 文件上传管理控制类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="会员端-文件上传相关接口")
 @RestController

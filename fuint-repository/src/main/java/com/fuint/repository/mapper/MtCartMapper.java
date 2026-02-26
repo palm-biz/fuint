@@ -6,9 +6,6 @@ import org.apache.ibatis.annotations.Param;
 
 /**
  * 购物车 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MtCartMapper extends BaseMapper<MtCart> {
 

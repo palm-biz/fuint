@@ -14,9 +14,6 @@ import java.util.Date;
 
 /**
  * 阿里云OSS存储工具
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class AliyunOssUtil {
 

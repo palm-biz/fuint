@@ -33,9 +33,6 @@ import java.util.*;
 
 /**
  * 焦点图服务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Service
 @AllArgsConstructor(onConstructor_= {@Lazy})

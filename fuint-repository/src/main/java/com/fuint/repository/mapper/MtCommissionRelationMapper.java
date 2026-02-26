@@ -6,9 +6,6 @@ import org.apache.ibatis.annotations.Param;
 
 /**
  * 会员分销关系 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MtCommissionRelationMapper extends BaseMapper<MtCommissionRelation> {
 

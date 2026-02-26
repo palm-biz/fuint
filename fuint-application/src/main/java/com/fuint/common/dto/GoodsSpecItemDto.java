@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * 商品规格项实体
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class GoodsSpecItemDto implements Serializable {

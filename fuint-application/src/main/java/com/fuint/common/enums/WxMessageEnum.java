@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 微信订阅消息枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum WxMessageEnum {
     ORDER_CREATED("orderCreated", "订单生成提醒"),

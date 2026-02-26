@@ -30,9 +30,6 @@ import java.util.Map;
 
 /**
  * 数据统计控制器
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-数据统计相关接口")
 @RestController

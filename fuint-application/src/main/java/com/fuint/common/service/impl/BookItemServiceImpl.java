@@ -36,9 +36,6 @@ import java.util.*;
 
 /**
  * 预约订单服务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Service
 @AllArgsConstructor(onConstructor_= {@Lazy})

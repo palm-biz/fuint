@@ -7,9 +7,6 @@ import java.util.Map;
 
 /**
  * 请求返回结果
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class ReqResult implements Serializable {

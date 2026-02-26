@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 是或否枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum YesOrNoEnum {
     YES("Y", "是"),

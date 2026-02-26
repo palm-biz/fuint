@@ -7,9 +7,6 @@ import java.math.BigDecimal;
 
 /**
  * 提交商户请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class MerchantSubmitRequest implements Serializable {

@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 积分配置项枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum PointSettingEnum {
     POINT_NEED_CONSUME("pointNeedConsume", "返1积分所需消费金额"),

@@ -8,9 +8,6 @@ import java.util.Date;
 
 /**
  * 会员行为 Mapper 接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface MtUserActionMapper extends BaseMapper<MtUserAction> {
 

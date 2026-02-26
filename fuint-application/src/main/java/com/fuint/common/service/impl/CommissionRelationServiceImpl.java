@@ -31,9 +31,6 @@ import java.util.*;
 
 /**
  * 分销提成关系服务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Service
 @AllArgsConstructor(onConstructor_= {@Lazy})

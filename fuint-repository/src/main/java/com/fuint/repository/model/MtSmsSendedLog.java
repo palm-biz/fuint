@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 短信发送记录表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_sms_sended_log")

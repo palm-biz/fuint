@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 会员分销关系表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_commission_relation")

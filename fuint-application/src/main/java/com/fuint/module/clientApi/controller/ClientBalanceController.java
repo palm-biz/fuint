@@ -34,9 +34,6 @@ import java.util.Map;
 
 /**
  * 余额接口controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="会员端-余额相关接口")
 @RestController

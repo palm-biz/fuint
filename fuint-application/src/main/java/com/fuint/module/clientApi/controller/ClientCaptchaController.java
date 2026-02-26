@@ -21,9 +21,6 @@ import java.util.Map;
 
 /**
  * 图形验证码控制类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="会员端-图形验证码相关接口")
 @RestController

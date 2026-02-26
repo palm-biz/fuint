@@ -10,9 +10,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * MybatisPlus配置
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Configuration
 @MapperScan({"com.fuint.repository.**.mapper"})

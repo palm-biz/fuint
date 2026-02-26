@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 导航栏实体
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class NavigationDto implements Serializable {

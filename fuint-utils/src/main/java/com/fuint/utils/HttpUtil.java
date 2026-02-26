@@ -11,9 +11,6 @@ import java.util.Map;
 
 /**
  * http请求工具
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class HttpUtil {
 

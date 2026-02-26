@@ -2,9 +2,6 @@ package com.fuint.common.vo.printer;
 
 /**
  * 订单状态
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum OrderStatusType {
 

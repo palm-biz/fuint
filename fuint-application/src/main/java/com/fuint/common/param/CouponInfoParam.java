@@ -6,8 +6,6 @@ import java.io.Serializable;
 
 /**
  * 卡券详情请求参数
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class CouponInfoParam implements Serializable {

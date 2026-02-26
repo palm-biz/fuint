@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 预存规则实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class PreStoreRuleDto implements Serializable {

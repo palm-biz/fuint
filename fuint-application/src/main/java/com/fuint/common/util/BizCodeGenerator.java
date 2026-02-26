@@ -9,9 +9,6 @@ import java.util.Random;
 
 /**
  * 业务Code生成器
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class BizCodeGenerator {
 

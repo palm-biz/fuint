@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 卡券发放方式
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum SendWayEnum {
     BACKEND("backend", "后台发放"),

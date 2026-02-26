@@ -12,9 +12,6 @@ import lombok.Data;
 
 /**
  * 售后表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_refund")

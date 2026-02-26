@@ -8,9 +8,6 @@ import lombok.Data;
 
 /**
  * 商品对象
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @ApiModel(value = "商品对象", description = "商品对象")

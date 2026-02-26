@@ -34,9 +34,6 @@ import java.util.*;
 
 /**
  * 云闪付相关接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Service
 @AllArgsConstructor(onConstructor_= {@Lazy})

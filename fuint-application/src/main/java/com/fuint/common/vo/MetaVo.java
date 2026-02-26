@@ -2,9 +2,6 @@ package com.fuint.common.vo;
 
 /**
  * 路由显示信息
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class MetaVo {
     /**

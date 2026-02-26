@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 用户卡券状态
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum UserCouponStatusEnum {
     UNUSED("A", "未使用"),

@@ -8,9 +8,6 @@ import java.math.BigDecimal;
 
 /**
  * 卡券请求DTO
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class ReqCouponDto implements Serializable {

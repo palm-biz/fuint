@@ -9,9 +9,6 @@ import java.util.regex.Pattern;
 
 /**
  * 身份证工具类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class IDCard {
 

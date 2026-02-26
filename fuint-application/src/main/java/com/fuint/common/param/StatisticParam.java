@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 统计请求参数
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class StatisticParam implements Serializable {

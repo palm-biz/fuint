@@ -33,9 +33,6 @@ import java.util.Map;
 
 /**
  * 后台登录接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-后台登录相关接口")
 @RestController

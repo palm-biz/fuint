@@ -12,9 +12,6 @@ import lombok.Data;
 
 /**
  * 转赠记录表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("mt_give")

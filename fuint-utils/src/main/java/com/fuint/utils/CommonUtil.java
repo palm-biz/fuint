@@ -6,9 +6,6 @@ import java.util.*;
 
 /**
  * 工具类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class CommonUtil {
 

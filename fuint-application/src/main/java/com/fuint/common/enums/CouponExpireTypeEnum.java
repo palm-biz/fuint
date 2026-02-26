@@ -2,9 +2,6 @@ package com.fuint.common.enums;
 
 /**
  * 卡券过期类型枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum CouponExpireTypeEnum {
     FIX("fix", "固定期限"),

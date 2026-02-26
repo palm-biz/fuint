@@ -30,9 +30,6 @@ import java.util.*;
 
 /**
  * 商品类controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="会员端-商品相关接口")
 @RestController

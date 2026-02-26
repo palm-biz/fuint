@@ -7,9 +7,6 @@ import lombok.Data;
 
 /**
  * 微信小程序上传发货信息对象
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @ApiModel(value = "微信小程序上传发货信息对象", description = "微信小程序上传发货信息对象")

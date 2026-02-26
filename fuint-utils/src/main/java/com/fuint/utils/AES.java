@@ -13,9 +13,6 @@ import java.util.Arrays;
 
 /**
  * 加密算法
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class AES {
     // 算法名称

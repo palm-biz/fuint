@@ -8,9 +8,6 @@ import java.util.Date;
 
 /**
  * 订单实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class OrderDto implements Serializable {

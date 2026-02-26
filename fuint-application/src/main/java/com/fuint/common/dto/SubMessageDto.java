@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * 小程序订阅消息dto
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class SubMessageDto implements Serializable {

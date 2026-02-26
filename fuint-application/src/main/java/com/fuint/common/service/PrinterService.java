@@ -11,9 +11,6 @@ import java.util.Map;
 
 /**
  * 打印机业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface PrinterService extends IService<MtPrinter> {
 

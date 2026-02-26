@@ -10,9 +10,6 @@ import java.util.Date;
 
 /**
  * 余额变动实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class BalanceDto implements Serializable {

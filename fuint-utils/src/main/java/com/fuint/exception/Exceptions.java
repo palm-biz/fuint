@@ -5,9 +5,6 @@ import java.io.StringWriter;
 
 /**
  * 关于异常的工具类.
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class Exceptions {
 

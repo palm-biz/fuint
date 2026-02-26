@@ -24,9 +24,6 @@ import java.util.Map;
 
 /**
  * 订单超时处理定时任务
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @EnableScheduling
 @Component("orderCancelJob")

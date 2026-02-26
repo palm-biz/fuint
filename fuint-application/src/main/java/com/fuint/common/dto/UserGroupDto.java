@@ -8,9 +8,6 @@ import lombok.Data;
 
 /**
  * 会员分组
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class UserGroupDto implements Serializable {

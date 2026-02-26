@@ -9,9 +9,6 @@ import java.util.Date;
 
 /**
  * 焦点图实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 public class BannerDto implements Serializable {

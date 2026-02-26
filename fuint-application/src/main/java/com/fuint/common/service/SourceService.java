@@ -9,9 +9,6 @@ import java.util.List;
 
 /**
  * 菜单管理业务接口
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public interface SourceService extends IService<TSource> {
 

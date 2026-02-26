@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 生成代码实体类
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("t_gen_code")

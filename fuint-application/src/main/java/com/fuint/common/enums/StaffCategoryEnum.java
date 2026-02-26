@@ -8,9 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 员工类别枚举
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public enum StaffCategoryEnum {
     MANAGER("1", "店长","admin"),

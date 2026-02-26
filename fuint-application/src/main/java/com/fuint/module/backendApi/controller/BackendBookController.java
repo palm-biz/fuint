@@ -35,9 +35,6 @@ import java.util.stream.Collectors;
 
 /**
  * 预约项目管理类controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-预约相关接口")
 @RestController

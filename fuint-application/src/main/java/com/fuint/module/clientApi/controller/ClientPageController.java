@@ -22,9 +22,6 @@ import java.util.Map;
 
 /**
  * 页面接口controller
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="会员端-页面相关接口")
 @RestController

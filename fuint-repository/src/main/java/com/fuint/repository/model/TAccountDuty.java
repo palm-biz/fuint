@@ -10,9 +10,6 @@ import lombok.Data;
 
 /**
  * 后台账号角色表
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("t_account_duty")

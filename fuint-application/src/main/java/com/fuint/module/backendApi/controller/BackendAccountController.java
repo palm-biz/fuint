@@ -34,9 +34,6 @@ import java.util.Map;
 
 /**
  * 后台管理员管理
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-管理员相关接口")
 @RestController

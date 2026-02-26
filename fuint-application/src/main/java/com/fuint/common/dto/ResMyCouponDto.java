@@ -5,9 +5,6 @@ import java.util.List;
 
 /**
  * 我的卡券返回DTO
- *
- * Created by FSQ
- * CopyRight https://www.fuint.cn
  */
 public class ResMyCouponDto implements Serializable {
 
