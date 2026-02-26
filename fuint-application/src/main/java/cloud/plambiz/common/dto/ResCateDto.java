@@ -1,0 +1,30 @@
+package cloud.plambiz.common.dto;
+
+import cloud.plambiz.repository.model.MtGoods;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import java.io.Serializable;
+import java.util.List;
+
+/**
+ * 商品分类返回DTO
+ */
+@Data
+public class ResCateDto implements Serializable {
+
+    @ApiModelProperty("分类ID")
+    private Integer cateId;
+
+    @ApiModelProperty("分类名称")
+    private String name;
+
+    @ApiModelProperty("logo")
+    private String logo;
+
+    @ApiModelProperty("商品列表")
+    private List<MtGoods> goodsList;
+
+    @ApiModelProperty("排序")
+    private Integer sort;
+
+}

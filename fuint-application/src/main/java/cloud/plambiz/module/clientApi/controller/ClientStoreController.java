@@ -1,0 +1,69 @@
+package cloud.plambiz.module.clientApi.controller;
+
+import cloud.plambiz.common.dto.StoreInfo;
+import cloud.plambiz.common.service.StoreService;
+import cloud.plambiz.framework.exception.BusinessCheckException;
+import cloud.plambiz.framework.web.BaseController;
+import cloud.plambiz.framework.web.ResponseObject;
+import cloud.plambiz.repository.model.MtStore;
+import cloud.plambiz.utils.StringUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * 店铺接口controller
+ */
+@Api(tags="会员端-店铺相关接口")
+@RestController
+@AllArgsConstructor
+@RequestMapping(value = "/clientApi/store")
+public class ClientStoreController extends BaseController {
+
+    /**
+     * 店铺服务接口
+     * */
+    private StoreService storeService;
+
+    /**
+     * 获取店铺列表（根据距离排序）
+     */
+    @ApiOperation(value = "获取店铺列表（根据距离排序）")
+    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    @CrossOrigin
+    public ResponseObject list(HttpServletRequest request, @RequestBody Map<String, Object> param) throws BusinessCheckException {
+        String keyword = param.get("keyword") == null ? "" : param.get("keyword").toString();
+        String latitude = request.getHeader("latitude") == null ? "" : request.getHeader("latitude");
+        String longitude = request.getHeader("longitude") == null ? "" : request.getHeader("longitude");
+        String merchantNo = request.getHeader("merchantNo") == null ? "" : request.getHeader("merchantNo");
+
+        List<StoreInfo> storeList = storeService.queryByDistance(merchantNo, keyword, latitude, longitude);
+
+        Map<String, Object> outParams = new HashMap<>();
+        outParams.put("data", storeList);
+
+        return getSuccessResult(outParams);
+    }
+
+    /**
+     * 获取店铺详情
+     */
+    @ApiOperation(value = "获取店铺详情")
+    @RequestMapping(value = "/detail", method = RequestMethod.GET)
+    @CrossOrigin
+    public ResponseObject detail(HttpServletRequest request) throws BusinessCheckException {
+        Integer storeId = StringUtil.isEmpty(request.getHeader("storeId")) ? 0 : Integer.parseInt(request.getHeader("storeId"));
+        MtStore storeInfo = storeService.queryStoreById(storeId);
+
+        Map<String, Object> outParams = new HashMap<>();
+        outParams.put("storeInfo", storeInfo);
+
+        return getSuccessResult(outParams);
+    }
+}

@@ -1,0 +1,53 @@
+package cloud.plambiz.common.service;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import cloud.plambiz.common.dto.AccountInfo;
+import cloud.plambiz.common.dto.BalanceDto;
+import cloud.plambiz.common.param.BalancePage;
+import cloud.plambiz.framework.exception.BusinessCheckException;
+import cloud.plambiz.framework.pagination.PaginationResponse;
+import cloud.plambiz.repository.model.MtBalance;
+import java.util.List;
+
+/**
+ * 余额业务接口
+ */
+public interface BalanceService extends IService<MtBalance> {
+
+    /**
+     * 分页查询余额列表
+     *
+     * @param balancePage
+     * @return
+     */
+    PaginationResponse<BalanceDto> queryBalanceListByPagination(BalancePage balancePage);
+
+    /**
+     * 添加余额记录
+     *
+     * @param reqDto
+     * @param updateBalance
+     * @throws BusinessCheckException
+     */
+    Boolean addBalance(MtBalance reqDto, Boolean updateBalance) throws BusinessCheckException;
+
+    /**
+     * 发放余额
+     *
+     * @param accountInfo 账号信息
+     * @param object 发放对象，all全部
+     * @param userIds 会员ID
+     * @param amount 发放金额
+     * @param remark 备注
+     * @return
+     */
+    void distribute(AccountInfo accountInfo, String object, String userIds, String amount, String remark) throws BusinessCheckException;
+
+    /**
+     * 获取订单余额记录
+     *
+     * @param orderSn
+     * @return
+     * */
+    List<MtBalance> getBalanceListByOrderSn(String orderSn);
+}

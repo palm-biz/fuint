@@ -1,0 +1,167 @@
+package cloud.plambiz.module.backendApi.controller;
+
+import cloud.plambiz.common.Constants;
+import cloud.plambiz.common.dto.AccountInfo;
+import cloud.plambiz.common.enums.StatusEnum;
+import cloud.plambiz.common.service.GenCodeService;
+import cloud.plambiz.common.util.CommonUtil;
+import cloud.plambiz.common.util.TokenUtil;
+import cloud.plambiz.framework.exception.BusinessCheckException;
+import cloud.plambiz.framework.pagination.PaginationRequest;
+import cloud.plambiz.framework.pagination.PaginationResponse;
+import cloud.plambiz.framework.web.BaseController;
+import cloud.plambiz.framework.web.ResponseObject;
+import cloud.plambiz.repository.model.TGenCode;
+import cloud.plambiz.utils.StringUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 代码生成管理类controller
+ */
+@Api(tags="管理端-代码生成相关接口")
+@RestController
+@AllArgsConstructor
+@RequestMapping(value = "/backendApi/genCode")
+public class BackendGenCodeController extends BaseController {
+
+    /**
+     * 生成代码服务接口
+     */
+    private GenCodeService genCodeService;
+
+    /**
+     * 代码生成列表
+     */
+    @ApiOperation(value = "代码生成列表查询")
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @CrossOrigin
+    @PreAuthorize("@pms.hasPermission('system:genCode:index')")
+    public ResponseObject list(HttpServletRequest request) throws BusinessCheckException {
+        Integer page = request.getParameter("page") == null ? Constants.PAGE_NUMBER : Integer.parseInt(request.getParameter("page"));
+        Integer pageSize = request.getParameter("pageSize") == null ? Constants.PAGE_SIZE : Integer.parseInt(request.getParameter("pageSize"));
+        String tableName = request.getParameter("tableName");
+        String status = request.getParameter("status");
+
+        Map<String, Object> params = new HashMap<>();
+        if (StringUtil.isNotEmpty(tableName)) {
+            params.put("tableName", tableName);
+        }
+        if (StringUtil.isNotEmpty(status)) {
+            params.put("status", status);
+        }
+        PaginationResponse<TGenCode> paginationResponse = genCodeService.queryGenCodeListByPagination(new PaginationRequest(page, pageSize, params));
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("dataList", paginationResponse);
+
+        return getSuccessResult(result);
+    }
+
+    /**
+     * 更新代码生成状态
+     */
+    @ApiOperation(value = "更新代码状态")
+    @RequestMapping(value = "/updateStatus", method = RequestMethod.POST)
+    @CrossOrigin
+    @PreAuthorize("@pms.hasPermission('system:genCode:add')")
+    public ResponseObject updateStatus(@RequestBody Map<String, Object> params) throws BusinessCheckException {
+        String status = params.get("status") != null ? params.get("status").toString() : StatusEnum.ENABLED.getKey();
+        Integer id = params.get("id") == null ? 0 : Integer.parseInt(params.get("id").toString());
+
+        TGenCode tGenCode = genCodeService.queryGenCodeById(id);
+        if (tGenCode == null) {
+            return getFailureResult(201);
+        }
+        tGenCode.setId(id);
+        tGenCode.setStatus(status);
+        genCodeService.updateGenCode(tGenCode);
+
+        return getSuccessResult(true);
+    }
+
+    /**
+     * 保存代码生成
+     */
+    @ApiOperation(value = "保存代码生成")
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @CrossOrigin
+    @PreAuthorize("@pms.hasPermission('system:genCode:add')")
+    public ResponseObject saveHandler(@RequestBody Map<String, Object> params) throws BusinessCheckException {
+        String id = params.get("id") == null ? "" : params.get("id").toString();
+        String status = params.get("status") == null ? StatusEnum.ENABLED.getKey() : params.get("status").toString();
+        String tableName = params.get("tableName") == null ? "" : params.get("tableName").toString();
+        String moduleName = params.get("moduleName") == null ? "" : params.get("moduleName").toString();
+        String tablePrefix = params.get("tablePrefix") == null ? "" : params.get("tablePrefix").toString();
+        String author = params.get("author") == null ? "" : params.get("author").toString();
+        String backendPath = params.get("backendPath") == null ? "" : params.get("backendPath").toString();
+
+        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
+            return getFailureResult(1004, "平台超管帐号才有操作权限");
+        }
+
+        TGenCode tGenCode = new TGenCode();
+        tGenCode.setPkName("id");
+        tGenCode.setStatus(status);
+        tGenCode.setTableName(tableName);
+        tGenCode.setModuleName(moduleName);
+        tGenCode.setTablePrefix(tablePrefix);
+        tGenCode.setAuthor(author);
+        tGenCode.setBackendPath(backendPath);
+        tGenCode.setServiceName(CommonUtil.firstLetterToUpperCase(tableName));
+        tGenCode.setPackageName(tableName);
+        if (StringUtil.isNotEmpty(id)) {
+            tGenCode.setId(Integer.parseInt(id));
+            genCodeService.updateGenCode(tGenCode);
+        } else {
+            genCodeService.addGenCode(tGenCode);
+        }
+
+        return getSuccessResult(true);
+    }
+
+    /**
+     * 获取代码生成详情
+     */
+    @ApiOperation(value = "获取代码生成详情")
+    @RequestMapping(value = "/info/{id}", method = RequestMethod.GET)
+    @CrossOrigin
+    @PreAuthorize("@pms.hasPermission('system:genCode:index')")
+    public ResponseObject info(@PathVariable("id") Integer id) throws BusinessCheckException {
+        TGenCode tGenCode = genCodeService.queryGenCodeById(id);
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("tGenCode", tGenCode);
+
+        return getSuccessResult(result);
+    }
+
+    /**
+     * 生成代码
+     */
+    @ApiOperation(value = "生成代码")
+    @RequestMapping(value = "/gen/{id}", method = RequestMethod.GET)
+    @CrossOrigin
+    @PreAuthorize("@pms.hasPermission('system:genCode:gen')")
+    public ResponseObject gen(@PathVariable("id") Integer id) {
+        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
+            return getFailureResult(1004, "平台超管帐号才有操作权限");
+        }
+        TGenCode tGenCode = genCodeService.queryGenCodeById(id);
+        if (tGenCode == null) {
+            return getFailureResult(201, "生成代码不存在");
+        }
+
+        genCodeService.generatorCode(tGenCode.getTableName());
+        return getSuccessResult(true);
+    }
+}

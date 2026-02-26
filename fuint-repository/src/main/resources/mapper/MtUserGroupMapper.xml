@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fuint.repository.mapper.MtUserGroupMapper">
+<mapper namespace="mapper.repository.cloud.plambiz.MtUserGroupMapper">
     <select id="getMemberNum" resultType="java.lang.Long">
         select count(0) from mt_user t where t.STATUS != 'D'
         <if test="groupIds != null and groupIds.size > 0">
