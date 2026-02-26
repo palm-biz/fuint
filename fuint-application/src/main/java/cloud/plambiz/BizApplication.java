@@ -14,13 +14,13 @@ import org.tuckey.web.filters.urlrewrite.UrlRewriteFilter;
 @EnableScheduling
 @SpringBootApplication
 @PropertySource("file:${env.properties.path}/${env.profile}/application.properties")
-public class fuintApplication {
+public class BizApplication {
 
     public static final String REWRITE_FILTER_NAME = "rewriteFilter";
     public static final String REWRITE_FILTER_CONF_PATH = "urlRewrite.xml";
 
     public static void main(String[] args) {
-        SpringApplication.run(fuintApplication.class, args);
+        SpringApplication.run(BizApplication.class, args);
         System.out.println("==================================================\n" +
                 "恭喜，fuint系统启动成功啦！  \n" +
                 "系统官网：https://www.fuint.cn  \n" +
