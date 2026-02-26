@@ -17,19 +17,19 @@ public class VelocityUtils {
     private static final String REPOSITORY_PATH = "/biz-repository/src/main";
 
     /** mapper路径 */
-    private static final String MAPPER_PATH = "/java/com/fuint/repository/mapper";
+    private static final String MAPPER_PATH = "/java/cloud/palmbiz/repository/mapper";
 
     /** model路径 */
-    private static final String MODEL_PATH = "/java/com/fuint/repository/model";
+    private static final String MODEL_PATH = "/java/cloud/palmbiz/repository/model";
 
     /** mybatis xml路径 */
     private static final String MAPPER_XML_PATH = "/resources/mapper";
 
     /** 接口服务路径 */
-    private static final String SERVICE_PATH = "/biz-application/src/main/java/com/fuint/common/service";
+    private static final String SERVICE_PATH = "/biz-application/src/main/java/cloud/palmbiz/common/service";
 
     /** 控制器路径 */
-    private static final String CONTROLLER_PATH = "/biz-application/src/main/java/com/fuint/module/backendApi/controller";
+    private static final String CONTROLLER_PATH = "/biz-application/src/main/java/cloud/palmbiz/module/backendApi/controller";
 
     /**
      * 设置模板变量信息

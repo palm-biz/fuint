@@ -8,9 +8,6 @@ import cloud.palmbiz.framework.exception.BusinessCheckException;
 
 /**
  * ${moduleName}业务接口
- *
- * Created by ${author}
- * CopyRight https://www.fuint.cn
  */
 public interface ${tableClass}Service extends IService<${className}> {
 

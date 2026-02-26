@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * ${moduleName}实体
- *
- * Created by ${author}
- * CopyRight https://www.fuint.cn
  */
 @Data
 @TableName("${tablePrefix}_${tableName}")

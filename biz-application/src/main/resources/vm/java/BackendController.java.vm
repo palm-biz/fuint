@@ -23,9 +23,6 @@ import java.util.Map;
 
 /**
  * ${moduleName}管理类controller
- *
- * Created by ${author}
- * CopyRight https://www.fuint.cn
  */
 @Api(tags="管理端-${moduleName}相关接口")
 @RestController

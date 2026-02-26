@@ -4,9 +4,6 @@ import java.security.MessageDigest;
 
 /**
  * MD5加密工具
- *
- * Created by: FSQ
- * CopyRight https://www.fuint.cn
  */
 public class MD5Util {
     private final static char[] hexDigits = {'0', '1', '2', '3', '4', '5',

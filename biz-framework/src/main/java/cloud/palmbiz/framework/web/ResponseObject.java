@@ -2,10 +2,6 @@ package cloud.palmbiz.framework.web;
 
 /**
  * 返回数据结构
- *
- * Created by FSQ
- *
- * CopyRight https://www.fuint.cn
  */
 public class ResponseObject {
 

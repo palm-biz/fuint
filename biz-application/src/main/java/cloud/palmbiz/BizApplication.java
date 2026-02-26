@@ -22,8 +22,8 @@ public class BizApplication {
     public static void main(String[] args) {
         SpringApplication.run(BizApplication.class, args);
         System.out.println("==================================================\n" +
-                "恭喜，fuint系统启动成功啦！  \n" +
-                "系统官网：https://www.fuint.cn  \n" +
+                "系统启动成功\n" +
+                "系统地址：http://localhost:8080\n" +
                 "接口文档：http://localhost:8080/swagger-ui.html \n" +
                 "==================================================\n  \n");
     }

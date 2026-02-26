@@ -6,9 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * IP地址工具类
- *
- * Created by: FSQ
- * CopyRight https://www.fuint.cn
  */
 public class IpUtil {
 

@@ -30,10 +30,8 @@ public class SwaggerConfig {
      @Bean
      public ApiInfo apiInfo() {
          return new ApiInfoBuilder()
-         .title("fuint会员营销系统接口文档")
-         .description("fuint会员营销系统接口文档，“/clientApi”目录接口为会员端相关接口，“/backendApi”目录接口为后台管理端相关接口。")
-         .termsOfServiceUrl("https://www.fuint.cn/")
-         .contact(new Contact("海南延禾信息技术有限公司","https://www.fuint.cn/", "fushengqian@qq.com"))
+         .title("会员营销系统接口文档")
+         .description("会员营销系统接口文档，“/clientApi”目录接口为会员端相关接口，“/backendApi”目录接口为后台管理端相关接口。")
          .version("1.0")
          .build();
      }
