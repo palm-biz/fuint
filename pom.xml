@@ -10,10 +10,10 @@
     <version>1.0.0</version>
     <description>fuint project root</description>
     <modules>
-        <module>fuint-utils</module>
-        <module>fuint-repository</module>
-        <module>fuint-application</module>
-        <module>fuint-framework</module>
+        <module>biz-utils</module>
+        <module>biz-repository</module>
+        <module>biz-application</module>
+        <module>biz-framework</module>
     </modules>
 
     <parent>

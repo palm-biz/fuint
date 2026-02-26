@@ -24,7 +24,7 @@ fuint侧重于线下实体店的私域流量的运营，同时提供会员端小
 <b>官网演示地址：</b><br>
 <p>
    1、官网：<a target="_blank" href="https://www.fuint.cn">https://www.fuint.cn</a> 点击 -> 系统演示，演示账号：fuint / 123456<br>
-   2、swagger接口文档：<a target="_blank" href="https://www.fuint.cn/fuint-application/swagger-ui.html">https://www.fuint.cn/fuint-application/swagger-ui.html</a>
+   2、swagger接口文档：<a target="_blank" href="https://www.fuint.cn/biz-application/swagger-ui.html">https://www.fuint.cn/biz-application/swagger-ui.html</a>
 </p>
 
 #### 软件架构
@@ -60,8 +60,8 @@ fuint侧重于线下实体店的私域流量的运营，同时提供会员端小
 1. 导入db目录下的fuint-db.sql数据库文件。
 2. 修改configure目录下的配置文件。
 3. 将工程导入Idea，并安装插件：Lombok Plugin。
-3. 使用maven执行install，打jar包（在fuint-application/target目录），把jar包上传并执行启动：
-   nohup java -Dfile.encoding=UTF-8 -Xmx2048m -Xms2048m -Xss256k -Xmn1024m -jar fuint-application-1.0.0.jar
+3. 使用maven执行install，打jar包（在biz-application/target目录），把jar包上传并执行启动：
+   nohup java -Dfile.encoding=UTF-8 -Xmx2048m -Xms2048m -Xss256k -Xmn1024m -jar biz-application-1.0.0.jar
 <p>提示：无后端和linux基础的朋友，可以使用<b>宝塔</b>部署，非常方便简单。</p>
 
 
