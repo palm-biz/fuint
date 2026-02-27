@@ -10,6 +10,7 @@
     <version>1.0.0</version>
     <description>PalmBiz project root</description>
     <modules>
+        <module>biz-common</module>
         <module>biz-utils</module>
         <module>biz-repository</module>
         <module>biz-application</module>
