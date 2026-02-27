@@ -1,4 +1,4 @@
-package cloud.palmbiz.module.merchantApi.controller;
+package cloud.palmbiz.module.merchant.controller;
 
 import cloud.palmbiz.common.dto.UserInfo;
 import cloud.palmbiz.common.param.StaffParam;
@@ -11,7 +11,7 @@ import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.framework.web.BaseController;
 import cloud.palmbiz.framework.web.ResponseObject;
-import cloud.palmbiz.module.merchantApi.request.StaffListRequest;
+import cloud.palmbiz.module.merchant.request.StaffListRequest;
 import cloud.palmbiz.repository.model.MtStaff;
 import cloud.palmbiz.repository.model.MtUser;
 import cloud.palmbiz.utils.StringUtil;
@@ -31,7 +31,7 @@ import java.util.Map;
 @Api(tags="商户端-员工相关接口")
 @RestController
 @AllArgsConstructor
-@RequestMapping(value = "/merchantApi/staff")
+@RequestMapping(value = "/merchant/staff")
 public class MerchantStaffController extends BaseController {
 
     /**

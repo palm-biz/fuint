@@ -1,4 +1,4 @@
-package cloud.palmbiz.module.merchantApi.controller;
+package cloud.palmbiz.module.merchant.controller;
 
 import cloud.palmbiz.common.dto.UserInfo;
 import cloud.palmbiz.common.enums.BookStatusEnum;
@@ -11,9 +11,9 @@ import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.framework.web.BaseController;
 import cloud.palmbiz.framework.web.ResponseObject;
-import cloud.palmbiz.module.merchantApi.request.BookConfirmParam;
-import cloud.palmbiz.module.merchantApi.request.BookDetailParam;
-import cloud.palmbiz.module.merchantApi.request.BookListRequest;
+import cloud.palmbiz.module.merchant.request.BookConfirmParam;
+import cloud.palmbiz.module.merchant.request.BookDetailParam;
+import cloud.palmbiz.module.merchant.request.BookListRequest;
 import cloud.palmbiz.repository.model.MtBookItem;
 import cloud.palmbiz.repository.model.MtStaff;
 import cloud.palmbiz.repository.model.MtUser;
@@ -32,7 +32,7 @@ import java.util.Map;
 @Api(tags="商户端-预约管理相关接口")
 @RestController
 @AllArgsConstructor
-@RequestMapping(value = "/merchantApi/book")
+@RequestMapping(value = "/merchant/book")
 public class MerchantBookController extends BaseController {
 
     /**

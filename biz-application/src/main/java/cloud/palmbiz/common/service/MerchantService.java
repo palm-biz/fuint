@@ -6,7 +6,7 @@ import cloud.palmbiz.common.dto.MerchantSettingDto;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.module.merchantApi.request.MerchantSettingParam;
+import cloud.palmbiz.module.merchant.request.MerchantSettingParam;
 import cloud.palmbiz.repository.model.MtMerchant;
 
 import java.util.List;

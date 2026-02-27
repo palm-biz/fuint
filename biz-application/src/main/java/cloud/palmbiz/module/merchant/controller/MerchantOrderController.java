@@ -1,4 +1,4 @@
-package cloud.palmbiz.module.merchantApi.controller;
+package cloud.palmbiz.module.merchant.controller;
 
 import cloud.palmbiz.common.dto.OrderDto;
 import cloud.palmbiz.common.dto.UserInfo;
@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags="商户端-订单管理相关接口")
 @RestController
 @AllArgsConstructor
-@RequestMapping(value = "/merchantApi/order")
+@RequestMapping(value = "/merchant/order")
 public class MerchantOrderController extends BaseController {
 
     /**

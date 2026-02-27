@@ -1,4 +1,4 @@
-package cloud.palmbiz.module.merchantApi.request;
+package cloud.palmbiz.module.merchant.request;
 
 import cloud.palmbiz.common.param.PageParam;
 import io.swagger.annotations.ApiModelProperty;

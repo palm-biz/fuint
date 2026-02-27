@@ -1,4 +1,4 @@
-package cloud.palmbiz.module.merchantApi.controller;
+package cloud.palmbiz.module.merchant.controller;
 
 import cloud.palmbiz.common.dto.UserInfo;
 import cloud.palmbiz.common.dto.UserOrderDto;
@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 @Api(tags="商户端-余额相关接口")
 @RestController
 @AllArgsConstructor
-@RequestMapping(value = "/merchantApi/balance")
+@RequestMapping(value = "/merchant/balance")
 public class MerchantBalanceController extends BaseController {
 
     /**

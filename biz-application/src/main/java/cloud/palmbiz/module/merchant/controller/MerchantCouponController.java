@@ -1,4 +1,4 @@
-package cloud.palmbiz.module.merchantApi.controller;
+package cloud.palmbiz.module.merchant.controller;
 
 import cloud.palmbiz.common.dto.ReqCouponDto;
 import cloud.palmbiz.common.dto.UserInfo;
@@ -30,7 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 @Api(tags="商户端-卡券相关接口")
 @RestController
 @AllArgsConstructor
-@RequestMapping(value = "/merchantApi/coupon")
+@RequestMapping(value = "/merchant/coupon")
 public class MerchantCouponController extends BaseController {
 
     /**

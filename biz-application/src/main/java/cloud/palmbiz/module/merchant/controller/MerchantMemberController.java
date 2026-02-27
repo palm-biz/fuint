@@ -1,4 +1,4 @@
-package cloud.palmbiz.module.merchantApi.controller;
+package cloud.palmbiz.module.merchant.controller;
 
 import cloud.palmbiz.common.dto.UserDto;
 import cloud.palmbiz.common.dto.UserInfo;
@@ -36,7 +36,7 @@ import java.util.Map;
 @Api(tags="商户端-会员管理相关接口")
 @RestController
 @AllArgsConstructor
-@RequestMapping(value = "/merchantApi/member")
+@RequestMapping(value = "/merchant/member")
 public class MerchantMemberController extends BaseController {
 
     /**

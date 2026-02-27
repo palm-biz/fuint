@@ -1,4 +1,4 @@
-package cloud.palmbiz.module.merchantApi.controller;
+package cloud.palmbiz.module.merchant.controller;
 
 import cloud.palmbiz.common.dto.MerchantSettingDto;
 import cloud.palmbiz.common.dto.StaffDto;
@@ -11,7 +11,7 @@ import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.web.BaseController;
 import cloud.palmbiz.framework.web.ResponseObject;
-import cloud.palmbiz.module.merchantApi.request.MerchantSettingParam;
+import cloud.palmbiz.module.merchant.request.MerchantSettingParam;
 import cloud.palmbiz.repository.model.MtUser;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,7 +27,7 @@ import java.util.Map;
 @Api(tags="商户端-商户设置相关接口")
 @RestController
 @AllArgsConstructor
-@RequestMapping(value = "/merchantApi/merchantSetting")
+@RequestMapping(value = "/merchant/merchantSetting")
 public class MerchantSettingController extends BaseController {
 
     /**
