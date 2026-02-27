@@ -47,7 +47,7 @@ public class BackendConfirmLogController extends BaseController {
 
     /**
      * 会员接口服务
-     * */
+     */
     private MemberService memberService;
 
     /**

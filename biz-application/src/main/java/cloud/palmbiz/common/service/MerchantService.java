@@ -82,7 +82,7 @@ public interface MerchantService extends IService<MtMerchant> {
      *
      * @param params 查询参数
      * @return
-     * */
+     */
     List<MtMerchant> queryMerchantByParams(Map<String, Object> params);
 
     /**
@@ -92,7 +92,7 @@ public interface MerchantService extends IService<MtMerchant> {
      * @param storeId 店铺ID
      * @param status 状态
      * @return
-     * */
+     */
     List<MtMerchant> getMyMerchantList(Integer merchantId, Integer storeId, String status);
 
     /**
@@ -101,7 +101,7 @@ public interface MerchantService extends IService<MtMerchant> {
      * @param merchantId 商户ID
      * @param storeId 店铺ID
      * @return
-     * */
+     */
     MerchantSettingDto getMerchantSettingInfo(Integer merchantId, Integer storeId);
 
     /**
@@ -109,7 +109,7 @@ public interface MerchantService extends IService<MtMerchant> {
      *
      * @param params 商户设置项
      * @return
-     * */
+     */
     MerchantSettingDto saveMerchantSetting(MerchantSettingParam params) throws BusinessCheckException;
 
 }

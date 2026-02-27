@@ -37,13 +37,13 @@ public class UploadShippingInfoJob {
 
     /**
      * 微信服务接口
-     * */
+     */
     @Autowired(required = false)
     private WeixinService weixinService;
 
     /**
      * 分布式锁
-     * */
+     */
     @Autowired
     private RedisLock redisLock;
 

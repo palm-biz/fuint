@@ -31,7 +31,7 @@ public interface AccountService extends IService<TAccount> {
      *
      * @param userName 账号名称
      * @return
-     * */
+     */
     AccountInfo getAccountByName(String userName);
 
     /**
@@ -48,7 +48,7 @@ public interface AccountService extends IService<TAccount> {
      * @param accountInfo 账号信息
      * @param duties 角色
      * @return
-     * */
+     */
     TAccount createAccountInfo(TAccount accountInfo, List<TDuty> duties) throws BusinessCheckException;
 
     /**
@@ -56,7 +56,7 @@ public interface AccountService extends IService<TAccount> {
      *
      * @param accountId 账号ID
      * @return
-     * */
+     */
     List<Long> getRoleIdsByAccountId(Integer accountId);
 
     /**
@@ -89,7 +89,7 @@ public interface AccountService extends IService<TAccount> {
      *
      * @param accountId 账号ID
      * @return
-     * */
+     */
     void deleteAccount(Long accountId);
 
     /**
@@ -97,7 +97,7 @@ public interface AccountService extends IService<TAccount> {
      *
      * @param tAccount 账号信息
      * @return
-     * */
+     */
     void entryptPassword(TAccount tAccount);
 
     /**
@@ -106,7 +106,7 @@ public interface AccountService extends IService<TAccount> {
      * @param password
      * @param salt
      * @return
-     * */
+     */
     String getEntryptPassword(String password, String salt);
 
     /**
@@ -115,6 +115,6 @@ public interface AccountService extends IService<TAccount> {
      * @param loginRequest 登录参数
      * @param userAgent 登录浏览器
      * @return
-     * */
+     */
     LoginResponse doLogin(LoginRequest loginRequest, String userAgent) throws BusinessCheckException;
 }

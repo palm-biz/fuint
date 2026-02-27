@@ -51,27 +51,27 @@ public class GiveServiceImpl extends ServiceImpl<MtGiveMapper, MtGive> implement
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 会员等级服务接口
-     * */
+     */
     private UserGradeService userGradeService;
 
     /**
      * 短信发送服务接口
-     * */
+     */
     private SendSmsService sendSmsService;
 
     /**
      * 卡券服务接口
-     * */
+     */
     private CouponService couponService;
 
     /**
      * 卡券分组服务接口
-     * */
+     */
     private CouponGroupService couponGroupService;
 
     /**
@@ -318,7 +318,7 @@ public class GiveServiceImpl extends ServiceImpl<MtGiveMapper, MtGive> implement
      *
      * @param params 转赠查询条件
      * @return
-     * */
+     */
     @Override
     public List<MtGiveItem> queryItemByParams(Map<String, Object> params) {
         if (params == null) {

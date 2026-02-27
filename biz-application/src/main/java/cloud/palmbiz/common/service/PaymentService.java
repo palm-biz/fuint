@@ -25,7 +25,7 @@ public interface PaymentService {
      * @param platform 支付平台
      * @param isWechat 是否微信客户端
      * @return
-     * */
+     */
     ResponseObject createPrepayOrder(MtUser userInfo, MtOrder orderInfo, Integer payAmount, String authCode, Integer giveAmount, String ip, String platform, String isWechat) throws BusinessCheckException;
 
     /**
@@ -33,7 +33,7 @@ public interface PaymentService {
      *
      * @param orderInfo 订单信息
      * @return
-     * */
+     */
     Boolean paymentCallback(UserOrderDto orderInfo) throws BusinessCheckException;
 
     /**
@@ -41,7 +41,7 @@ public interface PaymentService {
      *
      * @param request 请求参数
      * @return
-     * */
+     */
     Map<String, Object> doPay(HttpServletRequest request) throws BusinessCheckException;
 
 }

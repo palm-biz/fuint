@@ -69,12 +69,12 @@ public class BackendGoodsController extends BaseController {
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 上传文件服务接口
-     * */
+     */
     private UploadService uploadService;
 
     /**

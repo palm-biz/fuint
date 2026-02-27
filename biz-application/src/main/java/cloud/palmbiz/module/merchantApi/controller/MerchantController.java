@@ -36,22 +36,22 @@ public class MerchantController extends BaseController {
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 店铺员工服务接口
-     * */
+     */
     private StaffService staffService;
 
     /**
      * 卡券核销记录服务接口
-     * */
+     */
     private ConfirmLogService confirmLogService;
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**

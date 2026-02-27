@@ -30,7 +30,7 @@ public interface UserCouponService extends IService<MtUserCoupon> {
      *
      * @param couponReceiveParam
      * @return
-     * */
+     */
     boolean receiveCoupon(CouponReceiveParam couponReceiveParam) throws BusinessCheckException;
 
     /**
@@ -38,7 +38,7 @@ public interface UserCouponService extends IService<MtUserCoupon> {
      *
      * @param paramMap
      * @return
-     * */
+     */
     boolean preStore(Map<String, Object> paramMap) throws BusinessCheckException;
 
     /**
@@ -46,14 +46,14 @@ public interface UserCouponService extends IService<MtUserCoupon> {
      * @param userId
      * @param status
      * @return
-     * */
+     */
     List<MtUserCoupon> getUserCouponList(Integer userId, List<String> status);
 
     /**
      * 获取用户的卡券
      * @param paramMap 查询参数
      * @return
-     * */
+     */
     ResponseObject getUserCouponList(Map<String, Object> paramMap);
 
     /**
@@ -63,14 +63,14 @@ public interface UserCouponService extends IService<MtUserCoupon> {
      * @param storeId 使用门店
      * @param useFor 用途
      * @return
-     * */
+     */
     List<CouponDto> getPayAbleCouponList(Integer userId, Integer storeId, String useFor);
 
     /**
      * 获取会员卡券详情
      * @param userId
      * @param couponId
-     * */
+     */
     List<MtUserCoupon> getUserCouponDetail(Integer userId, Integer couponId);
 
     /**
@@ -78,7 +78,7 @@ public interface UserCouponService extends IService<MtUserCoupon> {
      *
      * @param userCouponId
      * @return
-     * */
+     */
     MtUserCoupon getUserCouponDetail(Integer userCouponId);
 
     /**
@@ -89,7 +89,7 @@ public interface UserCouponService extends IService<MtUserCoupon> {
      * @param startTime
      * @param endTime
      * @return
-     * */
+     */
     List<MtUserCoupon> getUserCouponListByExpireTime(Integer userId, String status, String startTime, String endTime);
 
     /**
@@ -101,7 +101,7 @@ public interface UserCouponService extends IService<MtUserCoupon> {
      * @param mobile 会员手机号
      * @param num 购买数量
      * @return
-     * */
+     */
     boolean buyCouponItem(Integer orderId, Integer couponId, Integer userId, String mobile, Double num);
 
     /**
@@ -109,6 +109,6 @@ public interface UserCouponService extends IService<MtUserCoupon> {
      *
      * @param couponId 卡券ID
      * @return
-     * */
+     */
     void removeUserCouponByCouponId(Integer couponId);
 }

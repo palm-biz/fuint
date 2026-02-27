@@ -38,17 +38,17 @@ public class BackendStatisticController extends BaseController {
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
      * 商品服务接口
-     * */
+     */
     private GoodsService goodsService;
 
     /**

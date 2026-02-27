@@ -52,22 +52,22 @@ public class BalanceServiceImpl extends ServiceImpl<MtBalanceMapper, MtBalance> 
 
     /**
      * 微信相关服务接口
-     * */
+     */
     private WeixinService weixinService;
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 短信发送服务接口
-     * */
+     */
     private SendSmsService sendSmsService;
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
@@ -315,7 +315,7 @@ public class BalanceServiceImpl extends ServiceImpl<MtBalanceMapper, MtBalance> 
      *
      * @param orderSn
      * @return
-     * */
+     */
     @Override
     public List<MtBalance> getBalanceListByOrderSn(String orderSn) {
         return mtBalanceMapper.getBalanceListByOrderSn(orderSn);

@@ -75,102 +75,102 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 卡券服务接口
-     * */
+     */
     private CouponService couponService;
 
     /**
      * 会员卡券服务接口
-     * */
+     */
     private UserCouponService userCouponService;
 
     /**
      * 收货地址服务接口
-     * */
+     */
     private AddressService addressService;
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 积分服务接口
-     * */
+     */
     private PointService pointService;
 
     /**
      * 购物车服务接口
-     * */
+     */
     private CartService cartService;
 
     /**
      * 商品服务接口
-     * */
+     */
     private GoodsService goodsService;
 
     /**
      * 店铺服务接口
-     * */
+     */
     private StoreService storeService;
 
     /**
      * 会员等级服务接口
-     * */
+     */
     private UserGradeService userGradeService;
 
     /**
      * 售后服务接口
-     * */
+     */
     private RefundService refundService;
 
     /**
      * 余额服务接口
-     * */
+     */
     private BalanceService balanceService;
 
     /**
      * 微信相关服务接口
-     * */
+     */
     private WeixinService weixinService;
 
     /**
      * 支付宝服务接口
-     * */
+     */
     private AlipayService alipayService;
 
     /**
      * 短信发送服务接口
-     * */
+     */
     private SendSmsService sendSmsService;
 
     /**
      * 开卡赠礼服务接口
-     * */
+     */
     private OpenGiftService openGiftService;
 
     /**
      * 商户服务接口
-     * */
+     */
     private MerchantService merchantService;
 
     /**
      * 店铺员工服务接口
-     * */
+     */
     private StaffService staffService;
 
     /**
      * 支付服务接口
-     * */
+     */
     private PaymentService paymentService;
 
     /**
      * 云打印服务接口
-     * */
+     */
     private PrinterService printerService;
 
     /**
@@ -188,7 +188,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      * @param  orderListParam
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public PaginationResponse getUserOrderList(OrderListParam orderListParam) {
@@ -742,7 +742,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      * @param param 结算参数
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Map<String, Object> doSettle(HttpServletRequest request, SettlementParam param) throws BusinessCheckException {
@@ -1236,7 +1236,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      * @param remark 取消备注
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "取消订单")
@@ -1468,7 +1468,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      *
      * @param mtOrder 订单信息
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public MtOrder updateOrder(MtOrder mtOrder) {
@@ -1487,7 +1487,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      * @param payAmount 支付金额
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "修改订单为已支付")
@@ -1649,7 +1649,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      *
      * @param params 查询参数
      * @return
-     * */
+     */
     @Override
     public List<MtOrder> getOrderListByParams(Map<String, Object> params) {
         return mtOrderMapper.selectByMap(params);
@@ -1662,7 +1662,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      * @param  needAddress 是否获取订单地址
      * @param  getPayStatus 是否获取支付状态
      * @return UserOrderDto
-     * */
+     */
     private UserOrderDto getOrderDetail(MtOrder orderInfo, boolean needAddress, boolean getPayStatus) {
         UserOrderDto userOrderDto = new UserOrderDto();
 
@@ -1929,7 +1929,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      * @param merchantId 商户ID
      * @param storeId 店铺ID
      * @return
-     * */
+     */
     @Override
     public BigDecimal getOrderCount(Integer merchantId, Integer storeId) {
         if (storeId != null && storeId > 0) {
@@ -1947,7 +1947,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      * @param beginTime 开始时间
      * @param endTime 结束时间
      * @return
-     * */
+     */
     @Override
     public BigDecimal getOrderCount(Integer merchantId, Integer storeId, Date beginTime, Date endTime) {
         if (storeId != null && storeId > 0) {
@@ -1965,7 +1965,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      * @param beginTime 开始时间
      * @param endTime 结束时间
      * @return
-     * */
+     */
     @Override
     public BigDecimal getPayMoney(Integer merchantId, Integer storeId, Date beginTime, Date endTime) {
         BigDecimal payMoney;
@@ -1986,7 +1986,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      * @param merchantId 商户ID
      * @param storeId 店铺ID
      * @return
-     * */
+     */
     @Override
     public Integer getPayUserCount(Integer merchantId, Integer storeId) {
         if (storeId != null && storeId > 0) {
@@ -2002,7 +2002,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      * @param merchantId 商户ID
      * @param storeId 店铺ID
      * @return
-     * */
+     */
     @Override
     public BigDecimal getPayMoney(Integer merchantId, Integer storeId) {
         if (storeId != null && storeId > 0) {
@@ -2022,7 +2022,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      * @param isUsePoint 使用积分数量
      * @param orderMode 订单模式
      * @return
-     * */
+     */
     @Override
     public Map<String, Object> calculateCartGoods(Integer merchantId, Integer userId, List<MtCart> cartList, Integer couponId, boolean isUsePoint, String platform, String orderMode) {
         MtUser userInfo = memberService.queryMemberById(userId);
@@ -2320,7 +2320,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      *
      * @param userId 会员ID
      * @return
-     * */
+     */
     @Override
     public BigDecimal getUserPayMoney(Integer userId) {
         return mtOrderMapper.getUserPayMoney(userId);
@@ -2331,7 +2331,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      *
      * @param userId 会员ID
      * @return
-     * */
+     */
     @Override
     public Integer getUserPayOrderCount(Integer userId) {
         return mtOrderMapper.getUserPayOrderCount(userId);
@@ -2342,7 +2342,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
      *
      * @param dateTime 时间
      * @return
-     * */
+     */
     @Override
     public List<MtOrder> getTobeCommissionOrderList(String dateTime) {
         return mtOrderMapper.getTobeCommissionOrderList(dateTime);
@@ -2350,7 +2350,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
 
     /**
      * 提交充值订单
-     * */
+     */
     @Override
     public MtOrder doRecharge(HttpServletRequest request, RechargeParam rechargeParam) throws BusinessCheckException {
         Integer storeId = StringUtil.isEmpty(request.getHeader("storeId")) ? 0 : Integer.parseInt(request.getHeader("storeId"));

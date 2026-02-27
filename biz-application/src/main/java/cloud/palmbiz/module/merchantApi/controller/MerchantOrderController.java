@@ -34,7 +34,7 @@ public class MerchantOrderController extends BaseController {
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
@@ -44,7 +44,7 @@ public class MerchantOrderController extends BaseController {
 
     /**
      * 店铺员工服务接口
-     * */
+     */
     private StaffService staffService;
 
     /**

@@ -17,7 +17,7 @@ public interface OpenGiftService {
      *
      * @param paramMap 查询参数
      * @return
-     * */
+     */
     ResponseObject getOpenGiftList(Map<String, Object> paramMap);
 
     /**
@@ -54,7 +54,7 @@ public interface OpenGiftService {
      * @param reqDto
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     MtOpenGift updateOpenGift(MtOpenGift reqDto) throws BusinessCheckException;
 
     /**
@@ -65,6 +65,6 @@ public interface OpenGiftService {
      * @param isNewMember 是否新会员
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     Boolean openGift(Integer userId, Integer gradeId, boolean isNewMember) throws BusinessCheckException;
 }

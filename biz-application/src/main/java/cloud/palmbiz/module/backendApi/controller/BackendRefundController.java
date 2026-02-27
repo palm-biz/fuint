@@ -40,17 +40,17 @@ public class BackendRefundController extends BaseController {
 
     /**
      * 售后服务接口
-     * */
+     */
     private RefundService refundService;
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
      * 会员接口服务
-     * */
+     */
     private MemberService memberService;
 
     /**
@@ -126,7 +126,7 @@ public class BackendRefundController extends BaseController {
 
     /**
      * 查询售后详情
-     * */
+     */
     @ApiOperation(value = "查询售后详情")
     @RequestMapping(value = "/info/{refundId}", method = RequestMethod.GET)
     @CrossOrigin

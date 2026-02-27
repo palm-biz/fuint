@@ -38,17 +38,17 @@ public class ConfirmLogServiceImpl extends ServiceImpl<MtConfirmLogMapper, MtCon
 
     /**
      * 卡券服务接口
-     * */
+     */
     private CouponService couponService;
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 店铺服务接口
-     * */
+     */
     private StoreService storeService;
 
     /**
@@ -122,7 +122,7 @@ public class ConfirmLogServiceImpl extends ServiceImpl<MtConfirmLogMapper, MtCon
      * 获取卡券（计次卡）核销次数
      * @param userCouponId 会员卡券ID
      * @return
-     * */
+     */
     @Override
     public Long getConfirmNum(Integer userCouponId) {
         if (userCouponId > 0) {
@@ -136,7 +136,7 @@ public class ConfirmLogServiceImpl extends ServiceImpl<MtConfirmLogMapper, MtCon
      * 获取卡券核销列表
      * @param userCouponId
      * @return
-     * */
+     */
     @Override
     public List<MtConfirmLog> getConfirmList(Integer userCouponId) {
         if (userCouponId == null || userCouponId <= 0) {
@@ -155,7 +155,7 @@ public class ConfirmLogServiceImpl extends ServiceImpl<MtConfirmLogMapper, MtCon
      * @param beginTime  开始时间
      * @param endTime    结束时间
      * @return
-     * */
+     */
     @Override
     public Long getConfirmCount(Integer merchantId, Integer storeId, Date beginTime, Date endTime) {
         return mtConfirmLogMapper.getConfirmLogCount(merchantId, storeId, beginTime, endTime);

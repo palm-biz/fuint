@@ -53,12 +53,12 @@ public class BackendPrinterController extends BaseController {
 
     /**
      * 配置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**

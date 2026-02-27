@@ -50,7 +50,7 @@ public interface ArticleService extends IService<MtArticle> {
      * @param  articleDto
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     MtArticle updateArticle(ArticleDto articleDto) throws BusinessCheckException;
 
     /**
@@ -58,7 +58,7 @@ public interface ArticleService extends IService<MtArticle> {
      *
      * @param params
      * @return
-     * */
+     */
     List<MtArticle> queryArticleListByParams(Map<String, Object> params) throws BusinessCheckException;
 
 }

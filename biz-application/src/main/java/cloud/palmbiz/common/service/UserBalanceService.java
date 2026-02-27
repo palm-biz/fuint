@@ -42,7 +42,7 @@ public interface UserBalanceService extends IService<MtUserBalance> {
      * @param  mtUserBalance
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     MtUserBalance updateUserBalance(MtUserBalance mtUserBalance) throws BusinessCheckException;
 
 }

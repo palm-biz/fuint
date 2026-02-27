@@ -44,42 +44,42 @@ public class UserCouponServiceImpl extends ServiceImpl<MtUserCouponMapper, MtUse
 
     /**
      * 卡券服务接口
-     * */
+     */
     private CouponService couponService;
 
     /**
      * 卡券分组服务接口
-     * */
+     */
     private CouponGroupService couponGroupService;
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 积分服务接口
-     * */
+     */
     private PointService pointService;
 
     /**
      * 卡券核销记录服务接口
-     * */
+     */
     private ConfirmLogService confirmLogService;
 
     /**
      * 店铺服务接口
-     * */
+     */
     private StoreService storeService;
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
@@ -137,7 +137,7 @@ public class UserCouponServiceImpl extends ServiceImpl<MtUserCouponMapper, MtUse
      *
      * @param receiveParam 领取参数
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean receiveCoupon(CouponReceiveParam receiveParam) throws BusinessCheckException {
@@ -283,7 +283,7 @@ public class UserCouponServiceImpl extends ServiceImpl<MtUserCouponMapper, MtUse
      *
      * @param paramMap 储值参数
      * @return
-     * */
+     */
     public boolean preStore(Map<String, Object> paramMap) throws BusinessCheckException {
         Integer couponId = paramMap.get("couponId") == null ? 0 : Integer.parseInt(paramMap.get("couponId").toString());
         Integer userId = paramMap.get("userId") == null ? 0 : Integer.parseInt(paramMap.get("userId").toString());
@@ -331,7 +331,7 @@ public class UserCouponServiceImpl extends ServiceImpl<MtUserCouponMapper, MtUse
      * @param userId 会员ID
      * @param status 状态
      * @return
-     * */
+     */
     @Override
     public List<MtUserCoupon> getUserCouponList(Integer userId, List<String> status) {
         return mtUserCouponMapper.getUserCouponList(userId, status);
@@ -342,7 +342,7 @@ public class UserCouponServiceImpl extends ServiceImpl<MtUserCouponMapper, MtUse
      *
      * @param paramMap
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public ResponseObject getUserCouponList(Map<String, Object> paramMap) {
@@ -541,7 +541,7 @@ public class UserCouponServiceImpl extends ServiceImpl<MtUserCouponMapper, MtUse
      * @param storeId 使用门店
      * @param useFor 用途
      * @return
-     * */
+     */
     @Override
     public List<CouponDto> getPayAbleCouponList(Integer userId, Integer storeId, String useFor) {
         List<String> statusList = Arrays.asList(UserCouponStatusEnum.UNUSED.getKey());
@@ -599,7 +599,7 @@ public class UserCouponServiceImpl extends ServiceImpl<MtUserCouponMapper, MtUse
      * @param userId 会员ID
      * @param couponId 卡券ID
      * @return
-     * */
+     */
     @Override
     public  List<MtUserCoupon> getUserCouponDetail(Integer userId, Integer couponId) {
         return mtUserCouponMapper.findUserCouponDetail(couponId, userId);
@@ -610,7 +610,7 @@ public class UserCouponServiceImpl extends ServiceImpl<MtUserCouponMapper, MtUse
      *
      * @param userCouponId 会员卡券ID
      * @return
-     * */
+     */
     @Override
     public MtUserCoupon getUserCouponDetail(Integer userCouponId) {
         return mtUserCouponMapper.selectById(userCouponId);
@@ -624,7 +624,7 @@ public class UserCouponServiceImpl extends ServiceImpl<MtUserCouponMapper, MtUse
      * @param startTime 开始时间
      * @param endTime 结束时间
      * @return
-     * */
+     */
     @Override
     public List<MtUserCoupon> getUserCouponListByExpireTime(Integer userId, String status, String startTime, String endTime) {
         return mtUserCouponMapper.getUserCouponListByExpireTime(userId, status, startTime, endTime);
@@ -639,7 +639,7 @@ public class UserCouponServiceImpl extends ServiceImpl<MtUserCouponMapper, MtUse
      * @param mobile 手机号
      * @param num 购买数量
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean buyCouponItem(Integer orderId, Integer couponId, Integer userId, String mobile, Double num) {
@@ -716,7 +716,7 @@ public class UserCouponServiceImpl extends ServiceImpl<MtUserCouponMapper, MtUse
      *
      * @param couponId 卡券ID
      * @return
-     * */
+     */
     public void removeUserCouponByCouponId(Integer couponId) {
         if (couponId == null || couponId <= 0) {
             return;
@@ -730,7 +730,7 @@ public class UserCouponServiceImpl extends ServiceImpl<MtUserCouponMapper, MtUse
      * @param couponInfo 卡券信息
      * @param userInfo 会员信息
      * @return
-     * */
+     */
     private boolean preStoreItem(MtCoupon couponInfo, MtUser userInfo, Integer orderId, BigDecimal amount) {
         MtUserCoupon userCoupon = new MtUserCoupon();
         userCoupon.setCouponId(couponInfo.getId());

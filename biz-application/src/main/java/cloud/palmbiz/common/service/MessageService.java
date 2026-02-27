@@ -44,6 +44,6 @@ public interface MessageService {
      * 获取需要发送的消息
      *
      * @return
-     * */
+     */
     List<MtMessage> getNeedSendList();
 }

@@ -73,7 +73,7 @@ public interface UserGradeService extends IService<MtUserGrade> {
      * @param  merchantId
      * @param  userInfo
      * @return
-     * */
+     */
     List<MtUserGrade> getPayUserGradeList(Integer merchantId, MtUser userInfo);
 
     /**
@@ -82,7 +82,7 @@ public interface UserGradeService extends IService<MtUserGrade> {
      * @param  merchantId 商户ID
      * @param status 状态
      * @return
-     * */
+     */
     List<MtUserGrade> getMerchantGradeList(Integer merchantId, String status);
 
 }

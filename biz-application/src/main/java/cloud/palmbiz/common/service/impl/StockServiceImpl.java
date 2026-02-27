@@ -209,7 +209,7 @@ public class StockServiceImpl extends ServiceImpl<MtStockMapper, MtStock> implem
      *
      * @param params 查询条件
      * @return
-     * */
+     */
     @Override
     public List<MtStockItem> queryItemByParams(Map<String, Object> params) {
         if (params == null) {
@@ -229,7 +229,7 @@ public class StockServiceImpl extends ServiceImpl<MtStockMapper, MtStock> implem
      * @param num 数量
      * @param description 说明
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Boolean addStockRecord(Integer merchantId, Integer storeId, Integer goodsId, Integer skuId, String type, Double num, String description) {

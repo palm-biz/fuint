@@ -62,7 +62,7 @@ public class StoreServiceImpl extends ServiceImpl<MtStoreMapper, MtStore> implem
 
     /**
      * 系统环境变量
-     * */
+     */
     private Environment env;
 
     private MtStoreMapper mtStoreMapper;
@@ -78,7 +78,7 @@ public class StoreServiceImpl extends ServiceImpl<MtStoreMapper, MtStore> implem
 
     /**
      * 微信服务接口
-     * */
+     */
     private WeixinService weixinService;
 
     /**
@@ -366,7 +366,7 @@ public class StoreServiceImpl extends ServiceImpl<MtStoreMapper, MtStore> implem
      *
      * @param params 查询参数
      * @return
-     * */
+     */
     @Override
     public List<MtStore> queryStoresByParams(Map<String, Object> params) {
         LambdaQueryWrapper<MtStore> lambdaQueryWrapper = Wrappers.lambdaQuery();
@@ -401,7 +401,7 @@ public class StoreServiceImpl extends ServiceImpl<MtStoreMapper, MtStore> implem
      * @param storeId 店铺ID
      * @param status 状态
      * @return
-     * */
+     */
     @Override
     public List<MtStore> getMyStoreList(Integer merchantId, Integer storeId, String status) {
         return mtStoreMapper.getMyStoreList(merchantId, storeId, status);
@@ -415,7 +415,7 @@ public class StoreServiceImpl extends ServiceImpl<MtStoreMapper, MtStore> implem
      * @param latitude 维度
      * @param longitude 经度
      * @return
-     * */
+     */
     @Override
     public List<StoreInfo> queryByDistance(String merchantNo, String keyword, String latitude, String longitude) {
         List<StoreInfo> dataList = new ArrayList<>();
@@ -456,7 +456,7 @@ public class StoreServiceImpl extends ServiceImpl<MtStoreMapper, MtStore> implem
      *
      * @param storeIds 店铺ID
      * @return
-     * */
+     */
     @Override
     public String getStoreNames(String storeIds) {
        if (StringUtil.isEmpty(storeIds)) {
@@ -481,7 +481,7 @@ public class StoreServiceImpl extends ServiceImpl<MtStoreMapper, MtStore> implem
      * @param merchantId 商户ID
      * @param storeNames 店铺名称
      * @return
-     * */
+     */
     @Override
     public String getStoreIds(Integer merchantId, String storeNames) {
         if (StringUtil.isEmpty(storeNames)) {
@@ -505,7 +505,7 @@ public class StoreServiceImpl extends ServiceImpl<MtStoreMapper, MtStore> implem
      *
      * @param merchantId 商户ID
      * @return
-     * */
+     */
     @Override
     public void deleteStoreByMerchant(Integer merchantId) {
         if (merchantId == null || merchantId <= 0) {
@@ -519,7 +519,7 @@ public class StoreServiceImpl extends ServiceImpl<MtStoreMapper, MtStore> implem
      *
      * @param addr 地址
      * @return
-     * */
+     */
     public Map<String, Object> getLatAndLngByAddress(String addr) {
         String key = env.getProperty("amap.key");
         Map<String, Object> map = new HashMap<>();
@@ -593,7 +593,7 @@ public class StoreServiceImpl extends ServiceImpl<MtStoreMapper, MtStore> implem
      * @param origin 起点经纬度 格式如：116.434446,39.90816
      * @param destination 终点经纬度 格式如：116.434307,39.90909
      * @return
-     * */
+     */
     public Double getDistance(String origin, String destination) {
         String key = env.getProperty("amap.key");
         if (StringUtil.isEmpty(key)) {

@@ -43,7 +43,7 @@ public class BookCateServiceImpl extends ServiceImpl<MtBookCateMapper, MtBookCat
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
@@ -203,7 +203,7 @@ public class BookCateServiceImpl extends ServiceImpl<MtBookCateMapper, MtBookCat
      * @param  storeId 店铺ID
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     public List<MtBookCate> getAvailableBookCate(Integer merchantId, Integer storeId) {
         LambdaQueryWrapper<MtBookCate> lambdaQueryWrapper = Wrappers.lambdaQuery();

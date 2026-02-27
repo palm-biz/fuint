@@ -37,7 +37,7 @@ public interface SmsTemplateService extends IService<MtSmsTemplate> {
      * @param id
      * @param operator
      * @return
-     * */
+     */
     void deleteTemplate(Integer id, String operator);
 
     /**
@@ -53,7 +53,7 @@ public interface SmsTemplateService extends IService<MtSmsTemplate> {
      *
      * @param params 搜索条件
      * @return
-     * */
+     */
     List<MtSmsTemplate> querySmsTemplateByParams(Map<String, Object> params);
 
 }

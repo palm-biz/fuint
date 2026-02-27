@@ -42,17 +42,17 @@ public class BackendFileController extends BaseController {
 
     /**
      * 环境变量
-     * */
+     */
     private Environment env;
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 上传文件服务接口
-     * */
+     */
     private UploadService uploadService;
 
     /**

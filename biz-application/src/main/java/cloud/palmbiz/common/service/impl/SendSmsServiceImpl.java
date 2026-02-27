@@ -58,19 +58,19 @@ public class SendSmsServiceImpl implements SendSmsService {
 
     /**
      * 系统环境变量
-     * */
+     */
     private Environment env;
 
     private MtSmsSendedLogMapper mtSmsSendedLogMapper;
 
     /**
      * 短信模板服务接口
-     * */
+     */
     private SmsTemplateService smsTemplateService;
 
     /**
      * 配置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
@@ -81,7 +81,7 @@ public class SendSmsServiceImpl implements SendSmsService {
      * @param phones 发送手机号
      * @param contentParams 发送参数
      * @return
-     * */
+     */
     @Override
     public Map<Boolean,List<String>> sendSms(Integer merchantId, String templateUname, List<String> phones, Map<String, String> contentParams) throws BusinessCheckException {
         logger.info("使用短信平台发送短信.....");

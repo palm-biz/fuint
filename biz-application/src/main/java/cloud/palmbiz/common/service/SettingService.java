@@ -62,7 +62,7 @@ public interface SettingService extends IService<MtSetting> {
      * 获取系统上传文件的根路径
      *
      * @return 本地配置或阿里云的oss域名
-     * */
+     */
     String getUploadBasePath();
 
     /**
@@ -72,7 +72,7 @@ public interface SettingService extends IService<MtSetting> {
      * @param storeId 店铺ID
      * @param platform 平台
      * @return
-     * */
+     */
     List<ParamDto> getPayTypeList(Integer merchantId, Integer storeId, String platform);
 
     /**
@@ -82,7 +82,7 @@ public interface SettingService extends IService<MtSetting> {
      * @param storeId 店铺ID
      * @param status 状态
      * @return
-     * */
+     */
     List<NavigationDto> getNavigation(Integer merchantId, Integer storeId, String status) throws JsonProcessingException;
 
 }

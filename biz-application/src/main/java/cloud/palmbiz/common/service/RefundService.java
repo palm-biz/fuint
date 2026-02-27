@@ -28,7 +28,7 @@ public interface RefundService extends IService<MtRefund> {
      * 获取用户的售后订单
      * @param paramMap 查询参数
      * @return
-     * */
+     */
     ResponseObject getUserRefundList(Map<String, Object> paramMap);
 
     /**
@@ -59,14 +59,14 @@ public interface RefundService extends IService<MtRefund> {
      * 更新售后订单
      * @param  reqDto
      * @throws BusinessCheckException
-     * */
+     */
     MtRefund updateRefund(RefundDto reqDto) throws BusinessCheckException;
 
     /**
      * 同意售后订单
      * @param  reqDto
      * @throws BusinessCheckException
-     * */
+     */
     MtRefund agreeRefund(RefundDto reqDto) throws BusinessCheckException;
 
     /**
@@ -77,7 +77,7 @@ public interface RefundService extends IService<MtRefund> {
      * @param remark 备注
      * @param accountInfo 操作人信息
      * throws BusinessCheckException;
-     * */
+     */
     Boolean doRefund(Integer orderId, String refundAmount, String remark, AccountInfo accountInfo) throws BusinessCheckException;
 
     /**
@@ -86,6 +86,6 @@ public interface RefundService extends IService<MtRefund> {
      * @param beginTime
      * @param endTime
      * @return
-     * */
+     */
     Long getRefundCount(Date beginTime, Date endTime);
 }

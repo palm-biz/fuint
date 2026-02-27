@@ -43,12 +43,12 @@ public class BackendDutyController extends BaseController {
 
     /**
      * 角色服务接口
-     * */
+     */
     private DutyService tDutyService;
 
     /**
      * 菜单服务接口
-     * */
+     */
     private SourceService tSourceService;
 
     /**

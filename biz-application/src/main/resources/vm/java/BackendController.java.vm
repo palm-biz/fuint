@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * ${moduleName}管理类controller
+ * ${moduleName}管理类 controller
  */
 @Api(tags="管理端-${moduleName}相关接口")
 @RestController

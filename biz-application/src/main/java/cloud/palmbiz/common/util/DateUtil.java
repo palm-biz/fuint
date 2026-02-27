@@ -147,7 +147,7 @@ public class DateUtil {
 
     /**
      * 当天开始时间
-     * */
+     */
     public static Date getDayBegin() {
        Calendar cal = new GregorianCalendar();
        cal.set(Calendar.HOUR_OF_DAY, 0);
@@ -159,7 +159,7 @@ public class DateUtil {
 
     /**
      * 当天结束时间
-     * */
+     */
     public static Date getDayEnd() {
        Calendar cal = new GregorianCalendar();
        cal.set(Calendar.HOUR_OF_DAY, 23);
@@ -170,7 +170,7 @@ public class DateUtil {
 
     /**
      * 当天开始时间
-     * */
+     */
     public static Date getDayBegin(int day) {
         Calendar cal = new GregorianCalendar();
         cal.set(Calendar.DAY_OF_YEAR, cal.get(Calendar.DAY_OF_YEAR) - day);
@@ -183,7 +183,7 @@ public class DateUtil {
 
     /**
      * 当天结束时间
-     * */
+     */
     public static Date getDayEnd(int day) {
         Calendar cal = new GregorianCalendar();
         cal.set(Calendar.DAY_OF_YEAR, cal.get(Calendar.DAY_OF_YEAR) - day);

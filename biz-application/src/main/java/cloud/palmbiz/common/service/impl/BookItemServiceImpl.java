@@ -60,7 +60,7 @@ public class BookItemServiceImpl extends ServiceImpl<MtBookItemMapper, MtBookIte
 
     /**
      * 预约项目服务接口
-     * */
+     */
     private BookService bookService;
 
     /**
@@ -298,7 +298,7 @@ public class BookItemServiceImpl extends ServiceImpl<MtBookItemMapper, MtBookIte
      *
      * @param params 查询参数
      * @return
-     * */
+     */
     @Override
     public List<MtBookItem> queryBookItemListByParams(Map<String, Object> params) {
         String status = params.get("status") == null ? "" : params.get("status").toString();
@@ -347,7 +347,7 @@ public class BookItemServiceImpl extends ServiceImpl<MtBookItemMapper, MtBookIte
      * @param remark 备注信息
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     @Transactional
     public Boolean cancelBook(Integer id, String remark) throws BusinessCheckException {

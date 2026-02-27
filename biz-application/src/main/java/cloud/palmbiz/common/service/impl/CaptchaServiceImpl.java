@@ -24,7 +24,7 @@ public class CaptchaServiceImpl implements CaptchaService {
 
     /**
      * 图形验证码生成器
-     * */
+     */
     private Producer captchaProducer;
 
     /**

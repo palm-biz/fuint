@@ -50,7 +50,7 @@ public class BackendCouponController extends BaseController {
 
     /**
      * 卡券分组服务接口
-     * */
+     */
     private CouponGroupService couponGroupService;
 
     /**
@@ -60,17 +60,17 @@ public class BackendCouponController extends BaseController {
 
     /**
      * 商品服务接口
-     * */
+     */
     private GoodsService goodsService;
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 系统配置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**

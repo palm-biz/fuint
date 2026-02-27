@@ -17,7 +17,7 @@ public interface CartService extends IService<MtCart> {
      * @param userId
      * @param cartIds
      * @return
-     * */
+     */
     Boolean switchCartIds(Integer userId, String cartIds) throws BusinessCheckException;
 
     /**
@@ -62,7 +62,7 @@ public interface CartService extends IService<MtCart> {
      *
      * @param params 查询参数
      * @return
-     * */
+     */
     List<MtCart> queryCartListByParams(Map<String, Object> params);
 
     /**

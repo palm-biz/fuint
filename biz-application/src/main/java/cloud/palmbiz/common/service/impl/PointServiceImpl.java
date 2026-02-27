@@ -51,17 +51,17 @@ public class PointServiceImpl extends ServiceImpl<MtPointMapper, MtPoint> implem
 
     /**
      * 短信发送服务接口
-     * */
+     */
     private SendSmsService sendSmsService;
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 微信相关服务接口
-     * */
+     */
     private WeixinService weixinService;
 
     /**

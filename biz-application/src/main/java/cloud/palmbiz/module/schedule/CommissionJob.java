@@ -35,19 +35,19 @@ public class CommissionJob {
 
     /**
      * 分佣记录服务接口
-     * */
+     */
     @Autowired
     private CommissionLogService commissionLogService;
 
     /**
      * 分布式锁
-     * */
+     */
     @Autowired
     private RedisLock redisLock;
 
     /**
      * 系统环境变量
-     * */
+     */
     @Autowired
     private Environment environment;
 
@@ -58,7 +58,7 @@ public class CommissionJob {
 
     /**
      * 订单完成后n天可产生佣金
-     * */
+     */
     private final int OVER_DAY = 0;
 
     @Scheduled(cron = "${commission.job.time:0 0/5 * * * ?}")

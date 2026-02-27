@@ -10,7 +10,7 @@ public class ResUserOrderDto implements Serializable {
 
     /**
      *  当前页
-     * */
+     */
     private Integer pageNumber;
 
     /**
@@ -25,12 +25,12 @@ public class ResUserOrderDto implements Serializable {
 
     /**
      * 总页数
-     * */
+     */
     private Integer totalPage;
 
     /**
      * 数据列表
-     * */
+     */
     private List<UserOrderDto> content;
 
     public Integer getPageNumber() {

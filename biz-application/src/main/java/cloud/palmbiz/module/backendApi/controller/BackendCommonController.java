@@ -40,17 +40,17 @@ public class BackendCommonController extends BaseController {
 
     /**
      * 微信服务接口
-     * */
+     */
     private WeixinService weixinService;
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 店铺服务接口
-     * */
+     */
     private StoreService storeService;
 
     /**

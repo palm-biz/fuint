@@ -56,7 +56,7 @@ public class BookServiceImpl extends ServiceImpl<MtBookMapper, MtBook> implement
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
@@ -303,7 +303,7 @@ public class BookServiceImpl extends ServiceImpl<MtBookMapper, MtBook> implement
      * @param  param
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     public List<String> isBookable(BookableParam param) throws BusinessCheckException, ParseException {
        MtBook mtBook = mtBookMapper.selectById(param.getBookId());
@@ -374,7 +374,7 @@ public class BookServiceImpl extends ServiceImpl<MtBookMapper, MtBook> implement
      * @param  merchantId 商户ID
      * @param  storeId 店铺ID
      * @return
-     * */
+     */
     public List<MtBook> getBookList(Integer merchantId, Integer storeId) {
         LambdaQueryWrapper<MtBook> lambdaQueryWrapper = Wrappers.lambdaQuery();
         lambdaQueryWrapper.eq(MtBook::getStatus, StatusEnum.ENABLED.getKey());

@@ -39,12 +39,12 @@ public class BackendSendLogController extends BaseController {
 
     /**
      * 会员接口服务
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 卡券服务接口
-     * */
+     */
     private CouponService couponService;
 
     /**

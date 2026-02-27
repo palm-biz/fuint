@@ -57,22 +57,22 @@ public class CouponGroupServiceImpl extends ServiceImpl<MtCouponGroupMapper, MtC
 
     /**
      * 卡券服务接口
-     * */
+     */
     private CouponService couponService;
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 卡券发放记录服务接口
-     * */
+     */
     private SendLogService sendLogService;
 
     /**
      * 短信发送服务接口
-     * */
+     */
     private SendSmsService sendSmsService;
 
     /**
@@ -253,7 +253,7 @@ public class CouponGroupServiceImpl extends ServiceImpl<MtCouponGroupMapper, MtC
      *
      * @param  couponId  卡券ID
      * @return
-     * */
+     */
     @Override
     public Integer getSendNum(Integer couponId) {
         Long num = mtUserCouponMapper.getSendNum(couponId);
@@ -265,7 +265,7 @@ public class CouponGroupServiceImpl extends ServiceImpl<MtCouponGroupMapper, MtC
      *
      * @param file excel文件
      * @param operator 操作者
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "导入发券列表")

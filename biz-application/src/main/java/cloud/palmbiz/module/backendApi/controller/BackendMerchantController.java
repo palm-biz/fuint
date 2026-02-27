@@ -45,7 +45,7 @@ public class BackendMerchantController extends BaseController {
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
@@ -93,7 +93,7 @@ public class BackendMerchantController extends BaseController {
 
     /**
      * 查询商户列表
-     * */
+     */
     @ApiOperation(value = "查询商户列表")
     @RequestMapping(value = "/searchMerchant",  method = RequestMethod.GET)
     @CrossOrigin

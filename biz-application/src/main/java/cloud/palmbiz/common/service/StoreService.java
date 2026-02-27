@@ -80,7 +80,7 @@ public interface StoreService extends IService<MtStore> {
      *
      * @param params 查询参数
      * @return
-     * */
+     */
     List<MtStore> queryStoresByParams(Map<String, Object> params);
 
     /**
@@ -90,7 +90,7 @@ public interface StoreService extends IService<MtStore> {
      * @param storeId 店铺ID
      * @param status 状态
      * @return
-     * */
+     */
     List<MtStore> getMyStoreList(Integer merchantId, Integer storeId, String status);
 
     /**
@@ -101,7 +101,7 @@ public interface StoreService extends IService<MtStore> {
      * @param latitude 维度
      * @param longitude 经度
      * @return
-     * */
+     */
     List<StoreInfo> queryByDistance(String merchantNo, String keyword, String latitude, String longitude);
 
     /**
@@ -109,7 +109,7 @@ public interface StoreService extends IService<MtStore> {
      *
      * @param storeIds 店铺ID
      * @return
-     * */
+     */
     String getStoreNames(String storeIds);
 
     /**
@@ -118,7 +118,7 @@ public interface StoreService extends IService<MtStore> {
      * @param merchantId 商户ID
      * @param storeNames 店铺名称
      * @return
-     * */
+     */
     String getStoreIds(Integer merchantId, String storeNames);
 
     /**
@@ -126,7 +126,7 @@ public interface StoreService extends IService<MtStore> {
      *
      * @param merchantId 商户ID
      * @return
-     * */
+     */
     void deleteStoreByMerchant(Integer merchantId);
 
     /**
@@ -134,7 +134,7 @@ public interface StoreService extends IService<MtStore> {
      *
      * @param address 地址
      * @return
-     * */
+     */
     Map<String, Object> getLatAndLngByAddress(String address);
 
     /**
@@ -143,7 +143,7 @@ public interface StoreService extends IService<MtStore> {
      * @param origin 起点经纬度 格式如：116.434446,39.90816
      * @param destination 终点经纬度 格式如：116.434307,39.90909
      * @return
-     * */
+     */
     Double getDistance(String origin, String destination);
 
 }

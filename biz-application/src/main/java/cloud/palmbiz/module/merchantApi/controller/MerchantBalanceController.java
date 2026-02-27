@@ -28,12 +28,12 @@ public class MerchantBalanceController extends BaseController {
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
      * 支付服务接口
-     * */
+     */
     private PaymentService paymentService;
 
     /**
@@ -43,17 +43,17 @@ public class MerchantBalanceController extends BaseController {
 
     /**
      * 店铺员工服务接口
-     * */
+     */
     private StaffService staffService;
 
     /**
      * 商户服务接口
-     * */
+     */
     private MerchantService merchantService;
 
     /**
      * 充值余额
-     * */
+     */
     @RequestMapping(value = "/doRecharge", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject doRecharge(HttpServletRequest request, @RequestBody RechargeParam rechargeParam) throws BusinessCheckException {

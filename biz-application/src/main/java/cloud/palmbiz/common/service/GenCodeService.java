@@ -40,7 +40,7 @@ public interface GenCodeService {
      * @param  tGenCode
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     TGenCode updateGenCode(TGenCode tGenCode);
 
     /**

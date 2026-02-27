@@ -55,17 +55,17 @@ public class CommissionCashServiceImpl extends ServiceImpl<MtCommissionCashMappe
 
     /**
      * 店铺服务接口
-     * */
+     */
     private StoreService storeService;
 
     /**
      * 员工服务接口
-     * */
+     */
     private StaffService staffService;
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
@@ -75,7 +75,7 @@ public class CommissionCashServiceImpl extends ServiceImpl<MtCommissionCashMappe
 
     /**
      * 余额服务接口
-     * */
+     */
     private BalanceService balanceService;
 
     /**

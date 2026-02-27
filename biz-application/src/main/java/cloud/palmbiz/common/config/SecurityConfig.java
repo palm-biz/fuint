@@ -34,7 +34,7 @@ public class SecurityConfig {
                 // 过滤请求
                 .authorizeHttpRequests(authz -> authz
                         // 允许匿名访问
-                        .antMatchers("/clientApi/**", "/backendApi/**", "/merchantApi/**").permitAll()
+                        .antMatchers("/client/**", "/backendApi/**", "/merchantApi/**").permitAll()
                         .antMatchers(HttpMethod.GET,
                                 "/",
                                 "/static/**",

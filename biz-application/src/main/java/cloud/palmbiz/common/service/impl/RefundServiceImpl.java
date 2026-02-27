@@ -56,32 +56,32 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
 
     /**
      * 卡券接口
-     * */
+     */
     private CouponService couponService;
 
     /**
      * 积分相关接口
-     * */
+     */
     private PointService pointService;
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
      * 余额服务接口
-     * */
+     */
     private BalanceService balanceService;
 
     /**
      * 微信服务接口
-     * */
+     */
     private WeixinService weixinService;
 
     /**
      * 支付宝服务接口
-     * */
+     */
     private AlipayService alipayService;
 
     /**
@@ -91,7 +91,7 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
@@ -172,7 +172,7 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
      *
      * @param  paramMap 查询参数
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public ResponseObject getUserRefundList(Map<String, Object> paramMap) {
@@ -389,7 +389,7 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
      * @param refundDto
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "同意售后订单")
@@ -589,7 +589,7 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
      * @param accountInfo 后台管理信息
      * throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "发起退款")
@@ -651,7 +651,7 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
      * @param beginTime 开始时间
      * @param endTime 结束时间
      * @return
-     * */
+     */
     @Override
     public Long getRefundCount(Date beginTime, Date endTime) {
         return mtRefundMapper.getRefundCount(beginTime, endTime);

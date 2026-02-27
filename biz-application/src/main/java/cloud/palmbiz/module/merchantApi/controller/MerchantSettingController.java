@@ -32,22 +32,22 @@ public class MerchantSettingController extends BaseController {
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 店铺员工服务接口
-     * */
+     */
     private StaffService staffService;
 
     /**
      * 商户服务接口
-     * */
+     */
     private MerchantService merchantService;
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**

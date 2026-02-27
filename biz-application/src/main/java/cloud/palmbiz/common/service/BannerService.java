@@ -45,7 +45,7 @@ public interface BannerService extends IService<MtBanner> {
      * @param bannerDto
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     MtBanner updateBanner(BannerDto bannerDto) throws BusinessCheckException;
 
     /**
@@ -53,6 +53,6 @@ public interface BannerService extends IService<MtBanner> {
      *
      * @param params 查询参数
      * @return
-     * */
+     */
     List<MtBanner> queryBannerListByParams(Map<String, Object> params);
 }

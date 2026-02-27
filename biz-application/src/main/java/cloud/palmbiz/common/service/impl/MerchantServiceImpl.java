@@ -59,12 +59,12 @@ public class MerchantServiceImpl extends ServiceImpl<MtMerchantMapper, MtMerchan
 
     /**
      * 店铺服务接口
-     * */
+     */
     private StoreService storeService;
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
@@ -289,7 +289,7 @@ public class MerchantServiceImpl extends ServiceImpl<MtMerchantMapper, MtMerchan
      *
      * @param params 查询参数
      * @return
-     * */
+     */
     @Override
     public List<MtMerchant> queryMerchantByParams(Map<String, Object> params) {
         LambdaQueryWrapper<MtMerchant> lambdaQueryWrapper = Wrappers.lambdaQuery();
@@ -326,7 +326,7 @@ public class MerchantServiceImpl extends ServiceImpl<MtMerchantMapper, MtMerchan
      * @param storeId 店铺ID
      * @param status 状态
      * @return
-     * */
+     */
     @Override
     public List<MtMerchant> getMyMerchantList(Integer merchantId, Integer storeId, String status) {
         Map<String, Object> param = new HashMap<>();
@@ -348,7 +348,7 @@ public class MerchantServiceImpl extends ServiceImpl<MtMerchantMapper, MtMerchan
      * @param merchantId 商户ID
      * @param storeId 店铺ID
      * @return
-     * */
+     */
     @Override
     public MerchantSettingDto getMerchantSettingInfo(Integer merchantId, Integer storeId) {
        String name = "";
@@ -394,7 +394,7 @@ public class MerchantServiceImpl extends ServiceImpl<MtMerchantMapper, MtMerchan
      *
      * @param params 商户设置项
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "保存商户设置信息")

@@ -23,7 +23,7 @@ public interface WeixinService {
      * @param isMinApp 是否小程序
      * @param useCache 是否从缓存中读取
      * @return
-     * */
+     */
     String getAccessToken(Integer merchantId, boolean isMinApp, boolean useCache) throws BusinessCheckException;
 
     /**
@@ -38,7 +38,7 @@ public interface WeixinService {
      * @param platform 支付平台
      * @param isWechat 是否微信客户端
      * @return
-     * */
+     */
     ResponseObject createPrepayOrder(MtUser userInfo, MtOrder orderInfo, Integer payAmount, String authCode, Integer giveAmount, String ip, String platform, String isWechat) throws BusinessCheckException;
 
     /**
@@ -46,7 +46,7 @@ public interface WeixinService {
      *
      * @param request 请求体
      * @return
-     * */
+     */
     Map<String,String> processResXml(HttpServletRequest request);
 
     /**
@@ -55,7 +55,7 @@ public interface WeixinService {
      * @param response 返回相应
      * @param flag 标签
      * @return
-     * */
+     */
     void processRespXml(HttpServletResponse response, boolean flag);
 
     /**
@@ -64,7 +64,7 @@ public interface WeixinService {
      * @param merchantId 商户ID
      * @param code 登录编码
      * @return
-     * */
+     */
     JSONObject getWxProfile(Integer merchantId, String code) throws BusinessCheckException;
 
     /**
@@ -73,7 +73,7 @@ public interface WeixinService {
      * @param merchantId 商户ID
      * @param code 登录编码
      * @return
-     * */
+     */
     JSONObject getWxOpenId(Integer merchantId, String code) throws BusinessCheckException;
 
     /**
@@ -83,7 +83,7 @@ public interface WeixinService {
      * @param sessionKey
      * @param iv
      * @return
-     * */
+     */
     String getPhoneNumber(String encryptedData, String sessionKey, String iv);
 
     /**
@@ -97,7 +97,7 @@ public interface WeixinService {
      * @param params 发送参数
      * @param sendTime 发送时间
      * @return
-     * */
+     */
     Boolean sendSubscribeMessage(Integer merchantId, Integer userId, String toUserOpenId, String key, String page, Map<String,Object> params, Date sendTime) throws BusinessCheckException;
 
     /**
@@ -106,7 +106,7 @@ public interface WeixinService {
      * @param merchantId 商户ID
      * @param reqDataJsonStr 发送参数
      * @return
-     * */
+     */
     Boolean doSendSubscribeMessage(Integer merchantId, String reqDataJsonStr);
 
     /**
@@ -116,7 +116,7 @@ public interface WeixinService {
      * @param transactionId 交易单号
      * @param orderSn 订单号
      * @return
-     * */
+     */
     Map<String, String> queryPaidOrder(Integer storeId, String transactionId, String orderSn);
 
     /**
@@ -128,7 +128,7 @@ public interface WeixinService {
      * @param refundAmount 售后金额
      * @param platform 平台
      * @return
-     * */
+     */
     Boolean doRefund(Integer storeId, String orderSn, BigDecimal totalAmount, BigDecimal refundAmount, String platform) throws BusinessCheckException;
 
     /**
@@ -140,7 +140,7 @@ public interface WeixinService {
      * @param page 页面
      * @param width 宽度
      * @return
-     * */
+     */
     String createQrCode(Integer merchantId, String type, Integer id, String page, Integer width) throws BusinessCheckException;
 
     /**
@@ -149,7 +149,7 @@ public interface WeixinService {
      * @param merchantId 商户ID
      * @param wxCardId 微信会员卡ID
      * @return
-     * */
+     */
     String createWxCard(Integer merchantId, String wxCardId) throws BusinessCheckException;
 
     /**
@@ -159,7 +159,7 @@ public interface WeixinService {
      * @param cardId 微信卡券ID
      * @param code 会员卡编码
      * @return
-     * */
+     */
     String createCardQrCode(Integer merchantId, String cardId, String code);
 
     /**
@@ -169,7 +169,7 @@ public interface WeixinService {
      * @param cardId 微信卡券ID
      * @param openId openId
      * @return
-     * */
+     */
     Boolean isOpenCard(Integer merchantId, String cardId, String openId);
 
     /**
@@ -178,7 +178,7 @@ public interface WeixinService {
      * @param merchantId 商户ID
      * @param path 页面路径
      * @return
-     * */
+     */
     String createMiniAppLink(Integer merchantId, String path);
 
     /**

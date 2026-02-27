@@ -218,7 +218,7 @@ public class UserGradeServiceImpl extends ServiceImpl<MtUserGradeMapper, MtUserG
      * @param merchantId 商户ID
      * @param userInfo 会员信息
      * @return
-     * */
+     */
     @Override
     public List<MtUserGrade> getPayUserGradeList(Integer merchantId, MtUser userInfo) {
         LambdaQueryWrapper<MtUserGrade> lambdaQueryWrapper = Wrappers.lambdaQuery();
@@ -262,7 +262,7 @@ public class UserGradeServiceImpl extends ServiceImpl<MtUserGradeMapper, MtUserG
      * @param  merchantId 商户ID
      * @param  status 状态
      * @return
-     * */
+     */
     @Override
     public List<MtUserGrade> getMerchantGradeList(Integer merchantId, String status) {
         return mtUserGradeMapper.getMerchantGradeList(merchantId, status);

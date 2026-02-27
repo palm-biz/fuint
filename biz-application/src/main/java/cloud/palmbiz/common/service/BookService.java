@@ -49,7 +49,7 @@ public interface BookService extends IService<MtBook> {
      * @param  mtBook
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     MtBook updateBook(MtBook mtBook) throws BusinessCheckException;
 
     /**
@@ -58,7 +58,7 @@ public interface BookService extends IService<MtBook> {
      * @param  param
      * @throws BusinessCheckException,ParseException
      * @return
-     * */
+     */
     List<String> isBookable(BookableParam param) throws BusinessCheckException, ParseException;
 
     /**
@@ -67,7 +67,7 @@ public interface BookService extends IService<MtBook> {
      * @param  merchantId 商户ID
      * @param  storeId 店铺ID
      * @return
-     * */
+     */
     List<MtBook> getBookList(Integer merchantId, Integer storeId);
 
 }

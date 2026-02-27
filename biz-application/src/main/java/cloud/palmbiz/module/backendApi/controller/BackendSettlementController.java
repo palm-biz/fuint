@@ -43,7 +43,7 @@ public class BackendSettlementController extends BaseController {
 
     /**
      * 结算服务接口
-     * */
+     */
     private SettlementService settlementService;
 
     /**
@@ -108,7 +108,7 @@ public class BackendSettlementController extends BaseController {
 
     /**
      * 获取结算单详情
-     * */
+     */
     @ApiOperation(value = "获取结算单详情")
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     @CrossOrigin

@@ -39,7 +39,7 @@ public class OrderAutoJob {
 
     /**
      * 分布式锁
-     * */
+     */
     @Autowired
     private RedisLock redisLock;
 
@@ -48,12 +48,12 @@ public class OrderAutoJob {
 
     /**
      * 默认订单确认收货1天后，置为已完成
-     * */
+     */
     private final int DELIVERED_OVER_TIME = 60 * 24;
 
     /**
      * 默认订单发货10天后，置为已收货
-     * */
+     */
     private final int RECEIVED_OVER_TIME = 60 * 24 * 10;
 
     @Scheduled(cron = "${OrderAutoJob.job.time:0 0/5 * * * ?}")

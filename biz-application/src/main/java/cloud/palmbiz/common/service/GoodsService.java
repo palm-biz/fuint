@@ -72,7 +72,7 @@ public interface GoodsService {
      *
      * @param  skuNo skuNo
      * @return
-     * */
+     */
     MtGoodsSku getSkuInfoBySkuNo(String skuNo);
 
     /**
@@ -93,7 +93,7 @@ public interface GoodsService {
      * @param page 当前页码
      * @param pageSize 每页数量
      * @return
-     * */
+     */
     Map<String, Object> getStoreGoodsList(Integer storeId, String keyword, String platform, Integer cateId, Integer page, Integer pageSize);
 
     /**
@@ -101,7 +101,7 @@ public interface GoodsService {
      *
      * @param skuId
      * @return
-     * */
+     */
     List<GoodsSpecValueDto> getSpecListBySkuId(Integer skuId);
 
     /**
@@ -109,7 +109,7 @@ public interface GoodsService {
      *
      * @param specId 规格ID
      * @return
-     * */
+     */
     MtGoodsSpec getSpecDetail(Integer specId);
 
     /**
@@ -118,7 +118,7 @@ public interface GoodsService {
      * @param goodsId 商品ID
      * @param saleNum 销售数量
      * @return
-     * */
+     */
     Boolean updateInitSale(Integer goodsId, Double saleNum);
 
     /**
@@ -137,7 +137,7 @@ public interface GoodsService {
      * @param startTime 开始时间
      * @param endTime 结束时间
      * @return
-     * */
+     */
     List<GoodsTopDto> getGoodsSaleTopList(Integer merchantId, Integer storeId, Date startTime, Date endTime);
 
     /**
@@ -145,7 +145,7 @@ public interface GoodsService {
      *
      * @param goodsId 商品ID
      * @return
-     * */
+     */
     String getStoreIds(Integer goodsId);
 
     /**
@@ -154,7 +154,7 @@ public interface GoodsService {
      * @param file excel文件
      * @param accountInfo 操作者
      * @param filePath 文件地址
-     * */
+     */
     Boolean importGoods(MultipartFile file, AccountInfo accountInfo, String filePath) throws BusinessCheckException;
 
     /**
@@ -163,7 +163,7 @@ public interface GoodsService {
      * @param goodsId 商品ID
      * @param specName 规格名称
      * @param specValue 规格值
-     * */
+     */
     Integer getSpecId(Integer goodsId, String specName, String specValue);
 
 }

@@ -41,12 +41,12 @@ public class MerchantStaffController extends BaseController {
 
     /**
      * 店铺员工服务接口
-     * */
+     */
     private StaffService staffService;
 
     /**
      * 商户服务接口
-     * */
+     */
     private MerchantService merchantService;
 
     @ApiOperation(value = "员工列表")

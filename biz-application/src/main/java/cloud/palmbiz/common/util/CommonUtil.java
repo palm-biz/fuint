@@ -45,7 +45,7 @@ public class CommonUtil {
      *
      * @param obj 对象
      * @return
-     * */
+     */
     public static Map<String, Object> convert(Object obj) throws IllegalAccessException {
         Map<String, Object> map = new HashMap<>();
         Class<?> clazz = obj.getClass();
@@ -63,7 +63,7 @@ public class CommonUtil {
      *
      * @param phone
      * @return
-     * */
+     */
     public static String hidePhone(String phone) {
         if (StringUtil.isBlank(phone)) {
             return "";
@@ -121,7 +121,7 @@ public class CommonUtil {
      *
      * @param str
      * @return
-     * */
+     */
     public static boolean isUtf8(String str) {
         try {
             byte[] bytes = str.getBytes("UTF-8");
@@ -138,7 +138,7 @@ public class CommonUtil {
      *
      * @param str
      * @return
-     * */
+     */
     public static boolean isErrCode(String str) {
         return !(java.nio.charset.Charset.forName("GBK").newEncoder().canEncode(str));
     }
@@ -148,7 +148,7 @@ public class CommonUtil {
      *
      * @param str 字符串
      * @return
-     * */
+     */
     public static boolean isNumeric(String str) {
         if (StringUtil.isEmpty(str)) {
             return false;
@@ -168,7 +168,7 @@ public class CommonUtil {
      * 生成随机会员号(13位数)
      *
      * @return
-     * */
+     */
     public static String createUserNo() {
         StringBuilder sb = new StringBuilder("8");
         sb.append(SeqUtil.getRandomNumber(4));
@@ -181,7 +181,7 @@ public class CommonUtil {
      * 生成随机键值号
      *
      * @return
-     * */
+     */
     public static String createAccountKey() {
         StringBuilder sb = new StringBuilder("11");
         sb.append(SeqUtil.getRandomNumber(6));
@@ -194,7 +194,7 @@ public class CommonUtil {
      * 生成随机商户号
      *
      * @return
-     * */
+     */
     public static String createMerchantNo() {
         StringBuilder sb = new StringBuilder("8");
         sb.append(SeqUtil.getRandomNumber(4));
@@ -206,7 +206,7 @@ public class CommonUtil {
      * 生成随机结算单号(13位数)
      *
      * @return
-     * */
+     */
     public static String createSettlementNo() {
         StringBuilder sb = new StringBuilder("8");
         sb.append(SeqUtil.getRandomNumber(4));
@@ -220,7 +220,7 @@ public class CommonUtil {
      *
      * @param userId
      * @return
-     * */
+     */
     public static String createOrderSN(String userId) {
         // 时间是17位
         String date = DateUtil.formatDate(Calendar.getInstance().getTime(), "yyyyMMddHHmmssSSS");
@@ -299,7 +299,7 @@ public class CommonUtil {
      *
      * @param ip
      * @return
-     * */
+     */
     public static boolean isValidIP(String ip) {
         if ((ip != null) && (!ip.isEmpty())) {
             return Pattern.matches("^([1-9]|[1-9]\\d|1\\d{2}|2[0-4]\\d|25[0-5])(\\.(\\d|[1-9]\\d|1\\d{2}|2[0-4]\\d|25[0-5])){3}$", ip);
@@ -313,7 +313,7 @@ public class CommonUtil {
      * @param file 上传的文件
      * @param filePath 文件路径
      * @return
-     * */
+     */
     public static void saveMultipartFile(MultipartFile file, String filePath) {
         if (file != null && !file.isEmpty()) {
             try {
@@ -424,7 +424,7 @@ public class CommonUtil {
      *
      * @param first 字符串
      * @return
-     * */
+     */
     public static boolean isEmojiCharacter(char first) {
         return !
                 ((first == 0x0) ||
@@ -449,7 +449,7 @@ public class CommonUtil {
      *
      * @param html
      * @return
-     * */
+     */
     public static String fixVideo(String html) {
         // 正则表达式匹配<iframe>标签，并捕获src属性
         String iframeRegex = "<iframe[^>]+src\\s*=\\s*['\"]([^'\"]+)['\"][^>]*>";

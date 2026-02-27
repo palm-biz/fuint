@@ -53,7 +53,7 @@ public interface CateService extends IService<MtGoodsCate> {
      * @param  reqDto 分类参数
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     MtGoodsCate updateCate(MtGoodsCate reqDto) throws BusinessCheckException;
 
     /**
@@ -64,7 +64,7 @@ public interface CateService extends IService<MtGoodsCate> {
      * @param name 店铺名称
      * @param status 状态
      * @return
-     * */
+     */
     List<MtGoodsCate> getCateList(Integer merchantId, Integer storeId, String name, String status);
 
     /**
@@ -74,7 +74,7 @@ public interface CateService extends IService<MtGoodsCate> {
      * @param storeId 店铺ID
      * @param name 分类名称
      * @return
-     * */
+     */
     Integer getGoodsCateId(Integer merchantId, Integer storeId, String name);
 
 }

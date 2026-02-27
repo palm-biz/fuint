@@ -41,42 +41,42 @@ public class PaymentServiceImpl implements PaymentService {
 
     /**
      * 微信服务接口
-     * */
+     */
     private WeixinService weixinService;
 
     /**
      * 支付宝服务接口
-     * */
+     */
     private AlipayService alipayService;
 
     /**
      * 云闪付服务接口
-     * */
+     */
     private UnionPayService unionPayService;
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
      * 余额服务接口
-     * */
+     */
     private BalanceService balanceService;
 
     /**
      * 会员卡券服务接口
-     * */
+     */
     private UserCouponService userCouponService;
 
     /**
      * 卡券服务接口
-     * */
+     */
     private CouponService couponService;
 
     /**
@@ -91,7 +91,7 @@ public class PaymentServiceImpl implements PaymentService {
      * @param platform 支付平台
      * @param isWechat 是否微信客户端
      * @return
-     * */
+     */
     @Override
     public ResponseObject createPrepayOrder(MtUser userInfo, MtOrder orderInfo, Integer payAmount, String authCode, Integer giveAmount, String ip, String platform, String isWechat) throws BusinessCheckException {
         logger.info("PaymentService createPrepayOrder inParams userInfo={} payAmount={} giveAmount={} goodsInfo={}", userInfo, payAmount, giveAmount, orderInfo);
@@ -117,7 +117,7 @@ public class PaymentServiceImpl implements PaymentService {
      *
      * @param orderInfo 订单信息
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Boolean paymentCallback(UserOrderDto orderInfo) throws BusinessCheckException {
@@ -187,7 +187,7 @@ public class PaymentServiceImpl implements PaymentService {
      *
      * @param request 请求参数
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Map<String, Object> doPay(HttpServletRequest request) throws BusinessCheckException {

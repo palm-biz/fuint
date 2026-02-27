@@ -204,7 +204,7 @@ public class MemberGroupServiceImpl extends ServiceImpl<MtUserGroupMapper, MtUse
      *
      * @param groupId 分组ID
      * @return
-     * */
+     */
     public List<UserGroupDto> getChildren(Integer groupId) {
         Map<String, Object> param = new HashMap<>();
         param.put("STATUS", StatusEnum.ENABLED.getKey());
@@ -228,7 +228,7 @@ public class MemberGroupServiceImpl extends ServiceImpl<MtUserGroupMapper, MtUse
      *
      * @param groupId 分组ID
      * @return
-     * */
+     */
     public Long getMemberNum(Integer groupId) {
         List<Integer> groupIds = getGroupIds(groupId);
         Long totalMember = mtUserGroupMapper.getMemberNum(groupIds);
@@ -240,7 +240,7 @@ public class MemberGroupServiceImpl extends ServiceImpl<MtUserGroupMapper, MtUse
      *
      * @param groupId 分组ID
      * @return
-     * */
+     */
     public List<Integer> getGroupIds(Integer groupId) {
         Map<String, Object> param = new HashMap<>();
         param.put("STATUS", StatusEnum.ENABLED.getKey());

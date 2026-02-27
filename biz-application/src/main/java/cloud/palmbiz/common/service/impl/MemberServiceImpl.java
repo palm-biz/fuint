@@ -63,12 +63,12 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
 
     /**
      * 会员等级接口
-     * */
+     */
     private UserGradeService userGradeService;
 
     /**
      * 会员等级接口
-     * */
+     */
     private OpenGiftService openGiftService;
 
     /**
@@ -93,12 +93,12 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
 
     /**
      * 系统配置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 分佣提成关系服务接口
-     * */
+     */
     private CommissionRelationService commissionRelationService;
 
     /**
@@ -106,7 +106,7 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
      * @param userId 会员ID
      * @param ip IP地址
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Boolean updateActiveTime(Integer userId, String ip) throws BusinessCheckException {
@@ -154,7 +154,7 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
      * @param userId 会员ID
      * @param token 登录token
      * @return
-     * */
+     */
     @Override
     public MtUser getCurrentUserInfo(HttpServletRequest request, Integer userId, String token) {
         MtUser mtUser = null;
@@ -838,7 +838,7 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
      *
      * @param params 查询参数
      * @return
-     * */
+     */
     @Override
     public List<MtUserGrade> queryMemberGradeByParams(Map<String, Object> params) {
         if (params == null) {
@@ -853,7 +853,7 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
      * @param merchantId 商户ID
      * @param storeId 店铺ID
      * @return
-     * */
+     */
     @Override
     public Long getUserCount(Integer merchantId, Integer storeId) {
         if (storeId != null && storeId > 0) {
@@ -871,7 +871,7 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
      * @param beginTime 开始时间
      * @param endTime 结束时间
      * @return
-     * */
+     */
     @Override
     public Long getUserCount(Integer merchantId, Integer storeId, Date beginTime, Date endTime) {
         if (storeId != null && storeId > 0) {
@@ -889,7 +889,7 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
      * @param beginTime 开始时间
      * @param endTime 结束时间
      * @return
-     * */
+     */
     @Override
     public Long getActiveUserCount(Integer merchantId, Integer storeId, Date beginTime, Date endTime) {
         if (storeId != null && storeId > 0) {
@@ -925,7 +925,7 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
      * @param startTime 开始时间
      * @param endTime 结束时间
      * @return
-     * */
+     */
     @Override
     public List<MemberTopDto> getMemberConsumeTopList(Integer merchantId, Integer storeId, Date startTime, Date endTime) {
        List<MemberTopBean> memberList = mtUserMapper.getMemberConsumeTopList(merchantId, storeId, startTime, endTime);
@@ -949,7 +949,7 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
      * @param page 当前页码
      * @param pageSize 每页数量
      * @return
-     * */
+     */
     @Override
     public List<GroupMemberDto> searchMembers(Integer merchantId, String keyword, String groupIds, Integer page, Integer pageSize) {
         PageHelper.startPage(page, pageSize);
@@ -993,7 +993,7 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
      * @param merchantId 商户ID
      * @param keyword 关键字
      * @return
-     * */
+     */
     @Override
     public List<MtUser> searchMembers(Integer merchantId, String keyword) {
        return mtUserMapper.searchMembers(merchantId, keyword);
@@ -1017,7 +1017,7 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
      * @param password 密码密文
      * @param salt 加密因子
      * @return
-     * */
+     */
     @Override
     public String deCodePassword(String password, String salt) {
         return MD5Util.getMD5(password + salt);
@@ -1029,7 +1029,7 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
      * @param merchantId 商户号
      * @param storeId 店铺ID
      * @return
-     * */
+     */
     @Override
     public List<Integer> getUserIdList(Integer merchantId, Integer storeId) {
         return mtUserMapper.getUserIdList(merchantId, storeId);
@@ -1042,7 +1042,7 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
      * @param accountInfo 操作者
      * @param filePath 文件路径
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "导入会员列表")

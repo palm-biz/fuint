@@ -51,12 +51,12 @@ public class PrinterServiceImpl extends ServiceImpl<MtPrinterMapper, MtPrinter> 
 
     /**
      * 系统配置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 环境变量
-     * */
+     */
     private Environment env;
 
     /**
@@ -155,7 +155,7 @@ public class PrinterServiceImpl extends ServiceImpl<MtPrinterMapper, MtPrinter> 
      * @param orderInfo 订单信息
      * @param autoPrint 自动打印
      * @return
-     * */
+     */
     @Override
     public Boolean printOrder(UserOrderDto orderInfo, boolean autoPrint) throws Exception {
         PrintRequest printRequest = new PrintRequest();
@@ -342,7 +342,7 @@ public class PrinterServiceImpl extends ServiceImpl<MtPrinterMapper, MtPrinter> 
     *
     * @param params 查询参数
     * @return
-    * */
+    */
     @Override
     public List<MtPrinter> queryPrinterListByParams(Map<String, Object> params) {
         String status = params.get("status") == null ? StatusEnum.ENABLED.getKey(): params.get("status").toString();
@@ -387,7 +387,7 @@ public class PrinterServiceImpl extends ServiceImpl<MtPrinterMapper, MtPrinter> 
      * @param merchantId 商户ID
      * @param request RestRequest
      * @return
-     * */
+     */
     public void createRequestHeader(Integer merchantId, RestRequest request) throws BusinessCheckException {
         List<MtSetting> settings = settingService.getSettingList(merchantId, SettingTypeEnum.PRINTER.getKey());
         if (settings != null && settings.size() > 0) {

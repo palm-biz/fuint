@@ -52,7 +52,7 @@ public interface ${tableClass}Service extends IService<${className}> {
      * @param  ${tablePrefix}${tableClass}
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     ${className} update${tableClass}(${className} ${tablePrefix}${tableClass}) throws BusinessCheckException;
 
 }

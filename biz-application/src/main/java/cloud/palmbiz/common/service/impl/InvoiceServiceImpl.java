@@ -44,7 +44,7 @@ public class InvoiceServiceImpl extends ServiceImpl<MtInvoiceMapper, MtInvoice> 
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
@@ -192,7 +192,7 @@ public class InvoiceServiceImpl extends ServiceImpl<MtInvoiceMapper, MtInvoice> 
     * @param  params 查询参数
     * @throws BusinessCheckException
     * @return
-    * */
+    */
     @Override
     public List<MtInvoice> queryInvoiceListByParams(Map<String, Object> params) {
         String orderSn =  params.get("orderSn") == null ? "" : params.get("orderSn").toString();

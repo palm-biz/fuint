@@ -9,7 +9,7 @@ public class ReqSendCouponDto implements Serializable {
 
     /**
      * 分组ID
-     * */
+     */
     private Integer group_id;
 
     /**

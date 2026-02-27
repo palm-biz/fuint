@@ -44,7 +44,7 @@ public class BannerServiceImpl extends ServiceImpl<MtBannerMapper, MtBanner> imp
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
@@ -193,7 +193,7 @@ public class BannerServiceImpl extends ServiceImpl<MtBannerMapper, MtBanner> imp
      *
      * @param  params 查询参数
      * @return
-     * */
+     */
     @Override
     public List<MtBanner> queryBannerListByParams(Map<String, Object> params) {
         String status =  params.get("status") == null ? StatusEnum.ENABLED.getKey(): params.get("status").toString();

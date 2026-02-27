@@ -77,7 +77,7 @@ public interface CouponGroupService extends IService<MtCouponGroup> {
      *
      * @param  id  分组ID
      * @return
-     * */
+     */
     Integer getSendNum(Integer id);
 
     /**
@@ -85,7 +85,7 @@ public interface CouponGroupService extends IService<MtCouponGroup> {
      *
      * @param file excel文件
      * @param operator 操作者
-     * */
+     */
     String importSendCoupon(MultipartFile file, String operator, String filePath) throws BusinessCheckException;
 
 }

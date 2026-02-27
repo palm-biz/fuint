@@ -40,7 +40,7 @@ public interface StockService extends IService<MtStock> {
      * @param id
      * @param operator
      * @return
-     * */
+     */
     void delete(Integer id, String operator);
 
     /**
@@ -56,7 +56,7 @@ public interface StockService extends IService<MtStock> {
      *
      * @param  params
      * @return
-     * */
+     */
     List<MtStockItem> queryItemByParams(Map<String, Object> params);
 
     /**
@@ -70,6 +70,6 @@ public interface StockService extends IService<MtStock> {
      * @param num 数量
      * @param description 说明
      * @return
-     * */
+     */
     Boolean addStockRecord(Integer merchantId, Integer storeId, Integer goodsId, Integer skuId, String type, Double num, String description);
 }

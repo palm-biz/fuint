@@ -66,22 +66,22 @@ public class GoodsServiceImpl extends ServiceImpl<MtGoodsMapper, MtGoods> implem
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 商品分类服务接口
-     * */
+     */
     private CateService cateService;
 
     /**
      * 店铺服务接口
-     * */
+     */
     private StoreService storeService;
 
     /**
      * 卡券服务接口
-     * */
+     */
     private CouponService couponService;
 
     /**
@@ -531,7 +531,7 @@ public class GoodsServiceImpl extends ServiceImpl<MtGoodsMapper, MtGoods> implem
      *
      * @param  skuNo skuNo
      * @return
-     * */
+     */
     @Override
     public MtGoodsSku getSkuInfoBySkuNo(String skuNo) {
         List<MtGoodsSku> mtGoodsSkuList = mtGoodsSkuMapper.getBySkuNo(skuNo);
@@ -629,7 +629,7 @@ public class GoodsServiceImpl extends ServiceImpl<MtGoodsMapper, MtGoods> implem
      * @param page 当前页码
      * @param pageSize 每页页数
      * @return
-     * */
+     */
     @Override
     public Map<String, Object> getStoreGoodsList(Integer storeId, String keyword, String platform, Integer cateId, Integer page, Integer pageSize) {
         MtStore mtStore = storeService.queryStoreById(storeId);
@@ -695,7 +695,7 @@ public class GoodsServiceImpl extends ServiceImpl<MtGoodsMapper, MtGoods> implem
      *
      * @param skuId skuID
      * @return
-     * */
+     */
     @Override
     public List<GoodsSpecValueDto> getSpecListBySkuId(Integer skuId) {
         if (skuId < 0 || skuId == null) {
@@ -729,7 +729,7 @@ public class GoodsServiceImpl extends ServiceImpl<MtGoodsMapper, MtGoods> implem
      *
      * @param specId 规格ID
      * @return
-     * */
+     */
     @Override
     public MtGoodsSpec getSpecDetail(Integer specId) {
         return mtGoodsSpecMapper.selectById(specId);
@@ -741,7 +741,7 @@ public class GoodsServiceImpl extends ServiceImpl<MtGoodsMapper, MtGoods> implem
      * @param goodsId 商品ID
      * @param saleNum 销售数量
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Boolean updateInitSale(Integer goodsId, Double saleNum) {
@@ -829,7 +829,7 @@ public class GoodsServiceImpl extends ServiceImpl<MtGoodsMapper, MtGoods> implem
      * @param startTime 开始时间
      * @param endTime 结束时间
      * @return
-     * */
+     */
     @Override
     public List<GoodsTopDto> getGoodsSaleTopList(Integer merchantId, Integer storeId, Date startTime, Date endTime) {
         List<GoodsTopBean> dataList = mtGoodsMapper.getGoodsSaleTopList(merchantId, storeId, startTime, endTime);
@@ -849,7 +849,7 @@ public class GoodsServiceImpl extends ServiceImpl<MtGoodsMapper, MtGoods> implem
      *
      * @param goodsId 商品ID
      * @return
-     * */
+     */
     @Override
     public String getStoreIds(Integer goodsId) {
         if (goodsId == null || goodsId <= 0) {
@@ -879,7 +879,7 @@ public class GoodsServiceImpl extends ServiceImpl<MtGoodsMapper, MtGoods> implem
      * @param accountInfo 操作者
      * @param filePath 文件路径
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "导入商品列表")
@@ -1041,7 +1041,7 @@ public class GoodsServiceImpl extends ServiceImpl<MtGoodsMapper, MtGoods> implem
      * @param goodsId 商品ID
      * @param specName 规格名称
      * @param specValue 规格值
-     * */
+     */
     @Override
     public Integer getSpecId(Integer goodsId, String specName, String specValue) {
         Map<String, Object> params = new HashMap<>();

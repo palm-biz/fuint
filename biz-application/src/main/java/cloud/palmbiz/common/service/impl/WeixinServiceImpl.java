@@ -73,41 +73,41 @@ public class WeixinServiceImpl implements WeixinService {
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 系统消息服务接口
-     * */
+     */
     private MessageService messageService;
 
     /**
      * 店铺服务接口
-     * */
+     */
     private StoreService storeService;
 
     /**
      * 支付服务接口
-     * */
+     */
     private PaymentService paymentService;
 
     /**
      * 商户服务接口
-     * */
+     */
     private MerchantService merchantService;
 
     private Environment env;
 
     private WxPayBean wxPayBean;
 
-    private static final String CALL_BACK_URL = "/clientApi/pay/weixinCallback";
+    private static final String CALL_BACK_URL = "/client/pay/weixinCallback";
 
-    private static final String REFUND_NOTIFY_URL = "/clientApi/pay/weixinRefundNotify";
+    private static final String REFUND_NOTIFY_URL = "/client/pay/weixinRefundNotify";
 
     private static final String BIZ_ACCESS_TOKEN_PRE = "BIZ_ACCESS_TOKEN";
 
@@ -119,7 +119,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param useCache 是否读取缓存
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     public String getAccessToken(Integer merchantId, boolean isMinApp, boolean useCache) throws BusinessCheckException {
         String platForm = isMinApp == true ? "minApp" : "mp";
@@ -178,7 +178,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param isWechat 是否微信客户端
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public ResponseObject createPrepayOrder(MtUser userInfo, MtOrder orderInfo, Integer payAmount, String authCode, Integer giveAmount, String ip, String platform, String isWechat) throws BusinessCheckException {
@@ -276,7 +276,7 @@ public class WeixinServiceImpl implements WeixinService {
      *
      * @param request 请求参数
      * @return
-     * */
+     */
     public Map<String, String> processResXml(HttpServletRequest request) {
         try {
             String xmlMsg = HttpKit.readData(request);
@@ -313,7 +313,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param response 响应参数
      * @param flag 标记
      * @return
-     * */
+     */
     public void processRespXml(HttpServletResponse response, boolean flag){
         Map<String,String> respData = new HashMap<>();
         if (flag) {
@@ -349,7 +349,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param code 微信返回编码
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     public JSONObject getWxProfile(Integer merchantId, String code) throws BusinessCheckException {
         String wxAppId = env.getProperty("wxpay.appId");
@@ -387,7 +387,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param code 微信返回编码
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     public JSONObject getWxOpenId(Integer merchantId, String code) throws BusinessCheckException {
         String wxAppId = env.getProperty("weixin.official.appId");
@@ -425,7 +425,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param sessionKey session键值
      * @param iv 微信IV
      * @return
-     * */
+     */
     @Override
     public String getPhoneNumber(String encryptedData, String sessionKey, String iv) {
         // 被加密的数据
@@ -476,7 +476,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param sendTime 发送时间
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     public Boolean sendSubscribeMessage(Integer merchantId, Integer userId, String toUserOpenId, String key, String page, Map<String,Object> params, Date sendTime) throws BusinessCheckException {
         if (StringUtil.isEmpty(toUserOpenId) || StringUtil.isEmpty(key) || userId < 1) {
@@ -555,7 +555,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param merchantId 商户ID
      * @param reqDataJsonStr 请求参数
      * @return
-     * */
+     */
     @Override
     public Boolean doSendSubscribeMessage(Integer merchantId, String reqDataJsonStr) {
         try {
@@ -591,7 +591,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param transactionId 支付流水ID
      * @param orderSn 订单号
      * @return
-     * */
+     */
     @Override
     public Map<String, String> queryPaidOrder(Integer storeId, String transactionId, String orderSn) {
         try {
@@ -634,7 +634,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param platform 支付平台
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     @Override
     public Boolean doRefund(Integer storeId, String orderSn, BigDecimal totalAmount, BigDecimal refundAmount, String platform) throws BusinessCheckException {
         try {
@@ -691,7 +691,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param page 页面
      * @param width 宽度
      * @return
-     * */
+     */
     @Override
     public String createQrCode(Integer merchantId, String type, Integer id, String page, Integer width) throws BusinessCheckException {
         try {
@@ -767,7 +767,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param merchantId 商户ID
      * @param wxCardId 微信会员卡ID
      * @return
-     * */
+     */
     @Override
     public String createWxCard(Integer merchantId, String wxCardId) throws BusinessCheckException {
         String cardId = "";
@@ -903,7 +903,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param cardId 微信卡券ID
      * @param code 会员卡编码
      * @return
-     * */
+     */
     @Override
     public String createCardQrCode(Integer merchantId, String cardId, String code) {
         try {
@@ -953,7 +953,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param cardId 微信卡券ID
      * @param openId openId
      * @return
-     * */
+     */
     @Override
     public Boolean isOpenCard(Integer merchantId, String cardId, String openId) {
         try {
@@ -989,7 +989,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param merchantId 商户ID
      * @param path 页面路径
      * @return
-     * */
+     */
     @Override
     public String createMiniAppLink(Integer merchantId, String path) {
         String link = "";
@@ -1117,7 +1117,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param ip 支付IP
      * @param platform 支付平台
      * @return
-     * */
+     */
     private Map<String, String> microPay(Integer storeId, Map<String, String> reqData, String ip, String platform) {
         try {
             String orderSn = reqData.get("out_trade_no");
@@ -1202,7 +1202,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param ip 支付IP
      * @param platform 支付平台
      * @return
-     * */
+     */
     private Map<String, String> jsapiPay(Integer storeId, Map<String, String> reqData, String ip, String platform) {
         try {
             logger.info("调用微信支付下单接口入参：{}，请求平台：{}", JsonUtil.toJSONString(reqData), platform);
@@ -1256,7 +1256,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param ip 支付IP
      * @param platform 支付平台
      * @return
-     * */
+     */
     private Map<String, String> wapPay(Integer storeId, Map<String, String> reqData, String ip, String platform) {
         try {
             logger.info("调用微信h5支付下单接口入参{}，请求平台：{}", JsonUtil.toJSONString(reqData), platform);
@@ -1316,7 +1316,7 @@ public class WeixinServiceImpl implements WeixinService {
      * @param platform 支付平台
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     private WxPayApiConfig getApiConfig(Integer storeId, String platform) throws BusinessCheckException {
         WxPayApiConfig apiConfig;
 

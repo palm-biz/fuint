@@ -67,47 +67,47 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
 
     /**
      * 会员卡券服务接口
-     * */
+     */
     private UserCouponService userCouponService;
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 会员等级服务接口
-     * */
+     */
     private UserGradeService userGradeService;
 
     /**
      * 短信发送服务接口
-     * */
+     */
     private SendSmsService sendSmsService;
 
     /**
      * 核销记录服务接口
-     * */
+     */
     private ConfirmLogService confirmLogService;
 
     /**
      * 卡券发放记录服务接口
-     * */
+     */
     private SendLogService sendLogService;
 
     /**
      * 卡券分组服务接口
-     * */
+     */
     private CouponGroupService couponGroupService;
 
     /**
      * 系统配置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 微信相关服务接口
-     * */
+     */
     private WeixinService weixinService;
 
     /**
@@ -456,7 +456,7 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
      *
      * @param couponListParam 查询参数
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public ResponseObject findCouponList(CouponListParam couponListParam) {
@@ -614,7 +614,7 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
      *
      * @param groupId 查询参数
      * @return
-     * */
+     */
     public List<MtCoupon> queryCouponListByGroupId(Integer groupId) {
         return mtCouponMapper.queryByGroupId(groupId.intValue());
     }
@@ -1154,7 +1154,7 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
      * 根据ID获取用户卡券信息
      * @param  userCouponId 会员卡券ID
      * @return
-     * */
+     */
     @Override
     public MtUserCoupon queryUserCouponById(Integer userCouponId) {
         return mtUserCouponMapper.selectById(userCouponId);
@@ -1203,7 +1203,7 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
      * 判断卡券码是否过期
      * @param code 12位券码
      * @return
-     * */
+     */
     @Override
     public boolean codeExpired(String code) {
         if (StringUtil.isEmpty(code)) {
@@ -1233,7 +1233,7 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
      * @param coupon 卡券信息
      * @param userCoupon 会员卡券信息
      * @return
-     * */
+     */
     @Override
     public boolean isCouponEffective(MtCoupon coupon, MtUserCoupon userCoupon) {
         Date begin = coupon.getBeginTime();
@@ -1278,7 +1278,7 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
      * @param userCouponId
      * @param userId
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean removeCoupon(Integer userCouponId, Integer userId) throws BusinessCheckException {

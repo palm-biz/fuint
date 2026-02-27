@@ -42,22 +42,22 @@ public class BackendLoginController extends BaseController {
 
     /**
      * 后台账号服务接口
-     * */
+     */
     private AccountService accountService;
 
     /**
      * 后台菜单服务接口
-     * */
+     */
     private SourceService sourceService;
 
     /**
      * 后台角色服务接口
-     * */
+     */
     private DutyService dutyService;
 
     /**
      * 后台登录
-     * */
+     */
     @ApiOperation(value = "后台登录")
     @RequestMapping(value="/doLogin", method = RequestMethod.POST)
     public ResponseObject doLogin(HttpServletRequest request, @RequestBody LoginRequest loginRequest) throws BusinessCheckException {
@@ -68,7 +68,7 @@ public class BackendLoginController extends BaseController {
 
     /**
      * 获取登录信息接口
-     * */
+     */
     @ApiOperation(value = "获取登录信息")
     @RequestMapping(value = "/getInfo", method = RequestMethod.GET)
     public ResponseObject getInfo() throws BusinessCheckException {
@@ -156,7 +156,7 @@ public class BackendLoginController extends BaseController {
 
     /**
      * 退出后台登录
-     * */
+     */
     @ApiOperation(value = "退出后台登录")
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     @OperationServiceLog(description = "退出后台系统")

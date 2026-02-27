@@ -87,7 +87,7 @@ public class BackendOpenGiftController extends BaseController {
 
     /**
      * 开卡赠礼详情
-     * */
+     */
     @ApiOperation(value = "开卡赠礼详情")
     @RequestMapping(value = "/info/{id}", method = RequestMethod.GET)
     @CrossOrigin

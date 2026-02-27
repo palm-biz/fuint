@@ -97,7 +97,7 @@ public class BackendGiveLogController extends BaseController {
 
     /**
      * 查询转赠详情
-     * */
+     */
     @ApiOperation(value = "查询转赠详情")
     @RequestMapping(value = "/giveItem", method = RequestMethod.GET)
     @CrossOrigin

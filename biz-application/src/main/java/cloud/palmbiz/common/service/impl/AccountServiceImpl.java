@@ -60,12 +60,12 @@ public class AccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> im
 
     /**
      * 店铺服务接口
-     * */
+     */
     private StoreService storeService;
 
     /**
      * 验证码服务接口
-     * */
+     */
     private CaptchaService captchaService;
 
     /**
@@ -141,7 +141,7 @@ public class AccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> im
      *
      * @param userName 账号名称
      * @return
-     * */
+     */
     @Override
     public AccountInfo getAccountByName(String userName) {
         Map<String, Object> param = new HashMap();
@@ -182,7 +182,7 @@ public class AccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> im
      *
      * @param userId 账号ID
      * @return
-     * */
+     */
     @Override
     public TAccount getAccountInfoById(Integer userId) {
         return tAccountMapper.selectById(userId);
@@ -193,7 +193,7 @@ public class AccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> im
      *
      * @param tAccount
      * @return
-     * */
+     */
     @Override
     @OperationServiceLog(description = "新增后台账户")
     public TAccount createAccountInfo(TAccount tAccount, List<TDuty> duties) throws BusinessCheckException {
@@ -242,7 +242,7 @@ public class AccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> im
      *
      * @param accountId
      * @return
-     * */
+     */
     @Override
     public List<Long> getRoleIdsByAccountId(Integer accountId) {
         return tDutyMapper.getRoleIdsByAccountId(accountId);
@@ -311,7 +311,7 @@ public class AccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> im
      *
      * @param accountId 账号ID
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "删除后台账户")
@@ -342,7 +342,7 @@ public class AccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> im
      * @param password
      * @param salt
      * @return
-     * */
+     */
     @Override
     public String getEntryptPassword(String password, String salt) {
         byte[] salt1 = Encodes.decodeHex(salt);
@@ -356,7 +356,7 @@ public class AccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> im
      * @param loginRequest 登录参数
      * @param userAgent 登录浏览器
      * @return
-     * */
+     */
     @Override
     @OperationServiceLog(description = "登录后台系统")
     public LoginResponse doLogin(LoginRequest loginRequest, String userAgent) throws BusinessCheckException {

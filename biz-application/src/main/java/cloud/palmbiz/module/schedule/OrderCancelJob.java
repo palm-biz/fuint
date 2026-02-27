@@ -39,7 +39,7 @@ public class OrderCancelJob {
 
     /**
      * 分布式锁
-     * */
+     */
     @Autowired
     private RedisLock redisLock;
 
@@ -53,7 +53,7 @@ public class OrderCancelJob {
 
     /**
      * 订单超时分钟
-     * */
+     */
     private final int OVER_TIME = 30;
 
     @Scheduled(cron = "${orderCancel.job.time:0 0/2 * * * ?}")

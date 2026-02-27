@@ -65,7 +65,7 @@ public interface BookItemService extends IService<MtBookItem> {
      * @param  mtBookItem
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     MtBookItem updateBookItem(MtBookItem mtBookItem) throws BusinessCheckException;
 
     /**
@@ -73,7 +73,7 @@ public interface BookItemService extends IService<MtBookItem> {
      *
      * @param  params 查询参数
      * @return
-     * */
+     */
     List<MtBookItem> queryBookItemListByParams(Map<String, Object> params);
 
     /**
@@ -83,6 +83,6 @@ public interface BookItemService extends IService<MtBookItem> {
      * @param remark 备注信息
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     Boolean cancelBook(Integer id, String remark) throws BusinessCheckException;
 }

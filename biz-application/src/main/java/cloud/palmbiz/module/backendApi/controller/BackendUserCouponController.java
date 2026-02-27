@@ -76,7 +76,7 @@ public class BackendUserCouponController extends BaseController {
 
     /**
      * 卡券发放记录接口
-     * */
+     */
     private SendLogService sendLogService;
 
     /**

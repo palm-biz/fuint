@@ -42,7 +42,7 @@ public class CartServiceImpl extends ServiceImpl<MtCartMapper, MtCart> implement
      * @param userId 会员ID
      * @param cartIds 购物车ID
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Boolean switchCartIds(Integer userId, String cartIds) {
@@ -250,7 +250,7 @@ public class CartServiceImpl extends ServiceImpl<MtCartMapper, MtCart> implement
      *
      * @param params 查询参数
      * @return
-     * */
+     */
     @Override
     public List<MtCart> queryCartListByParams(Map<String, Object> params) {
         String status =  params.get("status") == null ? StatusEnum.ENABLED.getKey() : params.get("status").toString();

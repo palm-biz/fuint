@@ -52,12 +52,12 @@ public class CommissionRuleServiceImpl extends ServiceImpl<MtCommissionRuleMappe
 
     /**
      * 商品服务接口
-     * */
+     */
     private GoodsService goodsService;
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**

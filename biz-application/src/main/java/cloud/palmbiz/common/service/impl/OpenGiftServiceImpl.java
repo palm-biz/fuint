@@ -49,29 +49,29 @@ public class OpenGiftServiceImpl extends ServiceImpl<MtOpenGiftMapper, MtOpenGif
 
     /**
      * 卡券服务接口
-     * */
+     */
     private CouponService couponService;
 
     /**
      * 会员等级服务接口
-     * */
+     */
     private UserGradeService userGradeService;
 
     /**
      * 会员积分服务接口
-     * */
+     */
     private PointService pointService;
 
     /**
      * 系统消息服务接口
-     * */
+     */
     private MessageService messageService;
 
     /**
      * 获取开卡赠礼列表
      * @param  paramMap
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public ResponseObject getOpenGiftList(Map<String, Object> paramMap) {
@@ -230,7 +230,7 @@ public class OpenGiftServiceImpl extends ServiceImpl<MtOpenGiftMapper, MtOpenGif
      * @param userId 会员ID
      * @param gradeId 等级ID
      * @return
-     * */
+     */
     @Override
     public Boolean openGift(Integer userId, Integer gradeId, boolean isNewMember) throws BusinessCheckException {
         if (gradeId == null || gradeId.compareTo(0) <= 0) {
@@ -336,7 +336,7 @@ public class OpenGiftServiceImpl extends ServiceImpl<MtOpenGiftMapper, MtOpenGif
      *
      * @param  openGiftInfo 赠礼详情
      * @return OpenGiftDto
-     * */
+     */
     private OpenGiftDto dealDetail(MtOpenGift openGiftInfo) {
         OpenGiftDto openGiftDto = new OpenGiftDto();
 

@@ -41,7 +41,7 @@ public class BackendDoConfirmController extends BaseController {
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
@@ -51,7 +51,7 @@ public class BackendDoConfirmController extends BaseController {
 
     /**
      * 核销记录服务接口
-     * */
+     */
     private ConfirmLogService confirmLogService;
 
     /**

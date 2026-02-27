@@ -41,12 +41,12 @@ public class MerchantRefundController extends BaseController {
 
     /**
      * 店铺员工服务接口
-     * */
+     */
     private StaffService staffService;
 
     /**
      * 售后服务接口
-     * */
+     */
     private RefundService refundService;
 
     /**

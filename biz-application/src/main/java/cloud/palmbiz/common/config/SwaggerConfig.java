@@ -31,7 +31,7 @@ public class SwaggerConfig {
      public ApiInfo apiInfo() {
          return new ApiInfoBuilder()
          .title("会员营销系统接口文档")
-         .description("会员营销系统接口文档，“/clientApi”目录接口为会员端相关接口，“/backendApi”目录接口为后台管理端相关接口。")
+         .description("会员营销系统接口文档，“/client”目录接口为会员端相关接口，“/backendApi”目录接口为后台管理端相关接口。")
          .version("1.0")
          .build();
      }

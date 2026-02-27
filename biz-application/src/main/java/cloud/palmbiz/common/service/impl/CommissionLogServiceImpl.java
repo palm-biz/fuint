@@ -53,27 +53,27 @@ public class CommissionLogServiceImpl extends ServiceImpl<MtCommissionLogMapper,
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
      * 店铺服务接口
-     * */
+     */
     private StoreService storeService;
 
     /**
      * 员工服务接口
-     * */
+     */
     private StaffService staffService;
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 提成方案规则服务接口
-     * */
+     */
     private CommissionRuleService commissionRuleService;
 
     /**
@@ -333,7 +333,7 @@ public class CommissionLogServiceImpl extends ServiceImpl<MtCommissionLogMapper,
      * @param mtCommissionRuleItem 分佣规则
      * @param userId 会员ID
      * @return
-     * */
+     */
     @Transactional
     @OperationServiceLog(description = "新增分销提成记录")
     public void addCommissionLog(MtOrder mtOrder, MtCommissionRule mtCommissionRule, BigDecimal amount, MtCommissionRuleItem mtCommissionRuleItem, Integer userId) {

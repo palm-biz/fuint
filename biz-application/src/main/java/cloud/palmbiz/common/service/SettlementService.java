@@ -46,6 +46,6 @@ public interface SettlementService {
      * @param page
      * @param pageSize
      * @return
-     * */
+     */
     SettlementDto getSettlementInfo(Integer settlementId, Integer page, Integer pageSize) throws BusinessCheckException;
 }

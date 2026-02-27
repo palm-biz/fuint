@@ -49,12 +49,12 @@ public class SettlementServiceImpl implements SettlementService {
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
      * 商户服务接口
-     * */
+     */
     private MerchantService merchantService;
 
     /**
@@ -208,7 +208,7 @@ public class SettlementServiceImpl implements SettlementService {
      * @param page 当前页码
      * @param pageSize 每页数量
      * @return
-     * */
+     */
     @Override
     public SettlementDto getSettlementInfo(Integer settlementId, Integer page, Integer pageSize) throws BusinessCheckException {
         MtSettlement mtSettlement = mtSettlementMapper.selectById(settlementId);

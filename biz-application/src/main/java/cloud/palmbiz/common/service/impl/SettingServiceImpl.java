@@ -32,14 +32,14 @@ public class SettingServiceImpl extends ServiceImpl<MtSettingMapper, MtSetting> 
 
     /**
      * 系统环境变量
-     * */
+     */
     private Environment env;
 
     private MtSettingMapper mtSettingMapper;
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
@@ -145,7 +145,7 @@ public class SettingServiceImpl extends ServiceImpl<MtSettingMapper, MtSetting> 
      * 获取系统上传的根路径
      *
      * @return
-     * */
+     */
     @Override
     public String getUploadBasePath() {
         String basePath = env.getProperty("images.upload.url");
@@ -172,7 +172,7 @@ public class SettingServiceImpl extends ServiceImpl<MtSettingMapper, MtSetting> 
      * @param storeId 店铺ID
      * @param platform 平台
      * @return
-     * */
+     */
     @Override
     public List<ParamDto> getPayTypeList(Integer merchantId, Integer storeId, String platform) {
         List<ParamDto> payTypeList = new ArrayList<>();
@@ -202,7 +202,7 @@ public class SettingServiceImpl extends ServiceImpl<MtSettingMapper, MtSetting> 
      * @param storeId 店铺ID
      *  @param status 状态
      * @return
-     * */
+     */
     @Override
     public List<NavigationDto> getNavigation(Integer merchantId, Integer storeId, String status) throws JsonProcessingException {
         MtSetting mtSetting = mtSettingMapper.querySettingByName(merchantId, storeId, SettingTypeEnum.NAVIGATION.getKey(), SettingTypeEnum.NAVIGATION.getKey());

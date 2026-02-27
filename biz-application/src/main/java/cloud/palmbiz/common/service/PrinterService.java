@@ -37,7 +37,7 @@ public interface PrinterService extends IService<MtPrinter> {
      * @param orderInfo 订单信息
      * @param autoPrint 自动打印
      * @return
-     * */
+     */
     Boolean printOrder(UserOrderDto orderInfo, boolean autoPrint) throws Exception;
 
     /**
@@ -63,7 +63,7 @@ public interface PrinterService extends IService<MtPrinter> {
      * @param  mtPrinter
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     MtPrinter updatePrinter(MtPrinter mtPrinter) throws BusinessCheckException;
 
     /**
@@ -71,6 +71,6 @@ public interface PrinterService extends IService<MtPrinter> {
      *
      * @param params 查询参数
      * @return
-     * */
+     */
     List<MtPrinter> queryPrinterListByParams(Map<String, Object> params);
 }

@@ -47,7 +47,7 @@ public class CateServiceImpl extends ServiceImpl<MtGoodsCateMapper, MtGoodsCate>
 
     /**
      * 店铺服务接口
-     * */
+     */
     private StoreService storeService;
 
     /**
@@ -241,7 +241,7 @@ public class CateServiceImpl extends ServiceImpl<MtGoodsCateMapper, MtGoodsCate>
      * @param name 店铺名称
      * @param status 状态
      * @return
-     * */
+     */
     @Override
     public List<MtGoodsCate> getCateList(Integer merchantId, Integer storeId, String name, String status) {
         LambdaQueryWrapper<MtGoodsCate> lambdaQueryWrapper = Wrappers.lambdaQuery();
@@ -272,7 +272,7 @@ public class CateServiceImpl extends ServiceImpl<MtGoodsCateMapper, MtGoodsCate>
      * @param storeId 店铺ID
      * @param name 分类名称
      * @return
-     * */
+     */
     @Override
     public Integer getGoodsCateId(Integer merchantId, Integer storeId, String name) {
         Integer cateId = 0;

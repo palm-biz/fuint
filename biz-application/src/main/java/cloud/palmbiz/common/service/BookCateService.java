@@ -44,7 +44,7 @@ public interface BookCateService extends IService<MtBookCate> {
      * @param  mtBookCate
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     MtBookCate updateBookCate(MtBookCate mtBookCate) throws BusinessCheckException;
 
     /**
@@ -53,7 +53,7 @@ public interface BookCateService extends IService<MtBookCate> {
      * @param  merchantId 商户ID
      * @param  storeId 店铺ID
      * @return
-     * */
+     */
     List<MtBookCate> getAvailableBookCate(Integer merchantId, Integer storeId);
 
 }

@@ -42,7 +42,7 @@ public interface CommissionRuleService extends IService<MtCommissionRule> {
      *
      * @param  commissionRule
      * @return
-     * */
+     */
     MtCommissionRule updateCommissionRule(CommissionRuleParam commissionRule) throws BusinessCheckException;
 
 }

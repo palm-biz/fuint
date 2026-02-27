@@ -44,17 +44,17 @@ public class BackendPointController extends BaseController {
 
     /**
      * 配置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 积分服务接口
-     * */
+     */
     private PointService pointService;
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**

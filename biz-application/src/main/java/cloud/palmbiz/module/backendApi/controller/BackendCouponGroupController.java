@@ -61,12 +61,12 @@ public class BackendCouponGroupController extends BaseController {
 
     /**
      * 导出服务接口
-     * */
+     */
     private ExportService exportService;
 
     /**
      * 上传文件服务接口
-     * */
+     */
     private UploadService uploadService;
 
     /**
@@ -262,7 +262,7 @@ public class BackendCouponGroupController extends BaseController {
 
     /**
      * 查询分组列表
-     * */
+     */
     @ApiOperation(value = "查询分组列表")
     @RequestMapping(value = "/quickSearch", method = RequestMethod.GET)
     @CrossOrigin

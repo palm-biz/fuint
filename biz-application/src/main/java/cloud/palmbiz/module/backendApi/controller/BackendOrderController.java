@@ -46,17 +46,17 @@ public class BackendOrderController extends BaseController {
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 微信服务接口
-     * */
+     */
     private WeixinService weixinService;
 
     /**
@@ -66,7 +66,7 @@ public class BackendOrderController extends BaseController {
 
     /**
      * 配置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
@@ -122,7 +122,7 @@ public class BackendOrderController extends BaseController {
 
     /**
      * 获取订单详情
-     * */
+     */
     @ApiOperation(value = "获取订单详情")
     @RequestMapping(value = "/info/{orderId}", method = RequestMethod.GET)
     @CrossOrigin
@@ -145,7 +145,7 @@ public class BackendOrderController extends BaseController {
 
     /**
      * 确认发货
-     * */
+     */
     @ApiOperation(value = "确认发货")
     @RequestMapping(value = "/delivered", method = RequestMethod.POST)
     @CrossOrigin
@@ -201,7 +201,7 @@ public class BackendOrderController extends BaseController {
 
     /**
      * 修改订单
-     * */
+     */
     @ApiOperation(value = "修改订单")
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @CrossOrigin
@@ -247,7 +247,7 @@ public class BackendOrderController extends BaseController {
 
     /**
      * 验证并核销订单
-     * */
+     */
     @ApiOperation(value = "验证并核销订单")
     @RequestMapping(value = "/verify", method = RequestMethod.POST)
     @CrossOrigin

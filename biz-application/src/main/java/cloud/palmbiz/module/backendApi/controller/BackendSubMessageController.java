@@ -38,12 +38,12 @@ public class BackendSubMessageController extends BaseController {
 
     /**
      * 配置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 系统环境变量
-     * */
+     */
     private Environment env;
 
     /**

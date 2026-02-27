@@ -27,7 +27,7 @@ public interface OrderService extends IService<MtOrder> {
      *
      * @param  orderListParam
      * @return
-     * */
+     */
     PaginationResponse getUserOrderList(OrderListParam orderListParam);
 
     /**
@@ -46,7 +46,7 @@ public interface OrderService extends IService<MtOrder> {
      * @param settlementParam 结算参数
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     Map<String, Object> doSettle(HttpServletRequest request, SettlementParam settlementParam) throws BusinessCheckException;
 
     /**
@@ -81,7 +81,7 @@ public interface OrderService extends IService<MtOrder> {
      * @param remark 取消备注
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     MtOrder cancelOrder(Integer orderId, String remark) throws BusinessCheckException;
 
     /**
@@ -106,7 +106,7 @@ public interface OrderService extends IService<MtOrder> {
      *
      * @param orderSn 订单号
      * @return
-     * */
+     */
     MtOrder getOrderInfoByOrderSn(String orderSn);
 
     /**
@@ -115,7 +115,7 @@ public interface OrderService extends IService<MtOrder> {
      * @param  reqDto
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     MtOrder updateOrder(OrderDto reqDto) throws BusinessCheckException;
 
     /**
@@ -123,7 +123,7 @@ public interface OrderService extends IService<MtOrder> {
      *
      * @param  mtOrder
      * @return
-     * */
+     */
     MtOrder updateOrder(MtOrder mtOrder);
 
     /**
@@ -133,7 +133,7 @@ public interface OrderService extends IService<MtOrder> {
      * @param payAmount
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     Boolean setOrderPayed(Integer orderId, BigDecimal payAmount) throws BusinessCheckException;
 
     /**
@@ -141,7 +141,7 @@ public interface OrderService extends IService<MtOrder> {
      *
      * @param params 查询参数
      * @return
-     * */
+     */
     List<MtOrder> getOrderListByParams(Map<String, Object> params);
 
     /**
@@ -150,7 +150,7 @@ public interface OrderService extends IService<MtOrder> {
      * @param merchantId 商户ID
      * @param storeId 店铺ID
      * @return
-     * */
+     */
     BigDecimal getOrderCount(Integer merchantId, Integer storeId);
 
     /**
@@ -161,7 +161,7 @@ public interface OrderService extends IService<MtOrder> {
      * @param beginTime 开始时间
      * @param endTime 结束时间
      * @return
-     * */
+     */
     BigDecimal getOrderCount(Integer merchantId, Integer storeId, Date beginTime, Date endTime);
 
     /**
@@ -175,7 +175,7 @@ public interface OrderService extends IService<MtOrder> {
      * @param platform 平台 h5
      * @param orderMode 订单模式，自取或配送
      * @return
-     * */
+     */
     Map<String, Object> calculateCartGoods(Integer merchantId, Integer userId, List<MtCart> cartList, Integer couponId, boolean isUsePoint, String platform, String orderMode);
 
     /**
@@ -186,7 +186,7 @@ public interface OrderService extends IService<MtOrder> {
      * @param beginTime 开始时间
      * @param endTime 结束时间
      * @return
-     * */
+     */
     BigDecimal getPayMoney(Integer merchantId, Integer storeId, Date beginTime, Date endTime);
 
     /**
@@ -195,7 +195,7 @@ public interface OrderService extends IService<MtOrder> {
      * @param merchantId 商户ID
      * @param storeId 店铺ID
      * @return
-     * */
+     */
     Integer getPayUserCount(Integer merchantId, Integer storeId);
 
     /**
@@ -204,7 +204,7 @@ public interface OrderService extends IService<MtOrder> {
      * @param merchantId 商户ID
      * @param storeId 店铺ID
      * @return
-     * */
+     */
     BigDecimal getPayMoney(Integer merchantId, Integer storeId);
 
     /**
@@ -212,7 +212,7 @@ public interface OrderService extends IService<MtOrder> {
      *
      * @param userId 会员ID
      * @return
-     * */
+     */
     BigDecimal getUserPayMoney(Integer userId);
 
     /**
@@ -220,7 +220,7 @@ public interface OrderService extends IService<MtOrder> {
      *
      * @param userId 会员ID
      * @return
-     * */
+     */
     Integer getUserPayOrderCount(Integer userId);
 
     /**
@@ -228,7 +228,7 @@ public interface OrderService extends IService<MtOrder> {
      *
      * @param dateTime 时间
      * @return
-     * */
+     */
     List<MtOrder> getTobeCommissionOrderList(String dateTime);
 
     /**
@@ -236,6 +236,6 @@ public interface OrderService extends IService<MtOrder> {
      *
      * @param rechargeParam 充值参数
      * @return
-     * */
+     */
     MtOrder doRecharge(HttpServletRequest request, RechargeParam rechargeParam) throws BusinessCheckException;
 }

@@ -44,12 +44,12 @@ public class ArticleServiceImpl extends ServiceImpl<MtArticleMapper, MtArticle> 
 
     /**
      * 系统设置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 商户服务接口
-     * */
+     */
     private MerchantService merchantService;
 
     /**
@@ -250,7 +250,7 @@ public class ArticleServiceImpl extends ServiceImpl<MtArticleMapper, MtArticle> 
      *
      * @param params 搜索条件
      * @return
-     * */
+     */
     @Override
     public List<MtArticle> queryArticleListByParams(Map<String, Object> params) {
         String status =  params.get("status") == null ? StatusEnum.ENABLED.getKey(): params.get("status").toString();

@@ -33,14 +33,14 @@ public class TokenUtil {
 
     /**
      * 获取后台登录用户信息
-     * */
+     */
     public static AccountInfo getAccountInfo() {
         return getAccountInfoByToken(getCurrentRequest().getHeader(TOKEN_NAME));
     }
 
     /**
      * 获取会员登录信息
-     * */
+     */
     public static UserInfo getUserInfo() {
         return getUserInfoByToken(getCurrentRequest().getHeader(TOKEN_NAME));
     }
@@ -51,7 +51,7 @@ public class TokenUtil {
      * @param userAgent
      * @param userId
      * @return
-     * */
+     */
     public static String generateToken(String userAgent, Integer userId) {
         StringBuilder stringBuilder = new StringBuilder();
         UserAgent userAgent1 = UserAgent.parseUserAgentString(userAgent);
@@ -80,7 +80,7 @@ public class TokenUtil {
      * @param userAgent
      * @param accountInfo
      * @return
-     * */
+     */
     public static String generateToken(String userAgent, AccountInfo accountInfo) {
         StringBuilder stringBuilder = new StringBuilder();
         UserAgent userAgent1 = UserAgent.parseUserAgentString(userAgent);
@@ -106,7 +106,7 @@ public class TokenUtil {
      *
      * @param userInfo
      * @return
-     * */
+     */
     public static void saveToken(UserInfo userInfo) {
         if (userInfo == null || userInfo.getToken() == null || userInfo.getId() == null) {
             return;
@@ -119,7 +119,7 @@ public class TokenUtil {
      *
      * @param token
      * @return
-     * */
+     */
     public static UserInfo getUserInfoByToken(String token) {
         if (token == null || StringUtil.isEmpty(token)) {
             return null;
@@ -138,7 +138,7 @@ public class TokenUtil {
      *
      * @param token
      * @return
-     * */
+     */
     public static boolean checkTokenLogin(String token) {
         try {
             UserInfo userInfo = RedisUtil.get(Constants.SESSION_USER + token);
@@ -156,7 +156,7 @@ public class TokenUtil {
      *
      * @param token
      * @return
-     * */
+     */
     public static boolean removeToken(String token) {
         RedisUtil.remove(token);
         AuthUserUtil.clean();
@@ -168,7 +168,7 @@ public class TokenUtil {
      *
      * @param accountInfo
      * @return
-     * */
+     */
     public static void saveAccountToken(AccountInfo accountInfo) {
         if (accountInfo == null) {
             return;
@@ -181,7 +181,7 @@ public class TokenUtil {
      *
      * @param token
      * @return
-     * */
+     */
     public static AccountInfo getAccountInfoByToken(String token) {
         Object loginInfo = RedisUtil.get(Constants.SESSION_ADMIN_USER + token);
         ObjectMapper objectMapper = new ObjectMapper();

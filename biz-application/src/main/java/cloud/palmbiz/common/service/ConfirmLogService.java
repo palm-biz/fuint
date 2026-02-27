@@ -26,18 +26,18 @@ public interface ConfirmLogService extends IService<MtConfirmLog> {
      * 获取卡券核销次数
      * @param userCouponId
      * @return
-     * */
+     */
     Long getConfirmNum(Integer userCouponId);
 
     /**
      * 获取卡券核销列表
      * @param userCouponId
      * @return
-     * */
+     */
     List<MtConfirmLog> getConfirmList(Integer userCouponId);
 
     /**
      * 获取核销总数
-     * */
+     */
     Long getConfirmCount(Integer merchantId, Integer storeId, Date beginTime, Date endTime);
 }

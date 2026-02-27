@@ -30,7 +30,7 @@ public interface MemberService extends IService<MtUser> {
      * @param userId 会员ID
      * @param ip IP地址
      * @return
-     * */
+     */
     Boolean updateActiveTime(Integer userId, String ip) throws BusinessCheckException;
 
     /**
@@ -39,7 +39,7 @@ public interface MemberService extends IService<MtUser> {
      * @param userId 会员ID
      * @param accessToken
      * @return
-     * */
+     */
     MtUser getCurrentUserInfo(HttpServletRequest request, Integer userId, String accessToken);
 
     /**
@@ -150,7 +150,7 @@ public interface MemberService extends IService<MtUser> {
      *
      * @param params 查询参数
      * @return
-     * */
+     */
     List<MtUserGrade> queryMemberGradeByParams(Map<String, Object> params);
 
     /**
@@ -159,7 +159,7 @@ public interface MemberService extends IService<MtUser> {
      * @param merchantId 商户ID
      * @param storeId 店铺ID
      * @return
-     * */
+     */
     Long getUserCount(Integer merchantId, Integer storeId);
 
     /**
@@ -170,7 +170,7 @@ public interface MemberService extends IService<MtUser> {
      * @param beginTime 开始时间
      * @param endTime 结束时间
      * @return
-     * */
+     */
     Long getUserCount(Integer merchantId, Integer storeId, Date beginTime, Date endTime);
 
     /**
@@ -181,7 +181,7 @@ public interface MemberService extends IService<MtUser> {
      * @param beginTime 开始时间
      * @param endTime 结束时间
      * @return
-     * */
+     */
     Long getActiveUserCount(Integer merchantId, Integer storeId, Date beginTime, Date endTime);
 
     /**
@@ -202,7 +202,7 @@ public interface MemberService extends IService<MtUser> {
      * @param startTime 开始时间
      * @param endTime 结束时间
      * @return
-     * */
+     */
     List<MemberTopDto> getMemberConsumeTopList(Integer merchantId, Integer storeId, Date startTime, Date endTime);
 
     /**
@@ -214,7 +214,7 @@ public interface MemberService extends IService<MtUser> {
      * @param page 当前页码
      * @param pageSize 每页数量
      * @return
-     * */
+     */
     List<GroupMemberDto> searchMembers(Integer merchantId, String keyword, String groupIds, Integer page, Integer pageSize);
 
     /**
@@ -223,7 +223,7 @@ public interface MemberService extends IService<MtUser> {
      * @param merchantId 商户ID
      * @param keyword 关键字
      * @return
-     * */
+     */
     List<MtUser> searchMembers(Integer merchantId, String keyword);
 
     /**
@@ -241,7 +241,7 @@ public interface MemberService extends IService<MtUser> {
      * @param password 密码（密文）
      * @param salt 随机因子
      * @return
-     * */
+     */
     String deCodePassword(String password, String salt);
 
     /**
@@ -250,7 +250,7 @@ public interface MemberService extends IService<MtUser> {
      * @param merchantId 商户ID
      * @param storeId 店铺ID
      * @return
-     * */
+     */
     List<Integer> getUserIdList(Integer merchantId, Integer storeId);
 
     /**
@@ -259,7 +259,7 @@ public interface MemberService extends IService<MtUser> {
      * @param file excel文件
      * @param accountInfo 操作者
      * @param filePath 文件地址
-     * */
+     */
     Boolean importMember(MultipartFile file, AccountInfo accountInfo, String filePath) throws BusinessCheckException, ParseException;
 
 }

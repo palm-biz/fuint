@@ -16,7 +16,7 @@ public class QRCodeUtil {
      *
      * @param bytes
      * @return
-     * */
+     */
     public static void saveQrCodeToLocal(byte[] bytes, String path) {
         try {
             InputStream inputStream = new ByteArrayInputStream(bytes);

@@ -45,12 +45,12 @@ public class BackendCashierController extends BaseController {
 
     /**
      * 购物车服务接口
-     * */
+     */
     private CartService cartService;
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
@@ -80,7 +80,7 @@ public class BackendCashierController extends BaseController {
 
     /**
      * 员工服务接口
-     * */
+     */
     private StaffService staffService;
 
     /**

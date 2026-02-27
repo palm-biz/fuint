@@ -42,22 +42,22 @@ public class BackendBalanceController extends BaseController {
 
     /**
      * 配置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
      * 余额服务接口
-     * */
+     */
     private BalanceService balanceService;
 
     /**
      * 会员服务接口
-     * */
+     */
     private MemberService memberService;
 
     /**
      * 卡券服务接口
-     * */
+     */
     private CouponService couponService;
 
     /**

@@ -45,12 +45,12 @@ public class UnionPayServiceImpl implements UnionPayService {
 
     /**
      * 订单服务接口
-     * */
+     */
     private OrderService orderService;
 
     /**
      * 店铺服务接口
-     * */
+     */
     private StoreService storeService;
 
     /**
@@ -64,7 +64,7 @@ public class UnionPayServiceImpl implements UnionPayService {
      * @param ip 支付IP地址
      * @param platform 支付平台
      * @return
-     * */
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public ResponseObject createPrepayOrder(MtUser userInfo, MtOrder orderInfo, Integer payAmount, String authCode, Integer giveAmount, String ip, String platform) throws BusinessCheckException {
@@ -142,7 +142,7 @@ public class UnionPayServiceImpl implements UnionPayService {
      *
      * @param params 请求参数
      * @return
-     * */
+     */
     @Override
     public Boolean checkCallBack(Map<String, String> params) throws Exception {
         String orderSn = params.get("out_trade_no") != null ? params.get("out_trade_no") : "";
@@ -160,7 +160,7 @@ public class UnionPayServiceImpl implements UnionPayService {
      *
      * @param storeId 店铺ID
      * @return
-     * */
+     */
     public AliPayApiConfig getApiConfig(Integer storeId) throws BusinessCheckException {
         AliPayApiConfig aliPayApiConfig;
         String appId = unionPayBean.getMachId();
@@ -197,7 +197,7 @@ public class UnionPayServiceImpl implements UnionPayService {
      * @param tradeNo 交易单号
      * @param orderSn 订单号
      * @return
-     * */
+     */
     @Override
     public Map<String, String> queryPaidOrder(Integer storeId, String tradeNo, String orderSn) throws BusinessCheckException {
         try {
@@ -236,7 +236,7 @@ public class UnionPayServiceImpl implements UnionPayService {
      * @param refundAmount 售后金额
      * @param platform 订单平台
      * @return
-     * */
+     */
     public Boolean doRefund(Integer storeId, String orderSn, BigDecimal totalAmount, BigDecimal refundAmount, String platform) throws BusinessCheckException {
         try {
             logger.info("UnionPayService.doRefund orderSn = {}, totalFee = {}, refundFee = {}", orderSn, totalAmount, refundAmount);

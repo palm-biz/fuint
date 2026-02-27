@@ -49,7 +49,7 @@ public class BackendMemberController extends BaseController {
 
     /**
      * 配置服务接口
-     * */
+     */
     private SettingService settingService;
 
     /**
@@ -64,12 +64,12 @@ public class BackendMemberController extends BaseController {
 
     /**
      * 微信相关接口
-     * */
+     */
     private WeixinService weixinService;
 
     /**
      * 上传文件服务接口
-     * */
+     */
     private UploadService uploadService;
 
     /**

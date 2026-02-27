@@ -57,7 +57,7 @@ public interface InvoiceService extends IService<MtInvoice> {
      * @param  invoice
      * @throws BusinessCheckException
      * @return
-     * */
+     */
     MtInvoice updateInvoice(InvoiceParam invoice) throws BusinessCheckException;
 
     /**
@@ -65,7 +65,7 @@ public interface InvoiceService extends IService<MtInvoice> {
      *
      * @param  params 查询参数
      * @return
-     * */
+     */
     List<MtInvoice> queryInvoiceListByParams(Map<String, Object> params);
 
     /**
