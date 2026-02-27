@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.ConfirmLogDto;
 import cloud.palmbiz.common.dto.ParamDto;
 import cloud.palmbiz.common.enums.CouponTypeEnum;
@@ -58,7 +58,7 @@ public class BackendConfirmLogController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('coupon:confirmLog:index')")
     public ResponseObject list(@ModelAttribute ConfirmLogPage confirmLogPage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             confirmLogPage.setMerchantId(accountInfo.getMerchantId());
         }
@@ -95,7 +95,7 @@ public class BackendConfirmLogController extends BaseController {
     @PreAuthorize("@pms.hasPermission('coupon:confirmLog:index')")
     public ResponseObject rollbackUserCoupon(HttpServletRequest request, @PathVariable("id") Integer id) throws BusinessCheckException {
         String userCouponId = (request.getParameter("userCouponId") == null || StringUtil.isEmpty(request.getParameter("userCouponId"))) ? "0" : request.getParameter("userCouponId");
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         couponService.rollbackUserCoupon(id, Integer.parseInt(userCouponId), accountInfo.getAccountName());
         return getSuccessResult(true);
     }

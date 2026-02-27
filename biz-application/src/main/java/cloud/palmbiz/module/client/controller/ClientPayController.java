@@ -1,9 +1,9 @@
 package cloud.palmbiz.module.client.controller;
 
 import com.alipay.api.AlipayApiException;
-import cloud.palmbiz.common.dto.CouponDto;
-import cloud.palmbiz.common.dto.UserInfo;
-import cloud.palmbiz.common.dto.UserOrderDto;
+import cloud.palmbiz.common.coupon.dto.CouponDto;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
+import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.enums.OrderStatusEnum;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
 import cloud.palmbiz.common.enums.YesOrNoEnum;
@@ -101,7 +101,7 @@ public class ClientPayController extends BaseController {
         Integer storeId = StringUtil.isEmpty(request.getHeader("storeId")) ? 0 : Integer.parseInt(request.getHeader("storeId"));
         String useFor = request.getParameter("type") == null ? "" : request.getParameter("type");
         String merchantNo = request.getHeader("merchantNo");
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
 
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
         Map<String, Object> outParams = new HashMap<>();

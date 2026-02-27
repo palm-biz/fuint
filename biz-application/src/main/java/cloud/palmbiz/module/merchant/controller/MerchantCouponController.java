@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.merchant.controller;
 
 import cloud.palmbiz.common.dto.ReqCouponDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.param.CouponListParam;
 import cloud.palmbiz.common.param.CouponReceiveParam;
 import cloud.palmbiz.common.service.CouponService;
@@ -58,7 +58,7 @@ public class MerchantCouponController extends BaseController {
     @CrossOrigin
     public ResponseObject couponList(HttpServletRequest request, @RequestBody CouponListParam params) {
         Integer merchantId = merchantService.getMerchantId(request.getHeader("merchantNo"));
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
         MtStaff staff = staffService.queryStaffByMobile(mtUser.getMobile());
         if (staff == null || !merchantId.equals(staff.getMerchantId())) {
@@ -78,7 +78,7 @@ public class MerchantCouponController extends BaseController {
     @CrossOrigin
     public ResponseObject saveCoupon(HttpServletRequest request, @RequestBody ReqCouponDto reqCouponDto) {
         Integer merchantId = merchantService.getMerchantId(request.getHeader("merchantNo"));
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         if (userInfo == null || userInfo.getMobile() == null) {
             return getFailureResult(201, "您的帐号不是商户，没有操作权限");
         }
@@ -97,7 +97,7 @@ public class MerchantCouponController extends BaseController {
     @CrossOrigin
     public ResponseObject sendCoupon(HttpServletRequest request, @RequestBody CouponReceiveParam receiveParam) throws BusinessCheckException {
         Integer merchantId = merchantService.getMerchantId(request.getHeader("merchantNo"));
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         if (userInfo == null || userInfo.getMobile() == null) {
             return getFailureResult(201, "您的帐号不是商户，没有操作权限");
         }

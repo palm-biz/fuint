@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.client.controller;
 
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.ConfirmParam;
 import cloud.palmbiz.common.service.CouponService;
@@ -63,7 +63,7 @@ public class ClientConfirmController extends BaseController {
         String amount = (confirmParam.getAmount() == null || confirmParam.getAmount() == "") ? "0" : confirmParam.getAmount();
         String remark = confirmParam.getRemark() == null ? "" : confirmParam.getRemark();
 
-        UserInfo loginInfo = TokenUtil.getUserInfo();
+        UserInfoDto loginInfo = TokenUtil.getUserInfo();
         if (loginInfo == null) {
             return getFailureResult(1001);
         }

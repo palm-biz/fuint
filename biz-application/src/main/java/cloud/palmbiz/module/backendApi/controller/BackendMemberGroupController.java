@@ -1,9 +1,9 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.MemberGroupDto;
-import cloud.palmbiz.common.dto.UserGroupDto;
+import cloud.palmbiz.common.user.dto.UserGroupDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.MemberGroupService;
 import cloud.palmbiz.common.util.TokenUtil;
@@ -57,7 +57,7 @@ public class BackendMemberGroupController extends BaseController {
         String id = request.getParameter("id") == null ? "" : request.getParameter("id");
         String status = request.getParameter("status") == null ? StatusEnum.ENABLED.getKey() : request.getParameter("status");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Map<String, Object> searchParams = new HashMap<>();
         if (StringUtil.isNotEmpty(name)) {
             searchParams.put("name", name);
@@ -90,7 +90,7 @@ public class BackendMemberGroupController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('member:group:index')")
     public ResponseObject save(@RequestBody MemberGroupDto memberGroupDto) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         if (accountInfo.getMerchantId() == null || accountInfo.getMerchantId() <= 0) {
             return getFailureResult(5002);
@@ -115,7 +115,7 @@ public class BackendMemberGroupController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('member:group:index')")
     public ResponseObject delete(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         // 该分组已有会员，不允许删除
         Map<String, Object> searchParams = new HashMap<>();
@@ -142,7 +142,7 @@ public class BackendMemberGroupController extends BaseController {
         String status = params.get("status") != null ? params.get("status").toString() : StatusEnum.ENABLED.getKey();
         Integer id = params.get("id") == null ? 0 : Integer.parseInt(params.get("id").toString());
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         MemberGroupDto groupDto = new MemberGroupDto();
         groupDto.setOperator(accountInfo.getAccountName());
         groupDto.setId(id);

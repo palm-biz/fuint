@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.GenCodeService;
 import cloud.palmbiz.common.util.CommonUtil;
@@ -103,7 +103,7 @@ public class BackendGenCodeController extends BaseController {
         String author = params.get("author") == null ? "" : params.get("author").toString();
         String backendPath = params.get("backendPath") == null ? "" : params.get("backendPath").toString();
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             return getFailureResult(1004, "平台超管帐号才有操作权限");
         }
@@ -152,7 +152,7 @@ public class BackendGenCodeController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('system:genCode:gen')")
     public ResponseObject gen(@PathVariable("id") Integer id) {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             return getFailureResult(1004, "平台超管帐号才有操作权限");
         }

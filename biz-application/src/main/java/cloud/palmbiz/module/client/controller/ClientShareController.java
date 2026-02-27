@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.client.controller;
 
 import cloud.palmbiz.common.dto.CommissionRelationDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.CommissionRelationPage;
 import cloud.palmbiz.common.service.CommissionRelationService;
@@ -64,7 +64,7 @@ public class ClientShareController extends BaseController {
     @CrossOrigin
     public ResponseObject list(HttpServletRequest request,  @RequestBody CommissionRelationPage commissionRelationPage) throws BusinessCheckException {
         String merchantNo = request.getHeader("merchantNo") == null ? "" : request.getHeader("merchantNo");
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
 
         commissionRelationPage.setStatus(StatusEnum.ENABLED.getKey());
         commissionRelationPage.setUserId(userInfo.getId());
@@ -88,7 +88,7 @@ public class ClientShareController extends BaseController {
     @RequestMapping(value = "/getMiniAppLink", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject getMiniAppLink(HttpServletRequest request, @RequestBody Map<String, Object> param) {
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
         String path = param.get("path") == null ? "" : param.get("path").toString();
         String query = param.get("query") == null ? "" : param.get("query").toString();
         Integer merchantId = merchantService.getMerchantId(request.getHeader("merchantNo"));

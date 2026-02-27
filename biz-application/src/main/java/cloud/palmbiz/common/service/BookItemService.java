@@ -1,7 +1,7 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.common.dto.BookItemDto;
+import cloud.palmbiz.common.appointment.dto.BookItemDto;
 import cloud.palmbiz.common.param.BookItemPage;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.framework.exception.BusinessCheckException;

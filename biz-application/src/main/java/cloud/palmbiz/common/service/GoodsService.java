@@ -1,6 +1,6 @@
 package cloud.palmbiz.common.service;
 
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.GoodsDto;
 import cloud.palmbiz.common.dto.GoodsSpecValueDto;
 import cloud.palmbiz.common.dto.GoodsTopDto;
@@ -155,7 +155,7 @@ public interface GoodsService {
      * @param accountInfo 操作者
      * @param filePath 文件地址
      */
-    Boolean importGoods(MultipartFile file, AccountInfo accountInfo, String filePath) throws BusinessCheckException;
+    Boolean importGoods(MultipartFile file, AccountInfoDto accountInfo, String filePath) throws BusinessCheckException;
 
     /**
      * 获取规格ID

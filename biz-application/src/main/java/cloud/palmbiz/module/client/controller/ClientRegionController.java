@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.client.controller;
 
 import cloud.palmbiz.common.dto.RegionDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.web.BaseController;
 import cloud.palmbiz.framework.web.ResponseObject;
@@ -38,7 +38,7 @@ public class ClientRegionController extends BaseController {
     @RequestMapping(value = "/tree", method = RequestMethod.GET)
     @CrossOrigin
     public ResponseObject tree() {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         if (userInfo == null) {
             return getFailureResult(1001, "用户未登录");
         }

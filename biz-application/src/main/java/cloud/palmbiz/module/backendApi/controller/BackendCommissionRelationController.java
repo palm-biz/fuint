@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.CommissionRelationDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.CommissionRelationPage;
@@ -51,7 +51,7 @@ public class BackendCommissionRelationController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('commission:relation:index')")
     public ResponseObject list(@ModelAttribute CommissionRelationPage commissionRelationPage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getStoreId() != null && accountInfo.getStoreId() > 0) {
             commissionRelationPage.setStoreId(accountInfo.getStoreId());
         }
@@ -85,7 +85,7 @@ public class BackendCommissionRelationController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('commission:relation:index')")
     public ResponseObject updateStatus(@RequestBody StatusParam params) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         MtCommissionRelation mtCommissionRelation = commissionRelationService.getById(params.getId());
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             if (!accountInfo.getMerchantId().equals(mtCommissionRelation.getMerchantId())) {
@@ -105,7 +105,7 @@ public class BackendCommissionRelationController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('commission:relation:index')")
     public ResponseObject delete(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         MtCommissionRelation mtCommissionRelation = commissionRelationService.getById(id);
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {

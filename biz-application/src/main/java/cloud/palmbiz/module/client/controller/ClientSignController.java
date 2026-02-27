@@ -2,7 +2,7 @@ package cloud.palmbiz.module.client.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import cloud.palmbiz.common.dto.TokenDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.GenderEnum;
 import cloud.palmbiz.common.enums.MemberSourceEnum;
 import cloud.palmbiz.common.enums.StatusEnum;
@@ -120,7 +120,7 @@ public class ClientSignController extends BaseController {
         }
 
         String token = TokenUtil.generateToken(request.getHeader("user-agent"), mtUser.getId());
-        UserInfo userLoginInfo = new UserInfo();
+        UserInfoDto userLoginInfo = new UserInfoDto();
         userLoginInfo.setId(mtUser.getId());
         userLoginInfo.setToken(token);
         userLoginInfo.setMobile(mtUser.getMobile());
@@ -168,7 +168,7 @@ public class ClientSignController extends BaseController {
 
         String userAgent = request.getHeader("user-agent");
         String token = TokenUtil.generateToken(userAgent, mtUser.getId());
-        UserInfo userLoginInfo = new UserInfo();
+        UserInfoDto userLoginInfo = new UserInfoDto();
         userLoginInfo.setId(mtUser.getId());
         userLoginInfo.setToken(token);
         userLoginInfo.setMobile(mtUser.getMobile());
@@ -232,7 +232,7 @@ public class ClientSignController extends BaseController {
 
         if (userInfo != null) {
             String token = TokenUtil.generateToken(userAgent, userInfo.getId());
-            UserInfo loginInfo = new UserInfo();
+            UserInfoDto loginInfo = new UserInfoDto();
             loginInfo.setId(userInfo.getId());
             loginInfo.setToken(token);
             loginInfo.setMobile(userInfo.getMobile());
@@ -304,7 +304,7 @@ public class ClientSignController extends BaseController {
                 }
 
                 String userToken = TokenUtil.generateToken(userAgent, mtUser.getId());
-                UserInfo loginInfo = new UserInfo();
+                UserInfoDto loginInfo = new UserInfoDto();
                 loginInfo.setId(mtUser.getId());
                 loginInfo.setToken(userToken);
                 loginInfo.setMobile(mtUser.getMobile());
@@ -332,7 +332,7 @@ public class ClientSignController extends BaseController {
                 String inputPassword = memberService.deCodePassword(password, userInfo.getSalt());
                 if (myPassword.equals(inputPassword)) {
                     token = TokenUtil.generateToken(userAgent, userInfo.getId());
-                    UserInfo loginInfo = new UserInfo();
+                    UserInfoDto loginInfo = new UserInfoDto();
                     loginInfo.setToken(token);
                     loginInfo.setId(userInfo.getId());
                     loginInfo.setMobile(userInfo.getMobile());
@@ -374,7 +374,7 @@ public class ClientSignController extends BaseController {
     @RequestMapping(value = "/doGetUserInfo", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject doGetUserInfo() {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         if (userInfo == null) {
             return getFailureResult(1001, "用户没登录!");
         }

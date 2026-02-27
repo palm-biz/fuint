@@ -1,8 +1,8 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.common.dto.AccountDto;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.param.AccountPage;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
@@ -32,7 +32,7 @@ public interface AccountService extends IService<TAccount> {
      * @param userName 账号名称
      * @return
      */
-    AccountInfo getAccountByName(String userName);
+    AccountInfoDto getAccountByName(String userName);
 
     /**
      * 获取用户信息

@@ -4,10 +4,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.GroupMemberDto;
 import cloud.palmbiz.common.dto.MemberTopDto;
-import cloud.palmbiz.common.dto.UserDto;
+import cloud.palmbiz.common.user.dto.UserDto;
 import cloud.palmbiz.common.enums.*;
 import cloud.palmbiz.common.param.MemberPage;
 import cloud.palmbiz.common.service.*;
@@ -160,7 +160,7 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
         MtUser mtUser = null;
 
         // 没有会员信息，则查询是否是后台收银员下单
-        AccountInfo accountInfo = TokenUtil.getAccountInfoByToken(token);
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfoByToken(token);
         if (accountInfo != null) {
             // 输入了会员ID就用会员的账号下单，否则用员工账号下单
             if (userId != null && userId > 0) {
@@ -1046,7 +1046,7 @@ public class MemberServiceImpl extends ServiceImpl<MtUserMapper, MtUser> impleme
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "导入会员列表")
-    public Boolean importMember(MultipartFile file, AccountInfo accountInfo, String filePath) throws BusinessCheckException, ParseException {
+    public Boolean importMember(MultipartFile file, AccountInfoDto accountInfo, String filePath) throws BusinessCheckException, ParseException {
         String originalFileName = file.getOriginalFilename();
         boolean isExcel2003 = XlsUtil.isExcel2003(originalFileName);
         boolean isExcel2007 = XlsUtil.isExcel2007(originalFileName);

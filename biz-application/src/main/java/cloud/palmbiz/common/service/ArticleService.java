@@ -1,7 +1,7 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.common.dto.ArticleDto;
+import cloud.palmbiz.common.article.dto.ArticleDto;
 import cloud.palmbiz.common.param.ArticlePage;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.MtArticle;

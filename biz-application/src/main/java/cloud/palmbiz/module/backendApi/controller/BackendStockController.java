@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.GoodsDto;
 import cloud.palmbiz.common.dto.StockGoodsDto;
 import cloud.palmbiz.common.enums.StatusEnum;
@@ -72,7 +72,7 @@ public class BackendStockController extends BaseController {
         String searchStoreId = request.getParameter("storeId");
         String type = request.getParameter("type");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Integer storeId = accountInfo.getStoreId() == null ? 0 : accountInfo.getStoreId();
 
         Map<String, Object> params = new HashMap<>();
@@ -117,7 +117,7 @@ public class BackendStockController extends BaseController {
     public ResponseObject delete(@RequestBody Map<String, Object> params) throws BusinessCheckException {
         Integer id = params.get("id") == null ? 0 : Integer.parseInt(params.get("id").toString());
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         MtStock mtStock = stockService.queryStockById(id.longValue());
         if (mtStock == null) {
             return getFailureResult(201, "该数据不存在");
@@ -142,7 +142,7 @@ public class BackendStockController extends BaseController {
         List<LinkedHashMap<String, Object>> originalMapList = (List<LinkedHashMap<String, Object>>) params.get("goodsList");
         List<StockGoodsDto> goodsList = ListUtil.convertMapListToDtoList(originalMapList, StockGoodsDto.class);
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Integer myStoreId = accountInfo.getStoreId();
         if (myStoreId != null && myStoreId > 0) {
             storeId = myStoreId;

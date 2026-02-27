@@ -1,8 +1,8 @@
 package cloud.palmbiz.module.client.controller;
 
-import cloud.palmbiz.common.dto.BookDto;
-import cloud.palmbiz.common.dto.BookItemDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.appointment.dto.BookDto;
+import cloud.palmbiz.common.appointment.dto.BookItemDto;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.BookStatusEnum;
 import cloud.palmbiz.common.param.*;
 import cloud.palmbiz.common.service.*;
@@ -161,7 +161,7 @@ public class ClientBookController extends BaseController {
         String date = param.get("date") == null ? "" : param.get("date").toString();
         String time = param.get("time") == null ? "" : param.get("time").toString();
 
-        UserInfo loginInfo = TokenUtil.getUserInfo();
+        UserInfoDto loginInfo = TokenUtil.getUserInfo();
         if (null == loginInfo) {
             return getFailureResult(1001);
         }
@@ -204,7 +204,7 @@ public class ClientBookController extends BaseController {
         if (merchantId > 0) {
             bookItemPage.setMerchantId(merchantId);
         }
-        UserInfo loginInfo = TokenUtil.getUserInfo();
+        UserInfoDto loginInfo = TokenUtil.getUserInfo();
         bookItemPage.setUserId(loginInfo.getId());
         if (StringUtil.isNotEmpty(status)) {
             bookItemPage.setStatus(status);
@@ -232,7 +232,7 @@ public class ClientBookController extends BaseController {
     public ResponseObject cancel(HttpServletRequest request) throws BusinessCheckException {
         String bookId = request.getParameter("bookId");
         String remark = request.getParameter("remark") == null ? "会员取消" : request.getParameter("remark");
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
 
         if (StringUtil.isEmpty(bookId)) {
             return getFailureResult(2000, "订单不能为空");

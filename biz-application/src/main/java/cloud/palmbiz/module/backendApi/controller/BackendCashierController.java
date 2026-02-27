@@ -95,7 +95,7 @@ public class BackendCashierController extends BaseController {
         Integer pageSize = request.getParameter("pageSize") == null ? Constants.PAGE_SIZE : Integer.parseInt(request.getParameter("pageSize"));
         Integer cateId = request.getParameter("cateId") == null ? 0 : Integer.parseInt(request.getParameter("cateId"));
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Integer storeId = accountInfo.getStoreId() == null ? 0 : accountInfo.getStoreId();
         MtStore storeInfo = null;
         if (storeId == null || storeId < 1) {
@@ -141,7 +141,7 @@ public class BackendCashierController extends BaseController {
     public ResponseObject searchGoods(@RequestBody Map<String, Object> param) {
         String keyword =  param.get("keyword") == null ? "" : param.get("keyword").toString();
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Integer storeId = accountInfo.getStoreId();
 
         if (storeId == null || storeId <= 0) {
@@ -239,7 +239,7 @@ public class BackendCashierController extends BaseController {
     @PreAuthorize("@pms.hasPermission('cashier:index')")
     public ResponseObject getMemberInfo(@RequestBody Map<String, Object> param) {
         String keyword = param.get("keyword") == null ? "" : param.get("keyword").toString();
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (StringUtil.isEmpty(keyword)) {
             return getFailureResult(201);
         }
@@ -273,7 +273,7 @@ public class BackendCashierController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('cashier:index')")
     public ResponseObject getMemberInfoById(@PathVariable("userId") String userId) {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         if (StringUtil.isEmpty(userId)) {
             return getFailureResult(201);
@@ -301,7 +301,7 @@ public class BackendCashierController extends BaseController {
         String hangNo = param.get("hangNo") == null ? "" : param.get("hangNo").toString();
         String userId = param.get("userId") == null ? "" : param.get("userId").toString();
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         if (accountInfo.getMerchantId() == null || accountInfo.getMerchantId() <= 0) {
             return getFailureResult(201, "平台账号不能执行该操作");
@@ -332,7 +332,7 @@ public class BackendCashierController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('cashier:index')")
     public ResponseObject getHangUpList() {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         List<HangUpDto> dataList = new ArrayList<>();
 

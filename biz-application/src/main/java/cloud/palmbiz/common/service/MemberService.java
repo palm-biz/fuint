@@ -2,10 +2,10 @@ package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.alibaba.fastjson.JSONObject;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.GroupMemberDto;
 import cloud.palmbiz.common.dto.MemberTopDto;
-import cloud.palmbiz.common.dto.UserDto;
+import cloud.palmbiz.common.user.dto.UserDto;
 import cloud.palmbiz.common.param.MemberPage;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
@@ -260,6 +260,6 @@ public interface MemberService extends IService<MtUser> {
      * @param accountInfo 操作者
      * @param filePath 文件地址
      */
-    Boolean importMember(MultipartFile file, AccountInfo accountInfo, String filePath) throws BusinessCheckException, ParseException;
+    Boolean importMember(MultipartFile file, AccountInfoDto accountInfo, String filePath) throws BusinessCheckException, ParseException;
 
 }

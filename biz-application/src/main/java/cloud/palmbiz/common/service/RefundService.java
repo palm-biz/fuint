@@ -1,8 +1,8 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.common.dto.AccountInfo;
-import cloud.palmbiz.common.dto.RefundDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.aftersale.dto.AftersaleDto;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
@@ -22,7 +22,7 @@ public interface RefundService extends IService<MtRefund> {
      * @param paginationRequest
      * @return
      */
-    PaginationResponse<RefundDto> getRefundListByPagination(PaginationRequest paginationRequest);
+    PaginationResponse<AftersaleDto> getRefundListByPagination(PaginationRequest paginationRequest);
 
     /**
      * 获取用户的售后订单
@@ -34,10 +34,10 @@ public interface RefundService extends IService<MtRefund> {
     /**
      * 创建售后订单
      *
-     * @param refundDto
+     * @param AftersaleDto
      * @return
      */
-    MtRefund createRefund(RefundDto refundDto);
+    MtRefund createRefund(AftersaleDto AftersaleDto);
 
     /**
      * 根据ID获取售后订单信息
@@ -45,7 +45,7 @@ public interface RefundService extends IService<MtRefund> {
      * @param id ID
      * @return
      */
-    RefundDto getRefundById(Integer id);
+    AftersaleDto getRefundById(Integer id);
 
     /**
      * 根据订单ID获取售后订单信息
@@ -60,14 +60,14 @@ public interface RefundService extends IService<MtRefund> {
      * @param  reqDto
      * @throws BusinessCheckException
      */
-    MtRefund updateRefund(RefundDto reqDto) throws BusinessCheckException;
+    MtRefund updateRefund(AftersaleDto reqDto) throws BusinessCheckException;
 
     /**
      * 同意售后订单
      * @param  reqDto
      * @throws BusinessCheckException
      */
-    MtRefund agreeRefund(RefundDto reqDto) throws BusinessCheckException;
+    MtRefund agreeRefund(AftersaleDto reqDto) throws BusinessCheckException;
 
     /**
      * 发起退款
@@ -78,7 +78,7 @@ public interface RefundService extends IService<MtRefund> {
      * @param accountInfo 操作人信息
      * throws BusinessCheckException;
      */
-    Boolean doRefund(Integer orderId, String refundAmount, String remark, AccountInfo accountInfo) throws BusinessCheckException;
+    Boolean doRefund(Integer orderId, String refundAmount, String remark, AccountInfoDto accountInfo) throws BusinessCheckException;
 
     /**
      * 获取售后订单总数

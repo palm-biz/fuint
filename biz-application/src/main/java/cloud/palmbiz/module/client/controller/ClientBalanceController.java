@@ -1,9 +1,9 @@
 package cloud.palmbiz.module.client.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.BalanceDto;
+import cloud.palmbiz.common.balance.dto.BalanceDto;
 import cloud.palmbiz.common.dto.RechargeRuleDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.BalanceSettingEnum;
 import cloud.palmbiz.common.enums.PayTypeEnum;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
@@ -129,7 +129,7 @@ public class ClientBalanceController extends BaseController {
         String platform = request.getHeader("platform") == null ? "" : request.getHeader("platform");
         String isWechat = request.getHeader("isWechat") == null ? "" : request.getHeader("isWechat");
 
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         if (null == userInfo) {
             return getFailureResult(1001);
         }
@@ -161,7 +161,7 @@ public class ClientBalanceController extends BaseController {
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject list(@RequestBody BalanceListParam balanceListParam) throws BusinessCheckException {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         Integer page = balanceListParam.getPage() == null ? Constants.PAGE_NUMBER : balanceListParam.getPage();
         Integer pageSize = balanceListParam.getPageSize() == null ? Constants.PAGE_SIZE : balanceListParam.getPageSize();
 

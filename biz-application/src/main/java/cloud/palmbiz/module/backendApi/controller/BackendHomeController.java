@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
-import cloud.palmbiz.common.dto.UserOrderDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.service.MemberService;
 import cloud.palmbiz.common.service.OrderService;
 import cloud.palmbiz.common.util.DateUtil;
@@ -55,7 +55,7 @@ public class BackendHomeController extends BaseController {
         Date beginTime = DateUtil.getDayBegin();
         Date endTime = DateUtil.getDayEnd();
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Integer merchantId = accountInfo.getMerchantId();
         Integer storeId = accountInfo.getStoreId();
 
@@ -104,7 +104,7 @@ public class BackendHomeController extends BaseController {
         String tag = request.getParameter("tag") == null ? "order,user_active" : request.getParameter("tag");
         Integer storeId = StringUtil.isEmpty(request.getParameter("storeId")) ? 0 : Integer.parseInt(request.getParameter("storeId"));
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Integer merchantId = accountInfo.getMerchantId() == null ? 0 : accountInfo.getMerchantId();
 
         if (accountInfo.getStoreId() != null && accountInfo.getStoreId() > 0) {

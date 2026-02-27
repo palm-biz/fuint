@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.ParamDto;
 import cloud.palmbiz.common.dto.SettlementDto;
 import cloud.palmbiz.common.enums.OrderStatusEnum;
@@ -70,7 +70,7 @@ public class BackendSettlementController extends BaseController {
         String userId = request.getParameter("userId") == null ? "" : request.getParameter("userId");
         String status = request.getParameter("status") == null ? StatusEnum.ENABLED.getKey() : request.getParameter("status");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Map<String, Object> searchParams = new HashMap<>();
         if (StringUtil.isNotEmpty(mobile)) {
             searchParams.put("mobile", mobile);
@@ -117,7 +117,7 @@ public class BackendSettlementController extends BaseController {
         Integer page = request.getParameter("page") == null ? Constants.PAGE_NUMBER : Integer.parseInt(request.getParameter("page"));
         Integer pageSize = request.getParameter("pageSize") == null ? Constants.PAGE_SIZE : Integer.parseInt(request.getParameter("pageSize"));
         Integer settlementId = request.getParameter("settlementId") == null ? 0 : Integer.parseInt(request.getParameter("settlementId"));
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         SettlementDto settlementInfo = settlementService.getSettlementInfo(settlementId, page, pageSize);
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
@@ -143,7 +143,7 @@ public class BackendSettlementController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('settlement:doSubmit')")
     public ResponseObject doSubmit(@RequestBody SettlementRequest requestParam) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             requestParam.setMerchantId(accountInfo.getMerchantId());
@@ -162,7 +162,7 @@ public class BackendSettlementController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('settlement:doConfirm')")
     public ResponseObject doConfirm(@RequestBody SettlementRequest param) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Integer settlementId = param.getSettlementId();
         if (settlementId == null) {
             return getFailureResult(201, "参数有误");

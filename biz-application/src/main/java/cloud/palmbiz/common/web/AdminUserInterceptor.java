@@ -1,7 +1,7 @@
 package cloud.palmbiz.common.web;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.util.AuthUserUtil;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.common.utils.PropertiesUtil;
@@ -27,7 +27,7 @@ public class AdminUserInterceptor implements AsyncHandlerInterceptor {
             return false;
         }
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfoByToken(accessToken);
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfoByToken(accessToken);
         // 验证session中的Token
         if (accountInfo != null && accountInfo.getToken().equals(accessToken)) {
             AuthUserUtil.set(accountInfo);

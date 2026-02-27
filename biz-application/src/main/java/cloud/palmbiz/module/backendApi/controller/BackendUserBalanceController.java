@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.StatusParam;
 import cloud.palmbiz.common.param.UserBalancePage;
@@ -43,7 +43,7 @@ public class BackendUserBalanceController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('userBalance:list')")
     public ResponseObject list(@ModelAttribute UserBalancePage userBalancePage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Map<String, Object> params = new HashMap<>();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             params.put("merchantId", accountInfo.getMerchantId());
@@ -69,7 +69,7 @@ public class BackendUserBalanceController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('userBalance:edit')")
     public ResponseObject updateStatus(@RequestBody StatusParam params) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         String status = params.getStatus() == null ? params.getStatus() : StatusEnum.ENABLED.getKey();
         MtUserBalance mtUserBalance = userBalanceService.queryUserBalanceById(params.getId());
         if (mtUserBalance == null) {
@@ -91,7 +91,7 @@ public class BackendUserBalanceController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('userBalance:add')")
     public ResponseObject saveHandler(@RequestBody Map<String, Object> params) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         String id = params.get("id") == null ? "" : params.get("id").toString();
         String status = params.get("status") == null ? StatusEnum.ENABLED.getKey() : params.get("status").toString();
         String storeId = params.get("storeId") == null ? "0" : params.get("storeId").toString();

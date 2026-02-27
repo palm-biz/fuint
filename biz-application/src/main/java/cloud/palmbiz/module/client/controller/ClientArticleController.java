@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.client.controller;
 
-import cloud.palmbiz.common.dto.ArticleDto;
+import cloud.palmbiz.common.article.dto.ArticleDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.ArticleDetailParam;
 import cloud.palmbiz.common.param.ArticlePage;

@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.client.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
 import cloud.palmbiz.common.service.MerchantService;
 import cloud.palmbiz.common.service.MessageService;
@@ -57,7 +57,7 @@ public class ClientMessageController extends BaseController {
     @RequestMapping(value = "/getOne", method = RequestMethod.GET)
     @CrossOrigin
     public ResponseObject getOne() {
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
         if (null == mtUser) {
             return getSuccessResult(false);
         }
@@ -82,7 +82,7 @@ public class ClientMessageController extends BaseController {
     @RequestMapping(value = "/readed", method = RequestMethod.GET)
     @CrossOrigin
     public ResponseObject setRead(HttpServletRequest request) {
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
 
         Integer msgId =  request.getParameter("msgId") == null ? 0 :Integer.parseInt(request.getParameter("msgId"));
 

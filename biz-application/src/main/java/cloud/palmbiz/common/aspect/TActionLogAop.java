@@ -2,7 +2,7 @@ package cloud.palmbiz.common.aspect;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.service.AccountService;
 import cloud.palmbiz.common.service.ActionLogService;
 import cloud.palmbiz.common.util.CommonUtil;
@@ -148,7 +148,7 @@ public class TActionLogAop {
             }
             String token = request.getHeader("Access-Token");
             if (StringUtils.isNotEmpty(token)) {
-                AccountInfo accountInfo = TokenUtil.getAccountInfoByToken(token);
+                AccountInfoDto accountInfo = TokenUtil.getAccountInfoByToken(token);
                 if (accountInfo != null) {
                     userName = accountInfo.getAccountName();
                     merchantId = accountInfo.getMerchantId() == null ? 0 : accountInfo.getMerchantId();
@@ -161,7 +161,7 @@ public class TActionLogAop {
                         JSONObject tAccount = jsonObject.getJSONObject("tAccount");
                         if (tAccount != null) {
                             String accountName = tAccount.getString("username");
-                            AccountInfo accountInfo = tAccountService.getAccountByName(accountName);
+                            AccountInfoDto accountInfo = tAccountService.getAccountByName(accountName);
                             if (accountInfo != null) {
                                 userName = accountInfo.getAccountName();
                                 merchantId = accountInfo.getMerchantId();

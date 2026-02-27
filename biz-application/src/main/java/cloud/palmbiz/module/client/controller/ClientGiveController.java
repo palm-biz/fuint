@@ -2,7 +2,7 @@ package cloud.palmbiz.module.client.controller;
 
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.dto.GiveDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.param.GiveListParam;
 import cloud.palmbiz.common.param.GiveParam;
 import cloud.palmbiz.common.service.GiveService;
@@ -49,7 +49,7 @@ public class ClientGiveController extends BaseController {
     @RequestMapping(value = "/doGive", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject doGive(@RequestBody GiveParam giveParam) throws BusinessCheckException {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
         giveParam.setUserId(mtUser.getId());
         giveParam.setStoreId(mtUser.getStoreId());
@@ -65,7 +65,7 @@ public class ClientGiveController extends BaseController {
     @RequestMapping(value = "/giveLog", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject giveLog(@RequestBody GiveListParam giveListParam) {
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
         String mobile = giveListParam.getMobile() == null ? "" : giveListParam.getMobile();
         String type = giveListParam.getType() == null ? "give" : giveListParam.getType();
         Integer page = giveListParam.getPage() == null ? Constants.PAGE_NUMBER : giveListParam.getPage();

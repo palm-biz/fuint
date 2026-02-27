@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cloud.palmbiz.common.dto.MerchantDto;
 import cloud.palmbiz.common.dto.MerchantSettingDto;
-import cloud.palmbiz.common.dto.StoreDto;
+import cloud.palmbiz.common.store.dto.StoreDto;
 import cloud.palmbiz.common.enums.OrderSettingEnum;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
 import cloud.palmbiz.common.enums.StatusEnum;

@@ -1,10 +1,10 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.ParamDto;
-import cloud.palmbiz.common.dto.RefundDto;
-import cloud.palmbiz.common.dto.UserOrderDto;
+import cloud.palmbiz.common.aftersale.dto.AftersaleDto;
+import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.enums.RefundStatusEnum;
 import cloud.palmbiz.common.enums.RefundTypeEnum;
 import cloud.palmbiz.common.service.MemberService;
@@ -70,7 +70,7 @@ public class BackendRefundController extends BaseController {
         String startTime = request.getParameter("startTime") == null ? "" : request.getParameter("startTime");
         String endTime = request.getParameter("endTime") == null ? "" : request.getParameter("endTime");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Integer storeId = accountInfo.getStoreId() == null ? 0 : accountInfo.getStoreId();
 
         Map<String, Object> params = new HashMap<>();
@@ -108,7 +108,7 @@ public class BackendRefundController extends BaseController {
         if (StringUtil.isNotEmpty(endTime)) {
             params.put("endTime", endTime);
         }
-        PaginationResponse<RefundDto> paginationResponse = refundService.getRefundListByPagination(new PaginationRequest(page, pageSize, params));
+        PaginationResponse<AftersaleDto> paginationResponse = refundService.getRefundListByPagination(new PaginationRequest(page, pageSize, params));
 
         // 售后状态列表
         List<ParamDto> statusList = RefundStatusEnum.getRefundStatusList();
@@ -132,9 +132,9 @@ public class BackendRefundController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('refund:index')")
     public ResponseObject info(@PathVariable("refundId") Integer refundId) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
-        RefundDto refundInfo = refundService.getRefundById(refundId);
+        AftersaleDto refundInfo = refundService.getRefundById(refundId);
         UserOrderDto orderInfo = null;
         if (refundInfo != null) {
             orderInfo = orderService.getOrderById(refundInfo.getOrderId());
@@ -164,10 +164,10 @@ public class BackendRefundController extends BaseController {
         String status = param.get("status") == null ? "" : param.get("status").toString();
         String remark = param.get("remark") == null ? "" : param.get("remark").toString();
         String rejectReason = param.get("rejectReason") == null ? "" : param.get("rejectReason").toString();
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         if (status.equals(RefundStatusEnum.REJECT.getKey())) {
-            RefundDto dto = new RefundDto();
+            AftersaleDto dto = new AftersaleDto();
             dto.setId(refundId);
             dto.setOperator(accountInfo.getAccountName());
             dto.setStatus(RefundStatusEnum.REJECT.getKey());
@@ -175,7 +175,7 @@ public class BackendRefundController extends BaseController {
             dto.setRejectReason(rejectReason);
             refundService.updateRefund(dto);
         } else {
-            RefundDto dto = new RefundDto();
+            AftersaleDto dto = new AftersaleDto();
             dto.setId(refundId);
             dto.setOperator(accountInfo.getAccountName());
             dto.setStatus(status);
@@ -200,7 +200,7 @@ public class BackendRefundController extends BaseController {
         Integer orderId = param.get("orderId") == null ? 0 : Integer.parseInt(param.get("orderId").toString());
         String remark = param.get("remark") == null ? "" : param.get("remark").toString();
         String refundAmount = param.get("refundAmount") == null ? "" : param.get("refundAmount").toString();
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         if (orderId <= 0 || StringUtil.isEmpty(refundAmount)) {
             return getFailureResult(201, "参数有误，发起退款失败");

@@ -1,7 +1,7 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.common.dto.UserOrderDto;
+import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.param.PrinterPage;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.MtPrinter;

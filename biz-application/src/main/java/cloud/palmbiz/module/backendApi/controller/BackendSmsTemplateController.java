@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.SmsTemplateDto;
 import cloud.palmbiz.common.service.SmsTemplateService;
 import cloud.palmbiz.common.util.TokenUtil;
@@ -49,7 +49,7 @@ public class BackendSmsTemplateController extends BaseController {
         String name = request.getParameter("content") == null ? "" : request.getParameter("content");
         String code = request.getParameter("code") == null ? "" : request.getParameter("code");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         Map<String, Object> searchParams = new HashMap<>();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
@@ -77,7 +77,7 @@ public class BackendSmsTemplateController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('smsTemplate:edit')")
     public ResponseObject saveHandler(@RequestBody SmsTemplateDto smsTemplateDto) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         smsTemplateDto.setMerchantId(accountInfo.getMerchantId());
         smsTemplateService.saveSmsTemplate(smsTemplateDto);
         return getSuccessResult(true);
@@ -91,7 +91,7 @@ public class BackendSmsTemplateController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('smsTemplate:index')")
     public ResponseObject info(@PathVariable("id") Long id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         MtSmsTemplate mtSmsTemplate = smsTemplateService.querySmsTemplateById(id.intValue());
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
@@ -114,7 +114,7 @@ public class BackendSmsTemplateController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('smsTemplate:edit')")
     public ResponseObject delete(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         smsTemplateService.deleteTemplate(id, accountInfo.getAccountName());
         return getSuccessResult(true);
     }

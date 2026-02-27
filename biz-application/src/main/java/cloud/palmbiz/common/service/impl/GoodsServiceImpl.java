@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.GoodsDto;
 import cloud.palmbiz.common.dto.GoodsSpecValueDto;
 import cloud.palmbiz.common.dto.GoodsTopDto;
@@ -883,7 +883,7 @@ public class GoodsServiceImpl extends ServiceImpl<MtGoodsMapper, MtGoods> implem
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "导入商品列表")
-    public Boolean importGoods(MultipartFile file, AccountInfo accountInfo, String filePath) throws BusinessCheckException {
+    public Boolean importGoods(MultipartFile file, AccountInfoDto accountInfo, String filePath) throws BusinessCheckException {
         String originalFileName = file.getOriginalFilename();
         boolean isExcel2003 = XlsUtil.isExcel2003(originalFileName);
         boolean isExcel2007 = XlsUtil.isExcel2007(originalFileName);

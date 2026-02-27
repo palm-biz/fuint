@@ -1,8 +1,8 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountDto;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.RoleDto;
 import cloud.palmbiz.common.enums.AdminRoleEnum;
 import cloud.palmbiz.common.service.DutyService;
@@ -64,7 +64,7 @@ public class BackendDutyController extends BaseController {
         String name = request.getParameter("name") == null ? "" : request.getParameter("name");
         String status = request.getParameter("status") == null ? "" : request.getParameter("status");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Map<String, Object> searchParams = new HashMap<>();
         if (StringUtil.isNotEmpty(name)) {
             searchParams.put("name", name);
@@ -114,7 +114,7 @@ public class BackendDutyController extends BaseController {
         String status = param.get("status").toString();
         String description = param.get("description").toString();
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         // 获取角色所分配的菜单
         List<TSource> sources = null;
@@ -183,7 +183,7 @@ public class BackendDutyController extends BaseController {
         String status = param.get("status").toString();
         String description = param.get("description").toString();
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         if (StringUtil.isEmpty(id)) {
             return getFailureResult(201, "信息提交有误");
@@ -221,7 +221,7 @@ public class BackendDutyController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('system:role:delete')")
     public ResponseObject deleteRole(@PathVariable("roleId") Long roleId) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        cloud.palmbiz.common.account.dto.AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         tDutyService.deleteDuty(accountInfo.getMerchantId(), roleId);
         return getSuccessResult(true);
     }
@@ -234,7 +234,7 @@ public class BackendDutyController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('system:role:edit')")
     public ResponseObject changeStatus(@RequestBody DutyStatusRequest dutyStatusRequest) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         tDutyService.updateStatus(accountInfo.getMerchantId(), dutyStatusRequest);
         return getSuccessResult(true);
     }

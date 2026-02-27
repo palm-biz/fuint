@@ -2,7 +2,7 @@ package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.domain.TreeNode;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.enums.AdminRoleEnum;
 import cloud.palmbiz.common.service.AccountService;
 import cloud.palmbiz.common.service.DutyService;
@@ -72,7 +72,7 @@ public class BackendLoginController extends BaseController {
     @ApiOperation(value = "获取登录信息")
     @RequestMapping(value = "/getInfo", method = RequestMethod.GET)
     public ResponseObject getInfo() throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo == null) {
             return getFailureResult(401, "登录信息已失效，请重新登录");
         }
@@ -121,7 +121,7 @@ public class BackendLoginController extends BaseController {
     @RequestMapping(value = "/getRouters", method = RequestMethod.GET)
     @CrossOrigin
     public ResponseObject getRouters() {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo == null) {
             return getFailureResult(401, "登录信息已失效，请重新登录");
         }
@@ -166,7 +166,7 @@ public class BackendLoginController extends BaseController {
             return getFailureResult(Constants.HTTP_RESPONSE_CODE_USER_NOT_EXIST);
         }
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfoByToken(token);
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfoByToken(token);
         if (accountInfo != null) {
             TokenUtil.removeToken(token);
         }

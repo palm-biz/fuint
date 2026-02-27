@@ -1,7 +1,7 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.common.dto.CouponDto;
+import cloud.palmbiz.common.coupon.dto.CouponDto;
 import cloud.palmbiz.common.param.CouponReceiveParam;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;

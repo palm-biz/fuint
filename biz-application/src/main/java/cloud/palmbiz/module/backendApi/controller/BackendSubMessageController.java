@@ -2,7 +2,7 @@ package cloud.palmbiz.module.backendApi.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.ParamDto;
 import cloud.palmbiz.common.dto.SubMessageDto;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
@@ -57,7 +57,7 @@ public class BackendSubMessageController extends BaseController {
         String status = request.getParameter("status") == null ? "" : request.getParameter("status");
         String title = request.getParameter("title") == null ? "" : request.getParameter("title");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         List<SubMessageDto> dataList = new ArrayList<>();
         for (WxMessageEnum wxMessageEnum : WxMessageEnum.values()) {
@@ -111,7 +111,7 @@ public class BackendSubMessageController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('subMessage:index')")
     public ResponseObject info(@PathVariable("key") String key) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         Map<String, Object> result = new HashMap();
 
@@ -184,7 +184,7 @@ public class BackendSubMessageController extends BaseController {
         String tid = param.get("tid").toString();
         List<LinkedHashMap> paramData = (List) param.get("params");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() == null || accountInfo.getMerchantId() <= 0) {
             return getFailureResult(201, "请使用商户账号操作");
         }

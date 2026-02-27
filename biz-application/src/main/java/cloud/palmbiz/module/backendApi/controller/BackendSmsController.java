@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
 import cloud.palmbiz.common.enums.SmsSettingEnum;
 import cloud.palmbiz.common.service.SendSmsService;
@@ -58,7 +58,7 @@ public class BackendSmsController extends BaseController {
         String mobile = request.getParameter("mobile") == null ? "" : request.getParameter("mobile");
         String content = request.getParameter("content") == null ? "" : request.getParameter("content");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Map<String, Object> searchParams = new HashMap<>();
         if (StringUtil.isNotEmpty(mobile)) {
             searchParams.put("mobile", mobile);
@@ -85,7 +85,7 @@ public class BackendSmsController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('smsTemplate:edit')")
     public ResponseObject setting() throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         List<MtSetting> settingList = settingService.getSettingList(accountInfo.getMerchantId(), SettingTypeEnum.SMS_CONFIG.getKey());
 
@@ -129,7 +129,7 @@ public class BackendSmsController extends BaseController {
         String accessKeySecret = param.get("accessKeySecret") != null ? param.get("accessKeySecret").toString() : null;
         String signName = param.get("signName") != null ? param.get("signName").toString() : null;
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() == null || accountInfo.getMerchantId() <= 0) {
             return getFailureResult(5002);
         }

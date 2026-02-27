@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.merchant.controller;
 
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.param.StaffParam;
 import cloud.palmbiz.common.service.MemberService;
 import cloud.palmbiz.common.service.MerchantService;
@@ -53,7 +53,7 @@ public class MerchantStaffController extends BaseController {
     @RequestMapping(value = "/staffList", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject staffList(HttpServletRequest request, @RequestBody StaffListRequest requestParams) {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
 
         if (mtUser == null || StringUtil.isBlank(mtUser.getMobile())) {
@@ -93,7 +93,7 @@ public class MerchantStaffController extends BaseController {
     @RequestMapping(value = "/info", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject info(@RequestBody StaffParam params) throws BusinessCheckException {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
 
         MtStaff myInfo = null;
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
@@ -115,7 +115,7 @@ public class MerchantStaffController extends BaseController {
     @CrossOrigin
     public ResponseObject saveStaff(HttpServletRequest request, @RequestBody StaffParam params) throws BusinessCheckException {
         Integer merchantId = merchantService.getMerchantId(request.getHeader("merchantNo"));
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
         if (mtUser == null || StringUtil.isBlank(mtUser.getMobile())) {
             return getFailureResult(201, "您的帐号不是商户，没有操作权限");

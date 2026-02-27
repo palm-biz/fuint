@@ -1,8 +1,8 @@
 package cloud.palmbiz.module.client.controller;
 
 import cloud.palmbiz.common.dto.ParamDto;
-import cloud.palmbiz.common.dto.StoreInfo;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.store.dto.StoreInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.enums.YesOrNoEnum;
 import cloud.palmbiz.common.service.MemberService;
@@ -74,7 +74,7 @@ public class ClientSystemController extends BaseController {
         String latitude = request.getHeader("latitude") == null ? "" : request.getHeader("latitude");
         String longitude = request.getHeader("longitude") == null ? "" : request.getHeader("longitude");
 
-        UserInfo loginInfo = TokenUtil.getUserInfo();
+        UserInfoDto loginInfo = TokenUtil.getUserInfo();
         Integer merchantId = merchantService.getMerchantId(merchantNo);
 
         // 默认店铺，取会员之前选择的店铺

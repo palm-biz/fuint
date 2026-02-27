@@ -44,7 +44,7 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
 
     private MtRefundMapper mtRefundMapper;
 
-    private MtConfirmLogMapper mtConfirmLogMapper;
+    private WriteOffRecordMapper writeOffRecordMapper;
 
     private MtUserCouponMapper mtUserCouponMapper;
 
@@ -101,7 +101,7 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
      * @return
      */
     @Override
-    public PaginationResponse<RefundDto> getRefundListByPagination(PaginationRequest paginationRequest) {
+    public PaginationResponse<AftersaleDto> getRefundListByPagination(PaginationRequest paginationRequest) {
         Page<MtBanner> pageHelper = PageHelper.startPage(paginationRequest.getCurrentPage(), paginationRequest.getPageSize());
         LambdaQueryWrapper<MtRefund> lambdaQueryWrapper = Wrappers.lambdaQuery();
         lambdaQueryWrapper.ne(MtRefund::getStatus, StatusEnum.DISABLE.getKey());
@@ -139,27 +139,27 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
         }
         lambdaQueryWrapper.orderByDesc(MtRefund::getId);
         List<MtRefund> refundList = mtRefundMapper.selectList(lambdaQueryWrapper);
-        List<RefundDto> dataList = new ArrayList<>();
+        List<AftersaleDto> dataList = new ArrayList<>();
         if (refundList != null && refundList.size() > 0) {
             for (MtRefund mtRefund : refundList) {
-                 RefundDto refundDto = new RefundDto();
-                 BeanUtils.copyProperties(mtRefund, refundDto);
-                 refundDto.setCreateTime(DateUtil.formatDate(mtRefund.getCreateTime(), "yyyy-MM-dd HH:mm"));
-                 refundDto.setUpdateTime(DateUtil.formatDate(mtRefund.getCreateTime(), "yyyy-MM-dd HH:mm"));
-                 if (refundDto.getStoreId() != null && refundDto.getStoreId() > 0) {
-                     MtStore mtStore = storeService.queryStoreById(refundDto.getStoreId());
-                     refundDto.setStoreInfo(mtStore);
+                 AftersaleDto AftersaleDto = new AftersaleDto();
+                 BeanUtils.copyProperties(mtRefund, AftersaleDto);
+                 AftersaleDto.setCreateTime(DateUtil.formatDate(mtRefund.getCreateTime(), "yyyy-MM-dd HH:mm"));
+                 AftersaleDto.setUpdateTime(DateUtil.formatDate(mtRefund.getCreateTime(), "yyyy-MM-dd HH:mm"));
+                 if (AftersaleDto.getStoreId() != null && AftersaleDto.getStoreId() > 0) {
+                     MtStore mtStore = storeService.queryStoreById(AftersaleDto.getStoreId());
+                     AftersaleDto.setStoreInfo(mtStore);
                  }
-                 if (refundDto.getOrderId() != null && refundDto.getOrderId() > 0) {
-                     UserOrderDto orderDto = orderService.getOrderById(refundDto.getOrderId());
-                     refundDto.setOrderInfo(orderDto);
+                 if (AftersaleDto.getOrderId() != null && AftersaleDto.getOrderId() > 0) {
+                     UserOrderDto orderDto = orderService.getOrderById(AftersaleDto.getOrderId());
+                     AftersaleDto.setOrderInfo(orderDto);
                  }
-                 dataList.add(refundDto);
+                 dataList.add(AftersaleDto);
             }
         }
         PageRequest pageRequest = PageRequest.of(paginationRequest.getCurrentPage(), paginationRequest.getPageSize());
         PageImpl pageImpl = new PageImpl(dataList, pageRequest, pageHelper.getTotal());
-        PaginationResponse<RefundDto> paginationResponse = new PaginationResponse(pageImpl, RefundDto.class);
+        PaginationResponse<AftersaleDto> paginationResponse = new PaginationResponse(pageImpl, AftersaleDto.class);
         paginationResponse.setTotalPages(pageHelper.getPages());
         paginationResponse.setTotalElements(pageHelper.getTotal());
         paginationResponse.setContent(dataList);
@@ -194,42 +194,42 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
         lambdaQueryWrapper.orderByDesc(MtRefund::getId);
         List<MtRefund> refundList = mtRefundMapper.selectList(lambdaQueryWrapper);
 
-        List<RefundDto> dataList = new ArrayList<>();
+        List<AftersaleDto> dataList = new ArrayList<>();
         if (refundList != null && refundList.size() > 0) {
             for (MtRefund mtRefund : refundList) {
-                 RefundDto refundDto = new RefundDto();
-                 BeanUtils.copyProperties(mtRefund, refundDto);
+                 AftersaleDto AftersaleDto = new AftersaleDto();
+                 BeanUtils.copyProperties(mtRefund, aftersaleDto);
                  UserOrderDto orderDto = orderService.getOrderById(mtRefund.getOrderId());
                  if (mtRefund.getImages() != null && StringUtil.isNotEmpty(mtRefund.getImages())) {
                      List<String> images = Arrays.asList(mtRefund.getImages().split(",").clone());
-                     refundDto.setImageList(images);
+                     aftersaleDto.setImageList(images);
                  }
-                 refundDto.setOrderInfo(orderDto);
-                 refundDto.setCreateTime(DateUtil.formatDate(mtRefund.getCreateTime(), "yyyy.MM.dd HH:mm"));
-                 refundDto.setUpdateTime(DateUtil.formatDate(mtRefund.getUpdateTime(), "yyyy.MM.dd HH:mm"));
+                 aftersaleDto.setOrderInfo(orderDto);
+                 aftersaleDto.setCreateTime(DateUtil.formatDate(mtRefund.getCreateTime(), "yyyy.MM.dd HH:mm"));
+                 aftersaleDto.setUpdateTime(DateUtil.formatDate(mtRefund.getUpdateTime(), "yyyy.MM.dd HH:mm"));
 
                  if (mtRefund.getStatus().equals(RefundStatusEnum.CREATED.getKey())) {
-                     refundDto.setStatusText(RefundStatusEnum.CREATED.getValue());
+                     aftersaleDto.setStatusText(RefundStatusEnum.CREATED.getValue());
                  }
                  if (mtRefund.getStatus().equals(RefundStatusEnum.APPROVED.getKey())) {
-                     refundDto.setStatusText(RefundStatusEnum.APPROVED.getValue());
+                     aftersaleDto.setStatusText(RefundStatusEnum.APPROVED.getValue());
                  }
                  if (mtRefund.getStatus().equals(RefundStatusEnum.REJECT.getKey())) {
-                     refundDto.setStatusText(RefundStatusEnum.REJECT.getValue());
+                     aftersaleDto.setStatusText(RefundStatusEnum.REJECT.getValue());
                  }
                  if (mtRefund.getStatus().equals(RefundStatusEnum.CANCEL.getKey())) {
-                     refundDto.setStatusText(RefundStatusEnum.CANCEL.getValue());
+                     aftersaleDto.setStatusText(RefundStatusEnum.CANCEL.getValue());
                  }
                  if (mtRefund.getStatus().equals(RefundStatusEnum.COMPLETE.getKey())) {
-                     refundDto.setStatusText(RefundStatusEnum.COMPLETE.getValue());
+                     aftersaleDto.setStatusText(RefundStatusEnum.COMPLETE.getValue());
                  }
-                 dataList.add(refundDto);
+                 dataList.add(aftersaleDto);
             }
         }
 
         PageRequest pageRequest = PageRequest.of(pageNumber, pageSize);
         PageImpl pageImpl = new PageImpl(dataList, pageRequest, pageHelper.getTotal());
-        PaginationResponse<RefundDto> paginationResponse = new PaginationResponse(pageImpl, RefundDto.class);
+        PaginationResponse<AftersaleDto> paginationResponse = new PaginationResponse(pageImpl, AftersaleDto.class);
         paginationResponse.setTotalPages(pageHelper.getPages());
         paginationResponse.setTotalElements(pageHelper.getTotal());
         paginationResponse.setContent(dataList);
@@ -240,45 +240,45 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
     /**
      * 创建售后订单
      *
-     * @param refundDto 订单参数
+     * @param aftersaleDto 订单参数
      * @return
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "提交售后订单")
-    public MtRefund createRefund(RefundDto refundDto) {
+    public MtRefund createRefund(AftersaleDto aftersaleDto) {
         MtRefund refund = new MtRefund();
-        if (refundDto.getId() != null) {
+        if (aftersaleDto.getId() != null) {
             refund.setId(refund.getId());
         }
-        refund.setMerchantId(refundDto.getMerchantId());
-        refund.setStoreId(refundDto.getStoreId());
+        refund.setMerchantId(aftersaleDto.getMerchantId());
+        refund.setStoreId(aftersaleDto.getStoreId());
 
         // 检查是否已存在
         Map<String, Object> params = new HashMap<>();
-        params.put("USER_ID", refundDto.getUserId().toString());
-        params.put("ORDER_ID", refundDto.getOrderId().toString());
+        params.put("USER_ID", aftersaleDto.getUserId().toString());
+        params.put("ORDER_ID", aftersaleDto.getOrderId().toString());
         List<MtRefund> result = mtRefundMapper.selectByMap(params);
 
         if (result.size() > 0) {
             refund = result.get(0);
             refund.setUpdateTime(new Date());
-            if (refundDto.getRemark() != null && StringUtil.isNotEmpty(refundDto.getRemark())) {
-                refund.setRemark(refund.getRemark() + "|" + refundDto.getRemark());
+            if (aftersaleDto.getRemark() != null && StringUtil.isNotEmpty(aftersaleDto.getRemark())) {
+                refund.setRemark(refund.getRemark() + "|" + aftersaleDto.getRemark());
             }
             mtRefundMapper.updateById(refund);
             return refund;
         }
 
-        refund.setOrderId(refundDto.getOrderId());
-        refund.setUserId(refundDto.getUserId());
-        refund.setRemark(refundDto.getRemark());
-        refund.setType(refundDto.getType());
-        refund.setMerchantId(refundDto.getMerchantId());
-        refund.setStoreId(refundDto.getStoreId());
-        refund.setAmount(refundDto.getAmount());
-        if (refundDto.getImages() != null && StringUtil.isNotEmpty(refundDto.getImages()) && refundDto.getImages().length() > 5) {
-            refund.setImages(String.join(",", refundDto.getImages()));
+        refund.setOrderId(aftersaleDto.getOrderId());
+        refund.setUserId(aftersaleDto.getUserId());
+        refund.setRemark(aftersaleDto.getRemark());
+        refund.setType(aftersaleDto.getType());
+        refund.setMerchantId(aftersaleDto.getMerchantId());
+        refund.setStoreId(aftersaleDto.getStoreId());
+        refund.setAmount(aftersaleDto.getAmount());
+        if (aftersaleDto.getImages() != null && StringUtil.isNotEmpty(aftersaleDto.getImages()) && aftersaleDto.getImages().length() > 5) {
+            refund.setImages(String.join(",", aftersaleDto.getImages()));
         }
         refund.setStatus(RefundStatusEnum.CREATED.getKey());
         refund.setUpdateTime(new Date());
@@ -295,17 +295,17 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
      * @return
      */
     @Override
-    public RefundDto getRefundById(Integer id) {
+    public AftersaleDto getRefundById(Integer id) {
         MtRefund mtRefund = mtRefundMapper.selectById(id);
         if (mtRefund != null) {
-            RefundDto refundDto = new RefundDto();
-            BeanUtils.copyProperties(mtRefund, refundDto);
+            AftersaleDto aftersaleDto = new AftersaleDto();
+            BeanUtils.copyProperties(mtRefund, aftersaleDto);
             UserOrderDto orderDto = orderService.getOrderById(mtRefund.getOrderId());
             if (mtRefund.getImages() != null && StringUtil.isNotEmpty(mtRefund.getImages())) {
                 List<String> images = Arrays.asList(mtRefund.getImages().split(",").clone());
-                refundDto.setImageList(images);
+                aftersaleDto.setImageList(images);
             }
-            refundDto.setOrderInfo(orderDto);
+            aftersaleDto.setOrderInfo(orderDto);
             // 退货地址
             AddressDto address = new AddressDto();
             if (orderDto.getStoreInfo() != null) {
@@ -313,8 +313,8 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
                 address.setName(orderDto.getStoreInfo().getContact());
                 address.setDetail(orderDto.getStoreInfo().getAddress());
             }
-            refundDto.setAddress(address);
-            return refundDto;
+            aftersaleDto.setAddress(address);
+            return aftersaleDto;
         }
         return null;
     }
@@ -339,44 +339,44 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
     /**
      * 修改售后订单
      *
-     * @param  refundDto
+     * @param  aftersaleDto
      * @throws BusinessCheckException
      * @return
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "更新售后订单")
-    public MtRefund updateRefund(RefundDto refundDto) throws BusinessCheckException {
-        MtRefund mtRefund = mtRefundMapper.selectById(refundDto.getId());
+    public MtRefund updateRefund(AftersaleDto aftersaleDto) throws BusinessCheckException {
+        MtRefund mtRefund = mtRefundMapper.selectById(aftersaleDto.getId());
         if (mtRefund == null) {
             throw new BusinessCheckException("该售后订单状态异常");
         }
 
         // 已同意的不能再设置为已拒绝
-        if ((refundDto.getStatus() != null) && (!refundDto.getStatus().equals(RefundStatusEnum.COMPLETE.getKey())) && (mtRefund.getStatus().equals(RefundStatusEnum.COMPLETE.getKey()))) {
+        if ((aftersaleDto.getStatus() != null) && (!aftersaleDto.getStatus().equals(RefundStatusEnum.COMPLETE.getKey())) && (mtRefund.getStatus().equals(RefundStatusEnum.COMPLETE.getKey()))) {
             throw new BusinessCheckException("该售后订单已完成，不能再改成其他状态");
         }
 
-        mtRefund.setId(refundDto.getId());
+        mtRefund.setId(aftersaleDto.getId());
         mtRefund.setUpdateTime(new Date());
 
-        if (null != refundDto.getOperator()) {
-            mtRefund.setOperator(refundDto.getOperator());
+        if (null != aftersaleDto.getOperator()) {
+            mtRefund.setOperator(aftersaleDto.getOperator());
         }
-        if (null != refundDto.getStatus()) {
-            mtRefund.setStatus(refundDto.getStatus());
+        if (null != aftersaleDto.getStatus()) {
+            mtRefund.setStatus(aftersaleDto.getStatus());
         }
-        if (null != refundDto.getRemark()) {
-            mtRefund.setRemark(refundDto.getRemark());
+        if (null != aftersaleDto.getRemark()) {
+            mtRefund.setRemark(aftersaleDto.getRemark());
         }
-        if (null != refundDto.getExpressName()) {
-            mtRefund.setExpressName(refundDto.getExpressName());
+        if (null != aftersaleDto.getExpressName()) {
+            mtRefund.setExpressName(aftersaleDto.getExpressName());
         }
-        if (null != refundDto.getExpressNo()) {
-            mtRefund.setExpressNo(refundDto.getExpressNo());
+        if (null != aftersaleDto.getExpressNo()) {
+            mtRefund.setExpressNo(aftersaleDto.getExpressNo());
         }
-        if (null != refundDto.getRejectReason()) {
-            mtRefund.setRejectReason(refundDto.getRejectReason());
+        if (null != aftersaleDto.getRejectReason()) {
+            mtRefund.setRejectReason(aftersaleDto.getRejectReason());
         }
 
         mtRefundMapper.updateById(mtRefund);
@@ -386,37 +386,37 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
     /**
      * 同意售后订单
      *
-     * @param refundDto
+     * @param aftersaleDto
      * @throws BusinessCheckException
      * @return
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "同意售后订单")
-    public MtRefund agreeRefund(RefundDto refundDto) throws BusinessCheckException {
-        MtRefund refund = mtRefundMapper.selectById(refundDto.getId());
+    public MtRefund agreeRefund(AftersaleDto aftersaleDto) throws BusinessCheckException {
+        MtRefund refund = mtRefundMapper.selectById(aftersaleDto.getId());
         if (null == refund) {
             throw new BusinessCheckException("该售后订单状态异常");
         }
 
         // 已经同意过了
         if (refund.getStatus().equals(RefundStatusEnum.COMPLETE.getKey())) {
-            if (StringUtil.isNotEmpty(refundDto.getRemark())) {
-                refund.setRemark(refundDto.getRemark());
+            if (StringUtil.isNotEmpty(aftersaleDto.getRemark())) {
+                refund.setRemark(aftersaleDto.getRemark());
             }
             mtRefundMapper.updateById(refund);
             return refund;
         }
 
-        refund.setId(refundDto.getId());
+        refund.setId(aftersaleDto.getId());
         refund.setUpdateTime(new Date());
 
-        if (null != refundDto.getOperator()) {
-            refund.setOperator(refundDto.getOperator());
+        if (null != aftersaleDto.getOperator()) {
+            refund.setOperator(aftersaleDto.getOperator());
         }
 
-        if (null != refundDto.getStatus()) {
-            refund.setStatus(refundDto.getStatus());
+        if (null != aftersaleDto.getStatus()) {
+            refund.setStatus(aftersaleDto.getStatus());
         }
 
         mtRefundMapper.updateById(refund);
@@ -488,7 +488,7 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
                 throw new BusinessCheckException("当前用户余额不足以退款");
             }
             mtBalance.setAmount(amount.negate());
-            mtBalance.setOperator(refundDto.getOperator());
+            mtBalance.setOperator(aftersaleDto.getOperator());
             balanceService.addBalance(mtBalance, true);
         }
 
@@ -504,9 +504,9 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
         }
 
         // 返还卡券
-        List<MtConfirmLog> confirmLogList = mtConfirmLogMapper.getOrderConfirmLogList(orderInfo.getId());
+        List<WriteOffRecord> confirmLogList = writeOffRecordMapper.getOrderConfirmLogList(orderInfo.getId());
         if (confirmLogList.size() > 0) {
-            for (MtConfirmLog log : confirmLogList) {
+            for (WriteOffRecord log : confirmLogList) {
                 MtCoupon couponInfo = couponService.queryCouponById(log.getCouponId());
                 MtUserCoupon userCouponInfo = mtUserCouponMapper.selectById(log.getUserCouponId());
                 if (userCouponInfo != null) {
@@ -527,7 +527,7 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
                     }
                     // 撤销核销记录
                     log.setStatus(StatusEnum.DISABLE.getKey());
-                    mtConfirmLogMapper.updateById(log);
+                    writeOffRecordMapper.updateById(log);
                 }
             }
         }
@@ -546,7 +546,7 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
                 mtPoint.setUserId(orderInfo.getUserId());
                 mtPoint.setOrderSn(orderInfo.getOrderSn());
                 mtPoint.setDescription("退款￥" + orderInfo.getPayAmount() + "退回" + pointNum + "积分");
-                mtPoint.setOperator(refundDto.getOperator() == null ? "系统" : refundDto.getOperator());
+                mtPoint.setOperator(aftersaleDto.getOperator() == null ? "系统" : aftersaleDto.getOperator());
                 pointService.addPoint(mtPoint);
             }
         }
@@ -593,7 +593,7 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "发起退款")
-    public Boolean doRefund(Integer orderId, String refundAmount, String remark, AccountInfo accountInfo) throws BusinessCheckException {
+    public Boolean doRefund(Integer orderId, String refundAmount, String remark, AccountInfoDto accountInfo) throws BusinessCheckException {
         UserOrderDto orderInfo = orderService.getOrderById(orderId);
         if (orderInfo == null) {
             logger.error("退款订单为空，orderId = " + orderId + orderInfo.getId());
@@ -611,25 +611,25 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
         }
 
         // 创建售后订单
-        RefundDto refundDto = new RefundDto();
-        refundDto.setUserId(orderInfo.getUserId());
-        refundDto.setOrderId(orderInfo.getId());
-        refundDto.setMerchantId(orderInfo.getMerchantId());
+        AftersaleDto aftersaleDto = new AftersaleDto();
+        aftersaleDto.setUserId(orderInfo.getUserId());
+        aftersaleDto.setOrderId(orderInfo.getId());
+        aftersaleDto.setMerchantId(orderInfo.getMerchantId());
         if (orderInfo.getStoreInfo() != null) {
-            refundDto.setStoreId(orderInfo.getStoreInfo().getId());
+            aftersaleDto.setStoreId(orderInfo.getStoreInfo().getId());
         }
-        refundDto.setRemark(remark);
-        refundDto.setType(RefundTypeEnum.RETURN.getKey());
+        aftersaleDto.setRemark(remark);
+        aftersaleDto.setType(RefundTypeEnum.RETURN.getKey());
         if (orderInfo.getStoreInfo() != null) {
-            refundDto.setStoreId(orderInfo.getStoreInfo().getId());
+            aftersaleDto.setStoreId(orderInfo.getStoreInfo().getId());
         }
-        refundDto.setAmount(new BigDecimal(refundAmount));
-        refundDto.setOperator(accountInfo.getAccountName());
-        refundDto.setImages(null);
-        MtRefund mtRefund = createRefund(refundDto);
+        aftersaleDto.setAmount(new BigDecimal(refundAmount));
+        aftersaleDto.setOperator(accountInfo.getAccountName());
+        aftersaleDto.setImages(null);
+        MtRefund mtRefund = createRefund(aftersaleDto);
         if (mtRefund != null) {
             // 审核同意
-            RefundDto agreeDto = new RefundDto();
+            AftersaleDto agreeDto = new AftersaleDto();
             agreeDto.setId(mtRefund.getId());
             agreeDto.setOperator(accountInfo.getAccountName());
             agreeDto.setStatus(RefundStatusEnum.COMPLETE.getKey());

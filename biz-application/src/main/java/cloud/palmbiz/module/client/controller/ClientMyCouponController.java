@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.client.controller;
 
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.UserCouponStatusEnum;
 import cloud.palmbiz.common.service.CouponService;
 import cloud.palmbiz.common.service.UserCouponService;
@@ -50,7 +50,7 @@ public class ClientMyCouponController extends BaseController {
         String type = request.getParameter("type") == null ? "" : request.getParameter("type");
         String userId = request.getParameter("userId") == null ? "" : request.getParameter("userId");
 
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
         if (StringUtil.isNotEmpty(userId)) {
             mtUser.setId(Integer.parseInt(userId));
         }
@@ -73,7 +73,7 @@ public class ClientMyCouponController extends BaseController {
     public ResponseObject isUsed(@RequestBody MyCouponRequest requestParam) {
         Integer userCouponId = requestParam.getId() == null ? 0 : requestParam.getId();
 
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
         MtUserCoupon userCoupon = couponService.queryUserCouponById(userCouponId);
         if (userCoupon.getStatus().equals(UserCouponStatusEnum.USED.getKey()) && mtUser.getId().equals(userCoupon.getUserId())) {
             return getSuccessResult(true);
@@ -90,7 +90,7 @@ public class ClientMyCouponController extends BaseController {
     @CrossOrigin
     public ResponseObject remove(@RequestBody MyCouponRequest requestParam) throws BusinessCheckException {
         Integer userCouponId = requestParam.getUserCouponId() == null ? 0 : requestParam.getUserCouponId();
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
 
         Boolean result = couponService.removeCoupon(userCouponId, mtUser.getId());
         if (result) {

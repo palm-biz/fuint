@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.merchant.controller;
 
-import cloud.palmbiz.common.dto.UserInfo;
-import cloud.palmbiz.common.dto.UserOrderDto;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
+import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.param.RechargeParam;
 import cloud.palmbiz.common.service.*;
 import cloud.palmbiz.common.util.TokenUtil;
@@ -58,7 +58,7 @@ public class MerchantBalanceController extends BaseController {
     @CrossOrigin
     public ResponseObject doRecharge(HttpServletRequest request, @RequestBody RechargeParam rechargeParam) throws BusinessCheckException {
         Integer merchantId = merchantService.getMerchantId(request.getHeader("merchantNo"));
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         MtStaff staffInfo = null;
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
         if (mtUser != null && mtUser.getMobile() != null) {

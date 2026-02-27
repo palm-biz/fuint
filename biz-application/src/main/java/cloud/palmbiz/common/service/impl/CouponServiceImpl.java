@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.CouponDto;
+import cloud.palmbiz.common.coupon.dto.CouponDto;
 import cloud.palmbiz.common.dto.ReqCouponDto;
 import cloud.palmbiz.common.dto.ReqSendLogDto;
 import cloud.palmbiz.common.enums.*;
@@ -53,7 +53,7 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
 
     private MtUserCouponMapper mtUserCouponMapper;
 
-    private MtConfirmLogMapper mtConfirmLogMapper;
+    private WriteOffRecordMapper writeOffRecordMapper;
 
     private MtSendLogMapper mtSendLogMapper;
 
@@ -980,7 +980,7 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
         mtUserCouponMapper.updateById(userCoupon);
 
         // 生成核销流水
-        MtConfirmLog confirmLog = new MtConfirmLog();
+        WriteOffRecord confirmLog = new WriteOffRecord();
         confirmLog.setMerchantId(couponInfo.getMerchantId());
         StringBuilder code = new StringBuilder();
         String sStoreId="00000"+storeId.toString();
@@ -1012,7 +1012,7 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
 
         confirmLog.setAmount(amount);
         confirmLog.setRemark(remark);
-        mtConfirmLogMapper.insert(confirmLog);
+        writeOffRecordMapper.insert(confirmLog);
 
         try {
             // 发送核销短信
@@ -1088,10 +1088,10 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "撤销卡券核销")
     public void rollbackUserCoupon(Integer id, Integer userCouponId,String operator) throws BusinessCheckException {
-        MtConfirmLog mtConfirmLog = mtConfirmLogMapper.selectById(id);
+        WriteOffRecord writeOffRecord = writeOffRecordMapper.selectById(id);
         MtUserCoupon userCoupon = mtUserCouponMapper.selectById(userCouponId);
 
-        if (null == mtConfirmLog || !mtConfirmLog.getUserCouponId().equals(userCouponId)) {
+        if (null == writeOffRecord || !writeOffRecord.getUserCouponId().equals(userCouponId)) {
             throw new BusinessCheckException("卡券核销流水不存在！");
         }
 
@@ -1101,7 +1101,7 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
 
         // 卡券未过期才能撤销,当前时间小于过期日期才能删除,48小时
         Calendar endTimecal = Calendar.getInstance();
-        endTimecal.setTime(mtConfirmLog.getCreateTime());
+        endTimecal.setTime(writeOffRecord.getCreateTime());
         endTimecal.add(Calendar.DAY_OF_MONTH, 2);
 
         if (endTimecal.getTime().before(new Date())) {
@@ -1117,7 +1117,7 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
 
         // 优惠券只有是使用状态且核销流水正常状态才能撤销
         if(userCoupon.getType().equals(CouponTypeEnum.COUPON.getKey())) {
-            if ((!userCoupon.getStatus().equals(UserCouponStatusEnum.USED.getKey())) || (!mtConfirmLog.getStatus().equals(StatusEnum.ENABLED.getKey()))) {
+            if ((!userCoupon.getStatus().equals(UserCouponStatusEnum.USED.getKey())) || (!writeOffRecord.getStatus().equals(StatusEnum.ENABLED.getKey()))) {
                 throw new BusinessCheckException("该劵状态异常，请稍后重试");
             }
         }
@@ -1131,7 +1131,7 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
         // 如果是储值卡则返回余额
         if (userCoupon.getType().equals(CouponTypeEnum.PRESTORE.getKey())) {
             BigDecimal balance = userCoupon.getBalance();
-            BigDecimal amount = mtConfirmLog.getAmount();
+            BigDecimal amount = writeOffRecord.getAmount();
             if (amount.compareTo(new BigDecimal("0")) > 0) {
                 BigDecimal newBalance = balance.add(amount);
                 userCoupon.setBalance(newBalance);
@@ -1142,12 +1142,12 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
         mtUserCouponMapper.updateById(userCoupon);
 
         // 更新流水
-        mtConfirmLog.setOperator(operator);
-        mtConfirmLog.setStatus(StatusEnum.DISABLE.getKey());
-        mtConfirmLog.setUpdateTime(new Date());
-        mtConfirmLog.setCancelTime(new Date());
+        writeOffRecord.setOperator(operator);
+        writeOffRecord.setStatus(StatusEnum.DISABLE.getKey());
+        writeOffRecord.setUpdateTime(new Date());
+        writeOffRecord.setCancelTime(new Date());
 
-        mtConfirmLogMapper.updateById(mtConfirmLog);
+        writeOffRecordMapper.updateById(writeOffRecord);
     }
 
     /**

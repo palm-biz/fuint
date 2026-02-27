@@ -2,8 +2,8 @@ package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.domain.TreeNode;
 import cloud.palmbiz.common.domain.TreeSelect;
-import cloud.palmbiz.common.dto.AccountInfo;
-import cloud.palmbiz.common.dto.SourceDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.source.dto.SourceDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.SourceService;
 import cloud.palmbiz.common.util.CommonUtil;
@@ -43,7 +43,7 @@ public class BackendSourceController extends BaseController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @PreAuthorize("@pms.hasPermission('system:menu:index')")
     public ResponseObject list() {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         List<TreeNode> sources = sourceService.getSourceTree(accountInfo.getMerchantId(), "");
         return getSuccessResult(sources);
     }
@@ -83,7 +83,7 @@ public class BackendSourceController extends BaseController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @PreAuthorize("@pms.hasPermission('system:menu:add')")
     public ResponseObject addSource(@RequestBody Map<String, Object> param) {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         String name = param.get("name").toString();
         String status = param.get("status").toString();
@@ -133,7 +133,7 @@ public class BackendSourceController extends BaseController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @PreAuthorize("@pms.hasPermission('system:menu:edit')")
     public ResponseObject update(@RequestBody Map<String, Object> param) {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         String name = param.get("name").toString();
         String status = param.get("status").toString();
@@ -189,7 +189,7 @@ public class BackendSourceController extends BaseController {
     @RequestMapping(value = "/delete/{sourceId}", method = RequestMethod.GET)
     @PreAuthorize("@pms.hasPermission('system:menu:delete')")
     public ResponseObject delete(@PathVariable("sourceId") Long sourceId) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         TSource tSource = sourceService.getById(sourceId);
         if (!tSource.getMerchantId().equals(accountInfo.getMerchantId()) && accountInfo.getMerchantId() > 0) {
             return getFailureResult(201, "抱歉，您没有删除的权限");
@@ -204,7 +204,7 @@ public class BackendSourceController extends BaseController {
     @ApiOperation(value = "获取菜单下拉树列表")
     @RequestMapping(value = "/treeselect", method = RequestMethod.GET)
     public ResponseObject treeselect() {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         List<TreeNode> sources = sourceService.getSourceTree(accountInfo.getMerchantId(), "");
         List<TreeSelect> data = sourceService.buildMenuTreeSelect(sources);

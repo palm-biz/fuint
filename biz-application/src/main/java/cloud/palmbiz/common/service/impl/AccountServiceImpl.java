@@ -3,8 +3,8 @@ package cloud.palmbiz.common.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cloud.palmbiz.common.dto.AccountDto;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.AccountPage;
 import cloud.palmbiz.common.service.AccountService;
@@ -143,13 +143,13 @@ public class AccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> im
      * @return
      */
     @Override
-    public AccountInfo getAccountByName(String userName) {
+    public AccountInfoDto getAccountByName(String userName) {
         Map<String, Object> param = new HashMap();
         param.put("account_name", userName);
         param.put("account_status", 1);
         List<TAccount> accountList = tAccountMapper.selectByMap(param);
         if (accountList != null && accountList.size() > 0) {
-            AccountInfo accountInfo = new AccountInfo();
+            AccountInfoDto accountInfo = new AccountInfoDto();
             TAccount account = accountList.get(0);
             accountInfo.setId(account.getAcctId());
             accountInfo.setAccountName(account.getAccountName());
@@ -373,7 +373,7 @@ public class AccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> im
         if (StringUtil.isEmpty(accountName)|| StringUtil.isEmpty(password) || StringUtil.isEmpty(captchaCode)) {
             throw new BusinessCheckException("登录参数有误");
         } else {
-            AccountInfo accountInfo = getAccountByName(loginRequest.getUsername());
+            AccountInfoDto accountInfo = getAccountByName(loginRequest.getUsername());
             if (accountInfo == null) {
                 throw new BusinessCheckException("登录账号或密码有误");
             }

@@ -1,5 +1,11 @@
 package cloud.palmbiz.common.service.impl;
 
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.address.dto.AddressDto;
+import cloud.palmbiz.common.coupon.dto.CouponDto;
+import cloud.palmbiz.common.user.dto.UserCouponDto;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
+import cloud.palmbiz.common.user.dto.UserOrderDto;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -61,7 +67,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
 
     private MtOrderAddressMapper mtOrderAddressMapper;
 
-    private MtConfirmLogMapper mtConfirmLogMapper;
+    private WriteOffRecordMapper writeOffRecordMapper;
 
     private MtUserCouponMapper mtUserCouponMapper;
 
@@ -771,7 +777,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
         String orderMode = StringUtil.isEmpty(param.getOrderMode()) ? OrderModeEnum.ONESELF.getKey() : param.getOrderMode(); // 订单模式(配送or自取)
         Integer orderId = param.getOrderId() == null ? null : param.getOrderId(); // 订单ID
         Integer merchantId = merchantService.getMerchantId(merchantNo);
-        UserInfo loginInfo = TokenUtil.getUserInfoByToken(token);
+        UserInfoDto loginInfo = TokenUtil.getUserInfoByToken(token);
         MtUser userInfo = null;
         if (loginInfo != null) {
             userInfo = memberService.queryMemberById(loginInfo.getId());
@@ -781,7 +787,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
         String operator = null;
         Integer staffId = 0;
         String isVisitor = YesOrNoEnum.NO.getKey();
-        AccountInfo accountInfo = TokenUtil.getAccountInfoByToken(token);
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfoByToken(token);
         if (accountInfo != null) {
             operator = accountInfo.getAccountName();
             staffId = accountInfo.getStaffId() == null ? 0 : accountInfo.getStaffId();
@@ -1264,9 +1270,9 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
             }
 
             // 返还卡券
-            List<MtConfirmLog> confirmLogList = mtConfirmLogMapper.getOrderConfirmLogList(mtOrder.getId());
+            List<WriteOffRecord> confirmLogList = writeOffRecordMapper.getOrderConfirmLogList(mtOrder.getId());
             if (confirmLogList.size() > 0) {
-                for (MtConfirmLog log : confirmLogList) {
+                for (WriteOffRecord log : confirmLogList) {
                     MtCoupon couponInfo = couponService.queryCouponById(log.getCouponId());
                     MtUserCoupon userCouponInfo = mtUserCouponMapper.selectById(log.getUserCouponId());
 
@@ -1290,7 +1296,7 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
 
                         // 撤销核销记录
                         log.setStatus(StatusEnum.DISABLE.getKey());
-                        mtConfirmLogMapper.updateById(log);
+                        writeOffRecordMapper.updateById(log);
                     }
                 }
             }

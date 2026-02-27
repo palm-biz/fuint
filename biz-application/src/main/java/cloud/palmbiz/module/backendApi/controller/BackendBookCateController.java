@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
-import cloud.palmbiz.common.dto.BookCateDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.appointment.dto.BookCateDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.BookCatePage;
 import cloud.palmbiz.common.service.BookCateService;
@@ -57,7 +57,7 @@ public class BackendBookCateController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('book:index')")
     public ResponseObject list(@ModelAttribute BookCatePage bookCatePage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             bookCatePage.setMerchantId(accountInfo.getMerchantId());
         }
@@ -86,7 +86,7 @@ public class BackendBookCateController extends BaseController {
         String status = params.get("status") != null ? params.get("status").toString() : StatusEnum.ENABLED.getKey();
         Integer cateId = params.get("cateId") == null ? 0 : Integer.parseInt(params.get("cateId").toString());
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         MtBookCate mtBookCate = bookCateService.getBookCateById(cateId);
         if (mtBookCate == null) {
             return getFailureResult(201);
@@ -107,7 +107,7 @@ public class BackendBookCateController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('book:index')")
     public ResponseObject saveHandler(@RequestBody BookCateDto bookCateDto) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() == null || accountInfo.getMerchantId() < 1) {
             return getFailureResult(5002);
         }
@@ -136,7 +136,7 @@ public class BackendBookCateController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('book:index')")
     public ResponseObject info(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         MtBookCate bookCateInfo = bookCateService.getBookCateById(id);
 
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {

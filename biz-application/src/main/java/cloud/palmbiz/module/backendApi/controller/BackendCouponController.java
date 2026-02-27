@@ -93,7 +93,7 @@ public class BackendCouponController extends BaseController {
         String name = request.getParameter("name") == null ? "" : request.getParameter("name");
         String type = request.getParameter("type") == null ? "" : request.getParameter("type");
         String status = request.getParameter("status") == null ? "" : request.getParameter("status");
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Map<String, Object> params = new HashMap<>();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             params.put("merchantId", accountInfo.getMerchantId());
@@ -194,7 +194,7 @@ public class BackendCouponController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('coupon:coupon:index')")
     public ResponseObject delete(@PathVariable("id") Long id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         couponService.deleteCoupon(id, accountInfo.getAccountName());
         return getSuccessResult(true);
     }
@@ -207,7 +207,7 @@ public class BackendCouponController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('coupon:coupon:add')")
     public ResponseObject saveCouponHandler(@RequestBody ReqCouponDto reqCouponDto) throws BusinessCheckException,ParseException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         reqCouponDto.setOperator(accountInfo.getAccountName());
 
         // 同一分组内卡券名称不能重复
@@ -330,7 +330,7 @@ public class BackendCouponController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('coupon:coupon:index')")
     public ResponseObject sendCoupon(@RequestBody SendCouponParam param) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         String mobile = param.getMobile();
         String num = param.getNum();
         String couponId = param.getCouponId();

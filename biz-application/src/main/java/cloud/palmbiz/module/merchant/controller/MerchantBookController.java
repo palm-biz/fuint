@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.merchant.controller;
 
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.BookStatusEnum;
 import cloud.palmbiz.common.param.BookItemPage;
 import cloud.palmbiz.common.service.BookItemService;
@@ -57,7 +57,7 @@ public class MerchantBookController extends BaseController {
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject list(@RequestBody BookListRequest requestParams) throws BusinessCheckException {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
 
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
         MtStaff staffInfo = staffService.queryStaffByMobile(mtUser.getMobile());
@@ -95,7 +95,7 @@ public class MerchantBookController extends BaseController {
     @RequestMapping(value = "/detail", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject detail(@RequestBody BookDetailParam param) throws BusinessCheckException {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
 
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
         MtStaff mtStaff = staffService.queryStaffByMobile(mtUser.getMobile());
@@ -119,7 +119,7 @@ public class MerchantBookController extends BaseController {
     @RequestMapping(value = "/cancel", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject cancel(@RequestBody BookDetailParam param) throws BusinessCheckException {
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
 
         Integer bookId = param.getBookId();
         if (bookId == null) {
@@ -149,7 +149,7 @@ public class MerchantBookController extends BaseController {
     @RequestMapping(value = "/confirm", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject confirm(@RequestBody BookConfirmParam param) throws BusinessCheckException {
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
 
         Integer bookId = param.getBookId();
         MtBookItem bookItem = bookItemService.getBookItemById(bookId);

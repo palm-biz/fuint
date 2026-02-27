@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.GoodsCateDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.GoodsCatePage;
@@ -59,7 +59,7 @@ public class BackendCateController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('goods:cate:index')")
     public ResponseObject list(@ModelAttribute GoodsCatePage goodsCatePage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             goodsCatePage.setMerchantId(accountInfo.getMerchantId());
         }
@@ -86,7 +86,7 @@ public class BackendCateController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('goods:cate:index')")
     public ResponseObject updateStatus(@RequestBody StatusParam params) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         MtGoodsCate mtCate = cateService.queryCateById(params.getId());
         if (mtCate == null) {
             return getFailureResult(201, "该类别不存在");
@@ -116,7 +116,7 @@ public class BackendCateController extends BaseController {
         String status = params.get("status") == null ? StatusEnum.ENABLED.getKey() : params.get("status").toString();
         Integer storeId = (params.get("storeId") == null || StringUtil.isEmpty(params.get("storeId").toString())) ? 0 : Integer.parseInt(params.get("storeId").toString());
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Integer myStoreId = accountInfo.getStoreId();
         if (myStoreId > 0) {
             storeId = myStoreId;
@@ -150,7 +150,7 @@ public class BackendCateController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('goods:cate:index')")
     public ResponseObject info(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         MtGoodsCate mtCate = cateService.queryCateById(id);
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0 && !accountInfo.getMerchantId().equals(mtCate.getMerchantId())) {

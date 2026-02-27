@@ -1,8 +1,8 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.common.dto.OrderDto;
-import cloud.palmbiz.common.dto.UserOrderDto;
+import cloud.palmbiz.common.order.dto.OrderDto;
+import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.param.OrderListParam;
 import cloud.palmbiz.common.param.RechargeParam;
 import cloud.palmbiz.common.param.SettlementParam;

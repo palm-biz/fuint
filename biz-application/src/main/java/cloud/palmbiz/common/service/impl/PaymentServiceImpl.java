@@ -197,7 +197,7 @@ public class PaymentServiceImpl implements PaymentService {
         String payType = request.getParameter("payType") == null ? PayTypeEnum.JSAPI.getKey() : request.getParameter("payType");
         String cashierPayAmount = request.getParameter("cashierPayAmount") == null ? "" : request.getParameter("cashierPayAmount"); // 收银台实付金额
         String cashierDiscountAmount = request.getParameter("cashierDiscountAmount") == null ? "" : request.getParameter("cashierDiscountAmount"); // 收银台优惠金额
-        UserInfo loginInfo = TokenUtil.getUserInfoByToken(token);
+        UserInfoDto loginInfo = TokenUtil.getUserInfoByToken(token);
         String orderId = request.getParameter("orderId");
         String userId = request.getParameter("userId");
         String authCode = request.getParameter("authCode");
@@ -227,7 +227,7 @@ public class PaymentServiceImpl implements PaymentService {
         orderInfo = orderService.updateOrder(orderInfo);
 
         // 收银员操作
-        AccountInfo accountInfo = TokenUtil.getAccountInfoByToken(token);
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfoByToken(token);
         if (loginInfo == null && accountInfo != null) {
             // 游客订单绑定到会员
             if (orderInfo.getIsVisitor().equals(YesOrNoEnum.YES.getKey()) && StringUtil.isNotEmpty(userId)) {
@@ -249,7 +249,7 @@ public class PaymentServiceImpl implements PaymentService {
             if (loginInfo == null) {
                 MtUser user = memberService.queryMemberById(orderInfo.getUserId());
                 if (user != null) {
-                    loginInfo = new UserInfo();
+                    loginInfo = new UserInfoDto();
                     loginInfo.setId(user.getId());
                 }
             }

@@ -1,8 +1,8 @@
 package cloud.palmbiz.module.merchant.controller;
 
-import cloud.palmbiz.common.dto.OrderDto;
-import cloud.palmbiz.common.dto.UserInfo;
-import cloud.palmbiz.common.dto.UserOrderDto;
+import cloud.palmbiz.common.order.dto.OrderDto;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
+import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.param.OrderConfirmParam;
 import cloud.palmbiz.common.param.OrderDetailParam;
 import cloud.palmbiz.common.param.OrderListParam;
@@ -54,7 +54,7 @@ public class MerchantOrderController extends BaseController {
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject list(@RequestBody OrderListParam params) throws BusinessCheckException {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
 
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
         MtStaff staffInfo = staffService.queryStaffByMobile(mtUser.getMobile());
@@ -77,7 +77,7 @@ public class MerchantOrderController extends BaseController {
     @RequestMapping(value = "/detail", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject detail(@RequestBody OrderDetailParam param) throws BusinessCheckException {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
 
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
         MtStaff mtStaff = staffService.queryStaffByMobile(mtUser.getMobile());
@@ -102,7 +102,7 @@ public class MerchantOrderController extends BaseController {
     @RequestMapping(value = "/cancel", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject cancel(@RequestBody OrderDetailParam param) throws BusinessCheckException {
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
 
         String orderId = param.getOrderId();
         if (orderId == null || StringUtil.isEmpty(orderId)) {
@@ -132,7 +132,7 @@ public class MerchantOrderController extends BaseController {
     @RequestMapping(value = "/confirm", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject confirm(@RequestBody OrderConfirmParam param) throws BusinessCheckException {
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
 
         Integer orderId = param.getOrderId();
 

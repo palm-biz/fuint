@@ -1,8 +1,8 @@
 package cloud.palmbiz.module.client.controller;
 
 import cloud.palmbiz.common.config.Message;
-import cloud.palmbiz.common.dto.UserCouponDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserCouponDto;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.CouponExpireTypeEnum;
 import cloud.palmbiz.common.enums.CouponTypeEnum;
 import cloud.palmbiz.common.enums.UserCouponStatusEnum;
@@ -89,7 +89,7 @@ public class ClientUserCouponController extends BaseController {
             return getFailureResult(1004);
         }
 
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
         if (null == mtUser) {
             return getFailureResult(1001);
         }
@@ -172,7 +172,7 @@ public class ClientUserCouponController extends BaseController {
                 if (userCouponId <= 0 && StringUtil.isNotEmpty(userCouponCode)) {
                     userCouponId = userCoupon.getId();
                 }
-                List<MtConfirmLog> confirmLogs = confirmLogService.getConfirmList(userCouponId);
+                List<WriteOffRecord> confirmLogs = confirmLogService.getConfirmList(userCouponId);
                 Long confirmCount = confirmLogService.getConfirmNum(userCouponId);
                 result.setConfirmCount(confirmCount.intValue());
                 result.setConfirmLogs(confirmLogs);

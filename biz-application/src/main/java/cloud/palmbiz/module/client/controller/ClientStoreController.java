@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.client.controller;
 
-import cloud.palmbiz.common.dto.StoreInfo;
+import cloud.palmbiz.common.store.dto.StoreInfo;
 import cloud.palmbiz.common.service.StoreService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.web.BaseController;

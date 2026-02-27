@@ -1,8 +1,8 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.ParamDto;
-import cloud.palmbiz.common.dto.UserCouponDto;
+import cloud.palmbiz.common.user.dto.UserCouponDto;
 import cloud.palmbiz.common.enums.CouponExpireTypeEnum;
 import cloud.palmbiz.common.enums.CouponTypeEnum;
 import cloud.palmbiz.common.service.ConfirmLogService;
@@ -130,7 +130,7 @@ public class BackendDoConfirmController extends BaseController {
         String amount = (param.get("amount") == null || StringUtil.isEmpty(param.get("amount").toString())) ? "0" : param.get("amount").toString();
         String remark = (param.get("remark") == null || StringUtil.isEmpty(param.get("remark").toString())) ? "后台核销" : param.get("remark").toString();
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (StringUtil.isEmpty(userCouponId)) {
             return getFailureResult(201, "系统参数有误");
         }

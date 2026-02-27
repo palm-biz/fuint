@@ -3,9 +3,9 @@ package cloud.palmbiz.common.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cloud.palmbiz.common.dto.AccountInfo;
-import cloud.palmbiz.common.dto.BalanceDto;
-import cloud.palmbiz.common.dto.OrderDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.balance.dto.BalanceDto;
+import cloud.palmbiz.common.order.dto.OrderDto;
 import cloud.palmbiz.common.enums.*;
 import cloud.palmbiz.common.param.BalancePage;
 import cloud.palmbiz.common.service.*;
@@ -255,7 +255,7 @@ public class BalanceServiceImpl extends ServiceImpl<MtBalanceMapper, MtBalance> 
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "发放余额")
-    public void distribute(AccountInfo accountInfo, String object, String userIds, String amount, String remark) throws BusinessCheckException {
+    public void distribute(AccountInfoDto accountInfo, String object, String userIds, String amount, String remark) throws BusinessCheckException {
         if (!CommonUtil.isNumeric(amount)) {
             throw new BusinessCheckException("充值金额必须是数字");
         }

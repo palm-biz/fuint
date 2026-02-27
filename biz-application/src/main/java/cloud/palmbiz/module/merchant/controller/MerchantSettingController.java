@@ -1,8 +1,8 @@
 package cloud.palmbiz.module.merchant.controller;
 
 import cloud.palmbiz.common.dto.MerchantSettingDto;
-import cloud.palmbiz.common.dto.StaffDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.staff.dto.StaffDto;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.service.MemberService;
 import cloud.palmbiz.common.service.MerchantService;
 import cloud.palmbiz.common.service.SettingService;
@@ -57,7 +57,7 @@ public class MerchantSettingController extends BaseController {
     @RequestMapping(value = "/settingInfo", method = RequestMethod.GET)
     @CrossOrigin
     public ResponseObject settingInfo() {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
         StaffDto staffInfo = staffService.getStaffInfoByMobile(mtUser.getMobile());
         if (null == staffInfo) {
@@ -77,7 +77,7 @@ public class MerchantSettingController extends BaseController {
     @RequestMapping(value = "/saveSetting", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject saveSetting(@RequestBody MerchantSettingParam params) throws BusinessCheckException {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
         StaffDto staffInfo = staffService.getStaffInfoByMobile(mtUser.getMobile());
         if (null == staffInfo) {

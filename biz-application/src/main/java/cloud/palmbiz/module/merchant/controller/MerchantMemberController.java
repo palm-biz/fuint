@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.merchant.controller;
 
-import cloud.palmbiz.common.dto.UserDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserDto;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.MemberDetailParam;
 import cloud.palmbiz.common.param.MemberInfoParam;
@@ -70,7 +70,7 @@ public class MerchantMemberController extends BaseController {
             String activeTime = DateUtil.formatDate(new Date(), "yyyy-MM-dd") + " 00:00:00~" + DateUtil.formatDate(new Date(), "yyyy-MM-dd HH:mm:ss");
             memberListParam.setActiveTime(activeTime);
         }
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
         MtStaff staffInfo = null;
         if (mtUser != null && mtUser.getMobile() != null) {
@@ -108,7 +108,7 @@ public class MerchantMemberController extends BaseController {
     @RequestMapping(value = "/info", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject info(@RequestBody MemberDetailParam memberParam) throws BusinessCheckException {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
 
         MtStaff staffInfo = null;
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
@@ -135,7 +135,7 @@ public class MerchantMemberController extends BaseController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject save(@RequestBody MemberInfoParam memberInfoParam) throws BusinessCheckException {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
 
         MtStaff staffInfo = null;
         MtUser myUserInfo = memberService.queryMemberById(userInfo.getId());

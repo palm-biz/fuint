@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
-import cloud.palmbiz.common.dto.BookItemDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.appointment.dto.BookItemDto;
 import cloud.palmbiz.common.dto.ParamDto;
 import cloud.palmbiz.common.enums.BookStatusEnum;
 import cloud.palmbiz.common.enums.StatusEnum;
@@ -68,7 +68,7 @@ public class BackendBookItemController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('book:index')")
     public ResponseObject list(@ModelAttribute BookItemPage bookItemPage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             bookItemPage.setMerchantId(accountInfo.getMerchantId());
         }
@@ -100,7 +100,7 @@ public class BackendBookItemController extends BaseController {
     @PreAuthorize("@pms.hasPermission('book:index')")
     public ResponseObject updateStatus(@RequestBody StatusParam params) throws BusinessCheckException {
         String status = params.getStatus() != null ? params.getStatus() : StatusEnum.ENABLED.getKey();
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         MtBookItem mtBookItem = bookItemService.getBookItemById(params.getId());
         if (mtBookItem == null) {
             return getFailureResult(201, "该数据不存在");
@@ -121,7 +121,7 @@ public class BackendBookItemController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('book:index')")
     public ResponseObject saveHandler(@RequestBody BookItemDto bookItemDto) throws BusinessCheckException, ParseException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         MtBookItem mtBookItem = new MtBookItem();
         BeanUtils.copyProperties(bookItemDto, mtBookItem);
@@ -147,7 +147,7 @@ public class BackendBookItemController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('book:index')")
     public ResponseObject info(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         MtBookItem mtBookItem = bookItemService.getBookItemById(id);
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0 && !mtBookItem.getMerchantId().equals(accountInfo.getMerchantId())) {
             return getFailureResult(1004);

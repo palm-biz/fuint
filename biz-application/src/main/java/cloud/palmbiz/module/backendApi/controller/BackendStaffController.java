@@ -1,9 +1,9 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.ParamDto;
-import cloud.palmbiz.common.dto.StaffDto;
+import cloud.palmbiz.common.staff.dto.StaffDto;
 import cloud.palmbiz.common.enums.StaffCategoryEnum;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.StaffParam;
@@ -59,7 +59,7 @@ public class BackendStaffController extends BaseController {
         String storeId = request.getParameter("storeId");
         String category = request.getParameter("category");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getStoreId() != null && accountInfo.getStoreId() > 0) {
             storeId = accountInfo.getStoreId().toString();
         }
@@ -106,7 +106,7 @@ public class BackendStaffController extends BaseController {
         String status = params.get("status") != null ? params.get("status").toString() : StatusEnum.ENABLED.getKey();
         Integer id = params.get("id") == null ? 0 : Integer.parseInt(params.get("id").toString());
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         staffService.updateAuditedStatus(id, status, accountInfo.getAccountName());
         return getSuccessResult(true);
     }
@@ -119,7 +119,7 @@ public class BackendStaffController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('staff:list')")
     public ResponseObject saveHandler(@RequestBody StaffParam staffParam) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() == null || accountInfo.getMerchantId() <= 0) {
             return getFailureResult(5002);
         }
@@ -167,7 +167,7 @@ public class BackendStaffController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('staff:list')")
     public ResponseObject getStaffInfo(@PathVariable("id") Integer id) {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         MtStaff staffInfo = staffService.queryStaffById(id);
         if (accountInfo.getMerchantId() > 0 && !accountInfo.getMerchantId().equals(staffInfo.getMerchantId())) {
             return getFailureResult(1004);
@@ -189,7 +189,7 @@ public class BackendStaffController extends BaseController {
     @RequestMapping(value = "/storeStaffList/{storeId}", method = RequestMethod.GET)
     @CrossOrigin
     public ResponseObject storeStaffList(@PathVariable("storeId") Integer storeId) {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         Map<String, Object> params = new HashMap<>();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
@@ -218,7 +218,7 @@ public class BackendStaffController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('staff:list')")
     public ResponseObject deleteStaff(@PathVariable("id") Integer id) {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         staffService.updateAuditedStatus(id, StatusEnum.DISABLE.getKey(), accountInfo.getAccountName());
         return getSuccessResult(true);
     }

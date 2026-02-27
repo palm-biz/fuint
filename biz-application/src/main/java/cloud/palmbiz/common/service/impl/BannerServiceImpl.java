@@ -10,7 +10,7 @@ import cloud.palmbiz.framework.annoation.OperationServiceLog;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.MtBanner;
-import cloud.palmbiz.common.dto.BannerDto;
+import cloud.palmbiz.common.banner.dto.BannerDto;
 import cloud.palmbiz.common.service.BannerService;
 import cloud.palmbiz.common.service.SettingService;
 import cloud.palmbiz.common.enums.StatusEnum;

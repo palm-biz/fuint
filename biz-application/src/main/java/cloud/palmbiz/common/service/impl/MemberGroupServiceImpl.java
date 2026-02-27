@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cloud.palmbiz.common.dto.MemberGroupDto;
-import cloud.palmbiz.common.dto.UserGroupDto;
+import cloud.palmbiz.common.user.dto.UserGroupDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.MemberGroupService;
 import cloud.palmbiz.common.service.StoreService;

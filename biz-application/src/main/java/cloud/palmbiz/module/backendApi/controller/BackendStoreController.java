@@ -1,8 +1,8 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
-import cloud.palmbiz.common.dto.StoreDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.store.dto.StoreDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.MerchantService;
 import cloud.palmbiz.common.service.SettingService;
@@ -65,7 +65,7 @@ public class BackendStoreController extends BaseController {
         Integer pageSize = request.getParameter("pageSize") == null ? Constants.PAGE_SIZE : Integer.parseInt(request.getParameter("pageSize"));
         String storeName = request.getParameter("name");
         String storeStatus = request.getParameter("status");
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         Map<String, Object> params = new HashMap<>();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
@@ -103,7 +103,7 @@ public class BackendStoreController extends BaseController {
         String storeId = request.getParameter("id") == null ? "" : request.getParameter("id");
         String storeName = request.getParameter("name") == null ? "" : request.getParameter("name");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         if (accountInfo.getStoreId() != null && accountInfo.getStoreId() > 0) {
             storeId = accountInfo.getStoreId().toString();
@@ -142,7 +142,7 @@ public class BackendStoreController extends BaseController {
         String status = params.get("status") != null ? params.get("status").toString() : StatusEnum.ENABLED.getKey();
         Integer storeId = params.get("storeId") == null ? 0 : Integer.parseInt(params.get("storeId").toString());
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         storeService.updateStatus(storeId, accountInfo.getAccountName(), status);
 
         return getSuccessResult(true);
@@ -156,7 +156,7 @@ public class BackendStoreController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('store:add')")
     public ResponseObject saveHandler(@RequestBody StoreSubmitRequest storeParam) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         StoreDto storeDto = new StoreDto();
 
         if ((StringUtil.isEmpty(storeParam.getLatitude()) || StringUtil.isEmpty(storeParam.getLongitude())) && StringUtil.isNotEmpty(storeParam.getAddress())) {
@@ -201,7 +201,7 @@ public class BackendStoreController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('store:list')")
     public ResponseObject getStoreInfo(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         StoreDto storeInfo = storeService.queryStoreDtoById(id);
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {

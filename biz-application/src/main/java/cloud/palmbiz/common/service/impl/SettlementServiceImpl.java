@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.dto.SettlementDto;
 import cloud.palmbiz.common.dto.SettlementOrderDto;
-import cloud.palmbiz.common.dto.UserOrderDto;
+import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.enums.*;
 import cloud.palmbiz.common.param.OrderListParam;
 import cloud.palmbiz.common.service.MerchantService;

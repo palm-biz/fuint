@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.CommissionRuleDto;
 import cloud.palmbiz.common.dto.ParamDto;
 import cloud.palmbiz.common.enums.CommissionTypeEnum;
@@ -47,7 +47,7 @@ public class BackendCommissionRuleController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('commission:rule:index')")
     public ResponseObject list(@ModelAttribute CommissionRulePage commissionRulePage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             commissionRulePage.setMerchantId(accountInfo.getMerchantId());
         }
@@ -76,7 +76,7 @@ public class BackendCommissionRuleController extends BaseController {
     public ResponseObject updateStatus(@RequestBody StatusParam params) throws BusinessCheckException {
         String status = params.getStatus() != null ? params.getStatus() : StatusEnum.ENABLED.getKey();
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         CommissionRuleDto commissionRuleDto = commissionRuleService.queryCommissionRuleById(params.getId());
         if (commissionRuleDto == null) {
             return getFailureResult(201);
@@ -99,7 +99,7 @@ public class BackendCommissionRuleController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('commission:rule:index')")
     public ResponseObject saveHandler(@RequestBody CommissionRuleParam commissionRule) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             commissionRule.setMerchantId(accountInfo.getMerchantId());
         }

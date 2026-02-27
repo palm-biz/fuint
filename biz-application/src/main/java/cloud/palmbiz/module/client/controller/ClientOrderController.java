@@ -1,8 +1,8 @@
 package cloud.palmbiz.module.client.controller;
 
-import cloud.palmbiz.common.dto.OrderDto;
-import cloud.palmbiz.common.dto.UserInfo;
-import cloud.palmbiz.common.dto.UserOrderDto;
+import cloud.palmbiz.common.order.dto.OrderDto;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
+import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.enums.OrderStatusEnum;
 import cloud.palmbiz.common.param.OrderListParam;
 import cloud.palmbiz.common.service.OrderService;
@@ -44,7 +44,7 @@ public class ClientOrderController extends BaseController {
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject list(@RequestBody OrderListParam orderListParam) throws BusinessCheckException {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         orderListParam.setUserId(userInfo.getId().toString());
         PaginationResponse orderData = orderService.getUserOrderList(orderListParam);
         return getSuccessResult(orderData);
@@ -77,7 +77,7 @@ public class ClientOrderController extends BaseController {
     @RequestMapping(value = "/cancel", method = RequestMethod.GET)
     @CrossOrigin
     public ResponseObject cancel(HttpServletRequest request) throws BusinessCheckException {
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
 
         String orderId = request.getParameter("orderId");
         if (StringUtil.isEmpty(orderId)) {
@@ -107,7 +107,7 @@ public class ClientOrderController extends BaseController {
     @RequestMapping(value = "/receipt", method = RequestMethod.GET)
     @CrossOrigin
     public ResponseObject receipt(HttpServletRequest request) throws BusinessCheckException {
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
         if (mtUser == null) {
             return getFailureResult(1001, "用户未登录");
         }
@@ -137,7 +137,7 @@ public class ClientOrderController extends BaseController {
     @RequestMapping(value = "/todoCounts", method = RequestMethod.GET)
     @CrossOrigin
     public ResponseObject todoCounts() {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
 
         Map<String, Object> result = new HashMap<>();
         if (userInfo != null) {

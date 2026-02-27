@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
-import cloud.palmbiz.common.dto.ArticleDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.article.dto.ArticleDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.ArticlePage;
 import cloud.palmbiz.common.param.StatusParam;
@@ -57,7 +57,7 @@ public class BackendArticleController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('content:article:index')")
     public ResponseObject list(@ModelAttribute ArticlePage articlePage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             articlePage.setMerchantId(accountInfo.getMerchantId());
         }
@@ -85,7 +85,7 @@ public class BackendArticleController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('content:article:edit')")
     public ResponseObject updateStatus(@RequestBody StatusParam params) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         String status = params.getStatus() != null ? params.getStatus() : StatusEnum.ENABLED.getKey();
 
         MtArticle mtArticle = articleService.queryArticleById(params.getId());
@@ -110,7 +110,7 @@ public class BackendArticleController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('content:article:add')")
     public ResponseObject saveHandler(@RequestBody ArticleDto articleDto) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         articleDto.setOperator(accountInfo.getAccountName());
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             articleDto.setMerchantId(accountInfo.getMerchantId());
@@ -136,7 +136,7 @@ public class BackendArticleController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('content:article:index')")
     public ResponseObject info(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         MtArticle articleInfo = articleService.queryArticleById(id);
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {

@@ -11,8 +11,8 @@ import cloud.palmbiz.common.service.CouponService;
 import cloud.palmbiz.common.service.MemberService;
 import cloud.palmbiz.common.service.StoreService;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.infrastructure.mapper.MtConfirmLogMapper;
-import cloud.palmbiz.infrastructure.model.MtConfirmLog;
+import cloud.palmbiz.infrastructure.mapper.WriteOffRecordMapper;
+import cloud.palmbiz.infrastructure.model.WriteOffRecord;
 import cloud.palmbiz.infrastructure.model.MtCoupon;
 import cloud.palmbiz.infrastructure.model.MtStore;
 import cloud.palmbiz.infrastructure.model.MtUser;
@@ -32,9 +32,9 @@ import java.util.*;
  */
 @Service
 @AllArgsConstructor(onConstructor_= {@Lazy})
-public class ConfirmLogServiceImpl extends ServiceImpl<MtConfirmLogMapper, MtConfirmLog> implements ConfirmLogService {
+public class ConfirmLogServiceImpl extends ServiceImpl<WriteOffRecordMapper, WriteOffRecord> implements ConfirmLogService {
 
-    private MtConfirmLogMapper mtConfirmLogMapper;
+    private WriteOffRecordMapper writeOffRecordMapper;
 
     /**
      * 卡券服务接口
@@ -59,36 +59,36 @@ public class ConfirmLogServiceImpl extends ServiceImpl<MtConfirmLogMapper, MtCon
      */
     @Override
     public PaginationResponse<ConfirmLogDto> queryConfirmLogListByPagination(ConfirmLogPage confirmLogPage) {
-        Page<MtConfirmLog> pageHelper = PageHelper.startPage(confirmLogPage.getPage(), confirmLogPage.getPageSize());
-        LambdaQueryWrapper<MtConfirmLog> lambdaQueryWrapper = Wrappers.lambdaQuery();
-        lambdaQueryWrapper.ne(MtConfirmLog::getStatus, StatusEnum.DISABLE.getKey());
+        Page<WriteOffRecord> pageHelper = PageHelper.startPage(confirmLogPage.getPage(), confirmLogPage.getPageSize());
+        LambdaQueryWrapper<WriteOffRecord> lambdaQueryWrapper = Wrappers.lambdaQuery();
+        lambdaQueryWrapper.ne(WriteOffRecord::getStatus, StatusEnum.DISABLE.getKey());
 
         String status = confirmLogPage.getStatus();
         if (StringUtils.isNotBlank(status)) {
-            lambdaQueryWrapper.eq(MtConfirmLog::getStatus, status);
+            lambdaQueryWrapper.eq(WriteOffRecord::getStatus, status);
         }
         Integer userId = confirmLogPage.getUserId();
         if (userId != null) {
-            lambdaQueryWrapper.eq(MtConfirmLog::getUserId, userId);
+            lambdaQueryWrapper.eq(WriteOffRecord::getUserId, userId);
         }
         Integer couponId = confirmLogPage.getCouponId();
         if (couponId != null && couponId > 0) {
-            lambdaQueryWrapper.eq(MtConfirmLog::getCouponId, couponId);
+            lambdaQueryWrapper.eq(WriteOffRecord::getCouponId, couponId);
         }
         Integer merchantId = confirmLogPage.getMerchantId();
         if (merchantId != null && merchantId > 0) {
-            lambdaQueryWrapper.eq(MtConfirmLog::getMerchantId, merchantId);
+            lambdaQueryWrapper.eq(WriteOffRecord::getMerchantId, merchantId);
         }
         Integer storeId = confirmLogPage.getStoreId();
         if (storeId != null && storeId > 0) {
-            lambdaQueryWrapper.eq(MtConfirmLog::getStoreId, storeId);
+            lambdaQueryWrapper.eq(WriteOffRecord::getStoreId, storeId);
         }
 
-        lambdaQueryWrapper.orderByDesc(MtConfirmLog::getId);
-        List<MtConfirmLog> confirmLogList = mtConfirmLogMapper.selectList(lambdaQueryWrapper);
+        lambdaQueryWrapper.orderByDesc(WriteOffRecord::getId);
+        List<WriteOffRecord> confirmLogList = writeOffRecordMapper.selectList(lambdaQueryWrapper);
         List<ConfirmLogDto> dataList = new ArrayList<>();
 
-        for (MtConfirmLog log : confirmLogList) {
+        for (WriteOffRecord log : confirmLogList) {
              MtUser userInfo = memberService.queryMemberById(log.getUserId());
              MtStore storeInfo = storeService.queryStoreById(log.getStoreId());
              MtCoupon couponInfo = couponService.queryCouponById(log.getCouponId());
@@ -126,7 +126,7 @@ public class ConfirmLogServiceImpl extends ServiceImpl<MtConfirmLogMapper, MtCon
     @Override
     public Long getConfirmNum(Integer userCouponId) {
         if (userCouponId > 0) {
-            return mtConfirmLogMapper.getConfirmNum(userCouponId);
+            return writeOffRecordMapper.getConfirmNum(userCouponId);
         } else {
             return 0L;
         }
@@ -138,14 +138,14 @@ public class ConfirmLogServiceImpl extends ServiceImpl<MtConfirmLogMapper, MtCon
      * @return
      */
     @Override
-    public List<MtConfirmLog> getConfirmList(Integer userCouponId) {
+    public List<WriteOffRecord> getConfirmList(Integer userCouponId) {
         if (userCouponId == null || userCouponId <= 0) {
             return new ArrayList<>();
         }
         Map<String, Object> params = new HashMap<>();
         params.put("status", StatusEnum.ENABLED.getKey());
         params.put("USER_COUPON_ID", userCouponId.toString());
-        return mtConfirmLogMapper.selectByMap(params);
+        return writeOffRecordMapper.selectByMap(params);
     }
 
     /**
@@ -158,6 +158,6 @@ public class ConfirmLogServiceImpl extends ServiceImpl<MtConfirmLogMapper, MtCon
      */
     @Override
     public Long getConfirmCount(Integer merchantId, Integer storeId, Date beginTime, Date endTime) {
-        return mtConfirmLogMapper.getConfirmLogCount(merchantId, storeId, beginTime, endTime);
+        return writeOffRecordMapper.getConfirmLogCount(merchantId, storeId, beginTime, endTime);
     }
 }

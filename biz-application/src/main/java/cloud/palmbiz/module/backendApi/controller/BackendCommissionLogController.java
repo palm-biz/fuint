@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.CommissionLogDto;
 import cloud.palmbiz.common.dto.ParamDto;
 import cloud.palmbiz.common.enums.CommissionStatusEnum;
@@ -60,7 +60,7 @@ public class BackendCommissionLogController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('commission:log:index')")
     public ResponseObject list(@ModelAttribute CommissionLogPage commissionLogPage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getStoreId() != null && accountInfo.getStoreId() > 0) {
             commissionLogPage.setStoreId(accountInfo.getStoreId());
         }
@@ -96,7 +96,7 @@ public class BackendCommissionLogController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('commission:log:index')")
     public ResponseObject info(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         CommissionLogDto commissionLog = commissionLogService.queryCommissionLogById(id);
         if (accountInfo.getMerchantId() > 0 && !commissionLog.getMerchantId().equals(accountInfo.getMerchantId())) {
@@ -116,7 +116,7 @@ public class BackendCommissionLogController extends BaseController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @PreAuthorize("@pms.hasPermission('commission:log:index')")
     public ResponseObject save(@RequestBody CommissionLogRequest commissionLogRequest) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         commissionLogRequest.setOperator(accountInfo.getAccountName());
         commissionLogService.updateCommissionLog(commissionLogRequest);
@@ -132,7 +132,7 @@ public class BackendCommissionLogController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('commission:log:index')")
     public ResponseObject delete(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         CommissionLogDto commissionLog = commissionLogService.queryCommissionLogById(id);
         if (accountInfo.getMerchantId() > 0 && !commissionLog.getMerchantId().equals(accountInfo.getMerchantId())) {
@@ -154,7 +154,7 @@ public class BackendCommissionLogController extends BaseController {
     @RequestMapping(value = "/doSettle", method = RequestMethod.POST)
     @PreAuthorize("@pms.hasPermission('commission:log:index')")
     public ResponseObject doSettle(@RequestBody CommissionSettleRequest commissionSettleRequest) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         commissionSettleRequest.setOperator(accountInfo.getAccountName());
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {

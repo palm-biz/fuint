@@ -3,7 +3,7 @@ package cloud.palmbiz.common.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cloud.palmbiz.common.dto.ArticleDto;
+import cloud.palmbiz.common.article.dto.ArticleDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.ArticlePage;
 import cloud.palmbiz.common.service.ArticleService;

@@ -1,8 +1,8 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
-import cloud.palmbiz.common.dto.BookDto;
-import cloud.palmbiz.common.dto.BookTimeDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.appointment.dto.BookDto;
+import cloud.palmbiz.common.appointment.dto.BookTimeDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.BookPage;
 import cloud.palmbiz.common.param.StatusParam;
@@ -70,7 +70,7 @@ public class BackendBookController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('book:index')")
     public ResponseObject list(@ModelAttribute BookPage bookPage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             bookPage.setMerchantId(accountInfo.getMerchantId());
         }
@@ -99,7 +99,7 @@ public class BackendBookController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('book:index')")
     public ResponseObject updateStatus(@RequestBody StatusParam params) throws BusinessCheckException, ParseException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         BookDto bookDto = bookService.getBookById(params.getId(), false);
         if (bookDto == null) {
             return getFailureResult(201);
@@ -123,7 +123,7 @@ public class BackendBookController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('book:index')")
     public ResponseObject saveHandler(@RequestBody BookDto bookDto) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() == null || accountInfo.getMerchantId() < 1) {
             getFailureResult(5002);
         }
@@ -170,7 +170,7 @@ public class BackendBookController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('book:index')")
     public ResponseObject info(@PathVariable("id") Integer id) throws BusinessCheckException, ParseException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         BookDto bookDto = bookService.getBookById(id, false);
 
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {

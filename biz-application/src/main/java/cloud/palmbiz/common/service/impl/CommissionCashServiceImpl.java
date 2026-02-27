@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cloud.palmbiz.common.dto.CommissionCashDto;
-import cloud.palmbiz.common.dto.OrderUserDto;
+import cloud.palmbiz.common.order.dto.OrderUserDto;
 import cloud.palmbiz.common.enums.CommissionCashStatusEnum;
 import cloud.palmbiz.common.enums.CommissionStatusEnum;
 import cloud.palmbiz.common.enums.CommissionTargetEnum;

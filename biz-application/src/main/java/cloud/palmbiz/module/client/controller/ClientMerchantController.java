@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.client.controller;
 
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.service.ConfirmLogService;
 import cloud.palmbiz.common.service.MemberService;
 import cloud.palmbiz.common.service.OrderService;
@@ -49,7 +49,7 @@ public class ClientMerchantController extends BaseController {
     @CrossOrigin
     public ResponseObject info(HttpServletRequest request) throws BusinessCheckException {
         String token = request.getHeader("Access-Token");
-        UserInfo userInfo = TokenUtil.getUserInfoByToken(token);
+        UserInfoDto userInfo = TokenUtil.getUserInfoByToken(token);
 
         if (null == userInfo) {
             return getFailureResult(1001, "用户未登录");

@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.PointDto;
 import cloud.palmbiz.common.enums.PointSettingEnum;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
@@ -72,7 +72,7 @@ public class BackendPointController extends BaseController {
         String userNo = request.getParameter("userNo") == null ? "" : request.getParameter("userNo");
         String status = request.getParameter("status") == null ? StatusEnum.ENABLED.getKey() : request.getParameter("status");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Map<String, Object> searchParams = new HashMap<>();
         if (StringUtil.isNotEmpty(mobile)) {
             MtUser userInfo = memberService.queryMemberByMobile(accountInfo.getMerchantId(), mobile);
@@ -113,7 +113,7 @@ public class BackendPointController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('point:setting')")
     public ResponseObject setting() throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         List<MtSetting> settingList = settingService.getSettingList(accountInfo.getMerchantId(), SettingTypeEnum.POINT.getKey());
         Map<String, Object> result = new HashMap();
@@ -163,7 +163,7 @@ public class BackendPointController extends BaseController {
             return getFailureResult(201, "输入参数有误");
         }
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() == null || accountInfo.getMerchantId() <= 0) {
             return getFailureResult(5002);
         }
@@ -210,7 +210,7 @@ public class BackendPointController extends BaseController {
         Integer userId = param.get("userId") == null ? 0 : Integer.parseInt(param.get("userId").toString());
         Integer type = param.get("type") == null ? 1 : Integer.parseInt(param.get("type").toString());
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (!CommonUtil.isNumeric(amount)) {
             return getFailureResult(201, "充值积分必须是数字");
         }

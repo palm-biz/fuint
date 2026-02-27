@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
-import cloud.palmbiz.common.dto.UserOrderDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.enums.PrinterSettingEnum;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
 import cloud.palmbiz.common.enums.StatusEnum;
@@ -69,7 +69,7 @@ public class BackendPrinterController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('printer:index')")
     public ResponseObject list(@ModelAttribute PrinterPage printerPage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             printerPage.setMerchantId(accountInfo.getMerchantId());
         }
@@ -98,7 +98,7 @@ public class BackendPrinterController extends BaseController {
         String status = params.get("status") != null ? params.get("status").toString() : StatusEnum.ENABLED.getKey();
         Integer id = params.get("id") == null ? 0 : Integer.parseInt(params.get("id").toString());
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         MtPrinter mtPrinter = printerService.queryPrinterById(id);
         if (mtPrinter == null) {
@@ -120,7 +120,7 @@ public class BackendPrinterController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('printer:index')")
     public ResponseObject saveHandler(@RequestBody PrinterParam printer) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         MtPrinter mtPrinter = new MtPrinter();
         BeanUtils.copyProperties(printer, mtPrinter);
         mtPrinter.setOperator(accountInfo.getAccountName());
@@ -147,7 +147,7 @@ public class BackendPrinterController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('printer:index')")
     public ResponseObject info(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         MtPrinter printerInfo = printerService.queryPrinterById(id);
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0 && !accountInfo.getMerchantId().equals(printerInfo.getMerchantId())) {
@@ -168,7 +168,7 @@ public class BackendPrinterController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('printer:setting')")
     public ResponseObject setting() throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         List<MtSetting> settingList = settingService.getSettingList(accountInfo.getMerchantId(), SettingTypeEnum.PRINTER.getKey());
 
@@ -207,7 +207,7 @@ public class BackendPrinterController extends BaseController {
         String userKey = param.get("userKey") != null ? param.get("userKey").toString() : null;
         String enable = param.get("enable") != null ? param.get("enable").toString() : null;
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         PrinterSettingEnum[] settingList = PrinterSettingEnum.values();
         for (PrinterSettingEnum setting : settingList) {
@@ -240,7 +240,7 @@ public class BackendPrinterController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('order:index')")
     public ResponseObject doPrint(@PathVariable("orderId") Integer orderId) throws Exception {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         UserOrderDto orderInfo = orderService.getOrderById(orderId);
         if (orderInfo == null) {

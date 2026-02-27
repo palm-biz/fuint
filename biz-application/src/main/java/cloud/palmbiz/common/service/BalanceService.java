@@ -1,8 +1,8 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.common.dto.AccountInfo;
-import cloud.palmbiz.common.dto.BalanceDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.balance.dto.BalanceDto;
 import cloud.palmbiz.common.param.BalancePage;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
@@ -41,7 +41,7 @@ public interface BalanceService extends IService<MtBalance> {
      * @param remark 备注
      * @return
      */
-    void distribute(AccountInfo accountInfo, String object, String userIds, String amount, String remark) throws BusinessCheckException;
+    void distribute(AccountInfoDto accountInfo, String object, String userIds, String amount, String remark) throws BusinessCheckException;
 
     /**
      * 获取订单余额记录

@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.ParamDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.enums.UserGradeCatchTypeEnum;
@@ -56,7 +56,7 @@ public class BackendUserGradeController extends BaseController {
         Integer page = request.getParameter("page") == null ? Constants.PAGE_NUMBER : Integer.parseInt(request.getParameter("page"));
         Integer pageSize = request.getParameter("pageSize") == null ? Constants.PAGE_SIZE : Integer.parseInt(request.getParameter("pageSize"));
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Map<String, Object> params = new HashMap<>();
         if (StringUtil.isNotEmpty(name)) {
             params.put("name", name);
@@ -102,7 +102,7 @@ public class BackendUserGradeController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('userGrade:index')")
     public ResponseObject updateStatus(@RequestBody Map<String, Object> param) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         Integer userGradeId = param.get("userGradeId") == null ? 0 : Integer.parseInt(param.get("userGradeId").toString());
         String status = param.get("status") == null ? StatusEnum.ENABLED.getKey() : param.get("status").toString();
@@ -126,7 +126,7 @@ public class BackendUserGradeController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('userGrade:index')")
     public ResponseObject delete(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         MtUserGrade mtUserGrade = userGradeService.queryUserGradeById(0, id, 0);
         if (mtUserGrade == null || !mtUserGrade.getMerchantId().equals(accountInfo.getMerchantId())) {
@@ -145,7 +145,7 @@ public class BackendUserGradeController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('userGrade:add')")
     public ResponseObject saveHandler(@RequestBody UserGradeParam userGrade) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() == null || accountInfo.getMerchantId() < 1) {
             throw new BusinessCheckException("平台方帐号无法执行该操作，请使用商户帐号操作");
         }
@@ -182,7 +182,7 @@ public class BackendUserGradeController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('userGrade:index')")
     public ResponseObject info(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         MtUserGrade userGradeInfo = userGradeService.queryUserGradeById(accountInfo.getMerchantId(), id, 0);
 

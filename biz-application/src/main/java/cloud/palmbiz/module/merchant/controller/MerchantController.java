@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.merchant.controller;
 
-import cloud.palmbiz.common.dto.StaffDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.staff.dto.StaffDto;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.service.ConfirmLogService;
 import cloud.palmbiz.common.service.MemberService;
 import cloud.palmbiz.common.service.OrderService;
@@ -61,7 +61,7 @@ public class MerchantController extends BaseController {
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     @CrossOrigin
     public ResponseObject info() throws BusinessCheckException {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
 
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
         Map<String, Object> outParams = new HashMap<>();

@@ -1,6 +1,6 @@
 package cloud.palmbiz.common.permission;
 
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.service.SourceService;
 import cloud.palmbiz.common.util.AuthUserUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
@@ -41,7 +41,7 @@ public class PermissionService {
             return false;
         }
 
-        AccountInfo accountInfo = AuthUserUtil.get();
+        AccountInfoDto accountInfo = AuthUserUtil.get();
         if (accountInfo == null) {
             return false;
         }

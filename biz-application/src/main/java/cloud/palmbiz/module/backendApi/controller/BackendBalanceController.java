@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
-import cloud.palmbiz.common.dto.BalanceDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.balance.dto.BalanceDto;
 import cloud.palmbiz.common.dto.RechargeRuleDto;
 import cloud.palmbiz.common.enums.BalanceSettingEnum;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
@@ -68,7 +68,7 @@ public class BackendBalanceController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('balance:list')")
     public ResponseObject list(@ModelAttribute BalancePage balancePage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getStoreId() != null && accountInfo.getStoreId() > 0) {
             balancePage.setStoreId(accountInfo.getStoreId());
         }
@@ -95,7 +95,7 @@ public class BackendBalanceController extends BaseController {
         String remark = param.get("remark") == null ? "后台充值" : param.get("remark").toString();
         Integer userId = param.get("userId") == null ? 0 : Integer.parseInt(param.get("userId").toString());
         Integer type = param.get("type") == null ? 1 : Integer.parseInt(param.get("type").toString());// 1 增加，2 扣减
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         if (!CommonUtil.isNumeric(amount)) {
             return getFailureResult(201, "充值金额必须是数字");
@@ -139,7 +139,7 @@ public class BackendBalanceController extends BaseController {
         String userIds = param.get("userIds") == null ? "" : param.get("userIds").toString();
         String object = param.get("object") == null ? "" : param.get("object").toString();
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         balanceService.distribute(accountInfo, object, userIds, amount, remark);
         return getSuccessResult(true);
     }
@@ -152,7 +152,7 @@ public class BackendBalanceController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('balance:setting')")
     public ResponseObject setting() throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         List<MtSetting> settingList = settingService.getSettingList(accountInfo.getMerchantId(), SettingTypeEnum.BALANCE.getKey());
 
@@ -204,7 +204,7 @@ public class BackendBalanceController extends BaseController {
         String remark = param.get("remark") == null ? "" : param.get("remark").toString();
         List<LinkedHashMap> rechargeItems = (List) param.get("rechargeItem");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() == null || accountInfo.getMerchantId() <= 0) {
             throw new BusinessCheckException("平台方帐号无法执行该操作，请使用商户帐号操作");
         }

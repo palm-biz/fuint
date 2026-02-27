@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.schedule;
 
-import cloud.palmbiz.common.dto.OrderDto;
+import cloud.palmbiz.common.order.dto.OrderDto;
 import cloud.palmbiz.common.enums.OrderStatusEnum;
 import cloud.palmbiz.common.enums.PayStatusEnum;
 import cloud.palmbiz.common.service.OrderService;

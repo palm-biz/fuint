@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.OpenGiftDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.OpenGiftService;
@@ -51,7 +51,7 @@ public class BackendOpenGiftController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('openGift:index')")
     public ResponseObject list(HttpServletRequest request) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         Integer page = request.getParameter("page") == null ? Constants.PAGE_NUMBER : Integer.parseInt(request.getParameter("page"));
         Integer pageSize = request.getParameter("pageSize") == null ? Constants.PAGE_SIZE : Integer.parseInt(request.getParameter("pageSize"));
@@ -93,7 +93,7 @@ public class BackendOpenGiftController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('openGift:index')")
     public ResponseObject info(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         List<MtUserGrade> userGradeMap = userGradeService.getMerchantGradeList(accountInfo.getMerchantId(), null);
         OpenGiftDto openGiftInfo = openGiftService.getOpenGiftDetail(id);
@@ -112,7 +112,7 @@ public class BackendOpenGiftController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('openGift:add')")
     public ResponseObject handleSave(@RequestBody Map<String, Object> param) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         String id = param.get("id").toString();
         String gradeId = param.get("gradeId").toString();
@@ -174,7 +174,7 @@ public class BackendOpenGiftController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('openGift:index')")
     public ResponseObject updateStatus(@RequestBody Map<String, Object> param) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Integer id = param.get("id") == null ? 0 : Integer.parseInt(param.get("id").toString());
         String status = param.get("status") == null ? StatusEnum.ENABLED.getKey() : param.get("status").toString();
 
@@ -200,7 +200,7 @@ public class BackendOpenGiftController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('openGift:index')")
     public ResponseObject delete(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         openGiftService.deleteOpenGift(id, accountInfo.getAccountName());
         return getSuccessResult(true);
     }

@@ -1,7 +1,7 @@
 package cloud.palmbiz.common.web;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.service.MemberService;
 import cloud.palmbiz.common.util.CommonUtil;
 import cloud.palmbiz.common.util.TokenUtil;
@@ -48,7 +48,7 @@ public class ClientUserInterceptor implements AsyncHandlerInterceptor {
         }
 
         // 验证session中的Token
-        UserInfo loginInfo = TokenUtil.getUserInfoByToken(accessToken);
+        UserInfoDto loginInfo = TokenUtil.getUserInfoByToken(accessToken);
         if (loginInfo != null) {
             if (!StringUtils.isEmpty(loginInfo.getToken()) && loginInfo.getToken().equals(accessToken)) {
                 // 更新活跃时间

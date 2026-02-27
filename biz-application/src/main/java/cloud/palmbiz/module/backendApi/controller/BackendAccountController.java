@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountDto;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountDto;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.RoleDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.AccountPage;
@@ -69,7 +69,7 @@ public class BackendAccountController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('system:account:index')")
     public ResponseObject list(@ModelAttribute AccountPage accountPage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             accountPage.setMerchantId(accountInfo.getMerchantId());
         }
@@ -87,7 +87,7 @@ public class BackendAccountController extends BaseController {
     @RequestMapping(value = "/info/{userId}", method = RequestMethod.GET)
     @CrossOrigin
     public ResponseObject info(@PathVariable("userId") Long userId) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Map<String, Object> result = new HashMap<>();
 
         List<TDuty> roleList = tDutyService.getAvailableRoles(accountInfo.getMerchantId(), accountInfo.getId());
@@ -141,7 +141,7 @@ public class BackendAccountController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('system:account:add')")
     public ResponseObject doCreate(@RequestBody Map<String, Object> param) throws BusinessCheckException {
-        AccountInfo account = TokenUtil.getAccountInfo();
+        AccountInfoDto account = TokenUtil.getAccountInfo();
 
         List<Integer> roleIds = (List) param.get("roleIds");
         String accountName = param.get("accountName").toString();
@@ -152,7 +152,7 @@ public class BackendAccountController extends BaseController {
         String merchantId = param.get("merchantId") == null ? "0" : param.get("merchantId").toString();
         String staffId = param.get("staffId") == null ? "0" : param.get("staffId").toString();
 
-        AccountInfo accountInfo = tAccountService.getAccountByName(accountName);
+        AccountInfoDto accountInfo = tAccountService.getAccountByName(accountName);
         if (accountInfo != null) {
             return getFailureResult(201, "该用户名已存在");
         }
@@ -210,7 +210,7 @@ public class BackendAccountController extends BaseController {
         String merchantId = param.get("merchantId") == null ? "" : param.get("merchantId").toString();
         Long id = Long.parseLong(param.get("id").toString());
 
-        AccountInfo loginAccount = TokenUtil.getAccountInfo();
+        AccountInfoDto loginAccount = TokenUtil.getAccountInfo();
 
         TAccount tAccount = tAccountService.getAccountInfoById(id.intValue());
         if (loginAccount.getMerchantId() > 0 && !tAccount.getMerchantId().equals(loginAccount.getMerchantId())) {
@@ -236,7 +236,7 @@ public class BackendAccountController extends BaseController {
             tAccount.setMerchantId(Integer.parseInt(merchantId));
         }
 
-        AccountInfo accountInfo = tAccountService.getAccountByName(accountName);
+        AccountInfoDto accountInfo = tAccountService.getAccountByName(accountName);
         if (accountInfo != null && accountInfo.getId() != id.intValue()) {
             return getFailureResult(201, "该用户名已存在");
         }
@@ -266,7 +266,7 @@ public class BackendAccountController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('system:account:delete')")
     public ResponseObject deleteAccount(@PathVariable("userIds") String userIds) {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         String ids[] = userIds.split(",");
         if (ids.length > 0) {
             for (int i = 0; i < ids.length; i++) {
@@ -302,7 +302,7 @@ public class BackendAccountController extends BaseController {
         Integer userId = param.get("userId") == null ? 0 : Integer.parseInt(param.get("userId").toString());
         Integer status = param.get("status") == null ? 0 : Integer.parseInt(param.get("status").toString());
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         TAccount tAccount = tAccountService.getAccountInfoById(userId.intValue());
         if (tAccount == null || accountInfo == null) {
             return getFailureResult(201, "账户不存在");
@@ -325,7 +325,7 @@ public class BackendAccountController extends BaseController {
         Integer userId = param.get("userId") == null ? 0 : Integer.parseInt(param.get("userId").toString());
         String password = param.get("password") == null ? "" : param.get("password").toString();
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         TAccount tAccount = tAccountService.getAccountInfoById(userId.intValue());
         if (accountInfo.getMerchantId() > 0 && !accountInfo.getMerchantId().equals(tAccount.getMerchantId())) {
             return getFailureResult(1004);

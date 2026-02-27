@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.GroupDataDto;
 import cloud.palmbiz.common.dto.GroupDataListDto;
 import cloud.palmbiz.common.dto.ReqCouponGroupDto;
@@ -77,7 +77,7 @@ public class BackendCouponGroupController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('coupon:group:index')")
     public ResponseObject list(HttpServletRequest request) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Integer page = request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
         Integer pageSize = request.getParameter("pageSize") == null ? Constants.PAGE_SIZE : Integer.parseInt(request.getParameter("pageSize"));
         String name = request.getParameter("name") == null ? "" : request.getParameter("name");
@@ -148,7 +148,7 @@ public class BackendCouponGroupController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('coupon:group:edit')")
     public ResponseObject save(@RequestBody ReqCouponGroupDto reqCouponGroupDto) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         reqCouponGroupDto.setMerchantId(accountInfo.getMerchantId());
         reqCouponGroupDto.setStoreId(accountInfo.getStoreId());
         reqCouponGroupDto.setOperator(accountInfo.getAccountName());
@@ -168,7 +168,7 @@ public class BackendCouponGroupController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('coupon:group:edit')")
     public ResponseObject delete(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         // 该分组已有数据，不允许删除
         Map<String, Object> searchParams = new HashMap<>();
@@ -192,7 +192,7 @@ public class BackendCouponGroupController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('coupon:group:edit')")
     public ResponseObject updateStatus(@RequestBody StatusParam params) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() == null || accountInfo.getMerchantId() <= 0) {
             getFailureResult(5002);
         }
@@ -254,7 +254,7 @@ public class BackendCouponGroupController extends BaseController {
     @RequestMapping(value = "/upload/", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
     @CrossOrigin
     public ResponseObject uploadFile(HttpServletRequest request, @RequestParam("fileInput") MultipartFile file) throws Exception {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         String filePath = uploadService.saveUploadFile(request, file);
         String uuid = couponGroupService.importSendCoupon(file, accountInfo.getAccountName(), filePath);
         return getSuccessResult(uuid);
@@ -267,7 +267,7 @@ public class BackendCouponGroupController extends BaseController {
     @RequestMapping(value = "/quickSearch", method = RequestMethod.GET)
     @CrossOrigin
     public ResponseObject quickSearch() {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         Map<String, Object> param = new HashMap<>();
         param.put("status", StatusEnum.ENABLED.getKey());

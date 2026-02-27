@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.service.ActionLogService;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
@@ -48,7 +48,7 @@ public class BackendActionLogController extends BaseController {
         String ip = request.getParameter("ip") == null ? "" : request.getParameter("ip");
         String beginTime = request.getParameter("params[beginTime]") == null ? "" : request.getParameter("params[beginTime]");
         String endTime = request.getParameter("params[endTime]") == null ? "" : request.getParameter("params[endTime]");
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         Map<String, Object> searchParams = new HashMap<>();
         if (StringUtil.isNotEmpty(accountName)) {

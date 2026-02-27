@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import com.aliyun.oss.OSS;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.service.SettingService;
 import cloud.palmbiz.common.service.UploadService;
 import cloud.palmbiz.common.util.AliyunOssUtil;
@@ -63,7 +63,7 @@ public class BackendFileController extends BaseController {
     @CrossOrigin
     public ResponseObject uploadFileLocal(HttpServletRequest request) {
         String action = request.getParameter("action") == null ? "" : request.getParameter("action");
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (action.equals("config")) {
             Map<String, Object> outParams = new HashMap();
             outParams.put("imageActionName", "upload");

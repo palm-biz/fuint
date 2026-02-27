@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.CommissionCashDto;
 import cloud.palmbiz.common.dto.ParamDto;
 import cloud.palmbiz.common.enums.CommissionCashStatusEnum;
@@ -53,7 +53,7 @@ public class BackendCommissionCashController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('commission:cash:index')")
     public ResponseObject list(@ModelAttribute CommissionCashPage commissionCashPage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             commissionCashPage.setMerchantId(accountInfo.getMerchantId());
         }
@@ -83,7 +83,7 @@ public class BackendCommissionCashController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('commission:cash:index')")
     public ResponseObject info(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         CommissionCashDto commissionCash = commissionCashService.queryCommissionCashById(id);
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             if (!accountInfo.getMerchantId().equals(commissionCash.getMerchantId())) {
@@ -102,7 +102,7 @@ public class BackendCommissionCashController extends BaseController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @PreAuthorize("@pms.hasPermission('commission:cash:index')")
     public ResponseObject save(@RequestBody CommissionCashRequest commissionCashRequest) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         commissionCashRequest.setOperator(accountInfo.getAccountName());
         if (!checkOwner(commissionCashRequest.getId(), accountInfo)) {
             return getFailureResult(1004);
@@ -118,7 +118,7 @@ public class BackendCommissionCashController extends BaseController {
     @RequestMapping(value = "/payToBalance", method = RequestMethod.POST)
     @PreAuthorize("@pms.hasPermission('commission:cash:index')")
     public ResponseObject payToBalance(@RequestBody CommissionCashRequest commissionCashRequest) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         commissionCashRequest.setOperator(accountInfo.getAccountName());
         if (!checkOwner(commissionCashRequest.getId(), accountInfo)) {
             return getFailureResult(1004);
@@ -134,10 +134,10 @@ public class BackendCommissionCashController extends BaseController {
     @RequestMapping(value = "/confirm", method = RequestMethod.POST)
     @PreAuthorize("@pms.hasPermission('commission:cash:index')")
     public ResponseObject confirm(@RequestBody CommissionSettleConfirmRequest requestParam) throws BusinessCheckException {
-        AccountInfo AccountInfo = TokenUtil.getAccountInfo();
-        requestParam.setOperator(AccountInfo.getAccountName());
-        if (AccountInfo.getMerchantId() != null && AccountInfo.getMerchantId() > 0) {
-            requestParam.setMerchantId(AccountInfo.getMerchantId());
+        AccountInfoDto AccountInfoDto = TokenUtil.getAccountInfo();
+        requestParam.setOperator(AccountInfoDto.getAccountName());
+        if (AccountInfoDto.getMerchantId() != null && AccountInfoDto.getMerchantId() > 0) {
+            requestParam.setMerchantId(AccountInfoDto.getMerchantId());
         }
         commissionCashService.confirmCommissionCash(requestParam);
         return getSuccessResult(true);
@@ -150,7 +150,7 @@ public class BackendCommissionCashController extends BaseController {
     @RequestMapping(value = "/cancel", method = RequestMethod.POST)
     @PreAuthorize("@pms.hasPermission('commission:cash:index')")
     public ResponseObject cancel(@RequestBody CommissionSettleConfirmRequest requestParam) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             requestParam.setMerchantId(accountInfo.getMerchantId());
         }
@@ -159,7 +159,7 @@ public class BackendCommissionCashController extends BaseController {
         return getSuccessResult(true);
     }
 
-    private boolean checkOwner(Integer commissionCashId, AccountInfo accountInfo) throws BusinessCheckException {
+    private boolean checkOwner(Integer commissionCashId, AccountInfoDto accountInfo) throws BusinessCheckException {
         CommissionCashDto commissionCash = commissionCashService.queryCommissionCashById(commissionCashId);
         if (commissionCash == null) {
             return false;

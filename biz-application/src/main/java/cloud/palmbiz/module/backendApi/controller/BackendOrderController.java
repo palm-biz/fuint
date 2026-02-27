@@ -77,7 +77,7 @@ public class BackendOrderController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('order:index')")
     public ResponseObject list(@RequestBody OrderListParam orderListParam) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             orderListParam.setMerchantId(accountInfo.getMerchantId());
         }
@@ -155,7 +155,7 @@ public class BackendOrderController extends BaseController {
         String expressCompany = param.get("expressCompany") == null ? "" : param.get("expressCompany").toString();
         String expressNo = param.get("expressNo") == null ? "" : param.get("expressNo").toString();
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (orderId < 0) {
             return getFailureResult(201, "系统出错啦，订单ID不能为空");
         }
@@ -213,7 +213,7 @@ public class BackendOrderController extends BaseController {
         String discount = param.get("discount") == null ? "" : param.get("discount").toString();
         String remark = param.get("remark") == null ? "" : param.get("remark").toString();
         String orderMode = param.get("orderMode") == null ? "" : param.get("orderMode").toString();
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (orderId < 0) {
             return getFailureResult(201, "系统出错啦，订单ID不能为空");
         }
@@ -257,7 +257,7 @@ public class BackendOrderController extends BaseController {
         String remark = param.get("remark") == null ? "" : param.get("remark").toString();
         String verifyCode = param.get("verifyCode") == null ? "" : param.get("verifyCode").toString();
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (orderId < 0) {
             return getFailureResult(201, "系统出错啦，订单ID不能为空");
         }
@@ -283,7 +283,7 @@ public class BackendOrderController extends BaseController {
     @RequestMapping(value = "/latest", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject latest(@RequestBody OrderListParam orderListParam) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         Map<String, Object> result = new HashMap<>();
         if (accountInfo == null) {
@@ -312,7 +312,7 @@ public class BackendOrderController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('order:delete')")
     public ResponseObject delete(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         orderService.deleteOrder(id, accountInfo.getAccountName());
         return getSuccessResult(true);
     }
@@ -325,7 +325,7 @@ public class BackendOrderController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('order:setting')")
     public ResponseObject setting() throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         List<MtSetting> settingList = settingService.getSettingList(accountInfo.getMerchantId(), SettingTypeEnum.ORDER.getKey());
         Map<String, Object> result = new HashMap();
@@ -376,7 +376,7 @@ public class BackendOrderController extends BaseController {
         String payOffLine = param.get("payOffLine") != null ? param.get("payOffLine").toString() : "off";
         String deliveryRange = param.get("deliveryRange") != null ? param.get("deliveryRange").toString() : "";
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         OrderSettingEnum[] settingList = OrderSettingEnum.values();
         for (OrderSettingEnum setting : settingList) {
             MtSetting info = new MtSetting();
@@ -414,7 +414,7 @@ public class BackendOrderController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('order:index')")
     public void export(HttpServletRequest request, HttpServletResponse response, OrderListParam params) {
-        AccountInfo accountInfo = TokenUtil.getAccountInfoByToken(request.getParameter("token"));
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfoByToken(request.getParameter("token"));
 
         params.setPage(Constants.PAGE_NUMBER);
         params.setPageSize(Constants.MAX_ROWS);

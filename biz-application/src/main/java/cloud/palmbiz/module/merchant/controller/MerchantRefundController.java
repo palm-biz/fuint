@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.merchant.controller;
 
-import cloud.palmbiz.common.dto.RefundDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.aftersale.dto.AftersaleDto;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.param.RefundDetailParam;
 import cloud.palmbiz.common.param.RefundListParam;
 import cloud.palmbiz.common.service.MemberService;
@@ -56,7 +56,7 @@ public class MerchantRefundController extends BaseController {
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject list(@RequestBody RefundListParam params) throws BusinessCheckException, IllegalAccessException {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
         MtStaff staffInfo = staffService.queryStaffByMobile(userInfo.getMobile());
 
         if (staffInfo == null) {
@@ -79,7 +79,7 @@ public class MerchantRefundController extends BaseController {
     @RequestMapping(value = "/detail", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject detail(@RequestBody RefundDetailParam param) throws BusinessCheckException {
-        UserInfo userInfo = TokenUtil.getUserInfo();
+        UserInfoDto userInfo = TokenUtil.getUserInfo();
 
         MtUser mtUser = memberService.queryMemberById(userInfo.getId());
         MtStaff mtStaff = staffService.queryStaffByMobile(mtUser.getMobile());
@@ -92,7 +92,7 @@ public class MerchantRefundController extends BaseController {
             return getFailureResult(201, "售后订单不能为空");
         }
 
-        RefundDto refundInfo = refundService.getRefundById(refundId);
+        AftersaleDto refundInfo = refundService.getRefundById(refundId);
         return getSuccessResult(refundInfo);
     }
 
@@ -103,14 +103,14 @@ public class MerchantRefundController extends BaseController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject update(@RequestBody RefundDetailParam param) throws BusinessCheckException {
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
 
         Integer refundId = param.getRefundId();
         if (refundId == null || refundId <= 0) {
             return getFailureResult(201, "售后订单不能为空");
         }
 
-        RefundDto refundInfo = refundService.getRefundById(refundId);
+        AftersaleDto refundInfo = refundService.getRefundById(refundId);
         if (refundInfo == null) {
             return getFailureResult(201, "售后订单不存在");
         }
@@ -121,10 +121,10 @@ public class MerchantRefundController extends BaseController {
         if (staffInfo == null || (staffInfo.getStoreId() != null && staffInfo.getStoreId() > 0 && !staffInfo.getStoreId().equals(refundInfo.getStoreInfo().getId()))) {
             return getFailureResult(1004);
         }
-        RefundDto refundDto = new RefundDto();
-        refundDto.setId(refundId);
-        refundDto.setOperator(staffInfo.getRealName());
-        MtRefund mtRefund = refundService.updateRefund(refundDto);
+        AftersaleDto AftersaleDto = new AftersaleDto();
+        AftersaleDto.setId(refundId);
+        AftersaleDto.setOperator(staffInfo.getRealName());
+        MtRefund mtRefund = refundService.updateRefund(AftersaleDto);
         return getSuccessResult(mtRefund);
     }
 }

@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.GiveDto;
 import cloud.palmbiz.common.dto.GiveItemDto;
 import cloud.palmbiz.common.enums.StatusEnum;
@@ -68,7 +68,7 @@ public class BackendGiveLogController extends BaseController {
         String mobile = request.getParameter("mobile") == null ? "" : request.getParameter("mobile");
         String userId = request.getParameter("userId") == null ? "" : request.getParameter("userId");
         String couponId = request.getParameter("couponId") == null ? "" : request.getParameter("couponId");
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         Integer storeId = accountInfo.getStoreId() == null ? 0 : accountInfo.getStoreId();
         Map<String, Object> params = new HashMap<>();

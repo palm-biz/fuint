@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.MerchantDto;
 import cloud.palmbiz.common.dto.ParamDto;
 import cloud.palmbiz.common.enums.MerchantTypeEnum;
@@ -63,7 +63,7 @@ public class BackendMerchantController extends BaseController {
         String merchantName = request.getParameter("name");
         String status = request.getParameter("status");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             merchantId = accountInfo.getMerchantId().toString();
         }
@@ -127,7 +127,7 @@ public class BackendMerchantController extends BaseController {
         String status = params.get("status") != null ? params.get("status").toString() : StatusEnum.ENABLED.getKey();
         Integer merchantId = params.get("merchantId") == null ? 0 : Integer.parseInt(params.get("merchantId").toString());
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             merchantId = accountInfo.getMerchantId();
         }
@@ -143,7 +143,7 @@ public class BackendMerchantController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('merchant:index')")
     public ResponseObject saveHandler(@RequestBody MerchantSubmitRequest merchantInfo) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         Integer merchantId = accountInfo.getMerchantId();
 
         MtMerchant mtMerchant = new MtMerchant();
@@ -174,7 +174,7 @@ public class BackendMerchantController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('merchant:index')")
     public ResponseObject getMerchantInfo(@PathVariable("id") Integer merchantId) {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             merchantId = accountInfo.getMerchantId();
         }

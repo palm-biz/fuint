@@ -2,8 +2,8 @@ package cloud.palmbiz.common.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.utils.StringUtil;
 import nl.bitwalker.useragentutils.UserAgent;
 import org.springframework.stereotype.Component;
@@ -34,14 +34,14 @@ public class TokenUtil {
     /**
      * 获取后台登录用户信息
      */
-    public static AccountInfo getAccountInfo() {
+    public static AccountInfoDto getAccountInfo() {
         return getAccountInfoByToken(getCurrentRequest().getHeader(TOKEN_NAME));
     }
 
     /**
      * 获取会员登录信息
      */
-    public static UserInfo getUserInfo() {
+    public static UserInfoDto getUserInfo() {
         return getUserInfoByToken(getCurrentRequest().getHeader(TOKEN_NAME));
     }
 
@@ -66,7 +66,7 @@ public class TokenUtil {
         stringBuilder.append(new Random().nextInt((999999 - 111111 + 1)) + 111111);
         String token = MD5Util.getMD5(stringBuilder.toString()).replace("+", "1").replaceAll("&", "8");
 
-        UserInfo userLoginInfo = new UserInfo();
+        UserInfoDto userLoginInfo = new UserInfoDto();
         userLoginInfo.setId(userId);
         userLoginInfo.setToken(token);
         saveToken(userLoginInfo);
@@ -81,7 +81,7 @@ public class TokenUtil {
      * @param accountInfo
      * @return
      */
-    public static String generateToken(String userAgent, AccountInfo accountInfo) {
+    public static String generateToken(String userAgent, AccountInfoDto accountInfo) {
         StringBuilder stringBuilder = new StringBuilder();
         UserAgent userAgent1 = UserAgent.parseUserAgentString(userAgent);
         if (userAgent1.getOperatingSystem().isMobileDevice()) {
@@ -107,7 +107,7 @@ public class TokenUtil {
      * @param userInfo
      * @return
      */
-    public static void saveToken(UserInfo userInfo) {
+    public static void saveToken(UserInfoDto userInfo) {
         if (userInfo == null || userInfo.getToken() == null || userInfo.getId() == null) {
             return;
         }
@@ -120,13 +120,13 @@ public class TokenUtil {
      * @param token
      * @return
      */
-    public static UserInfo getUserInfoByToken(String token) {
+    public static UserInfoDto getUserInfoByToken(String token) {
         if (token == null || StringUtil.isEmpty(token)) {
             return null;
         }
         Object loginInfo = RedisUtil.get(Constants.SESSION_USER + token);
         ObjectMapper objectMapper = new ObjectMapper();
-        UserInfo userInfo = objectMapper.convertValue(loginInfo, UserInfo.class);
+        UserInfoDto userInfo = objectMapper.convertValue(loginInfo, UserInfoDto.class);
         if (userInfo != null && userInfo.getToken().equals(token)) {
             return userInfo;
         }
@@ -141,7 +141,7 @@ public class TokenUtil {
      */
     public static boolean checkTokenLogin(String token) {
         try {
-            UserInfo userInfo = RedisUtil.get(Constants.SESSION_USER + token);
+            UserInfoDto userInfo = RedisUtil.get(Constants.SESSION_USER + token);
             if (userInfo != null && userInfo.getToken().equals(token)) {
                 return true;
             }
@@ -169,7 +169,7 @@ public class TokenUtil {
      * @param accountInfo
      * @return
      */
-    public static void saveAccountToken(AccountInfo accountInfo) {
+    public static void saveAccountToken(AccountInfoDto accountInfo) {
         if (accountInfo == null) {
             return;
         }
@@ -182,10 +182,10 @@ public class TokenUtil {
      * @param token
      * @return
      */
-    public static AccountInfo getAccountInfoByToken(String token) {
+    public static AccountInfoDto getAccountInfoByToken(String token) {
         Object loginInfo = RedisUtil.get(Constants.SESSION_ADMIN_USER + token);
         ObjectMapper objectMapper = new ObjectMapper();
-        AccountInfo accountInfo = objectMapper.convertValue(loginInfo, AccountInfo.class);
+        AccountInfoDto accountInfo = objectMapper.convertValue(loginInfo, AccountInfoDto.class);
         if (accountInfo != null && accountInfo.getToken().equals(token)) {
             return accountInfo;
         }

@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.dto.GoodsTopDto;
 import cloud.palmbiz.common.dto.MemberTopDto;
 import cloud.palmbiz.common.enums.StatusEnum;
@@ -70,7 +70,7 @@ public class BackendStatisticController extends BaseController {
         Date startTime = StringUtil.isNotEmpty(startTimeStr) ? DateUtil.parseDate(startTimeStr) : null;
         Date endTime = StringUtil.isNotEmpty(endTimeStr) ? DateUtil.parseDate(endTimeStr) : null;
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         Integer merchantId = accountInfo.getMerchantId();
         if (accountInfo.getStoreId() != null && accountInfo.getStoreId() > 0) {
@@ -137,7 +137,7 @@ public class BackendStatisticController extends BaseController {
         Date startTime = StringUtil.isNotEmpty(startTimeStr) ? DateUtil.parseDate(startTimeStr) : null;
         Date endTime = StringUtil.isNotEmpty(endTimeStr) ? DateUtil.parseDate(endTimeStr) : null;
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         Integer merchantId = accountInfo.getMerchantId();
         if (accountInfo.getStoreId() != null && accountInfo.getStoreId() > 0) {
@@ -161,7 +161,7 @@ public class BackendStatisticController extends BaseController {
     @RequestMapping(value = "/totalMember", method = RequestMethod.GET)
     @CrossOrigin
     public ResponseObject totalMember() {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         Integer merchantId = accountInfo.getMerchantId();
         Integer storeId = accountInfo.getStoreId();

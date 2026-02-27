@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.client.controller;
 
-import cloud.palmbiz.common.dto.AddressDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.address.dto.AddressDto;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.enums.YesOrNoEnum;
 import cloud.palmbiz.common.param.AddressDetailParam;
@@ -58,7 +58,7 @@ public class ClientAddressController extends BaseController {
         String isDefault = address.getIsDefault() == null ? "" : address.getIsDefault();
         Integer addressId = address.getAddressId() == null ? 0 : address.getAddressId();
 
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
         MtAddress mtAddress = new MtAddress();
         mtAddress.setId(addressId);
         mtAddress.setName(name);
@@ -85,7 +85,7 @@ public class ClientAddressController extends BaseController {
         Map<String, Object> result = new HashMap<>();
         Map<String, Object> param = new HashMap<>();
 
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
         param.put("userId", mtUser.getId());
         param.put("status", StatusEnum.ENABLED.getKey());
         List<MtAddress> addressList = addressService.queryListByParams(param);
@@ -137,7 +137,7 @@ public class ClientAddressController extends BaseController {
     public ResponseObject detail(@RequestBody AddressDetailParam addressDetailParam) throws BusinessCheckException {
         Integer addressId = addressDetailParam.getAddressId() == null ? 0 : addressDetailParam.getAddressId();
         Map<String, Object> result = new HashMap<>();
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
 
         MtAddress mtAddress = null;
         if (addressId > 0) {

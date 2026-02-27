@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.client.controller;
 
-import cloud.palmbiz.common.dto.CouponDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.coupon.dto.CouponDto;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.CouponExpireTypeEnum;
 import cloud.palmbiz.common.param.CouponInfoParam;
 import cloud.palmbiz.common.param.CouponListParam;
@@ -68,7 +68,7 @@ public class ClientCouponController extends BaseController {
     @CrossOrigin
     public ResponseObject list(HttpServletRequest request, @RequestBody CouponListParam params) throws BusinessCheckException {
         String merchantNo = request.getHeader("merchantNo") == null ? "" : request.getHeader("merchantNo");
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
         if (null != mtUser) {
             params.setUserId(mtUser.getId());
         }
@@ -87,7 +87,7 @@ public class ClientCouponController extends BaseController {
     @RequestMapping(value = "/receive", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject receive(@RequestBody CouponReceiveParam couponReceiveParam) throws BusinessCheckException {
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
         if (null != mtUser) {
             couponReceiveParam.setUserId(mtUser.getId());
         } else {
@@ -107,7 +107,7 @@ public class ClientCouponController extends BaseController {
     @RequestMapping(value = "/detail", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject detail(@RequestBody CouponInfoParam params) throws BusinessCheckException {
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
 
         Integer couponId = params.getCouponId() == null ? 0 : params.getCouponId();
         String userCouponCode = params.getUserCouponCode() == null ? "" : params.getUserCouponCode();

@@ -3,7 +3,7 @@ package cloud.palmbiz.common.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cloud.palmbiz.common.dto.BookItemDto;
+import cloud.palmbiz.common.appointment.dto.BookItemDto;
 import cloud.palmbiz.common.enums.BookStatusEnum;
 import cloud.palmbiz.common.param.BookItemPage;
 import cloud.palmbiz.common.param.BookableParam;

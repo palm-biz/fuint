@@ -1,13 +1,13 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.param.BannerPage;
 import cloud.palmbiz.common.param.StatusParam;
 import cloud.palmbiz.common.service.StoreService;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.web.BaseController;
 import cloud.palmbiz.framework.web.ResponseObject;
-import cloud.palmbiz.common.dto.BannerDto;
+import cloud.palmbiz.common.banner.dto.BannerDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.SettingService;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
@@ -57,7 +57,7 @@ public class BackendBannerController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('content:banner:list')")
     public ResponseObject list(@ModelAttribute BannerPage bannerPage) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             bannerPage.setMerchantId(accountInfo.getMerchantId());
         }
@@ -85,7 +85,7 @@ public class BackendBannerController extends BaseController {
     public ResponseObject updateStatus(@RequestBody StatusParam params) throws BusinessCheckException {
         String status = params.getStatus() != null ? params.getStatus() : StatusEnum.ENABLED.getKey();
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         MtBanner mtBanner = bannerService.queryBannerById(params.getId());
         if (mtBanner == null) {
             return getFailureResult(201, "该数据不存在");
@@ -108,7 +108,7 @@ public class BackendBannerController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('content:banner:add')")
     public ResponseObject saveHandler(@RequestBody BannerDto bannerDto) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         bannerDto.setOperator(accountInfo.getAccountName());
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
             bannerDto.setMerchantId(accountInfo.getMerchantId());
@@ -132,7 +132,7 @@ public class BackendBannerController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('content:banner:list')")
     public ResponseObject info(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         MtBanner bannerInfo = bannerService.queryBannerById(id);
         String imagePath = settingService.getUploadBasePath();

@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.AccountInfo;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.param.InvoiceParam;
 import cloud.palmbiz.common.service.InvoiceService;
 import cloud.palmbiz.common.util.TokenUtil;
@@ -52,7 +52,7 @@ public class BackendInvoiceController extends BaseController {
         String status = request.getParameter("status");
         String searchStoreId = request.getParameter("storeId");
 
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
 
         Map<String, Object> params = new HashMap<>();
         if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
@@ -94,7 +94,7 @@ public class BackendInvoiceController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('invoice:edit')")
     public ResponseObject updateStatus(@RequestBody InvoiceParam invoice) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         MtInvoice mtInvoice = invoiceService.queryInvoiceById(invoice.getId());
         if (mtInvoice == null) {
             return getFailureResult(201, "发票信息不存在");
@@ -115,7 +115,7 @@ public class BackendInvoiceController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('invoice:add')")
     public ResponseObject saveHandler(@RequestBody InvoiceParam invoice) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         if (accountInfo.getMerchantId() == null || accountInfo.getMerchantId() <= 0) {
             throw new BusinessCheckException("平台方帐号无法执行该操作，请使用商户帐号操作");
         }
@@ -142,7 +142,7 @@ public class BackendInvoiceController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('invoice:list')")
     public ResponseObject info(@PathVariable("id") Integer id) throws BusinessCheckException {
-        AccountInfo accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         MtInvoice invoiceInfo = invoiceService.queryInvoiceById(id);
         if (invoiceInfo == null) {
             return getFailureResult(201, "发票信息不存在");

@@ -2,7 +2,7 @@ package cloud.palmbiz.module.client.controller;
 
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.dto.PointDto;
-import cloud.palmbiz.common.dto.UserInfo;
+import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.GivePointParam;
 import cloud.palmbiz.common.service.PointService;
@@ -45,7 +45,7 @@ public class ClientPointsController extends BaseController {
         Integer page = request.getParameter("page") == null ? Constants.PAGE_NUMBER : Integer.parseInt(request.getParameter("page"));
         Integer pageSize = request.getParameter("pageSize") == null ? Constants.PAGE_SIZE : Integer.parseInt(request.getParameter("pageSize"));
 
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
         Map<String, Object> param = new HashMap<>();
 
         param.put("userId", mtUser.getId());
@@ -62,7 +62,7 @@ public class ClientPointsController extends BaseController {
     @RequestMapping(value = "/doGive", method = RequestMethod.POST)
     @CrossOrigin
     public ResponseObject doGive(@RequestBody GivePointParam param) throws BusinessCheckException {
-        UserInfo mtUser = TokenUtil.getUserInfo();
+        UserInfoDto mtUser = TokenUtil.getUserInfo();
 
         String mobile = param.getMobile();
         String remark = param.getRemark();
