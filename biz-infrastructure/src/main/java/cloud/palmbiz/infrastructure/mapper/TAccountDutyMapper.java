@@ -1,0 +1,17 @@
+package cloud.palmbiz.infrastructure.mapper;
+
+import cloud.palmbiz.infrastructure.model.TAccountDuty;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.util.List;
+
+/**
+ *  后台账号角色 Mapper 接口
+ */
+public interface TAccountDutyMapper extends BaseMapper<TAccountDuty> {
+
+   List<Integer> getDutyIdsByAccountId(Integer accountId);
+
+   void deleteDutiesByAccountId(long accountId);
+
+}

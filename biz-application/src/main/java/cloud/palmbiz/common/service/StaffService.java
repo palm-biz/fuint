@@ -5,7 +5,7 @@ import cloud.palmbiz.common.dto.StaffDto;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtStaff;
+import cloud.palmbiz.infrastructure.model.MtStaff;
 import java.util.List;
 import java.util.Map;
 

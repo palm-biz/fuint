@@ -6,7 +6,7 @@ import cloud.palmbiz.common.dto.UserGroupDto;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtUserGroup;
+import cloud.palmbiz.infrastructure.model.MtUserGroup;
 
 /**
  * 会员分组业务接口

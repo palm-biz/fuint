@@ -6,7 +6,7 @@ import cloud.palmbiz.common.param.BookPage;
 import cloud.palmbiz.common.param.BookableParam;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtBook;
+import cloud.palmbiz.infrastructure.model.MtBook;
 
 import java.text.ParseException;
 import java.util.List;

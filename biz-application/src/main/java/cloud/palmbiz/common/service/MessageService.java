@@ -1,6 +1,6 @@
 package cloud.palmbiz.common.service;
 
-import cloud.palmbiz.repository.model.MtMessage;
+import cloud.palmbiz.infrastructure.model.MtMessage;
 import java.util.List;
 
 /**

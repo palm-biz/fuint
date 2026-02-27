@@ -11,10 +11,11 @@
     <description>PalmBiz project root</description>
     <modules>
         <module>biz-common</module>
-        <module>biz-utils</module>
-        <module>biz-repository</module>
-        <module>biz-application</module>
         <module>biz-framework</module>
+        <module>biz-infrastructure</module>
+        <module>biz-domain</module>
+        <module>biz-application</module>
+        <module>biz-interfaces</module>
     </modules>
 
     <parent>

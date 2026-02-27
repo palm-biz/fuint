@@ -10,8 +10,8 @@ import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.web.BaseController;
 import cloud.palmbiz.framework.web.ResponseObject;
-import cloud.palmbiz.repository.model.MtStaff;
-import cloud.palmbiz.repository.model.MtUser;
+import cloud.palmbiz.infrastructure.model.MtStaff;
+import cloud.palmbiz.infrastructure.model.MtUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -6,7 +6,7 @@ import cloud.palmbiz.common.dto.StoreInfo;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtStore;
+import cloud.palmbiz.infrastructure.model.MtStore;
 
 import java.util.List;
 import java.util.Map;

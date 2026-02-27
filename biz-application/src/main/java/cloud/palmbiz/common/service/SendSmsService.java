@@ -3,7 +3,7 @@ package cloud.palmbiz.common.service;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtSmsSendedLog;
+import cloud.palmbiz.infrastructure.model.MtSmsSendedLog;
 import java.util.List;
 import java.util.Map;
 

@@ -3,7 +3,7 @@ package cloud.palmbiz.common.dto;
 import java.io.Serializable;
 import java.util.Date;
 
-import cloud.palmbiz.repository.model.MtStore;
+import cloud.palmbiz.infrastructure.model.MtStore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

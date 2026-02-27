@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import cloud.palmbiz.common.dto.ReqSendLogDto;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtSendLog;
+import cloud.palmbiz.infrastructure.model.MtSendLog;
 
 /**
  * 发券记录业务接口

@@ -1,10 +1,10 @@
 package cloud.palmbiz.common.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import cloud.palmbiz.repository.model.MtGoodsCate;
-import cloud.palmbiz.repository.model.MtGoodsSku;
-import cloud.palmbiz.repository.model.MtGoodsSpec;
-import cloud.palmbiz.repository.model.MtStore;
+import cloud.palmbiz.infrastructure.model.MtGoodsCate;
+import cloud.palmbiz.infrastructure.model.MtGoodsSku;
+import cloud.palmbiz.infrastructure.model.MtGoodsSpec;
+import cloud.palmbiz.infrastructure.model.MtStore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import java.io.Serializable;

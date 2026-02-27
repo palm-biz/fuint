@@ -5,7 +5,7 @@ import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.module.backendApi.request.SettlementRequest;
-import cloud.palmbiz.repository.model.MtSettlement;
+import cloud.palmbiz.infrastructure.model.MtSettlement;
 
 /**
  * 订单结算相关业务接口

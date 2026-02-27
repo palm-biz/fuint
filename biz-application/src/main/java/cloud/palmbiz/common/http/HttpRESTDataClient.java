@@ -1,7 +1,7 @@
 package cloud.palmbiz.common.http;
 
 import com.alibaba.fastjson.JSONObject;
-import cloud.palmbiz.utils.StringUtil;
+import cloud.palmbiz.common.utils.StringUtil;
 import okhttp3.*;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import cloud.palmbiz.common.domain.TreeSelect;
 import cloud.palmbiz.common.vo.RouterVo;
 import cloud.palmbiz.common.domain.TreeNode;
-import cloud.palmbiz.repository.model.TSource;
+import cloud.palmbiz.infrastructure.model.TSource;
 import java.util.List;
 
 /**

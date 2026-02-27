@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtUser;
-import cloud.palmbiz.repository.model.MtUserGrade;
+import cloud.palmbiz.infrastructure.model.MtUser;
+import cloud.palmbiz.infrastructure.model.MtUserGrade;
 
 import java.util.List;
 

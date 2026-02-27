@@ -7,8 +7,8 @@ import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.framework.web.ResponseObject;
-import cloud.palmbiz.repository.model.MtGive;
-import cloud.palmbiz.repository.model.MtGiveItem;
+import cloud.palmbiz.infrastructure.model.MtGive;
+import cloud.palmbiz.infrastructure.model.MtGiveItem;
 
 import java.util.List;
 import java.util.Map;

@@ -5,7 +5,7 @@ import cloud.palmbiz.common.util.CommonUtil;
 import cloud.palmbiz.common.util.DateUtil;
 import cloud.palmbiz.common.util.SeqUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
-import cloud.palmbiz.utils.StringUtil;
+import cloud.palmbiz.common.utils.StringUtil;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

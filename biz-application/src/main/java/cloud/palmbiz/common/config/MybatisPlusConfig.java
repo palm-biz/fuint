@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * MybatisPlus配置
  */
 @Configuration
-@MapperScan({"cloud.palmbiz.repository.**.mapper"})
+@MapperScan({"cloud.palmbiz.infrastructure.**.mapper"})
 public class MybatisPlusConfig {
 
     /**

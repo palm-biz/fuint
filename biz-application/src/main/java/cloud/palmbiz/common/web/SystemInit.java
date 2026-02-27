@@ -2,8 +2,8 @@ package cloud.palmbiz.common.web;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.repository.mapper.MtSettingMapper;
-import cloud.palmbiz.repository.model.MtSetting;
+import cloud.palmbiz.infrastructure.mapper.MtSettingMapper;
+import cloud.palmbiz.infrastructure.model.MtSetting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;

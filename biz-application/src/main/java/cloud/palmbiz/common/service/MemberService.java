@@ -9,8 +9,8 @@ import cloud.palmbiz.common.dto.UserDto;
 import cloud.palmbiz.common.param.MemberPage;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtUser;
-import cloud.palmbiz.repository.model.MtUserGrade;
+import cloud.palmbiz.infrastructure.model.MtUser;
+import cloud.palmbiz.infrastructure.model.MtUserGrade;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;

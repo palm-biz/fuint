@@ -5,7 +5,7 @@ import cloud.palmbiz.common.dto.SmsTemplateDto;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtSmsTemplate;
+import cloud.palmbiz.infrastructure.model.MtSmsTemplate;
 
 import java.util.List;
 import java.util.Map;

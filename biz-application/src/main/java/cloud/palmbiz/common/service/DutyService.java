@@ -5,8 +5,8 @@ import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.module.backendApi.request.DutyStatusRequest;
-import cloud.palmbiz.repository.model.TDuty;
-import cloud.palmbiz.repository.model.TSource;
+import cloud.palmbiz.infrastructure.model.TDuty;
+import cloud.palmbiz.infrastructure.model.TSource;
 import cloud.palmbiz.common.domain.TreeNode;
 import java.util.List;
 

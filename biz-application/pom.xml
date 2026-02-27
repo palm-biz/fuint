@@ -10,7 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>biz-application</artifactId>
-    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -20,7 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>cloud.palmbiz</groupId>
-            <artifactId>biz-framework</artifactId>
+            <artifactId>biz-domain</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>

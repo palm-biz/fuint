@@ -5,7 +5,7 @@ import cloud.palmbiz.common.dto.PointDto;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtPoint;
+import cloud.palmbiz.infrastructure.model.MtPoint;
 
 /**
  * 积分业务接口

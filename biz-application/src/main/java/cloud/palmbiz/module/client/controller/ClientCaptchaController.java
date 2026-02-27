@@ -4,7 +4,7 @@ import cloud.palmbiz.common.service.CaptchaService;
 import cloud.palmbiz.common.util.Base64Util;
 import cloud.palmbiz.framework.web.BaseController;
 import cloud.palmbiz.framework.web.ResponseObject;
-import cloud.palmbiz.utils.SeqUtil;
+import cloud.palmbiz.common.utils.SeqUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;

@@ -8,7 +8,7 @@ import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.module.backendApi.request.CommissionCashRequest;
 import cloud.palmbiz.module.backendApi.request.CommissionSettleConfirmRequest;
 import cloud.palmbiz.module.backendApi.request.CommissionSettleRequest;
-import cloud.palmbiz.repository.model.MtCommissionCash;
+import cloud.palmbiz.infrastructure.model.MtCommissionCash;
 
 /**
  * 分销提成记录业务接口

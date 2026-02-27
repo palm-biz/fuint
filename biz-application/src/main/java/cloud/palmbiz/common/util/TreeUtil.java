@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import cloud.palmbiz.common.domain.TreeNode;
-import cloud.palmbiz.utils.StringUtil;
+import cloud.palmbiz.common.utils.StringUtil;
 
 /**
  * 树形展示工具类

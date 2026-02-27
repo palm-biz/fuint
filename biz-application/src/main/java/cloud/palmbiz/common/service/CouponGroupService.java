@@ -5,7 +5,7 @@ import cloud.palmbiz.common.dto.ReqCouponGroupDto;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtCouponGroup;
+import cloud.palmbiz.infrastructure.model.MtCouponGroup;
 import org.springframework.web.multipart.MultipartFile;
 import java.math.BigDecimal;
 

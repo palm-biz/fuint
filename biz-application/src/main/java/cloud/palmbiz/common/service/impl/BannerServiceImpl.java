@@ -9,14 +9,14 @@ import cloud.palmbiz.common.service.StoreService;
 import cloud.palmbiz.framework.annoation.OperationServiceLog;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtBanner;
+import cloud.palmbiz.infrastructure.model.MtBanner;
 import cloud.palmbiz.common.dto.BannerDto;
 import cloud.palmbiz.common.service.BannerService;
 import cloud.palmbiz.common.service.SettingService;
 import cloud.palmbiz.common.enums.StatusEnum;
-import cloud.palmbiz.repository.mapper.MtBannerMapper;
+import cloud.palmbiz.infrastructure.mapper.MtBannerMapper;
 
-import cloud.palmbiz.repository.model.MtStore;
+import cloud.palmbiz.infrastructure.model.MtStore;
 import com.github.pagehelper.PageHelper;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang.StringUtils;

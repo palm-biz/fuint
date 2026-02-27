@@ -1,6 +1,6 @@
 package cloud.palmbiz.common.dto;
 
-import cloud.palmbiz.repository.model.MtConfirmLog;
+import cloud.palmbiz.infrastructure.model.MtConfirmLog;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

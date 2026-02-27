@@ -8,7 +8,7 @@ import cloud.palmbiz.common.util.DateUtil;
 import cloud.palmbiz.common.util.SeqUtil;
 import cloud.palmbiz.framework.web.BaseController;
 import cloud.palmbiz.framework.web.ResponseObject;
-import cloud.palmbiz.utils.StringUtil;
+import cloud.palmbiz.common.utils.StringUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;

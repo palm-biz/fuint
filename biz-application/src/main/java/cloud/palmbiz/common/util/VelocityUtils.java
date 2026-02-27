@@ -2,10 +2,10 @@ package cloud.palmbiz.common.util;
 
 import java.util.ArrayList;
 import java.util.List;
-import cloud.palmbiz.repository.bean.ColumnBean;
+import cloud.palmbiz.infrastructure.bean.ColumnBean;
 import org.apache.commons.lang3.StringUtils;
-import cloud.palmbiz.repository.model.TGenCode;
-import cloud.palmbiz.utils.StringUtil;
+import cloud.palmbiz.infrastructure.model.TGenCode;
+import cloud.palmbiz.common.utils.StringUtil;
 import org.apache.velocity.VelocityContext;
 
 /**
@@ -14,7 +14,7 @@ import org.apache.velocity.VelocityContext;
 public class VelocityUtils {
 
     /** 数据库项目路径 */
-    private static final String REPOSITORY_PATH = "/biz-repository/src/main";
+    private static final String INFRASTRUCTURE_PATH = "/biz-infrastructure/src/main";
 
     /** mapper路径 */
     private static final String MAPPER_PATH = "/java/cloud/palmbiz/repository/mapper";
@@ -105,9 +105,9 @@ public class VelocityUtils {
         String tablePrefix = CommonUtil.firstLetterToUpperCase(genTable.getTablePrefix()).replaceAll("_", "");
         String vuePath = "/src";
         if (template.contains("model.java.vm")) {
-            fileName = StringUtil.format("{}/{}.java", REPOSITORY_PATH + MODEL_PATH, tablePrefix + tableName);
+            fileName = StringUtil.format("{}/{}.java", INFRASTRUCTURE_PATH + MODEL_PATH, tablePrefix + tableName);
         } else if (template.contains("mapper.java.vm")) {
-            fileName = StringUtil.format("{}/{}Mapper.java", REPOSITORY_PATH + MAPPER_PATH, tablePrefix + tableName);
+            fileName = StringUtil.format("{}/{}Mapper.java", INFRASTRUCTURE_PATH + MAPPER_PATH, tablePrefix + tableName);
         } else if (template.contains("service.java.vm")) {
             fileName = StringUtil.format("{}/{}Service.java", SERVICE_PATH, tableName);
         } else if (template.contains("serviceImpl.java.vm")) {
@@ -115,7 +115,7 @@ public class VelocityUtils {
         } else if (template.contains("BackendController.java.vm")) {
             fileName = StringUtil.format("{}/{}Controller.java", CONTROLLER_PATH, "Backend" + tableName);
         } else if (template.contains("mapper.xml.vm")) {
-            fileName = StringUtil.format("{}/{}Mapper.xml", REPOSITORY_PATH + MAPPER_XML_PATH, tablePrefix + tableName);
+            fileName = StringUtil.format("{}/{}Mapper.xml", INFRASTRUCTURE_PATH + MAPPER_XML_PATH, tablePrefix + tableName);
         } else if (template.contains("api.js.vm")) {
             fileName = StringUtil.format("{}/api/{}/{}.js", vuePath, moduleName, tablePrefix + tableName);
         } else if (template.contains("index.vue.vm")) {

@@ -1,7 +1,7 @@
 package cloud.palmbiz.framework.web;
 
 import cloud.palmbiz.framework.FrameworkConstants;
-import cloud.palmbiz.utils.PropertiesUtil;
+import cloud.palmbiz.common.utils.PropertiesUtil;
 
 /**
  * 控制器基类

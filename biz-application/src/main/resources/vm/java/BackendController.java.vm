@@ -10,7 +10,7 @@ import cloud.palmbiz.common.service.${tableClass}Service;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
-import cloud.palmbiz.repository.model.${className};
+import cloud.palmbiz.infrastructure.model.${className};
 import utils.cloud.palmbiz.StringUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

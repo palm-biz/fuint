@@ -6,7 +6,7 @@ import cloud.palmbiz.common.param.CommissionLogPage;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.module.backendApi.request.CommissionLogRequest;
-import cloud.palmbiz.repository.model.MtCommissionLog;
+import cloud.palmbiz.infrastructure.model.MtCommissionLog;
 
 /**
  * 分销提成记录业务接口

@@ -5,7 +5,7 @@ import cloud.palmbiz.common.dto.UserInfo;
 import cloud.palmbiz.common.service.MemberService;
 import cloud.palmbiz.common.util.CommonUtil;
 import cloud.palmbiz.common.util.TokenUtil;
-import cloud.palmbiz.utils.PropertiesUtil;
+import cloud.palmbiz.common.utils.PropertiesUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.commons.lang.StringUtils;

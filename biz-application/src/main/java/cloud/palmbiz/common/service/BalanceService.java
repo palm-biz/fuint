@@ -6,7 +6,7 @@ import cloud.palmbiz.common.dto.BalanceDto;
 import cloud.palmbiz.common.param.BalancePage;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtBalance;
+import cloud.palmbiz.infrastructure.model.MtBalance;
 import java.util.List;
 
 /**

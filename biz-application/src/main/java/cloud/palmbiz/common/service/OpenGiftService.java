@@ -3,7 +3,7 @@ package cloud.palmbiz.common.service;
 import cloud.palmbiz.common.dto.OpenGiftDto;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.web.ResponseObject;
-import cloud.palmbiz.repository.model.MtOpenGift;
+import cloud.palmbiz.infrastructure.model.MtOpenGift;
 
 import java.util.Map;
 

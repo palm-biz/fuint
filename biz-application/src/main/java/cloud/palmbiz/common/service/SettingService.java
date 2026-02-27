@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import cloud.palmbiz.common.dto.NavigationDto;
 import cloud.palmbiz.common.dto.ParamDto;
-import cloud.palmbiz.repository.model.MtSetting;
+import cloud.palmbiz.infrastructure.model.MtSetting;
 import java.util.List;
 
 /**

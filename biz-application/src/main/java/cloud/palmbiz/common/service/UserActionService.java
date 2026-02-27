@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtUserAction;
+import cloud.palmbiz.infrastructure.model.MtUserAction;
 
 /**
  * 会员行为业务接口

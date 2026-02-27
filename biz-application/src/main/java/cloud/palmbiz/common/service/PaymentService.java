@@ -3,8 +3,8 @@ package cloud.palmbiz.common.service;
 import cloud.palmbiz.common.dto.UserOrderDto;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.web.ResponseObject;
-import cloud.palmbiz.repository.model.MtOrder;
-import cloud.palmbiz.repository.model.MtUser;
+import cloud.palmbiz.infrastructure.model.MtOrder;
+import cloud.palmbiz.infrastructure.model.MtUser;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 

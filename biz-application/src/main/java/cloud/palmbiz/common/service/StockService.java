@@ -6,8 +6,8 @@ import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.framework.web.ResponseObject;
-import cloud.palmbiz.repository.model.MtStock;
-import cloud.palmbiz.repository.model.MtStockItem;
+import cloud.palmbiz.infrastructure.model.MtStock;
+import cloud.palmbiz.infrastructure.model.MtStockItem;
 import java.util.List;
 import java.util.Map;
 

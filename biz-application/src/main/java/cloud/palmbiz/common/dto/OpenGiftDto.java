@@ -1,8 +1,8 @@
 package cloud.palmbiz.common.dto;
 
-import cloud.palmbiz.repository.model.MtCoupon;
-import cloud.palmbiz.repository.model.MtStore;
-import cloud.palmbiz.repository.model.MtUserGrade;
+import cloud.palmbiz.infrastructure.model.MtCoupon;
+import cloud.palmbiz.infrastructure.model.MtStore;
+import cloud.palmbiz.infrastructure.model.MtUserGrade;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

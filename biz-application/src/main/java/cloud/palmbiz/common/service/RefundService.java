@@ -7,7 +7,7 @@ import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.framework.web.ResponseObject;
-import cloud.palmbiz.repository.model.MtRefund;
+import cloud.palmbiz.infrastructure.model.MtRefund;
 import java.util.Date;
 import java.util.Map;
 

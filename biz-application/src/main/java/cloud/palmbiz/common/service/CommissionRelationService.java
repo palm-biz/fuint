@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import cloud.palmbiz.common.dto.CommissionRelationDto;
 import cloud.palmbiz.common.param.CommissionRelationPage;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtCommissionRelation;
-import cloud.palmbiz.repository.model.MtUser;
+import cloud.palmbiz.infrastructure.model.MtCommissionRelation;
+import cloud.palmbiz.infrastructure.model.MtUser;
 
 /**
  * 分销提成关系业务接口

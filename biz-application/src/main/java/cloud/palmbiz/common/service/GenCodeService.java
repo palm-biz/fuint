@@ -3,7 +3,7 @@ package cloud.palmbiz.common.service;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.TGenCode;
+import cloud.palmbiz.infrastructure.model.TGenCode;
 
 /**
  * 代码生成服务接口

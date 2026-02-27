@@ -16,12 +16,12 @@
     <dependencies>
         <dependency>
             <groupId>cloud.palmbiz</groupId>
-            <artifactId>biz-utils</artifactId>
+            <artifactId>biz-common</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>cloud.palmbiz</groupId>
-            <artifactId>biz-repository</artifactId>
+            <artifactId>biz-infrastructure</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>

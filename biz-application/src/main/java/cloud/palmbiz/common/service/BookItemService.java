@@ -5,7 +5,7 @@ import cloud.palmbiz.common.dto.BookItemDto;
 import cloud.palmbiz.common.param.BookItemPage;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
-import cloud.palmbiz.repository.model.MtBookItem;
+import cloud.palmbiz.infrastructure.model.MtBookItem;
 
 import java.text.ParseException;
 import java.util.List;

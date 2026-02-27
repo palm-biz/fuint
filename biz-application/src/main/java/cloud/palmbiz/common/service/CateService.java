@@ -5,7 +5,7 @@ import cloud.palmbiz.common.dto.GoodsCateDto;
 import cloud.palmbiz.common.param.GoodsCatePage;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtGoodsCate;
+import cloud.palmbiz.infrastructure.model.MtGoodsCate;
 import java.util.List;
 
 /**

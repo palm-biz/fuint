@@ -7,7 +7,7 @@ import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.framework.web.ResponseObject;
-import cloud.palmbiz.repository.model.MtUserCoupon;
+import cloud.palmbiz.infrastructure.model.MtUserCoupon;
 
 import java.util.List;
 import java.util.Map;

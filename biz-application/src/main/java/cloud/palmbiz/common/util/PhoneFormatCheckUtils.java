@@ -1,6 +1,6 @@
 package cloud.palmbiz.common.util;
 
-import cloud.palmbiz.utils.StringUtil;
+import cloud.palmbiz.common.utils.StringUtil;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

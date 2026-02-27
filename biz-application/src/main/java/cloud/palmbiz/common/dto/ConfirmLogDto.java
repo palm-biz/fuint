@@ -1,9 +1,9 @@
 package cloud.palmbiz.common.dto;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import cloud.palmbiz.repository.model.MtCoupon;
-import cloud.palmbiz.repository.model.MtStore;
-import cloud.palmbiz.repository.model.MtUser;
+import cloud.palmbiz.infrastructure.model.MtCoupon;
+import cloud.palmbiz.infrastructure.model.MtStore;
+import cloud.palmbiz.infrastructure.model.MtUser;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

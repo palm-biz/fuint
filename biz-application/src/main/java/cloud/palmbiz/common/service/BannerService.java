@@ -5,7 +5,7 @@ import cloud.palmbiz.common.dto.BannerDto;
 import cloud.palmbiz.common.param.BannerPage;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtBanner;
+import cloud.palmbiz.infrastructure.model.MtBanner;
 
 import java.util.List;
 import java.util.Map;

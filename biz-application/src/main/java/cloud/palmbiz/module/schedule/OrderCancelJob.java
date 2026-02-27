@@ -7,7 +7,7 @@ import cloud.palmbiz.common.service.OrderService;
 import cloud.palmbiz.common.util.RedisLock;
 import cloud.palmbiz.common.util.SeqUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
-import cloud.palmbiz.repository.model.MtOrder;
+import cloud.palmbiz.infrastructure.model.MtOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;

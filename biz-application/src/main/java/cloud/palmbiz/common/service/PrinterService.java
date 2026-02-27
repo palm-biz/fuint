@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import cloud.palmbiz.common.dto.UserOrderDto;
 import cloud.palmbiz.common.param.PrinterPage;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtPrinter;
+import cloud.palmbiz.infrastructure.model.MtPrinter;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import java.util.List;
 import java.util.Map;

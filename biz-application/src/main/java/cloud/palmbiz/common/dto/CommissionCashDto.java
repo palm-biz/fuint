@@ -1,7 +1,7 @@
 package cloud.palmbiz.common.dto;
 
-import cloud.palmbiz.repository.model.MtStaff;
-import cloud.palmbiz.repository.model.MtStore;
+import cloud.palmbiz.infrastructure.model.MtStaff;
+import cloud.palmbiz.infrastructure.model.MtStore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import java.io.Serializable;

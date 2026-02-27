@@ -4,7 +4,7 @@ import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.dto.AccountInfo;
 import cloud.palmbiz.common.util.AuthUserUtil;
 import cloud.palmbiz.common.util.TokenUtil;
-import cloud.palmbiz.utils.PropertiesUtil;
+import cloud.palmbiz.common.utils.PropertiesUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.web.servlet.AsyncHandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;

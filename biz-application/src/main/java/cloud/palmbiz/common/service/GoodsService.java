@@ -7,9 +7,9 @@ import cloud.palmbiz.common.dto.GoodsTopDto;
 import cloud.palmbiz.common.param.GoodsListParam;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtGoods;
-import cloud.palmbiz.repository.model.MtGoodsSku;
-import cloud.palmbiz.repository.model.MtGoodsSpec;
+import cloud.palmbiz.infrastructure.model.MtGoods;
+import cloud.palmbiz.infrastructure.model.MtGoodsSku;
+import cloud.palmbiz.infrastructure.model.MtGoodsSpec;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;

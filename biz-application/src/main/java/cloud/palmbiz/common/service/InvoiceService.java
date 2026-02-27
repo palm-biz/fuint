@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import cloud.palmbiz.common.param.InvoiceParam;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
-import cloud.palmbiz.repository.model.MtInvoice;
+import cloud.palmbiz.infrastructure.model.MtInvoice;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 
 import java.math.BigDecimal;

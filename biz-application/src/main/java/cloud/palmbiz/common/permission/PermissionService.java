@@ -4,8 +4,8 @@ import cloud.palmbiz.common.dto.AccountInfo;
 import cloud.palmbiz.common.service.SourceService;
 import cloud.palmbiz.common.util.AuthUserUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
-import cloud.palmbiz.repository.model.TSource;
-import cloud.palmbiz.utils.StringUtil;
+import cloud.palmbiz.infrastructure.model.TSource;
+import cloud.palmbiz.common.utils.StringUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

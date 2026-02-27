@@ -4,7 +4,7 @@ import cloud.palmbiz.common.util.RedisUtil;
 import cloud.palmbiz.common.service.CaptchaService;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
-import cloud.palmbiz.utils.StringUtil;
+import cloud.palmbiz.common.utils.StringUtil;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

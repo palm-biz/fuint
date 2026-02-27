@@ -15,7 +15,7 @@ import cloud.palmbiz.framework.web.BaseController;
 import cloud.palmbiz.framework.web.ResponseObject;
 import cloud.palmbiz.module.backendApi.request.CommissionCashRequest;
 import cloud.palmbiz.module.backendApi.request.CommissionSettleConfirmRequest;
-import cloud.palmbiz.repository.model.MtStore;
+import cloud.palmbiz.infrastructure.model.MtStore;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;

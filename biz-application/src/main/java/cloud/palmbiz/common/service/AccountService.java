@@ -8,8 +8,8 @@ import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.module.backendApi.request.LoginRequest;
 import cloud.palmbiz.module.backendApi.response.LoginResponse;
-import cloud.palmbiz.repository.model.TAccount;
-import cloud.palmbiz.repository.model.TDuty;
+import cloud.palmbiz.infrastructure.model.TAccount;
+import cloud.palmbiz.infrastructure.model.TDuty;
 
 import java.util.List;
 

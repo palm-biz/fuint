@@ -2,7 +2,7 @@ package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
-import cloud.palmbiz.repository.model.MtVerifyCode;
+import cloud.palmbiz.infrastructure.model.MtVerifyCode;
 
 /**
  * 图形验证码接口

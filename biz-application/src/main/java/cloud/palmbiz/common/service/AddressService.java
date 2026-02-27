@@ -1,7 +1,7 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.repository.model.MtAddress;
+import cloud.palmbiz.infrastructure.model.MtAddress;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import java.util.List;
 import java.util.Map;

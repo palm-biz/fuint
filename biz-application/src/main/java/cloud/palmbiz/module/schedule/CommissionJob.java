@@ -6,7 +6,7 @@ import cloud.palmbiz.common.service.OrderService;
 import cloud.palmbiz.common.util.DateUtil;
 import cloud.palmbiz.common.util.RedisLock;
 import cloud.palmbiz.common.util.SeqUtil;
-import cloud.palmbiz.repository.model.MtOrder;
+import cloud.palmbiz.infrastructure.model.MtOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
