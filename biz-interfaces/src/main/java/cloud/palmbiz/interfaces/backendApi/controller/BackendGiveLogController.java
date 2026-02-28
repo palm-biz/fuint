@@ -1,0 +1,186 @@
+package cloud.palmbiz.interfaces.backendApi.controller;
+
+import cloud.palmbiz.common.Constants;
+import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.give.dto.GiveDto;
+import cloud.palmbiz.common.give.dto.GiveItemDto;
+import cloud.palmbiz.common.enums.StatusEnum;
+import cloud.palmbiz.common.service.GiveService;
+import cloud.palmbiz.common.util.CommonUtil;
+import cloud.palmbiz.common.util.ExcelUtil;
+import cloud.palmbiz.common.util.TokenUtil;
+import cloud.palmbiz.common.util.XlsUtil;
+import cloud.palmbiz.framework.exception.BusinessCheckException;
+import cloud.palmbiz.framework.pagination.PaginationRequest;
+import cloud.palmbiz.framework.pagination.PaginationResponse;
+import cloud.palmbiz.framework.web.BaseController;
+import cloud.palmbiz.framework.web.ResponseObject;
+import cloud.palmbiz.infrastructure.mapper.MtCouponGroupMapper;
+import cloud.palmbiz.infrastructure.mapper.MtCouponMapper;
+import cloud.palmbiz.infrastructure.mapper.MtUserCouponMapper;
+import cloud.palmbiz.infrastructure.model.*;
+import cloud.palmbiz.common.utils.StringUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static cloud.palmbiz.common.util.XlsUtil.objectConvertToString;
+
+/**
+ * 转赠管理类controller
+ */
+@Api(tags="管理端-转赠相关接口")
+@RestController
+@AllArgsConstructor
+@RequestMapping(value = "/backendApi/give")
+public class BackendGiveLogController extends BaseController {
+
+    private MtUserCouponMapper mtUserCouponMapper;
+
+    private MtCouponGroupMapper mtCouponGroupMapper;
+
+    private MtCouponMapper mtCouponMapper;
+
+    /**
+     * 转赠服务接口
+     */
+    private GiveService giveService;
+
+    /**
+     * 查询转赠列表
+     */
+    @ApiOperation(value = "查询转赠列表")
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @CrossOrigin
+    public ResponseObject list(HttpServletRequest request) throws BusinessCheckException {
+        Integer page = request.getParameter("page") == null ? Constants.PAGE_NUMBER : Integer.parseInt(request.getParameter("page"));
+        Integer pageSize = request.getParameter("pageSize") == null ? Constants.PAGE_SIZE : Integer.parseInt(request.getParameter("pageSize"));
+        String mobile = request.getParameter("mobile") == null ? "" : request.getParameter("mobile");
+        String userId = request.getParameter("userId") == null ? "" : request.getParameter("userId");
+        String couponId = request.getParameter("couponId") == null ? "" : request.getParameter("couponId");
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
+
+        Integer storeId = accountInfo.getStoreId() == null ? 0 : accountInfo.getStoreId();
+        Map<String, Object> params = new HashMap<>();
+        if (StringUtil.isNotEmpty(mobile)) {
+            params.put("mobile", mobile);
+        }
+        if (StringUtil.isNotEmpty(userId)) {
+            params.put("userId", userId);
+        }
+        if (StringUtil.isNotEmpty(couponId)) {
+            params.put("couponId", couponId);
+        }
+        if (storeId > 0) {
+            params.put("storeId", storeId);
+        }
+        if (accountInfo.getMerchantId() != null && accountInfo.getMerchantId() > 0) {
+            params.put("merchantId", accountInfo.getMerchantId());
+        }
+        PaginationResponse<GiveDto> paginationResponse = giveService.queryGiveListByPagination(new PaginationRequest(page, pageSize, params));
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("paginationResponse", paginationResponse);
+
+        return getSuccessResult(result);
+    }
+
+    /**
+     * 查询转赠详情
+     */
+    @ApiOperation(value = "查询转赠详情")
+    @RequestMapping(value = "/giveItem", method = RequestMethod.GET)
+    @CrossOrigin
+    public ResponseObject giveItem(HttpServletRequest request) {
+        String giveId = request.getParameter("giveId");
+
+        if (StringUtil.isEmpty(giveId)) {
+            return getFailureResult(201, "参数有误");
+        }
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("status", StatusEnum.ENABLED.getKey());
+        params.put("GIVE_ID", giveId);
+
+        List<MtGiveItem> itemList = giveService.queryItemByParams(params);
+
+        List<GiveItemDto> dataList = new ArrayList<>();
+        for (MtGiveItem item : itemList) {
+            MtGive giveInfo = giveService.queryGiveById(Long.parseLong(giveId));
+            MtUserCoupon userCouponInfo = mtUserCouponMapper.selectById(item.getUserCouponId());
+            if (userCouponInfo != null) {
+                MtCouponGroup groupInfo = mtCouponGroupMapper.selectById(userCouponInfo.getGroupId());
+                MtCoupon couponInfo = mtCouponMapper.selectById(userCouponInfo.getCouponId());
+                if (groupInfo != null && couponInfo != null) {
+                    GiveItemDto dto = new GiveItemDto();
+                    dto.setId(item.getId());
+                    dto.setMobile(CommonUtil.hidePhone(giveInfo.getUserMobile()));
+                    dto.setUserMobile(CommonUtil.hidePhone(giveInfo.getUserMobile()));
+                    dto.setGroupId(userCouponInfo.getGroupId());
+                    dto.setGroupName(groupInfo.getName());
+                    dto.setCouponId(userCouponInfo.getCouponId());
+                    dto.setCouponName(couponInfo.getName());
+                    dto.setMoney(userCouponInfo.getAmount());
+                    dto.setCreateTime(item.getCreateTime());
+                    dataList.add(dto);
+                }
+            }
+        }
+
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("itemList", dataList);
+
+        return getSuccessResult(resultMap);
+    }
+
+    /**
+     * 导出转赠记录
+     */
+    @ApiOperation(value = "导出转赠记录")
+    @RequestMapping(value = "/export", method = RequestMethod.GET)
+    @ResponseBody
+    public void export(HttpServletRequest request, HttpServletResponse response) {
+        PaginationResponse<GiveDto> paginationResponse = giveService.queryGiveListByPagination(new PaginationRequest(Constants.PAGE_NUMBER, Constants.MAX_ROWS));
+        List<GiveDto> list = paginationResponse.getContent();
+
+        // excel标题
+        String[] title = { "记录ID", "用户手机号", "转赠数量", "转赠总金额", "赠予对象手机号", "赠予时间" };
+        String fileName = "转赠记录" + System.currentTimeMillis() + ".xls";
+
+        String[][] content = null;
+        if (list.size() > 0) {
+            content= new String[list.size()][title.length];
+        }
+
+        for (int i = 0; i < list.size(); i++) {
+             GiveDto obj = list.get(i);
+             content[i][0] = objectConvertToString(obj.getId());
+             content[i][1] = objectConvertToString(obj.getUserMobile());
+             content[i][2] = objectConvertToString(obj.getNum());
+             content[i][3] = objectConvertToString(obj.getMoney());
+             content[i][4] = objectConvertToString(obj.getMobile());
+             content[i][5] = objectConvertToString(obj.getCreateTime());
+        }
+
+        try {
+            HSSFWorkbook wb = ExcelUtil.getHSSFWorkbook("转赠记录", title, content, null);
+            XlsUtil.setXlsHeader(request, response, fileName);
+            OutputStream os = response.getOutputStream();
+            wb.write(os);
+            os.flush();
+            os.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

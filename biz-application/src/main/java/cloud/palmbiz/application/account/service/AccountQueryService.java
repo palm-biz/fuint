@@ -12,7 +12,6 @@ import cloud.palmbiz.infrastructure.mapper.MtStoreMapper;
 import cloud.palmbiz.infrastructure.model.MtMerchant;
 import cloud.palmbiz.infrastructure.model.MtStore;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

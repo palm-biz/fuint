@@ -21,7 +21,6 @@ import cloud.palmbiz.infrastructure.mapper.TAccountMapper;
 import cloud.palmbiz.infrastructure.model.TAccount;
 import cloud.palmbiz.infrastructure.model.TDuty;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

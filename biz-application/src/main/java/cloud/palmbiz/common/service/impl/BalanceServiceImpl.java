@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.balance.dto.BalanceDto;
 import cloud.palmbiz.common.order.dto.OrderDto;
-import cloud.palmbiz.common.enums.*;
 import cloud.palmbiz.common.param.BalancePage;
 import cloud.palmbiz.common.service.*;
 import cloud.palmbiz.common.util.CommonUtil;
@@ -205,7 +204,7 @@ public class BalanceServiceImpl extends ServiceImpl<MtBalanceMapper, MtBalance> 
             orderDto.setAmount(mtBalance.getAmount());
             orderDto.setPayAmount(mtBalance.getAmount());
             orderDto.setPayType(PayTypeEnum.CASH.getKey());
-            orderDto.setStatus(OrderStatusEnum.COMPLETE.getKey());
+            orderDto.setStatus(cloud.palmbiz.common.enums.OrderStatusEnum.COMPLETE.getKey());
             orderDto.setPayStatus(PayStatusEnum.WAIT.getKey());
             orderDto.setOperator(mtBalance.getOperator());
             orderDto.setUsePoint(0);

@@ -11,7 +11,6 @@ import com.alipay.api.response.AlipayTradeRefundResponse;
 import cloud.palmbiz.common.bean.AliPayBean;
 import cloud.palmbiz.common.order.dto.OrderDto;
 import cloud.palmbiz.common.user.dto.UserOrderDto;
-import cloud.palmbiz.common.enums.*;
 import cloud.palmbiz.common.service.*;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.web.ResponseObject;
@@ -68,7 +67,7 @@ public class AlipayServiceImpl implements AlipayService {
         logger.info("AlipayService createPrepayOrder inParams userInfo={} payAmount={} giveAmount={} goodsInfo={}", userInfo, payAmount, giveAmount, orderInfo);
 
         String goodsInfo = orderInfo.getOrderSn();
-        if (orderInfo.getType().equals(OrderTypeEnum.PRESTORE.getKey())) {
+        if (orderInfo.getType().equals(cloud.palmbiz.common.enums.OrderTypeEnum.PRESTORE.getKey())) {
             goodsInfo = OrderTypeEnum.PRESTORE.getValue();
         }
 

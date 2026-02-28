@@ -1,0 +1,22 @@
+package cloud.palmbiz.interfaces.vo.printer;
+
+import java.util.List;
+
+/**
+ * 批量打印机请求参数
+ */
+public class PrintersRequest extends RestRequest {
+
+    /**
+     * 打印机编号列表
+     */
+    private List<String> snlist;
+
+    public List<String> getSnlist() {
+        return snlist;
+    }
+
+    public void setSnlist(List<String> snlist) {
+        this.snlist = snlist;
+    }
+}

@@ -10,7 +10,6 @@ import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.group.dto.GroupMemberDto;
 import cloud.palmbiz.common.member.dto.MemberTopDto;
 import cloud.palmbiz.common.user.dto.UserDto;
-import cloud.palmbiz.common.enums.*;
 import cloud.palmbiz.common.param.MemberPage;
 import cloud.palmbiz.common.service.*;
 import cloud.palmbiz.common.util.*;
@@ -30,7 +29,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.*;
 

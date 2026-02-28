@@ -7,7 +7,6 @@ import cloud.palmbiz.common.service.CaptchaService;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.common.utils.StringUtil;
 import cloud.palmbiz.domain.account.model.Account;
-import cloud.palmbiz.domain.account.model.AccountId;
 import cloud.palmbiz.domain.account.repository.AccountRepository;
 import cloud.palmbiz.framework.annoation.OperationServiceLog;
 import cloud.palmbiz.framework.exception.BusinessCheckException;

@@ -1,38 +1,59 @@
 package cloud.palmbiz.common.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
- * MD5加密工具
+ * MD5工具类
  */
 public class MD5Util {
-    private final static char[] hexDigits = {'0', '1', '2', '3', '4', '5',
-            '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+    private static final Logger logger = LoggerFactory.getLogger(MD5Util.class);
+    private static final String CHARSET = "UTF-8";
 
-    private static String bytesToHex(byte[] bytes) {
-        StringBuffer sb = new StringBuffer();
-        int t;
-        for (int i = 0; i < 16; i++) {// 16 == bytes.length;
-
-            t = bytes[i];
-            if (t < 0)
-                t += 256;
-            sb.append(hexDigits[(t >>> 4)]);
-            sb.append(hexDigits[(t % 16)]);
-        }
-        return sb.toString();
+    public MD5Util() {
     }
 
-    public static String code(String input) {
-        byte[] bytes = null;
-        MessageDigest md = null;
+    public static byte[] getMD5(byte[] bytes) {
         try {
-            bytes = input.getBytes("utf-8");
-            md = MessageDigest.getInstance(System.getProperty(
-                    "MD5.algorithm", "MD5"));
-        } catch (Exception e) {
-            e.printStackTrace();
+            MessageDigest e = MessageDigest.getInstance("MD5");
+            return e.digest(bytes);
+        } catch (NoSuchAlgorithmException var2) {
+            logger.error(var2.getMessage(), var2);
+            return null;
         }
-        return bytesToHex(md.digest(bytes));
+    }
+
+    public static String getMD5(String str) {
+        try {
+            MessageDigest e = MessageDigest.getInstance("MD5");
+            byte[] bytes = e.digest(str.getBytes("UTF-8"));
+            byte[] result = Base64Util.baseEncode(bytes);
+            return new String(result);
+        } catch (NoSuchAlgorithmException var4) {
+            logger.error(var4.getMessage(), var4);
+        } catch (UnsupportedEncodingException var5) {
+            logger.error(var5.getMessage(), var5);
+        }
+
+        return null;
+    }
+
+    public static Boolean validateMD5(byte[] cleartext, byte[] ciphertext) {
+        try {
+            String e = new String(cleartext, "UTF-8");
+            String cipher = new String(ciphertext, "UTF-8");
+            return validateMD5((String)e, (String)cipher);
+        } catch (UnsupportedEncodingException var4) {
+            logger.error(var4.getMessage(), var4);
+            return Boolean.valueOf(false);
+        }
+    }
+
+    public static Boolean validateMD5(String cleartext, String ciphertext) {
+        String str = getMD5((String)cleartext);
+        return str != null && str.equals(ciphertext)?Boolean.valueOf(true):Boolean.valueOf(false);
     }
 }

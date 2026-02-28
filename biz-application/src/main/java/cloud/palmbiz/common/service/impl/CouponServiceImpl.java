@@ -7,7 +7,6 @@ import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.coupon.dto.CouponDto;
 import cloud.palmbiz.common.coupon.dto.ReqCouponDto;
 import cloud.palmbiz.common.coupon.dto.ReqSendLogDto;
-import cloud.palmbiz.common.enums.*;
 import cloud.palmbiz.common.param.CouponListParam;
 import cloud.palmbiz.common.service.*;
 import cloud.palmbiz.common.util.CommonUtil;

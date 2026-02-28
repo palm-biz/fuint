@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.dto.*;
-import cloud.palmbiz.common.enums.*;
 import cloud.palmbiz.common.service.*;
 import cloud.palmbiz.common.util.DateUtil;
 import cloud.palmbiz.framework.annoation.OperationServiceLog;
@@ -512,7 +511,7 @@ public class RefundServiceImpl extends ServiceImpl<MtRefundMapper, MtRefund> imp
                 if (userCouponInfo != null) {
                     // 优惠券直接置为未使用
                     if (couponInfo.getType().equals(CouponTypeEnum.COUPON.getKey())) {
-                        userCouponInfo.setStatus(UserCouponStatusEnum.UNUSED.getKey());
+                        userCouponInfo.setStatus(cloud.palmbiz.common.enums.UserCouponStatusEnum.UNUSED.getKey());
                         mtUserCouponMapper.updateById(userCouponInfo);
                     }
                     // 储值卡把余额加回去
