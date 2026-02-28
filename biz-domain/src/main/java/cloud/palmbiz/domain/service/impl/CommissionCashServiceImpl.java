@@ -1,6 +1,6 @@
 package cloud.palmbiz.domain.service.impl;
 
-import cloud.palmbiz.common.dto.CommissionCashDto;
+import cloud.palmbiz.common.commission.dto.CommissionCashDto;
 import cloud.palmbiz.common.order.dto.OrderUserDto;
 import cloud.palmbiz.common.enums.CommissionCashStatusEnum;
 import cloud.palmbiz.common.enums.CommissionStatusEnum;

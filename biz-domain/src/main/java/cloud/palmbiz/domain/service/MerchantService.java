@@ -1,7 +1,7 @@
 package cloud.palmbiz.domain.service;
 
-import cloud.palmbiz.common.dto.MerchantDto;
-import cloud.palmbiz.common.dto.MerchantSettingDto;
+import cloud.palmbiz.common.merchant.dto.MerchantDto;
+import cloud.palmbiz.common.merchant.dto.MerchantSettingDto;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;

@@ -1,7 +1,7 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.common.dto.CommissionRelationDto;
+import cloud.palmbiz.common.commission.dto.CommissionRelationDto;
 import cloud.palmbiz.common.param.CommissionRelationPage;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.MtCommissionRelation;

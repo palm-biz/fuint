@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.client.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.GiveDto;
+import cloud.palmbiz.common.give.dto.GiveDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.param.GiveListParam;
 import cloud.palmbiz.common.param.GiveParam;

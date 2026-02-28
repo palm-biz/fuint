@@ -1,7 +1,7 @@
 package cloud.palmbiz.domain.service.impl;
 
-import cloud.palmbiz.common.dto.MerchantDto;
-import cloud.palmbiz.common.dto.MerchantSettingDto;
+import cloud.palmbiz.common.merchant.dto.MerchantDto;
+import cloud.palmbiz.common.merchant.dto.MerchantSettingDto;
 import cloud.palmbiz.common.store.dto.StoreDto;
 import cloud.palmbiz.common.enums.OrderSettingEnum;
 import cloud.palmbiz.common.enums.SettingTypeEnum;

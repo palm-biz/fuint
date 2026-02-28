@@ -1,9 +1,9 @@
 package cloud.palmbiz.domain.service;
 
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.GoodsDto;
-import cloud.palmbiz.common.dto.GoodsSpecValueDto;
-import cloud.palmbiz.common.dto.GoodsTopDto;
+import cloud.palmbiz.common.good.dto.GoodsDto;
+import cloud.palmbiz.common.good.dto.GoodsSpecValueDto;
+import cloud.palmbiz.common.good.dto.GoodsTopDto;
 import cloud.palmbiz.common.param.GoodsListParam;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;

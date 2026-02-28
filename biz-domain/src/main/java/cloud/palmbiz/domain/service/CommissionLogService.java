@@ -1,6 +1,6 @@
 package cloud.palmbiz.domain.service;
 
-import cloud.palmbiz.common.dto.CommissionLogDto;
+import cloud.palmbiz.common.commission.dto.CommissionLogDto;
 import cloud.palmbiz.common.param.CommissionLogPage;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;

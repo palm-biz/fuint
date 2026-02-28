@@ -1,6 +1,6 @@
 package cloud.palmbiz.domain.service;
 
-import cloud.palmbiz.common.dto.MemberGroupDto;
+import cloud.palmbiz.common.member.dto.MemberGroupDto;
 import cloud.palmbiz.common.user.dto.UserGroupDto;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;

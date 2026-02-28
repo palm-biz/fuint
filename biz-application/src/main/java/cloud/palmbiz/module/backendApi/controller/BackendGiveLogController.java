@@ -2,8 +2,8 @@ package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.GiveDto;
-import cloud.palmbiz.common.dto.GiveItemDto;
+import cloud.palmbiz.common.give.dto.GiveDto;
+import cloud.palmbiz.common.give.dto.GiveItemDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.GiveService;
 import cloud.palmbiz.common.util.CommonUtil;

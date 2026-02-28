@@ -12,7 +12,7 @@ import com.aliyuncs.profile.DefaultProfile;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import cloud.palmbiz.common.dto.MessageResDto;
+import cloud.palmbiz.common.message.dto.MessageResDto;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
 import cloud.palmbiz.common.enums.SmsSettingEnum;
 import cloud.palmbiz.common.enums.StatusEnum;

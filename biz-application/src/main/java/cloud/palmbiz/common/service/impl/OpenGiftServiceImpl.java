@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.OpenGiftDto;
+import cloud.palmbiz.common.card.dto.OpenGiftDto;
 import cloud.palmbiz.common.enums.MessageEnum;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.enums.YesOrNoEnum;

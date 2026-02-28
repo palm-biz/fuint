@@ -2,9 +2,9 @@ package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.GroupDataDto;
-import cloud.palmbiz.common.dto.GroupDataListDto;
-import cloud.palmbiz.common.dto.ReqCouponGroupDto;
+import cloud.palmbiz.common.group.dto.GroupDataDto;
+import cloud.palmbiz.common.group.dto.GroupDataListDto;
+import cloud.palmbiz.common.coupon.dto.ReqCouponGroupDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.StatusParam;
 import cloud.palmbiz.common.service.CouponGroupService;

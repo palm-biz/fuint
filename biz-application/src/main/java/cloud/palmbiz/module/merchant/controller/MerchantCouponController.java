@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.merchant.controller;
 
-import cloud.palmbiz.common.dto.ReqCouponDto;
+import cloud.palmbiz.common.coupon.dto.ReqCouponDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.param.CouponListParam;
 import cloud.palmbiz.common.param.CouponReceiveParam;

@@ -1,7 +1,7 @@
 package cloud.palmbiz.domain.service.impl;
 
-import cloud.palmbiz.common.dto.NavigationDto;
-import cloud.palmbiz.common.dto.ParamDto;
+import cloud.palmbiz.common.navigation.dto.NavigationDto;
+import cloud.palmbiz.common.page.dto.ParamDto;
 import cloud.palmbiz.common.service.SettingService;
 import cloud.palmbiz.common.utils.StringUtil;
 import cloud.palmbiz.framework.annoation.OperationServiceLog;

@@ -2,7 +2,7 @@ package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.appointment.dto.BookItemDto;
-import cloud.palmbiz.common.dto.ParamDto;
+import cloud.palmbiz.common.page.dto.ParamDto;
 import cloud.palmbiz.common.enums.BookStatusEnum;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.BookItemPage;

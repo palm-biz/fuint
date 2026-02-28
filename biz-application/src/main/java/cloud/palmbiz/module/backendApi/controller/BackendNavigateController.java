@@ -3,7 +3,7 @@ package cloud.palmbiz.module.backendApi.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.NavigationDto;
+import cloud.palmbiz.common.navigation.dto.NavigationDto;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.SettingService;

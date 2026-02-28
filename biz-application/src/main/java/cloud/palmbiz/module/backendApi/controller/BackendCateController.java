@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.GoodsCateDto;
+import cloud.palmbiz.common.good.dto.GoodsCateDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.GoodsCatePage;
 import cloud.palmbiz.common.param.StatusParam;

@@ -1,7 +1,7 @@
 package cloud.palmbiz.domain.service.impl;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.OpenGiftDto;
+import cloud.palmbiz.common.card.dto.OpenGiftDto;
 import cloud.palmbiz.common.enums.MessageEnum;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.enums.YesOrNoEnum;

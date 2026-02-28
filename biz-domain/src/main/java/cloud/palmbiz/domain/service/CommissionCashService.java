@@ -1,6 +1,6 @@
 package cloud.palmbiz.domain.service;
 
-import cloud.palmbiz.common.dto.CommissionCashDto;
+import cloud.palmbiz.common.commission.dto.CommissionCashDto;
 import cloud.palmbiz.common.param.CommissionCashPage;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;

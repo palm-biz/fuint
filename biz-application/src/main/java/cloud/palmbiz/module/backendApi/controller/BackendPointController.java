@@ -2,7 +2,7 @@ package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.PointDto;
+import cloud.palmbiz.common.point.dto.PointDto;
 import cloud.palmbiz.common.enums.PointSettingEnum;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
 import cloud.palmbiz.common.enums.StatusEnum;

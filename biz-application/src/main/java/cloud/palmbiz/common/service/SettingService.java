@@ -2,8 +2,8 @@ package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import cloud.palmbiz.common.dto.NavigationDto;
-import cloud.palmbiz.common.dto.ParamDto;
+import cloud.palmbiz.common.navigation.dto.NavigationDto;
+import cloud.palmbiz.common.page.dto.ParamDto;
 import cloud.palmbiz.infrastructure.model.MtSetting;
 import java.util.List;
 

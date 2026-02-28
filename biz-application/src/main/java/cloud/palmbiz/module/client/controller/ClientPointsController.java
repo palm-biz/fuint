@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.client.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.PointDto;
+import cloud.palmbiz.common.point.dto.PointDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.GivePointParam;

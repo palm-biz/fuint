@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.config.Message;
 import cloud.palmbiz.common.coupon.dto.CouponDto;
-import cloud.palmbiz.common.dto.MyCouponDto;
+import cloud.palmbiz.common.coupon.dto.MyCouponDto;
 import cloud.palmbiz.common.enums.*;
 import cloud.palmbiz.common.param.CouponReceiveParam;
 import cloud.palmbiz.common.service.*;

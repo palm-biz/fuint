@@ -1,8 +1,8 @@
 package cloud.palmbiz.domain.service.impl;
 
-import cloud.palmbiz.common.dto.CouponCellDto;
-import cloud.palmbiz.common.dto.ReqCouponGroupDto;
-import cloud.palmbiz.common.dto.ReqSendLogDto;
+import cloud.palmbiz.common.coupon.dto.CouponCellDto;
+import cloud.palmbiz.common.coupon.dto.ReqCouponGroupDto;
+import cloud.palmbiz.common.coupon.dto.ReqSendLogDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.util.CommonUtil;
 import cloud.palmbiz.common.util.SeqUtil;

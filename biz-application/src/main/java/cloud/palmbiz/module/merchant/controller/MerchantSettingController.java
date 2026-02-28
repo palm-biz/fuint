@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.merchant.controller;
 
-import cloud.palmbiz.common.dto.MerchantSettingDto;
+import cloud.palmbiz.common.merchant.dto.MerchantSettingDto;
 import cloud.palmbiz.common.staff.dto.StaffDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.service.MemberService;

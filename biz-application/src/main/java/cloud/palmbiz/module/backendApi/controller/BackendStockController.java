@@ -2,8 +2,8 @@ package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.GoodsDto;
-import cloud.palmbiz.common.dto.StockGoodsDto;
+import cloud.palmbiz.common.good.dto.GoodsDto;
+import cloud.palmbiz.common.inventory.dto.StockGoodsDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.SettingService;
 import cloud.palmbiz.common.service.StockService;

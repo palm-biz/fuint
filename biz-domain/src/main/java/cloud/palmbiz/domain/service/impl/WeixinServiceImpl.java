@@ -5,7 +5,7 @@ import cloud.palmbiz.common.bean.H5SceneInfo;
 import cloud.palmbiz.common.bean.WxPayBean;
 import cloud.palmbiz.common.order.dto.OrderDto;
 import cloud.palmbiz.common.user.dto.UserOrderDto;
-import cloud.palmbiz.common.dto.WxCardDto;
+import cloud.palmbiz.common.card.dto.WxCardDto;
 import cloud.palmbiz.common.http.HttpRESTDataClient;
 import cloud.palmbiz.common.utils.QRCodeUtil;
 import cloud.palmbiz.common.utils.StringUtil;

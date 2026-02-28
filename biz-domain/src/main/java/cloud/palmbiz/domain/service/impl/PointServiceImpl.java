@@ -1,6 +1,6 @@
 package cloud.palmbiz.domain.service.impl;
 
-import cloud.palmbiz.common.dto.PointDto;
+import cloud.palmbiz.common.point.dto.PointDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.enums.WxMessageEnum;
 import cloud.palmbiz.common.service.MemberService;

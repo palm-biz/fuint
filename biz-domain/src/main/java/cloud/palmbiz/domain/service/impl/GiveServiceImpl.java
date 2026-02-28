@@ -1,6 +1,6 @@
 package cloud.palmbiz.domain.service.impl;
 
-import cloud.palmbiz.common.dto.GiveDto;
+import cloud.palmbiz.common.give.dto.GiveDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.GiveParam;
 import cloud.palmbiz.common.util.CommonUtil;

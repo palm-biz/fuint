@@ -2,7 +2,7 @@ package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.OpenGiftDto;
+import cloud.palmbiz.common.card.dto.OpenGiftDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.OpenGiftService;
 import cloud.palmbiz.common.service.UserGradeService;

@@ -2,7 +2,7 @@ package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.MemberGroupDto;
+import cloud.palmbiz.common.member.dto.MemberGroupDto;
 import cloud.palmbiz.common.user.dto.UserGroupDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.MemberGroupService;

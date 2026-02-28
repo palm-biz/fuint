@@ -1,6 +1,6 @@
 package cloud.palmbiz.common.order.dto;
 
-import cloud.palmbiz.common.GoodsSpecValueDto;
+import cloud.palmbiz.common.good.dto.GoodsSpecValueDto;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

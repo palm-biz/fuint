@@ -1,7 +1,7 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.common.dto.CommissionCashDto;
+import cloud.palmbiz.common.commission.dto.CommissionCashDto;
 import cloud.palmbiz.common.param.CommissionCashPage;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.framework.exception.BusinessCheckException;

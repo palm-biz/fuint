@@ -2,7 +2,7 @@ package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.account.dto.AccountDto;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.RoleDto;
+import cloud.palmbiz.common.role.dto.RoleDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.AccountPage;
 import cloud.palmbiz.common.service.AccountService;

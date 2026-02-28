@@ -1,7 +1,7 @@
 package cloud.palmbiz.domain.service.impl;
 
-import cloud.palmbiz.common.dto.CommissionRuleDto;
-import cloud.palmbiz.common.dto.CommissionRuleItemDto;
+import cloud.palmbiz.common.commission.dto.CommissionRuleDto;
+import cloud.palmbiz.common.commission.dto.CommissionRuleItemDto;
 import cloud.palmbiz.common.enums.CommissionTypeEnum;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.CommissionRuleItemParam;

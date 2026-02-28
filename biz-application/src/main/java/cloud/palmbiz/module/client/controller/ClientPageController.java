@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.client.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import cloud.palmbiz.common.dto.NavigationDto;
+import cloud.palmbiz.common.navigation.dto.NavigationDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.BannerService;
 import cloud.palmbiz.common.service.MerchantService;

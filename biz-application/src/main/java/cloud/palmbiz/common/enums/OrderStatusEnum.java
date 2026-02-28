@@ -1,6 +1,6 @@
 package cloud.palmbiz.common.enums;
 
-import cloud.palmbiz.common.dto.ParamDto;
+import cloud.palmbiz.common.page.dto.ParamDto;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,6 +1,6 @@
 package cloud.palmbiz.domain.service.impl;
 
-import cloud.palmbiz.common.dto.CommissionLogDto;
+import cloud.palmbiz.common.commission.dto.CommissionLogDto;
 import cloud.palmbiz.common.order.dto.OrderUserDto;
 import cloud.palmbiz.common.param.CommissionLogPage;
 import cloud.palmbiz.common.util.CommonUtil;

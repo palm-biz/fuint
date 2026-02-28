@@ -2,9 +2,9 @@ package cloud.palmbiz.domain.service.impl;
 
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.GoodsDto;
-import cloud.palmbiz.common.dto.GoodsSpecValueDto;
-import cloud.palmbiz.common.dto.GoodsTopDto;
+import cloud.palmbiz.common.good.dto.GoodsDto;
+import cloud.palmbiz.common.good.dto.GoodsSpecValueDto;
+import cloud.palmbiz.common.good.dto.GoodsTopDto;
 import cloud.palmbiz.common.enums.GoodsTypeEnum;
 import cloud.palmbiz.common.enums.PlatformTypeEnum;
 import cloud.palmbiz.common.enums.StatusEnum;

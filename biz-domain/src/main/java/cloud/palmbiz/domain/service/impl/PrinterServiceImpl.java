@@ -1,6 +1,6 @@
 package cloud.palmbiz.domain.service.impl;
 
-import cloud.palmbiz.common.dto.GoodsSpecValueDto;
+import cloud.palmbiz.common.good.dto.GoodsSpecValueDto;
 import cloud.palmbiz.common.order.dto.OrderGoodsDto;
 import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.param.PrinterPage;

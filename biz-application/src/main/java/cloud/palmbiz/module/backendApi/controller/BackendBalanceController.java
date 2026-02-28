@@ -2,7 +2,7 @@ package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.balance.dto.BalanceDto;
-import cloud.palmbiz.common.dto.RechargeRuleDto;
+import cloud.palmbiz.common.recharge.dto.RechargeRuleDto;
 import cloud.palmbiz.common.enums.BalanceSettingEnum;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
 import cloud.palmbiz.common.enums.StatusEnum;

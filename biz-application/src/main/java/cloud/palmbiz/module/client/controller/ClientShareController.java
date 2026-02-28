@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.client.controller;
 
-import cloud.palmbiz.common.dto.CommissionRelationDto;
+import cloud.palmbiz.common.commission.dto.CommissionRelationDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.CommissionRelationPage;

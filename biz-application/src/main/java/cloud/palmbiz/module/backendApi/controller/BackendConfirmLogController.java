@@ -1,8 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.ConfirmLogDto;
-import cloud.palmbiz.common.dto.ParamDto;
+import cloud.palmbiz.common.page.dto.ParamDto;
 import cloud.palmbiz.common.enums.CouponTypeEnum;
 import cloud.palmbiz.common.param.ConfirmLogPage;
 import cloud.palmbiz.common.service.ConfirmLogService;

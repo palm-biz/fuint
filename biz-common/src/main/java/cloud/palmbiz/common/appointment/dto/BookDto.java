@@ -1,7 +1,7 @@
 package cloud.palmbiz.common.appointment.dto;
 
-import cloud.palmbiz.common.DayDto;
-import cloud.palmbiz.common.TimeDto;
+import cloud.palmbiz.common.temporal.dto.DayDto;
+import cloud.palmbiz.common.temporal.dto.TimeDto;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

@@ -1,6 +1,6 @@
 package cloud.palmbiz.domain.service.impl;
 
-import cloud.palmbiz.common.dto.MessageResDto;
+import cloud.palmbiz.common.message.dto.MessageResDto;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
 import cloud.palmbiz.common.enums.SmsSettingEnum;
 import cloud.palmbiz.common.enums.StatusEnum;

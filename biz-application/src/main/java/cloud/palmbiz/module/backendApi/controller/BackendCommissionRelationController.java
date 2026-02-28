@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.CommissionRelationDto;
+import cloud.palmbiz.common.commission.dto.CommissionRelationDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.CommissionRelationPage;
 import cloud.palmbiz.common.param.StatusParam;

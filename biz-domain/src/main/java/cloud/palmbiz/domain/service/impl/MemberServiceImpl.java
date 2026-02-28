@@ -1,8 +1,8 @@
 package cloud.palmbiz.domain.service.impl;
 
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.GroupMemberDto;
-import cloud.palmbiz.common.dto.MemberTopDto;
+import cloud.palmbiz.common.group.dto.GroupMemberDto;
+import cloud.palmbiz.common.member.dto.MemberTopDto;
 import cloud.palmbiz.common.user.dto.UserDto;
 import cloud.palmbiz.common.param.MemberPage;
 import cloud.palmbiz.common.service.CommissionRelationService;

@@ -1,7 +1,7 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.common.dto.CommissionRuleDto;
+import cloud.palmbiz.common.commission.dto.CommissionRuleDto;
 import cloud.palmbiz.common.param.CommissionRulePage;
 import cloud.palmbiz.common.param.CommissionRuleParam;
 import cloud.palmbiz.framework.exception.BusinessCheckException;

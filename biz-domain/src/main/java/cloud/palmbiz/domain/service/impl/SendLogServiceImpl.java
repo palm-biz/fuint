@@ -1,6 +1,6 @@
 package cloud.palmbiz.domain.service.impl;
 
-import cloud.palmbiz.common.dto.ReqSendLogDto;
+import cloud.palmbiz.common.coupon.dto.ReqSendLogDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.SendLogService;
 import cloud.palmbiz.framework.pagination.PaginationRequest;

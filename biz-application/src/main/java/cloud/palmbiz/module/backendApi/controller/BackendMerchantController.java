@@ -2,8 +2,8 @@ package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.MerchantDto;
-import cloud.palmbiz.common.dto.ParamDto;
+import cloud.palmbiz.common.merchant.dto.MerchantDto;
+import cloud.palmbiz.common.page.dto.ParamDto;
 import cloud.palmbiz.common.enums.MerchantTypeEnum;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.MerchantService;

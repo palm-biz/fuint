@@ -1,6 +1,6 @@
 package cloud.palmbiz.domain.service.impl;
 
-import cloud.palmbiz.common.dto.SmsTemplateDto;
+import cloud.palmbiz.common.sms.dto.SmsTemplateDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.SmsTemplateService;
 import cloud.palmbiz.framework.annoation.OperationServiceLog;

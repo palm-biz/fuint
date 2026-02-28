@@ -1,7 +1,7 @@
 package cloud.palmbiz.module.client.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import cloud.palmbiz.common.dto.TokenDto;
+import cloud.palmbiz.common.token.dto.TokenDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.GenderEnum;
 import cloud.palmbiz.common.enums.MemberSourceEnum;

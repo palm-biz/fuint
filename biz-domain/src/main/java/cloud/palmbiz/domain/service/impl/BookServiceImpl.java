@@ -1,8 +1,8 @@
 package cloud.palmbiz.domain.service.impl;
 
 import cloud.palmbiz.common.appointment.dto.BookDto;
-import cloud.palmbiz.common.dto.DayDto;
-import cloud.palmbiz.common.dto.TimeDto;
+import cloud.palmbiz.common.temporal.dto.DayDto;
+import cloud.palmbiz.common.temporal.dto.TimeDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.BookPage;
 import cloud.palmbiz.common.param.BookableParam;

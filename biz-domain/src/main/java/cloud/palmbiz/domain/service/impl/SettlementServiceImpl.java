@@ -1,8 +1,8 @@
 package cloud.palmbiz.domain.service.impl;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.dto.SettlementDto;
-import cloud.palmbiz.common.dto.SettlementOrderDto;
+import cloud.palmbiz.common.settlement.dto.SettlementDto;
+import cloud.palmbiz.common.settlement.dto.SettlementOrderDto;
 import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.param.OrderListParam;
 import cloud.palmbiz.common.service.MerchantService;

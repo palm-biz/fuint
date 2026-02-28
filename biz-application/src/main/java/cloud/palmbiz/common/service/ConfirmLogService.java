@@ -1,7 +1,6 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.common.dto.ConfirmLogDto;
 import cloud.palmbiz.common.param.ConfirmLogPage;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.WriteOffRecord;

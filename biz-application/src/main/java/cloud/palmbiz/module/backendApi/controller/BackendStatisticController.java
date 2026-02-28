@@ -1,8 +1,8 @@
 package cloud.palmbiz.module.backendApi.controller;
 
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.dto.GoodsTopDto;
-import cloud.palmbiz.common.dto.MemberTopDto;
+import cloud.palmbiz.common.good.dto.GoodsTopDto;
+import cloud.palmbiz.common.member.dto.MemberTopDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.StatisticParam;
 import cloud.palmbiz.common.service.GoodsService;
