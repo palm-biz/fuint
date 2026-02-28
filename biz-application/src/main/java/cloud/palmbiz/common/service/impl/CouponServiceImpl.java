@@ -81,6 +81,17 @@ public class CouponServiceImpl extends ServiceImpl<MtCouponMapper, MtCoupon> imp
     private UserGradeService userGradeService;
 
     /**
+     * 卡券命令服务（DDD 架构）
+     */
+    private cloud.palmbiz.application.coupon.service.CouponCommandService couponCommandService;
+
+    /**
+     * 卡券查询服务（DDD 架构）
+     */
+    private cloud.palmbiz.application.coupon.service.CouponQueryService couponQueryService;
+
+
+    /**
      * 短信发送服务接口
      */
     private SendSmsService sendSmsService;
