@@ -37,6 +37,16 @@ public class CartServiceImpl extends ServiceImpl<MtCartMapper, MtCart> implement
     private MtGoodsSkuMapper mtGoodsSkuMapper;
 
     /**
+     * 购物车命令服务（DDD 架构）
+     */
+    private cloud.palmbiz.application.cart.service.CartCommandService cartCommandService;
+
+    /**
+     * 购物车查询服务（DDD 架构）
+     */
+    private cloud.palmbiz.application.cart.service.CartQueryService cartQueryService;
+
+    /**
      * 切换购物车给会员
      *
      * @param userId 会员ID
