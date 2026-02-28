@@ -19,7 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>cloud.palmbiz</groupId>
-            <artifactId>biz-infrastructure</artifactId>
+            <artifactId>biz-common</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>
