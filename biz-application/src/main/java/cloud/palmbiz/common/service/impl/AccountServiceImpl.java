@@ -1,187 +1,79 @@
 package cloud.palmbiz.common.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import cloud.palmbiz.application.account.command.CreateAccountCommand;
+import cloud.palmbiz.application.account.command.DeleteAccountCommand;
+import cloud.palmbiz.application.account.command.LoginCommand;
+import cloud.palmbiz.application.account.command.UpdateAccountCommand;
+import cloud.palmbiz.application.account.service.AccountAuthService;
+import cloud.palmbiz.application.account.service.AccountCommandService;
+import cloud.palmbiz.application.account.service.AccountQueryService;
 import cloud.palmbiz.common.account.dto.AccountDto;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.param.AccountPage;
 import cloud.palmbiz.common.service.AccountService;
-import cloud.palmbiz.common.service.CaptchaService;
-import cloud.palmbiz.common.service.StaffService;
-import cloud.palmbiz.common.service.StoreService;
-import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.annoation.OperationServiceLog;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
-import cloud.palmbiz.framework.exception.BusinessRuntimeException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.module.backendApi.request.LoginRequest;
 import cloud.palmbiz.module.backendApi.response.LoginResponse;
-import cloud.palmbiz.infrastructure.mapper.*;
-import cloud.palmbiz.infrastructure.model.*;
-import cloud.palmbiz.common.utils.Digests;
-import cloud.palmbiz.common.utils.Encodes;
-import cloud.palmbiz.common.utils.StringUtil;
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
+import cloud.palmbiz.infrastructure.mapper.TAccountMapper;
+import cloud.palmbiz.infrastructure.model.TAccount;
+import cloud.palmbiz.infrastructure.model.TDuty;
 import lombok.AllArgsConstructor;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.Date;
+import java.util.List;
 
 /**
- * 后台账号接口
+ * 后台账号接口（Facade模式）
+ * 保持向后兼容，内部委托给新的应用服务
+ *
+ * @author DDD Refactoring
  */
 @Service
 @AllArgsConstructor(onConstructor_= {@Lazy})
 public class AccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> implements AccountService {
 
-    private TAccountMapper tAccountMapper;
-
-    private TDutyMapper tDutyMapper;
-
-    private TAccountDutyMapper tAccountDutyMapper;
-
-    private MtMerchantMapper mtMerchantMapper;
-
-    private MtStoreMapper mtStoreMapper;
-
-    /**
-     * 员工接口
-     */
-    private StaffService staffService;
-
-    /**
-     * 店铺服务接口
-     */
-    private StoreService storeService;
-
-    /**
-     * 验证码服务接口
-     */
-    private CaptchaService captchaService;
+    private final TAccountMapper tAccountMapper;
+    private final AccountCommandService accountCommandService;
+    private final AccountQueryService accountQueryService;
+    private final AccountAuthService accountAuthService;
 
     /**
      * 分页查询账号列表
+     * 委托给 AccountQueryService
      *
-     * @param accountPage
-     * @return
+     * @param accountPage 分页参数
+     * @return 分页结果
      */
     @Override
     public PaginationResponse<AccountDto> getAccountListByPagination(AccountPage accountPage) {
-        Page<MtBanner> pageHelper = PageHelper.startPage(accountPage.getPage(), accountPage.getPageSize());
-        LambdaQueryWrapper<TAccount> lambdaQueryWrapper = Wrappers.lambdaQuery();
-        lambdaQueryWrapper.ne(TAccount::getAccountStatus, -1); // 1:启用；0:禁用；-1:删除
-
-        String name = accountPage.getAccountName();
-        if (StringUtils.isNotEmpty(name)) {
-            lambdaQueryWrapper.like(TAccount::getAccountName, name);
-        }
-        String realName = accountPage.getRealName();
-        if (StringUtils.isNotEmpty(realName)) {
-            lambdaQueryWrapper.like(TAccount::getRealName, realName);
-        }
-        String status = accountPage.getAccountStatus();
-        if (StringUtils.isNotEmpty(status)) {
-            lambdaQueryWrapper.eq(TAccount::getAccountStatus, status);
-        }
-        Integer merchantId = accountPage.getMerchantId();
-        if (merchantId != null && merchantId > 0) {
-            lambdaQueryWrapper.eq(TAccount::getMerchantId, merchantId);
-        }
-        Integer storeId = accountPage.getStoreId();
-        if (storeId != null && storeId > 0) {
-            lambdaQueryWrapper.eq(TAccount::getStoreId, storeId);
-        }
-        Integer staffId = accountPage.getStaffId();
-        if (staffId != null && staffId > 0) {
-            lambdaQueryWrapper.eq(TAccount::getStaffId, staffId);
-        }
-
-        lambdaQueryWrapper.orderByDesc(TAccount::getAcctId);
-        List<TAccount> accountList = tAccountMapper.selectList(lambdaQueryWrapper);
-        List<AccountDto> dataList = new ArrayList<>();
-
-        for (TAccount tAccount : accountList) {
-             AccountDto accountDto = new AccountDto();
-             BeanUtils.copyProperties(tAccount, accountDto);
-             accountDto.setId(tAccount.getAcctId());
-             MtMerchant mtMerchant = mtMerchantMapper.selectById(tAccount.getMerchantId());
-             if (mtMerchant != null) {
-                 accountDto.setMerchantName(mtMerchant.getName());
-             }
-             MtStore mtStore = mtStoreMapper.selectById(tAccount.getStoreId());
-             if (mtStore != null) {
-                 accountDto.setStoreName(mtStore.getName());
-             }
-             accountDto.setSalt(null);
-             accountDto.setPassword(null);
-             dataList.add(accountDto);
-        }
-
-        PageRequest pageRequest = PageRequest.of(accountPage.getPage(), accountPage.getPageSize());
-        PageImpl pageImpl = new PageImpl(dataList, pageRequest, pageHelper.getTotal());
-        PaginationResponse<AccountDto> paginationResponse = new PaginationResponse(pageImpl, AccountDto.class);
-        paginationResponse.setTotalPages(pageHelper.getPages());
-        paginationResponse.setTotalElements(pageHelper.getTotal());
-        paginationResponse.setContent(dataList);
-
-        return paginationResponse;
+        return accountQueryService.queryByPage(accountPage);
     }
 
     /**
      * 根据账号名称获取账号信息
+     * 委托给 AccountQueryService
      *
      * @param userName 账号名称
-     * @return
+     * @return 账号信息
      */
     @Override
     public AccountInfoDto getAccountByName(String userName) {
-        Map<String, Object> param = new HashMap();
-        param.put("account_name", userName);
-        param.put("account_status", 1);
-        List<TAccount> accountList = tAccountMapper.selectByMap(param);
-        if (accountList != null && accountList.size() > 0) {
-            AccountInfoDto accountInfo = new AccountInfoDto();
-            TAccount account = accountList.get(0);
-            accountInfo.setId(account.getAcctId());
-            accountInfo.setAccountName(account.getAccountName());
-            accountInfo.setRealName(account.getRealName());
-            accountInfo.setRoleIds(account.getRoleIds());
-            accountInfo.setStaffId(account.getStaffId());
-            accountInfo.setStoreId(account.getStoreId());
-            Integer merchantId = account.getMerchantId() == null ? 0 : account.getMerchantId();
-            accountInfo.setMerchantId(merchantId);
-            if (account.getMerchantId() != null && account.getMerchantId() > 0) {
-                MtMerchant mtMerchant = mtMerchantMapper.selectById(account.getMerchantId());
-                if (mtMerchant != null) {
-                    accountInfo.setMerchantName(mtMerchant.getName());
-                }
-            }
-            if (account.getStoreId() != null && account.getStoreId() > 0) {
-                MtStore mtStore = mtStoreMapper.selectById(account.getStoreId());
-                if (mtStore != null) {
-                    accountInfo.setStoreName(mtStore.getName());
-                }
-            }
-            return accountInfo;
-        } else {
-            return null;
-        }
+        return accountQueryService.queryByName(userName);
     }
 
     /**
      * 根据ID获取账号信息
+     * 委托给 AccountQueryService
      *
      * @param userId 账号ID
-     * @return
+     * @return 账号实体
      */
     @Override
     public TAccount getAccountInfoById(Integer userId) {
@@ -190,224 +82,157 @@ public class AccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> im
 
     /**
      * 新增后台账户
+     * 委托给 AccountCommandService
      *
-     * @param tAccount
-     * @return
+     * @param tAccount 账户实体
+     * @param duties 职责列表
+     * @return 创建的账户
+     * @throws BusinessCheckException 业务异常
      */
     @Override
     @OperationServiceLog(description = "新增后台账户")
     public TAccount createAccountInfo(TAccount tAccount, List<TDuty> duties) throws BusinessCheckException {
-        TAccount account = new TAccount();
-        account.setAccountKey(tAccount.getAccountKey());
-        account.setAccountName(tAccount.getAccountName().toLowerCase());
-        account.setAccountStatus(1);
-        account.setRealName(tAccount.getRealName());
-        account.setRoleIds(tAccount.getRoleIds());
-        account.setStaffId(tAccount.getStaffId());
-        Integer storeId = tAccount.getStoreId() == null ? 0 : tAccount.getStoreId();
-        if (tAccount.getMerchantId() == null || tAccount.getMerchantId() <= 0) {
-            MtStore mtStore = storeService.queryStoreById(storeId);
-            if (mtStore != null) {
-                tAccount.setMerchantId(mtStore.getMerchantId());
-            }
-        }
-        account.setMerchantId(tAccount.getMerchantId());
-        account.setStoreId(tAccount.getStoreId());
-        account.setCreateDate(new Date());
-        account.setModifyDate(new Date());
-        account.setStoreId(tAccount.getStoreId());
-        account.setStaffId(tAccount.getStaffId());
-        account.setPassword(tAccount.getPassword());
-        this.entryptPassword(account);
-        int id = tAccountMapper.insert(account);
+        CreateAccountCommand command = new CreateAccountCommand();
+        command.setAccountKey(tAccount.getAccountKey());
+        command.setAccountName(tAccount.getAccountName());
+        command.setPassword(tAccount.getPassword());
+        command.setRealName(tAccount.getRealName());
+        command.setRoleIds(tAccount.getRoleIds());
+        command.setMerchantId(tAccount.getMerchantId());
+        command.setStoreId(tAccount.getStoreId());
+        command.setStaffId(tAccount.getStaffId());
+        command.setDuties(duties);
 
-        if (id > 0 && duties != null && duties.size() > 0) {
-            for (TDuty tDuty : duties) {
-                 TAccountDuty tAccountDuty = new TAccountDuty();
-                 tAccountDuty.setDutyId(tDuty.getDutyId());
-                 tAccountDuty.setAcctId(account.getAcctId());
-                 tAccountDutyMapper.insert(tAccountDuty);
-            }
-        }
-
-        if (id > 0 ) {
-            return this.getAccountInfoById(id);
-        } else {
-            throw new BusinessRuntimeException("创建账号错误");
-        }
+        return accountCommandService.createAccount(command);
     }
 
     /**
      * 获取账号角色ID
+     * 委托给 AccountQueryService
      *
-     * @param accountId
-     * @return
+     * @param accountId 账号ID
+     * @return 角色ID列表
      */
     @Override
     public List<Long> getRoleIdsByAccountId(Integer accountId) {
-        return tDutyMapper.getRoleIdsByAccountId(accountId);
+        return accountQueryService.getRoleIdsByAccountId(accountId);
     }
 
     /**
      * 修改账户
+     * 委托给 AccountCommandService
      *
      * @param  tAccount 账户实体
-     * @throws BusinessCheckException
+     * @param duties 职责列表
+     * @throws BusinessCheckException 业务异常
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "修改后台账户")
     public void editAccount(TAccount tAccount, List<TDuty> duties) throws BusinessCheckException {
-        TAccount oldAccount = tAccountMapper.selectById(tAccount.getAcctId());
-        if (oldAccount == null) {
-            throw new BusinessCheckException("账户不存在.");
-        }
-        tAccount.setModifyDate(new Date());
-        if (duties != null && duties.size() > 0) {
-            if (tAccount.getAcctId() != null && tAccount.getAcctId() > 0) {
-                tAccountDutyMapper.deleteDutiesByAccountId(tAccount.getAcctId());
-                for (TDuty tDuty : duties) {
-                     TAccountDuty tAccountDuty = new TAccountDuty();
-                     tAccountDuty.setDutyId(tDuty.getDutyId());
-                     tAccountDuty.setAcctId(tAccount.getAcctId());
-                     tAccountDutyMapper.insert(tAccountDuty);
-                }
-            }
-        }
-        if (tAccount.getStaffId() != null && tAccount.getStaffId() > 0) {
-            MtStaff mtStaff = staffService.queryStaffById(tAccount.getStaffId());
-            if (mtStaff == null) {
-                tAccount.setStaffId(0);
-            }
-        }
-        tAccountMapper.updateById(tAccount);
+        UpdateAccountCommand command = new UpdateAccountCommand();
+        command.setAcctId(tAccount.getAcctId());
+        command.setAccountKey(tAccount.getAccountKey());
+        command.setAccountName(tAccount.getAccountName());
+        command.setRealName(tAccount.getRealName());
+        command.setRoleIds(tAccount.getRoleIds());
+        command.setMerchantId(tAccount.getMerchantId());
+        command.setStoreId(tAccount.getStoreId());
+        command.setStaffId(tAccount.getStaffId());
+        command.setDuties(duties);
+
+        accountCommandService.updateAccount(command);
     }
 
     /**
      * 根据账户名称获取账户所分配的角色ID集合
+     * 委托给 AccountQueryService
      *
-     * @param  accountId 账户
+     * @param  accountId 账户ID
      * @return 角色ID集合
      */
     @Override
     public List<Integer> getDutyIdsByAccountId(Integer accountId) {
-        return tAccountDutyMapper.getDutyIdsByAccountId(accountId);
+        return accountQueryService.getDutyIdsByAccountId(accountId);
     }
 
     /**
      * 更新账户
+     * 委托给底层 Mapper
      *
-     * @param tAccount
+     * @param tAccount 账户实体
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
     @OperationServiceLog(description = "修改后台账户")
     public void updateAccount(TAccount tAccount) {
-        tAccountMapper.updateById(tAccount);
-    }
-
-    /**
-     * 删除账号
-     *
-     * @param accountId 账号ID
-     * @return
-     */
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    @OperationServiceLog(description = "删除后台账户")
-    public void deleteAccount(Long accountId) {
-        TAccount tAccount = tAccountMapper.selectById(accountId);
-        tAccount.setAccountStatus(-1);
         tAccount.setModifyDate(new Date());
         tAccountMapper.updateById(tAccount);
     }
 
     /**
-     * 设定安全的密码
+     * 删除账号
+     * 委托给 AccountCommandService
      *
-     * @param tAccount 账号信息
-     * @return
+     * @param accountId 账号ID
      */
     @Override
-    public void entryptPassword(TAccount tAccount) {
-        byte[] salt = Digests.generateSalt(8);
-        tAccount.setSalt(Encodes.encodeHex(salt));
-        byte[] hashPassword = Digests.sha1(tAccount.getPassword().getBytes(), salt, 1024);
-        tAccount.setPassword(Encodes.encodeHex(hashPassword));
+    @Transactional(rollbackFor = Exception.class)
+    @OperationServiceLog(description = "删除后台账户")
+    public void deleteAccount(Long accountId) {
+        DeleteAccountCommand command = new DeleteAccountCommand();
+        command.setAccountId(accountId);
+        accountCommandService.deleteAccount(command);
     }
 
     /**
-     * 获取加密密码
+     * 设定安全的密码（保留用于向后兼容）
+     * 使用领域模型的密码加密逻辑
      *
-     * @param password
-     * @param salt
-     * @return
+     * @param tAccount 账号信息
+     */
+    @Override
+    public void entryptPassword(TAccount tAccount) {
+        cloud.palmbiz.domain.account.model.Password password =
+            cloud.palmbiz.domain.account.model.Password.fromPlainText(tAccount.getPassword());
+        tAccount.setSalt(password.getSalt());
+        tAccount.setPassword(password.getEncryptedValue());
+    }
+
+    /**
+     * 获取加密密码（保留用于向后兼容）
+     * 使用领域模型的密码加密逻辑
+     *
+     * @param password 明文密码
+     * @param salt 盐值
+     * @return 加密后的密码
      */
     @Override
     public String getEntryptPassword(String password, String salt) {
-        byte[] salt1 = Encodes.decodeHex(salt);
-        byte[] hashPassword = Digests.sha1(password.getBytes(), salt1, 1024);
-        return Encodes.encodeHex(hashPassword);
+        byte[] saltBytes = cloud.palmbiz.common.utils.Encodes.decodeHex(salt);
+        byte[] hashPassword = cloud.palmbiz.common.utils.Digests.sha1(password.getBytes(), saltBytes, 1024);
+        return cloud.palmbiz.common.utils.Encodes.encodeHex(hashPassword);
     }
 
     /**
      * 登录后台系统
+     * 委托给 AccountAuthService
      *
      * @param loginRequest 登录参数
      * @param userAgent 登录浏览器
-     * @return
+     * @return 登录响应
+     * @throws BusinessCheckException 业务异常
      */
     @Override
     @OperationServiceLog(description = "登录后台系统")
     public LoginResponse doLogin(LoginRequest loginRequest, String userAgent) throws BusinessCheckException {
-        String accountName = loginRequest.getUsername();
-        String password = loginRequest.getPassword();
-        String captchaCode = loginRequest.getCaptchaCode();
-        String uuid = loginRequest.getUuid();
+        LoginCommand command = new LoginCommand();
+        command.setUsername(loginRequest.getUsername());
+        command.setPassword(loginRequest.getPassword());
+        command.setCaptchaCode(loginRequest.getCaptchaCode());
+        command.setUuid(loginRequest.getUuid());
+        command.setUserAgent(userAgent);
 
-        Boolean captchaVerify = captchaService.checkCodeByUuid(captchaCode, uuid);
-        if (!captchaVerify) {
-            throw new BusinessCheckException("图形验证码有误");
-        }
-
-        if (StringUtil.isEmpty(accountName)|| StringUtil.isEmpty(password) || StringUtil.isEmpty(captchaCode)) {
-            throw new BusinessCheckException("登录参数有误");
-        } else {
-            AccountInfoDto accountInfo = getAccountByName(loginRequest.getUsername());
-            if (accountInfo == null) {
-                throw new BusinessCheckException("登录账号或密码有误");
-            }
-
-            TAccount tAccount = getAccountInfoById(accountInfo.getId());
-            String myPassword = tAccount.getPassword();
-            String inputPassword = getEntryptPassword(password, tAccount.getSalt());
-            if (!myPassword.equals(inputPassword) || !tAccount.getAccountStatus().toString().equals("1")) {
-                throw new BusinessCheckException("登录账号或密码有误");
-            }
-
-            // 商户已禁用
-            if (tAccount.getMerchantId() != null && tAccount.getMerchantId() > 0) {
-                MtMerchant mtMerchant = mtMerchantMapper.selectById(tAccount.getMerchantId());
-                if (mtMerchant != null && !mtMerchant.getStatus().equals(StatusEnum.ENABLED.getKey())) {
-                    throw new BusinessCheckException("您的商户已被禁用，请联系平台方");
-                }
-            }
-
-            // 店铺已禁用
-            if (tAccount.getStoreId() != null && tAccount.getStoreId() > 0) {
-                MtStore mtStore = mtStoreMapper.selectById(tAccount.getStoreId());
-                if (mtStore != null && !mtStore.getStatus().equals(StatusEnum.ENABLED.getKey())) {
-                    throw new BusinessCheckException("您的店铺已被禁用，请联系平台方");
-                }
-            }
-
-            String token = TokenUtil.generateToken(userAgent, accountInfo);
-            LoginResponse response = new LoginResponse();
-            response.setLogin(true);
-            response.setToken(token);
-            response.setTokenCreatedTime(new Date());
-
-            return response;
-        }
+        return accountAuthService.login(command);
     }
 }
