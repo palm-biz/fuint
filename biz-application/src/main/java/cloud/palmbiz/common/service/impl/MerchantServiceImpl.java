@@ -68,6 +68,16 @@ public class MerchantServiceImpl extends ServiceImpl<MtMerchantMapper, MtMerchan
     private SettingService settingService;
 
     /**
+     * 商户命令服务（DDD 架构）
+     */
+    private cloud.palmbiz.application.merchant.service.MerchantCommandService merchantCommandService;
+
+    /**
+     * 商户查询服务（DDD 架构）
+     */
+    private cloud.palmbiz.application.merchant.service.MerchantQueryService merchantQueryService;
+
+    /**
      * 分页查询商户列表
      *
      * @param  paginationRequest

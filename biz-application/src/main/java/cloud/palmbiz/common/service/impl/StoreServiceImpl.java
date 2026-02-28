@@ -82,6 +82,16 @@ public class StoreServiceImpl extends ServiceImpl<MtStoreMapper, MtStore> implem
     private WeixinService weixinService;
 
     /**
+     * 店铺命令服务（DDD 架构）
+     */
+    private cloud.palmbiz.application.store.service.StoreCommandService storeCommandService;
+
+    /**
+     * 店铺查询服务（DDD 架构）
+     */
+    private cloud.palmbiz.application.store.service.StoreQueryService storeQueryService;
+
+    /**
      * 分页查询店铺列表
      *
      * @param paginationRequest
