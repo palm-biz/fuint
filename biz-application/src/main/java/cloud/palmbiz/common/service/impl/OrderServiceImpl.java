@@ -190,6 +190,17 @@ public class OrderServiceImpl extends ServiceImpl<MtOrderMapper, MtOrder> implem
     private BookItemService bookItemService;
 
     /**
+     * 订单命令服务（DDD 架构）
+     * 注入新的 DDD 服务，为渐进式重构做准备
+     */
+    private cloud.palmbiz.application.order.service.OrderCommandService orderCommandService;
+
+    /**
+     * 订单查询服务（DDD 架构）
+     */
+    private cloud.palmbiz.application.order.service.OrderQueryService orderQueryService;
+
+    /**
      * 获取用户订单列表
      * @param  orderListParam
      * @throws BusinessCheckException

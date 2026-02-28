@@ -85,6 +85,16 @@ public class GoodsServiceImpl extends ServiceImpl<MtGoodsMapper, MtGoods> implem
     private CouponService couponService;
 
     /**
+     * 商品命令服务（DDD 架构）
+     */
+    private cloud.palmbiz.application.goods.service.GoodsCommandService goodsCommandService;
+
+    /**
+     * 商品查询服务（DDD 架构）
+     */
+    private cloud.palmbiz.application.goods.service.GoodsQueryService goodsQueryService;
+
+    /**
      * 分页查询商品列表
      *
      * @param param
