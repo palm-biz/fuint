@@ -2,8 +2,8 @@ package cloud.palmbiz.interfaces.client.controller;
 
 import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.UserCouponStatusEnum;
-import cloud.palmbiz.common.service.CouponService;
-import cloud.palmbiz.common.service.UserCouponService;
+import cloud.palmbiz.application.marketing.coupon.service.CouponService;
+import cloud.palmbiz.application.identity.user.service.UserCouponService;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.web.BaseController;

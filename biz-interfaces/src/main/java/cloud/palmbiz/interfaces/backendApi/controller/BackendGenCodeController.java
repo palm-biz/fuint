@@ -1,9 +1,9 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.application.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.identity.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
-import cloud.palmbiz.common.service.GenCodeService;
+import cloud.palmbiz.application.gencode.service.GenCodeService;
 import cloud.palmbiz.common.util.CommonUtil;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;

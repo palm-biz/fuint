@@ -1,6 +1,5 @@
 package cloud.palmbiz.application.invoice.service;
 
-import cloud.palmbiz.common.service.InvoiceService;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.MtInvoice;

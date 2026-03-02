@@ -1,14 +1,14 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.application.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.identity.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.group.dto.GroupDataDto;
 import cloud.palmbiz.common.group.dto.GroupDataListDto;
-import cloud.palmbiz.common.coupon.dto.ReqCouponGroupDto;
+import cloud.palmbiz.application.marketing.coupon.dto.ReqCouponGroupDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.interfaces.param.StatusParam;
-import cloud.palmbiz.common.service.CouponGroupService;
-import cloud.palmbiz.common.service.UploadService;
+import cloud.palmbiz.application.marketing.coupon.service.CouponGroupService;
+import cloud.palmbiz.application.UploadService;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.common.util.XlsUtil;
 import cloud.palmbiz.framework.dto.ExcelExportDto;

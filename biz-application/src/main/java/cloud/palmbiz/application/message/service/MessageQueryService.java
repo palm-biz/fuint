@@ -1,6 +1,5 @@
 package cloud.palmbiz.application.message.service;
 
-import cloud.palmbiz.common.service.MessageService;
 import cloud.palmbiz.infrastructure.model.MtMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

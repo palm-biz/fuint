@@ -1,6 +1,5 @@
 package cloud.palmbiz.application.actionlog.service;
 
-import cloud.palmbiz.common.service.ActionLogService;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.TActionLog;

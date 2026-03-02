@@ -1,12 +1,12 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.application.account.dto.AccountDto;
-import cloud.palmbiz.application.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.identity.account.dto.AccountDto;
+import cloud.palmbiz.application.identity.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.role.dto.RoleDto;
 import cloud.palmbiz.common.enums.AdminRoleEnum;
-import cloud.palmbiz.common.service.DutyService;
-import cloud.palmbiz.common.service.SourceService;
+import cloud.palmbiz.application.duty.service.DutyService;
+import cloud.palmbiz.application.source.service.SourceService;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;

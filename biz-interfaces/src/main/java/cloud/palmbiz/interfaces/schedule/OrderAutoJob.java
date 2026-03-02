@@ -3,7 +3,7 @@ package cloud.palmbiz.interfaces.schedule;
 import cloud.palmbiz.common.order.dto.OrderDto;
 import cloud.palmbiz.common.enums.OrderStatusEnum;
 import cloud.palmbiz.common.enums.PayStatusEnum;
-import cloud.palmbiz.common.service.OrderService;
+import cloud.palmbiz.application.order.service.OrderService;
 import cloud.palmbiz.common.util.RedisLock;
 import cloud.palmbiz.common.util.SeqUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;

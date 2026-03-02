@@ -1,14 +1,14 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
-import cloud.palmbiz.application.account.command.LoginCommand;
-import cloud.palmbiz.application.account.service.AccountAuthService;
-import cloud.palmbiz.application.account.service.AccountQueryService;
+import cloud.palmbiz.application.identity.account.command.LoginCommand;
+import cloud.palmbiz.application.identity.account.service.AccountAuthService;
+import cloud.palmbiz.application.identity.account.service.AccountQueryService;
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.application.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.identity.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.domain.TreeNode;
 import cloud.palmbiz.common.enums.AdminRoleEnum;
-import cloud.palmbiz.common.service.DutyService;
-import cloud.palmbiz.common.service.SourceService;
+import cloud.palmbiz.application.duty.service.DutyService;
+import cloud.palmbiz.application.source.service.SourceService;
 import cloud.palmbiz.common.utils.StringUtil;
 import cloud.palmbiz.common.utils.TokenUtil;
 import cloud.palmbiz.common.utils.TreeUtil;

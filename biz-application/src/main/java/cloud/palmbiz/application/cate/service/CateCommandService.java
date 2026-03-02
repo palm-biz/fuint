@@ -1,6 +1,5 @@
 package cloud.palmbiz.application.cate.service;
 
-import cloud.palmbiz.common.service.CateService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.infrastructure.model.MtGoodsCate;
 import lombok.RequiredArgsConstructor;

@@ -1,11 +1,11 @@
 package cloud.palmbiz.interfaces.client.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.point.dto.PointDto;
+import cloud.palmbiz.application.marketing.point.dto.PointDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.interfaces.param.GivePointParam;
-import cloud.palmbiz.common.service.PointService;
+import cloud.palmbiz.application.marketing.point.service.PointService;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;

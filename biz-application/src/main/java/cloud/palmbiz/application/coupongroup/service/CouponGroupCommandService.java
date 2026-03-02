@@ -1,7 +1,7 @@
 package cloud.palmbiz.application.coupongroup.service;
 
-import cloud.palmbiz.common.coupon.dto.ReqCouponGroupDto;
-import cloud.palmbiz.common.service.CouponGroupService;
+import cloud.palmbiz.application.marketing.coupon.dto.ReqCouponGroupDto;
+import cloud.palmbiz.application.marketing.coupon.service.CouponGroupService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.infrastructure.model.MtCouponGroup;
 import lombok.RequiredArgsConstructor;

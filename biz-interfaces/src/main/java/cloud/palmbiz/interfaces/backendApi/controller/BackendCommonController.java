@@ -1,11 +1,11 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
-import cloud.palmbiz.application.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.identity.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.enums.QrCodeEnum;
-import cloud.palmbiz.common.service.CouponService;
-import cloud.palmbiz.common.service.SettingService;
-import cloud.palmbiz.common.service.StoreService;
-import cloud.palmbiz.common.service.WeixinService;
+import cloud.palmbiz.application.marketing.coupon.service.CouponService;
+import cloud.palmbiz.application.SettingService;
+import cloud.palmbiz.application.store.service.StoreService;
+import cloud.palmbiz.application.payment.service.WeixinService;
 import cloud.palmbiz.common.util.Base64Util;
 import cloud.palmbiz.common.util.QRCodeUtil;
 import cloud.palmbiz.common.util.TokenUtil;

@@ -1,7 +1,7 @@
 package cloud.palmbiz.interfaces.interceptor;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.application.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.identity.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.util.AuthUserUtil;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.common.utils.PropertiesUtil;

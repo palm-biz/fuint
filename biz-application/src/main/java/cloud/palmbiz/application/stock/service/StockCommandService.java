@@ -1,6 +1,5 @@
 package cloud.palmbiz.application.stock.service;
 
-import cloud.palmbiz.common.service.StockService;
 import cloud.palmbiz.common.stock.dto.StockGoodsDto;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.infrastructure.model.MtStock;

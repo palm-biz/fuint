@@ -1,7 +1,7 @@
 package cloud.palmbiz.application.opengift.service;
 
 import cloud.palmbiz.common.opengift.dto.OpenGiftDto;
-import cloud.palmbiz.common.service.OpenGiftService;
+import cloud.palmbiz.application.OpenGiftService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

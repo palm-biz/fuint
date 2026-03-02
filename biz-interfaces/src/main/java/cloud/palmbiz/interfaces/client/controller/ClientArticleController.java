@@ -4,7 +4,7 @@ import cloud.palmbiz.common.article.dto.ArticleDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.interfaces.param.ArticleDetailParam;
 import cloud.palmbiz.interfaces.param.ArticlePage;
-import cloud.palmbiz.common.service.ArticleService;
+import cloud.palmbiz.application.article.service.ArticleService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.framework.web.BaseController;

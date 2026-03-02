@@ -2,11 +2,11 @@ package cloud.palmbiz.interfaces.backendApi.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import cloud.palmbiz.application.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.identity.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.navigation.dto.NavigationDto;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
 import cloud.palmbiz.common.enums.StatusEnum;
-import cloud.palmbiz.common.service.SettingService;
+import cloud.palmbiz.application.SettingService;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.web.BaseController;

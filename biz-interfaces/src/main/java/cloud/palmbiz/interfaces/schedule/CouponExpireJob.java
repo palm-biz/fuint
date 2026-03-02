@@ -2,10 +2,10 @@ package cloud.palmbiz.interfaces.schedule;
 
 import cloud.palmbiz.common.enums.UserCouponStatusEnum;
 import cloud.palmbiz.common.enums.WxMessageEnum;
-import cloud.palmbiz.common.service.CouponService;
-import cloud.palmbiz.common.service.MemberService;
-import cloud.palmbiz.common.service.UserCouponService;
-import cloud.palmbiz.common.service.WeixinService;
+import cloud.palmbiz.application.marketing.coupon.service.CouponService;
+import cloud.palmbiz.application.member.service.MemberService;
+import cloud.palmbiz.application.identity.user.service.UserCouponService;
+import cloud.palmbiz.application.payment.service.WeixinService;
 import cloud.palmbiz.common.util.DateUtil;
 import cloud.palmbiz.common.util.RedisLock;
 import cloud.palmbiz.common.util.SeqUtil;

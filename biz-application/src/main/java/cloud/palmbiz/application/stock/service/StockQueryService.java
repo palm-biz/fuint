@@ -1,6 +1,5 @@
 package cloud.palmbiz.application.stock.service;
 
-import cloud.palmbiz.common.service.StockService;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.MtStock;

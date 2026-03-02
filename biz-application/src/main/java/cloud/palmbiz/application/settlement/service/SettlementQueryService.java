@@ -1,6 +1,5 @@
 package cloud.palmbiz.application.settlement.service;
 
-import cloud.palmbiz.common.service.SettlementService;
 import cloud.palmbiz.common.settlement.dto.SettlementDto;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;

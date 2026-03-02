@@ -1,6 +1,5 @@
 package cloud.palmbiz.application.gencode.service;
 
-import cloud.palmbiz.common.service.GenCodeService;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.TGenCode;

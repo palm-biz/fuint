@@ -1,6 +1,6 @@
 package cloud.palmbiz.interfaces.client.controller;
 
-import cloud.palmbiz.common.service.CaptchaService;
+import cloud.palmbiz.application.CaptchaService;
 import cloud.palmbiz.common.util.Base64Util;
 import cloud.palmbiz.framework.web.BaseController;
 import cloud.palmbiz.framework.web.ResponseObject;

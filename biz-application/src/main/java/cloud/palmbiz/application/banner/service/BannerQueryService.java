@@ -1,7 +1,6 @@
 package cloud.palmbiz.application.banner.service;
 
 import cloud.palmbiz.common.banner.dto.BannerPage;
-import cloud.palmbiz.common.service.BannerService;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.MtBanner;
 import lombok.RequiredArgsConstructor;

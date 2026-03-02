@@ -5,7 +5,7 @@ import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.enums.OrderStatusEnum;
 import cloud.palmbiz.interfaces.param.OrderListParam;
-import cloud.palmbiz.common.service.OrderService;
+import cloud.palmbiz.application.order.service.OrderService;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;

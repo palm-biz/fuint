@@ -1,6 +1,5 @@
 package cloud.palmbiz.application.duty.service;
 
-import cloud.palmbiz.common.service.DutyService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.interfaces.backendApi.request.DutyStatusRequest;
 import cloud.palmbiz.infrastructure.model.TDuty;

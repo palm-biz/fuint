@@ -1,6 +1,5 @@
 package cloud.palmbiz.application.gencode.service;
 
-import cloud.palmbiz.common.service.GenCodeService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.infrastructure.model.TGenCode;
 import lombok.RequiredArgsConstructor;

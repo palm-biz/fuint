@@ -1,13 +1,13 @@
 package cloud.palmbiz.interfaces.merchant.controller;
 
-import cloud.palmbiz.common.coupon.dto.ReqCouponDto;
+import cloud.palmbiz.application.marketing.coupon.dto.ReqCouponDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.interfaces.param.CouponListParam;
 import cloud.palmbiz.interfaces.param.CouponReceiveParam;
-import cloud.palmbiz.common.service.CouponService;
-import cloud.palmbiz.common.service.MemberService;
-import cloud.palmbiz.common.service.MerchantService;
-import cloud.palmbiz.common.service.StaffService;
+import cloud.palmbiz.application.marketing.coupon.service.CouponService;
+import cloud.palmbiz.application.member.service.MemberService;
+import cloud.palmbiz.application.merchant.service.MerchantService;
+import cloud.palmbiz.application.staff.service.StaffService;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.web.BaseController;

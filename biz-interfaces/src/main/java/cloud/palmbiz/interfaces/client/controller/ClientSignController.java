@@ -1,5 +1,11 @@
 package cloud.palmbiz.interfaces.client.controller;
 
+import cloud.palmbiz.application.CaptchaService;
+import cloud.palmbiz.application.VerifyCodeService;
+import cloud.palmbiz.application.member.service.MemberService;
+import cloud.palmbiz.application.merchant.service.MerchantService;
+import cloud.palmbiz.application.payment.service.WeixinService;
+import cloud.palmbiz.application.store.service.StoreService;
 import com.alibaba.fastjson.JSONObject;
 import cloud.palmbiz.common.token.dto.TokenDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
@@ -7,7 +13,6 @@ import cloud.palmbiz.common.enums.GenderEnum;
 import cloud.palmbiz.common.enums.MemberSourceEnum;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.enums.YesOrNoEnum;
-import cloud.palmbiz.common.service.*;
 import cloud.palmbiz.common.util.CommonUtil;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;

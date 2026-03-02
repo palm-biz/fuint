@@ -1,6 +1,5 @@
 package cloud.palmbiz.application.staff.service;
 
-import cloud.palmbiz.common.service.StaffService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.infrastructure.model.MtStaff;
 import lombok.RequiredArgsConstructor;

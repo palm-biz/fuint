@@ -1,17 +1,17 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
-import cloud.palmbiz.application.account.command.CreateAccountCommand;
-import cloud.palmbiz.application.account.command.DeleteAccountCommand;
-import cloud.palmbiz.application.account.command.UpdateAccountCommand;
-import cloud.palmbiz.application.account.service.AccountCommandService;
-import cloud.palmbiz.application.account.service.AccountQueryService;
-import cloud.palmbiz.application.account.dto.AccountDto;
-import cloud.palmbiz.application.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.identity.account.command.CreateAccountCommand;
+import cloud.palmbiz.application.identity.account.command.DeleteAccountCommand;
+import cloud.palmbiz.application.identity.account.command.UpdateAccountCommand;
+import cloud.palmbiz.application.identity.account.service.AccountCommandService;
+import cloud.palmbiz.application.identity.account.service.AccountQueryService;
+import cloud.palmbiz.application.identity.account.dto.AccountDto;
+import cloud.palmbiz.application.identity.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.role.dto.RoleDto;
-import cloud.palmbiz.common.service.DutyService;
-import cloud.palmbiz.common.service.MerchantService;
-import cloud.palmbiz.common.service.StoreService;
+import cloud.palmbiz.application.duty.service.DutyService;
+import cloud.palmbiz.application.merchant.service.MerchantService;
+import cloud.palmbiz.application.store.service.StoreService;
 import cloud.palmbiz.common.utils.StringUtil;
 import cloud.palmbiz.common.utils.CommonUtil;
 import cloud.palmbiz.common.utils.TokenUtil;

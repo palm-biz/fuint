@@ -2,7 +2,6 @@ package cloud.palmbiz.application.article.service;
 
 import cloud.palmbiz.common.article.dto.ArticleDto;
 import cloud.palmbiz.common.article.dto.ArticlePage;
-import cloud.palmbiz.common.service.ArticleService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.MtArticle;

@@ -1,7 +1,6 @@
 package cloud.palmbiz.application.give.service;
 
 import cloud.palmbiz.common.give.dto.GiveDto;
-import cloud.palmbiz.common.service.GiveService;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.MtGive;

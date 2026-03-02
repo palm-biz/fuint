@@ -1,11 +1,11 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.application.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.identity.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
 import cloud.palmbiz.common.enums.SmsSettingEnum;
-import cloud.palmbiz.common.service.SendSmsService;
-import cloud.palmbiz.common.service.SettingService;
+import cloud.palmbiz.application.sendlog.service.SendSmsService;
+import cloud.palmbiz.application.SettingService;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;

@@ -5,7 +5,6 @@ import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.enums.YesOrNoEnum;
 import cloud.palmbiz.interfaces.param.AddressDetailParam;
-import cloud.palmbiz.common.service.AddressService;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.web.BaseController;

@@ -1,7 +1,7 @@
 package cloud.palmbiz.interfaces.client.controller;
 
 import com.aliyun.oss.OSS;
-import cloud.palmbiz.common.service.SettingService;
+import cloud.palmbiz.application.SettingService;
 import cloud.palmbiz.common.util.AliyunOssUtil;
 import cloud.palmbiz.common.util.CommonUtil;
 import cloud.palmbiz.common.util.DateUtil;

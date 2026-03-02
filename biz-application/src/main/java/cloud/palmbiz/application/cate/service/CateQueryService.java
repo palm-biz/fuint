@@ -2,7 +2,6 @@ package cloud.palmbiz.application.cate.service;
 
 import cloud.palmbiz.common.cate.dto.GoodsCatePage;
 import cloud.palmbiz.common.cate.dto.GoodsCateDto;
-import cloud.palmbiz.common.service.CateService;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.MtGoodsCate;
 import lombok.RequiredArgsConstructor;

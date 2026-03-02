@@ -2,7 +2,7 @@ package cloud.palmbiz.application.bookitem.service;
 
 import cloud.palmbiz.common.book.dto.BookItemDto;
 import cloud.palmbiz.common.book.dto.BookItemPage;
-import cloud.palmbiz.common.service.BookItemService;
+import cloud.palmbiz.application.book.service.BookItemService;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.MtBookItem;
 import lombok.RequiredArgsConstructor;

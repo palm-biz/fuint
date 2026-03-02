@@ -1,12 +1,12 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.application.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.identity.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.page.dto.ParamDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.enums.UserGradeCatchTypeEnum;
 import cloud.palmbiz.interfaces.param.UserGradeParam;
-import cloud.palmbiz.common.service.UserGradeService;
+import cloud.palmbiz.application.identity.user.service.UserGradeService;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;

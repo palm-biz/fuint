@@ -1,9 +1,9 @@
 package cloud.palmbiz.interfaces.client.controller;
 
-import cloud.palmbiz.common.service.CaptchaService;
-import cloud.palmbiz.common.service.MerchantService;
-import cloud.palmbiz.common.service.SendSmsService;
-import cloud.palmbiz.common.service.VerifyCodeService;
+import cloud.palmbiz.application.CaptchaService;
+import cloud.palmbiz.application.merchant.service.MerchantService;
+import cloud.palmbiz.application.sendlog.service.SendSmsService;
+import cloud.palmbiz.application.VerifyCodeService;
 import cloud.palmbiz.common.util.BizCodeGenerator;
 import cloud.palmbiz.common.util.PhoneFormatCheckUtils;
 import cloud.palmbiz.framework.web.BaseController;

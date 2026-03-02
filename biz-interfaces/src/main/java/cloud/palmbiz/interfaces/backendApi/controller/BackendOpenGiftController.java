@@ -1,11 +1,11 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.application.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.identity.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.card.dto.OpenGiftDto;
 import cloud.palmbiz.common.enums.StatusEnum;
-import cloud.palmbiz.common.service.OpenGiftService;
-import cloud.palmbiz.common.service.UserGradeService;
+import cloud.palmbiz.application.OpenGiftService;
+import cloud.palmbiz.application.identity.user.service.UserGradeService;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.web.BaseController;

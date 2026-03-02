@@ -1,15 +1,15 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.application.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.point.dto.PointDto;
+import cloud.palmbiz.application.identity.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.marketing.point.dto.PointDto;
 import cloud.palmbiz.common.enums.PointSettingEnum;
 import cloud.palmbiz.common.enums.SettingTypeEnum;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.enums.YesOrNoEnum;
-import cloud.palmbiz.common.service.MemberService;
-import cloud.palmbiz.common.service.PointService;
-import cloud.palmbiz.common.service.SettingService;
+import cloud.palmbiz.application.member.service.MemberService;
+import cloud.palmbiz.application.marketing.point.service.PointService;
+import cloud.palmbiz.application.SettingService;
 import cloud.palmbiz.common.util.CommonUtil;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.exception.BusinessCheckException;

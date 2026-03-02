@@ -3,7 +3,6 @@ package cloud.palmbiz.application.confirmlog.service;
 import cloud.palmbiz.common.confirmlog.dto.ConfirmLogDto;
 import cloud.palmbiz.common.confirmlog.dto.ConfirmLogPage;
 import cloud.palmbiz.common.confirmlog.dto.WriteOffRecord;
-import cloud.palmbiz.common.service.ConfirmLogService;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

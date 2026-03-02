@@ -1,7 +1,6 @@
 package cloud.palmbiz.application.invoice.service;
 
 import cloud.palmbiz.common.invoice.param.InvoiceParam;
-import cloud.palmbiz.common.service.InvoiceService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.infrastructure.model.MtInvoice;
 import lombok.RequiredArgsConstructor;

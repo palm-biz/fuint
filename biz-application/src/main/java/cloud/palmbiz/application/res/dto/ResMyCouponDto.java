@@ -1,6 +1,6 @@
 package cloud.palmbiz.application.res.dto;
 
-import cloud.palmbiz.common.coupon.dto.MyCouponDto;
+import cloud.palmbiz.application.marketing.coupon.dto.MyCouponDto;
 
 import java.io.Serializable;
 import java.util.List;

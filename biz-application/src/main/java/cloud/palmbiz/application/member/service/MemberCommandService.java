@@ -1,9 +1,9 @@
 package cloud.palmbiz.application.member.service;
 
 import cloud.palmbiz.application.member.command.*;
-import cloud.palmbiz.common.service.OpenGiftService;
-import cloud.palmbiz.common.service.CommissionRelationService;
-import cloud.palmbiz.common.service.SendSmsService;
+import cloud.palmbiz.application.OpenGiftService;
+import cloud.palmbiz.application.marketing.commission.service.CommissionRelationService;
+import cloud.palmbiz.application.sendlog.service.SendSmsService;
 import cloud.palmbiz.common.util.CommonUtil;
 import cloud.palmbiz.common.util.SeqUtil;
 import cloud.palmbiz.domain.member.model.Member;

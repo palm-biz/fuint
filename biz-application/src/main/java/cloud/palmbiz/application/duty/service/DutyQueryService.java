@@ -1,7 +1,6 @@
 package cloud.palmbiz.application.duty.service;
 
 import cloud.palmbiz.common.domain.TreeNode;
-import cloud.palmbiz.common.service.DutyService;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.TDuty;

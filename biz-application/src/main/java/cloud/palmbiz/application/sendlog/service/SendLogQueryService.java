@@ -1,6 +1,5 @@
 package cloud.palmbiz.application.sendlog.service;
 
-import cloud.palmbiz.common.service.SendLogService;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.MtSendLog;

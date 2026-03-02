@@ -1,8 +1,8 @@
 package cloud.palmbiz.interfaces.client.controller;
 
 import cloud.palmbiz.interfaces.param.MemberInfoParam;
-import cloud.palmbiz.common.service.MemberService;
-import cloud.palmbiz.common.service.MerchantService;
+import cloud.palmbiz.application.member.service.MemberService;
+import cloud.palmbiz.application.merchant.service.MerchantService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.web.BaseController;
 import cloud.palmbiz.framework.web.ResponseObject;

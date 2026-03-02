@@ -1,7 +1,7 @@
 package cloud.palmbiz.interfaces.schedule;
 
-import cloud.palmbiz.common.service.MessageService;
-import cloud.palmbiz.common.service.WeixinService;
+import cloud.palmbiz.application.message.service.MessageService;
+import cloud.palmbiz.application.payment.service.WeixinService;
 import cloud.palmbiz.common.util.RedisLock;
 import cloud.palmbiz.common.util.SeqUtil;
 import cloud.palmbiz.infrastructure.model.MtMessage;

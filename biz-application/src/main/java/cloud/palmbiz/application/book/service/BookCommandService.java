@@ -1,6 +1,5 @@
 package cloud.palmbiz.application.book.service;
 
-import cloud.palmbiz.common.service.BookService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.infrastructure.model.MtBook;
 import lombok.RequiredArgsConstructor;

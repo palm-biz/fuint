@@ -1,6 +1,6 @@
 package cloud.palmbiz.application.coupongroup.service;
 
-import cloud.palmbiz.common.service.CouponGroupService;
+import cloud.palmbiz.application.marketing.coupon.service.CouponGroupService;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;
 import cloud.palmbiz.infrastructure.model.MtCouponGroup;

@@ -1,6 +1,6 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
-import cloud.palmbiz.common.service.CaptchaService;
+import cloud.palmbiz.application.CaptchaService;
 import cloud.palmbiz.common.util.SeqUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

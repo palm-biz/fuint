@@ -1,7 +1,6 @@
 package cloud.palmbiz.application.give.service;
 
 import cloud.palmbiz.common.give.param.GiveParam;
-import cloud.palmbiz.common.service.GiveService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.web.ResponseObject;
 import lombok.RequiredArgsConstructor;

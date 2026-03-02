@@ -1,10 +1,18 @@
 package cloud.palmbiz.interfaces.client.controller;
 
+import cloud.palmbiz.application.SettingService;
+import cloud.palmbiz.application.VerifyCodeService;
+import cloud.palmbiz.application.marketing.coupon.service.CouponService;
+import cloud.palmbiz.application.member.service.MemberService;
+import cloud.palmbiz.application.merchant.service.MerchantService;
+import cloud.palmbiz.application.payment.service.WeixinService;
+import cloud.palmbiz.application.staff.service.StaffService;
+import cloud.palmbiz.application.identity.user.service.UserCouponService;
+import cloud.palmbiz.application.identity.user.service.UserGradeService;
 import com.alibaba.fastjson.JSONObject;
 import cloud.palmbiz.common.asset.dto.AssetDto;
 import cloud.palmbiz.common.user.dto.UserDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
-import cloud.palmbiz.common.service.*;
 import cloud.palmbiz.common.util.Base64Util;
 import cloud.palmbiz.common.util.DateUtil;
 import cloud.palmbiz.common.util.QRCodeUtil;

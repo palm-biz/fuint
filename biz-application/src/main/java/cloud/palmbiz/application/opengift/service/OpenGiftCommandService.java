@@ -1,6 +1,6 @@
 package cloud.palmbiz.application.opengift.service;
 
-import cloud.palmbiz.common.service.OpenGiftService;
+import cloud.palmbiz.application.OpenGiftService;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.infrastructure.model.MtOpenGift;
 import lombok.RequiredArgsConstructor;
