@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.body.dto;
+package cloud.palmbiz.application.body.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -13,10 +13,10 @@ import java.util.Map;
 public class BodyDto implements Serializable {
 
     @ApiModelProperty("入参信息")
-    private Map<String,Object> inParams;
+    private Map<String, Object> inParams;
 
     @ApiModelProperty("出参信息")
-    private Map<String,Object> outParams;
+    private Map<String, Object> outParams;
 
     @Override
     public String toString() {

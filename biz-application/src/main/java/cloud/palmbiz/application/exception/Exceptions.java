@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.exception;
+package cloud.palmbiz.application.exception;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

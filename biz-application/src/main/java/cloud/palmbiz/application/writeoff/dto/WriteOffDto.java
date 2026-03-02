@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.writeoff.dto;
+package cloud.palmbiz.application.writeoff.dto;
 
 import cloud.palmbiz.common.coupon.dto.CouponDto;
 import cloud.palmbiz.common.store.dto.StoreInfo;

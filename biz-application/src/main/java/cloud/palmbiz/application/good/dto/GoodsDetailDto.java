@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.good.dto;
+package cloud.palmbiz.application.good.dto;
 
 import cloud.palmbiz.common.good.dto.GoodsSkuDto;
 import com.fasterxml.jackson.annotation.JsonFormat;

@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.card.dto;
+package cloud.palmbiz.application.card.dto;
 
 import cloud.palmbiz.common.coupon.dto.CouponDto;
 import cloud.palmbiz.common.store.dto.StoreInfo;

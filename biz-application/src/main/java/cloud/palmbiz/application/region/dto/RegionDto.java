@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.region.dto;
+package cloud.palmbiz.application.region.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

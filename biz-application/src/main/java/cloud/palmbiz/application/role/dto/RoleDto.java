@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.role.dto;
+package cloud.palmbiz.application.role.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

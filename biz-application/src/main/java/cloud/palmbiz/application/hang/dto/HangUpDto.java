@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.hang.dto;
+package cloud.palmbiz.application.hang.dto;
 
 import cloud.palmbiz.common.user.dto.UserInfoDto;
 import io.swagger.annotations.ApiModelProperty;

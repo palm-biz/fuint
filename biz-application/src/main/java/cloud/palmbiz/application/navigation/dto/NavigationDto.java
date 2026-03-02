@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.navigation.dto;
+package cloud.palmbiz.application.navigation.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

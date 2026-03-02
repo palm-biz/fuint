@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.token.dto;
+package cloud.palmbiz.application.token.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

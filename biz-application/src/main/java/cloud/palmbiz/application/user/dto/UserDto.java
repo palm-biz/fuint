@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.user.dto;
+package cloud.palmbiz.application.user.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;

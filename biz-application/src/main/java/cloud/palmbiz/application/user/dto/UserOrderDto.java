@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.user.dto;
+package cloud.palmbiz.application.user.dto;
 
 import cloud.palmbiz.common.aftersale.dto.AftersaleDto;
 import cloud.palmbiz.common.order.dto.OrderUserDto;

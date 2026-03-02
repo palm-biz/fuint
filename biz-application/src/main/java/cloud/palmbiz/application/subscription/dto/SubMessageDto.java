@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.subscription.dto;
+package cloud.palmbiz.application.subscription.dto;
 
 import cloud.palmbiz.common.page.dto.ParamDto;
 import io.swagger.annotations.ApiModelProperty;

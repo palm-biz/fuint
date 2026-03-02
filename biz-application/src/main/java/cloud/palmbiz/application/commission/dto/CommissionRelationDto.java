@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.commission.dto;
+package cloud.palmbiz.application.commission.dto;
 
 import cloud.palmbiz.infrastructure.model.MtUser;
 import io.swagger.annotations.ApiModelProperty;

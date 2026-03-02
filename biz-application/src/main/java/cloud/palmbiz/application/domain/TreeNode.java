@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.domain;
+package cloud.palmbiz.application.domain;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

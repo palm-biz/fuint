@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.domain;
+package cloud.palmbiz.application.domain;
 
 import java.io.Serializable;
 import java.util.List;

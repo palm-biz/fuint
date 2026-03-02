@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.recharge.dto;
+package cloud.palmbiz.application.recharge.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

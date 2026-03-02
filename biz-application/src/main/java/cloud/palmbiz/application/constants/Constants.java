@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.constants;
+package cloud.palmbiz.application.constants;
 
 import java.util.HashMap;
 import java.util.Map;

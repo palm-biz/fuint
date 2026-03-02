@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.sms.dto;
+package cloud.palmbiz.application.sms.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

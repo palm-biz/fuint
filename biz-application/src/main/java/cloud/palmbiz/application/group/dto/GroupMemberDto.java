@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.group.dto;
+package cloud.palmbiz.application.group.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

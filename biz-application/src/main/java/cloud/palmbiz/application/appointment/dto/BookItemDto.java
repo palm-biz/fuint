@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.appointment.dto;
+package cloud.palmbiz.application.appointment.dto;
 
 import cloud.palmbiz.common.store.dto.StoreDto;
 import io.swagger.annotations.ApiModelProperty;

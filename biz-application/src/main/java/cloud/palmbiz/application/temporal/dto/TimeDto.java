@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.temporal.dto;
+package cloud.palmbiz.application.temporal.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

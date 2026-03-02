@@ -1,4 +1,4 @@
-package cloud.palmbiz.appointment.good.dto;
+package cloud.palmbiz.application.good.dto;
 
 import cloud.palmbiz.infrastructure.model.MtGoodsCate;
 import cloud.palmbiz.infrastructure.model.MtGoodsSku;
