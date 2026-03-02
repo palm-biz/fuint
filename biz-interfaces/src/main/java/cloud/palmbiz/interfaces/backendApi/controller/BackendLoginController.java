@@ -1,25 +1,26 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
+import cloud.palmbiz.application.account.command.LoginCommand;
+import cloud.palmbiz.application.account.service.AccountAuthService;
+import cloud.palmbiz.application.account.service.AccountQueryService;
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.domain.TreeNode;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.common.domain.TreeNode;
 import cloud.palmbiz.common.enums.AdminRoleEnum;
-import cloud.palmbiz.common.service.AccountService;
 import cloud.palmbiz.common.service.DutyService;
 import cloud.palmbiz.common.service.SourceService;
-import cloud.palmbiz.common.util.TokenUtil;
-import cloud.palmbiz.common.util.TreeUtil;
-import cloud.palmbiz.interfaces.vo.RouterVo;
+import cloud.palmbiz.common.utils.StringUtil;
+import cloud.palmbiz.common.utils.TokenUtil;
+import cloud.palmbiz.common.utils.TreeUtil;
 import cloud.palmbiz.framework.annoation.OperationServiceLog;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.web.BaseController;
 import cloud.palmbiz.framework.web.ResponseObject;
-import cloud.palmbiz.module.backendApi.request.LoginRequest;
-import cloud.palmbiz.module.backendApi.response.LoginResponse;
-import cloud.palmbiz.infrastructure.model.TAccount;
 import cloud.palmbiz.infrastructure.model.TDuty;
 import cloud.palmbiz.infrastructure.model.TSource;
-import cloud.palmbiz.common.utils.StringUtil;
+import cloud.palmbiz.interfaces.backendApi.request.LoginRequest;
+import cloud.palmbiz.interfaces.backendApi.response.LoginResponse;
+import cloud.palmbiz.interfaces.vo.RouterVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -34,35 +35,31 @@ import java.util.Map;
 /**
  * 后台登录接口
  */
-@Api(tags="管理端-后台登录相关接口")
+@Api(tags = "管理端-后台登录相关接口")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/backendApi/login")
 public class BackendLoginController extends BaseController {
 
-    /**
-     * 后台账号服务接口
-     */
-    private AccountService accountService;
-
-    /**
-     * 后台菜单服务接口
-     */
-    private SourceService sourceService;
-
-    /**
-     * 后台角色服务接口
-     */
-    private DutyService dutyService;
+    private final AccountAuthService accountAuthService;
+    private final AccountQueryService accountQueryService;
+    private final SourceService sourceService;
+    private final DutyService dutyService;
 
     /**
      * 后台登录
      */
     @ApiOperation(value = "后台登录")
-    @RequestMapping(value="/doLogin", method = RequestMethod.POST)
+    @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
     public ResponseObject doLogin(HttpServletRequest request, @RequestBody LoginRequest loginRequest) throws BusinessCheckException {
         String userAgent = request.getHeader("user-agent");
-        LoginResponse response = accountService.doLogin(loginRequest, userAgent);
+        LoginCommand command = new LoginCommand();
+        command.setUsername(loginRequest.getUsername());
+        command.setPassword(loginRequest.getPassword());
+        command.setCaptchaCode(loginRequest.getCaptchaCode());
+        command.setUuid(loginRequest.getUuid());
+        command.setUserAgent(userAgent);
+        LoginResponse response = accountAuthService.login(command);
         return getSuccessResult(response);
     }
 
@@ -76,37 +73,31 @@ public class BackendLoginController extends BaseController {
         if (accountInfo == null) {
             return getFailureResult(401, "登录信息已失效，请重新登录");
         }
-        TAccount tAccount = accountService.getAccountInfoById(accountInfo.getId());
-        if (accountInfo == null || tAccount == null || !tAccount.getAccountStatus().toString().equals("1")) {
+        AccountInfoDto tAccount = accountQueryService.queryById(accountInfo.getId());
+        if (tAccount == null || !tAccount.getAccountStatus().toString().equals("1")) {
             return getFailureResult(Constants.HTTP_RESPONSE_CODE_NOLOGIN);
         }
 
-        List<Long> roleIds = accountService.getRoleIdsByAccountId(accountInfo.getId());
+        List<Long> roleIds = accountQueryService.getRoleIdsByAccountId(accountInfo.getId());
         List<String> roles = new ArrayList<>();
-        if (roleIds.size() > 0) {
-            for (int i = 0; i < roleIds.size(); i++) {
-                 TDuty role = dutyService.getRoleById(roleIds.get(i));
-                 for (AdminRoleEnum item : AdminRoleEnum.values()) {
-                      if (role.getDutyType().equals(item.getKey())) {
-                          roles.add(item.getValue());
-                      }
-                 }
+        for (Long roleId : roleIds) {
+            TDuty role = dutyService.getRoleById(roleId);
+            for (AdminRoleEnum item : AdminRoleEnum.values()) {
+                if (role.getDutyType().equals(item.getKey())) {
+                    roles.add(item.getValue());
+                }
             }
         }
 
         List<TSource> sources = sourceService.getMenuListByUserId(accountInfo.getMerchantId(), accountInfo.getId());
         List<String> permissions = new ArrayList<>();
-        if (sources.size() > 0) {
-            for (TSource source : sources) {
-                if (source.getPath() != null) {
-                    String permission = source.getPath().replaceAll("/", ":");
-                    permissions.add(permission);
-                }
+        for (TSource source : sources) {
+            if (source.getPath() != null) {
+                permissions.add(source.getPath().replaceAll("/", ":"));
             }
         }
 
         Map<String, Object> result = new HashMap<>();
-
         result.put("accountInfo", accountInfo);
         result.put("roles", roles);
         result.put("permissions", permissions);
@@ -129,9 +120,8 @@ public class BackendLoginController extends BaseController {
         List<TSource> sources = sourceService.getMenuListByUserId(accountInfo.getMerchantId(), accountInfo.getId());
 
         List<TreeNode> trees = new ArrayList<>();
-        TreeNode treeNode;
         for (TSource tSource : sources) {
-            treeNode = new TreeNode();
+            TreeNode treeNode = new TreeNode();
             treeNode.setName(tSource.getSourceName());
             treeNode.setEname(tSource.getEname());
             treeNode.setNewIcon(tSource.getNewIcon());

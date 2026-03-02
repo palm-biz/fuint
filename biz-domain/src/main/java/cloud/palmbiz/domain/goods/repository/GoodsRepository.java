@@ -103,4 +103,24 @@ public interface GoodsRepository {
      * 根据卡券ID查找关联商品
      */
     List<Goods> findByCouponId(Integer couponId);
+
+    /**
+     * 分页查询商品列表（兼容旧接口）
+     */
+    cloud.palmbiz.framework.pagination.PaginationResponse<cloud.palmbiz.common.dto.GoodsDto> queryGoodsListByPagination(cloud.palmbiz.common.dto.GoodsListParam param);
+
+    /**
+     * 获取商品详情DTO（兼容旧接口）
+     */
+    cloud.palmbiz.common.dto.GoodsDto getGoodsDetail(Integer id, boolean getDeleteSpec);
+
+    /**
+     * 获取店铺商品列表（兼容旧接口）
+     */
+    java.util.Map<String, Object> getStoreGoodsList(Integer storeId, String keyword, String platform, Integer cateId, Integer page, Integer pageSize);
+
+    /**
+     * 获取商品销售排行榜（兼容旧接口）
+     */
+    java.util.List<cloud.palmbiz.common.good.dto.GoodsTopDto> getGoodsSaleTopList(Integer merchantId, Integer storeId, java.util.Date startTime, java.util.Date endTime);
 }

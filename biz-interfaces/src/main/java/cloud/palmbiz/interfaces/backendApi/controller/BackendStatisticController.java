@@ -1,11 +1,11 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
+import cloud.palmbiz.application.goods.service.GoodsQueryService;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.good.dto.GoodsTopDto;
 import cloud.palmbiz.common.member.dto.MemberTopDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.interfaces.param.StatisticParam;
-import cloud.palmbiz.common.service.GoodsService;
 import cloud.palmbiz.common.service.MemberService;
 import cloud.palmbiz.common.service.OrderService;
 import cloud.palmbiz.common.service.StoreService;
@@ -47,9 +47,9 @@ public class BackendStatisticController extends BaseController {
     private OrderService orderService;
 
     /**
-     * 商品服务接口
+     * 商品查询服务
      */
-    private GoodsService goodsService;
+    private GoodsQueryService goodsQueryService;
 
     /**
      * 店铺服务接口
@@ -144,7 +144,7 @@ public class BackendStatisticController extends BaseController {
             storeId = accountInfo.getStoreId();
         }
 
-        List<GoodsTopDto> goodsList = goodsService.getGoodsSaleTopList(merchantId, storeId, startTime, endTime);
+        List<GoodsTopDto> goodsList = goodsQueryService.getGoodsSaleTopList(merchantId, storeId, startTime, endTime);
         List<MemberTopDto> memberList = memberService.getMemberConsumeTopList(merchantId, storeId, startTime, endTime);
 
         Map<String, Object> result = new HashMap<>();

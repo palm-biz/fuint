@@ -6,8 +6,8 @@ import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.enums.YesOrNoEnum;
 import cloud.palmbiz.interfaces.param.GoodsInfoParam;
 import cloud.palmbiz.interfaces.param.GoodsListParam;
+import cloud.palmbiz.application.goods.service.GoodsQueryService;
 import cloud.palmbiz.common.service.CateService;
-import cloud.palmbiz.common.service.GoodsService;
 import cloud.palmbiz.common.service.MerchantService;
 import cloud.palmbiz.common.service.SettingService;
 import cloud.palmbiz.common.util.CommonUtil;
@@ -38,9 +38,9 @@ import java.util.*;
 public class ClientGoodsController extends BaseController {
 
     /**
-     * 商品服务接口
+     * 商品查询服务
      */
-    private GoodsService goodsService;
+    private GoodsQueryService goodsQueryService;
 
     /**
      * 商品类别服务接口
@@ -78,7 +78,7 @@ public class ClientGoodsController extends BaseController {
              if (StringUtil.isNotEmpty(cate.getLogo())) {
                  dto.setLogo(baseImage + cate.getLogo());
              }
-             Map<String, Object> goodsData = goodsService.getStoreGoodsList(storeId, "", platform, cate.getId(), 1, 100);
+             Map<String, Object> goodsData = goodsQueryService.getStoreGoodsList(storeId, "", platform, cate.getId(), 1, 100);
              List<MtGoods> goodsList = (ArrayList)goodsData.get("goodsList");
              if (goodsList.size() > 0) {
                  for (MtGoods goods : goodsList) {
@@ -109,7 +109,7 @@ public class ClientGoodsController extends BaseController {
     public ResponseObject list(HttpServletRequest request) throws BusinessCheckException {
         Integer storeId = StringUtil.isEmpty(request.getHeader("storeId")) ? 0 : Integer.parseInt(request.getHeader("storeId"));
         String platform = request.getHeader("platform") == null ? "" : request.getHeader("platform");
-        Map<String, Object> goodsData = goodsService.getStoreGoodsList(storeId, "", platform, 0,1, 200);
+        Map<String, Object> goodsData = goodsQueryService.getStoreGoodsList(storeId, "", platform, 0,1, 200);
         return getSuccessResult(goodsData.get("goodsList"));
     }
 
@@ -135,7 +135,7 @@ public class ClientGoodsController extends BaseController {
         }
         params.setStatus(StatusEnum.ENABLED.getKey());
         params.setHasPrice(YesOrNoEnum.YES.getKey());
-        PaginationResponse<GoodsDto> paginationResponse = goodsService.queryGoodsListByPagination(params);
+        PaginationResponse<GoodsDto> paginationResponse = goodsQueryService.queryGoodsListByPagination(params);
         return getSuccessResult(paginationResponse);
     }
 
@@ -151,7 +151,7 @@ public class ClientGoodsController extends BaseController {
             return getFailureResult(2000, "商品ID不能为空");
         }
 
-        GoodsDto goodsDto = goodsService.getGoodsDetail(Integer.parseInt(goodsId), false);
+        GoodsDto goodsDto = goodsQueryService.getGoodsDetail(Integer.parseInt(goodsId), false);
 
         GoodsDetailDto goodsDetailDto = new GoodsDetailDto();
         goodsDetailDto.setGoodsNo(goodsDto.getGoodsNo());
@@ -274,9 +274,9 @@ public class ClientGoodsController extends BaseController {
         Integer merchantId = merchantService.getMerchantId(merchantNo);
         Integer goodsId = 0;
         Integer skuId = 0;
-        MtGoodsSku mtGoodsSku = goodsService.getSkuInfoBySkuNo(skuNo);
+        MtGoodsSku mtGoodsSku = goodsQueryService.getSkuInfoBySkuNo(skuNo);
         if (mtGoodsSku == null) {
-            MtGoods mtGoods = goodsService.queryGoodsByGoodsNo(merchantId, skuNo);
+            MtGoods mtGoods = goodsQueryService.queryGoodsPOByGoodsNo(merchantId, skuNo);
             if (mtGoods != null) {
                 goodsId = mtGoods.getId();
             }
@@ -286,7 +286,7 @@ public class ClientGoodsController extends BaseController {
         }
 
         if (goodsId > 0) {
-            GoodsDto goodsDto = goodsService.getGoodsDetail(goodsId, false);
+            GoodsDto goodsDto = goodsQueryService.getGoodsDetail(goodsId, false);
             Map<String, Object> data = new HashMap();
             data.put("skuId", skuId);
             data.put("goodsInfo", goodsDto);

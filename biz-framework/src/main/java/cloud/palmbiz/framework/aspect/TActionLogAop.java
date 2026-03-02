@@ -3,7 +3,7 @@ package cloud.palmbiz.framework.aspect;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.service.AccountService;
+import cloud.palmbiz.application.account.service.AccountQueryService;
 import cloud.palmbiz.common.service.ActionLogService;
 import cloud.palmbiz.common.util.CommonUtil;
 import cloud.palmbiz.common.util.TokenUtil;
@@ -47,7 +47,7 @@ public class TActionLogAop {
 
     @Lazy
     @Autowired
-    private AccountService tAccountService;
+    private AccountQueryService tAccountService;
 
     private String userName = ""; // 用户名
     private Integer merchantId = 0; // 商户ID
@@ -161,7 +161,7 @@ public class TActionLogAop {
                         JSONObject tAccount = jsonObject.getJSONObject("tAccount");
                         if (tAccount != null) {
                             String accountName = tAccount.getString("username");
-                            AccountInfoDto accountInfo = tAccountService.getAccountByName(accountName);
+                            AccountInfoDto accountInfo = tAccountService.queryByName(accountName);
                             if (accountInfo != null) {
                                 userName = accountInfo.getAccountName();
                                 merchantId = accountInfo.getMerchantId();
