@@ -1,7 +1,7 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.balance.dto.BalanceDto;
 import cloud.palmbiz.common.param.BalancePage;
 import cloud.palmbiz.framework.exception.BusinessCheckException;

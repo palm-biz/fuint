@@ -1,6 +1,6 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.enums.QrCodeEnum;
 import cloud.palmbiz.common.service.CouponService;
 import cloud.palmbiz.common.service.SettingService;

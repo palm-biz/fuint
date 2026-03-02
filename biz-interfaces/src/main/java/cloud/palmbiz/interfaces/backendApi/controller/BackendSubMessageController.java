@@ -2,7 +2,7 @@ package cloud.palmbiz.interfaces.backendApi.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.page.dto.ParamDto;
 import cloud.palmbiz.common.subscription.dto.SubMessageDto;
 import cloud.palmbiz.common.enums.SettingTypeEnum;

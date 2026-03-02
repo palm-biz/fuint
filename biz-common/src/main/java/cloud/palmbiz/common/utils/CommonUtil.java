@@ -1,6 +1,5 @@
 package cloud.palmbiz.common.utils;
 
-import cloud.palmbiz.common.utils.StringUtil;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;

@@ -2,7 +2,7 @@ package cloud.palmbiz.interfaces.backendApi.controller;
 
 import cloud.palmbiz.common.domain.TreeNode;
 import cloud.palmbiz.common.domain.TreeSelect;
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.source.dto.SourceDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.SourceService;

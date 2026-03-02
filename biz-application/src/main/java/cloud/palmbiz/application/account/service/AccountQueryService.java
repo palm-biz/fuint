@@ -1,7 +1,7 @@
 package cloud.palmbiz.application.account.service;
 
-import cloud.palmbiz.common.account.dto.AccountDto;
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.param.AccountPage;
 import cloud.palmbiz.domain.account.model.Account;
 import cloud.palmbiz.domain.account.model.AccountId;

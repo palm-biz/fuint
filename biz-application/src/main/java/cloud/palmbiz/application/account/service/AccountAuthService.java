@@ -1,7 +1,7 @@
 package cloud.palmbiz.application.account.service;
 
 import cloud.palmbiz.application.account.command.LoginCommand;
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.service.CaptchaService;
 import cloud.palmbiz.common.util.TokenUtil;

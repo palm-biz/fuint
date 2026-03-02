@@ -1,6 +1,6 @@
 package cloud.palmbiz.interfaces.merchant.controller;
 
-import cloud.palmbiz.common.aftersale.dto.AftersaleDto;
+import cloud.palmbiz.application.aftersale.dto.AftersaleDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.interfaces.param.RefundDetailParam;
 import cloud.palmbiz.interfaces.param.RefundListParam;

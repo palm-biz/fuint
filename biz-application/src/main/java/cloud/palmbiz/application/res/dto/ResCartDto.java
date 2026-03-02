@@ -1,0 +1,41 @@
+package cloud.palmbiz.appointment.res.dto;
+
+import cloud.palmbiz.common.good.dto.GoodsDto;
+import cloud.palmbiz.common.good.dto.GoodsSpecValueDto;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import java.io.Serializable;
+import java.util.List;
+
+/**
+ * 购物车返回DTO
+ */
+@Data
+public class ResCartDto implements Serializable {
+
+    @ApiModelProperty("自增ID")
+    private Integer id;
+
+    @ApiModelProperty("会员ID")
+    private Integer userId;
+
+    @ApiModelProperty("商品ID")
+    private Integer goodsId;
+
+    @ApiModelProperty("skuId")
+    private Integer skuId;
+
+    @ApiModelProperty("数量")
+    private Double num;
+
+    @ApiModelProperty("是否有效")
+    private Boolean isEffect;
+
+    @ApiModelProperty("商品规格")
+    private List<GoodsSpecValueDto> specList;
+
+    @ApiModelProperty("商品数据")
+    private GoodsDto goodsInfo;
+
+}

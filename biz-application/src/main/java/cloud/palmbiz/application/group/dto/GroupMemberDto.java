@@ -1,0 +1,26 @@
+package cloud.palmbiz.appointment.group.dto;
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import java.io.Serializable;
+
+/**
+ * 分组会员DTO
+ */
+@Data
+public class GroupMemberDto implements Serializable {
+
+    @ApiModelProperty("会员ID")
+    private Integer id;
+
+    @ApiModelProperty("会员名称")
+    private String name;
+
+    @ApiModelProperty("会员号")
+    private String userNo;
+
+    @ApiModelProperty("会员名称")
+    private String mobile;
+}
+

@@ -1,7 +1,7 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
 import com.aliyun.oss.OSS;
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.service.SettingService;
 import cloud.palmbiz.common.service.UploadService;
 import cloud.palmbiz.common.util.AliyunOssUtil;

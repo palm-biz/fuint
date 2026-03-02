@@ -1,6 +1,5 @@
 package cloud.palmbiz.common.utils;
 
-import cloud.palmbiz.common.utils.ContextUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.CollectionUtils;

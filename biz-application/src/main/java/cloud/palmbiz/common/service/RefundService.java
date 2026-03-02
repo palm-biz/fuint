@@ -1,8 +1,8 @@
 package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
-import cloud.palmbiz.common.aftersale.dto.AftersaleDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.aftersale.dto.AftersaleDto;
 import cloud.palmbiz.framework.exception.BusinessCheckException;
 import cloud.palmbiz.framework.pagination.PaginationRequest;
 import cloud.palmbiz.framework.pagination.PaginationResponse;

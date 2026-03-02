@@ -5,7 +5,6 @@ import java.util.List;
 import cloud.palmbiz.infrastructure.bean.ColumnBean;
 import org.apache.commons.lang3.StringUtils;
 import cloud.palmbiz.infrastructure.model.TGenCode;
-import cloud.palmbiz.common.utils.StringUtil;
 import org.apache.velocity.VelocityContext;
 
 /**

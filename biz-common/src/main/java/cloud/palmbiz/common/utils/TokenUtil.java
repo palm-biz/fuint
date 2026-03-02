@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import cloud.palmbiz.common.Constants;
 import cloud.palmbiz.common.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
-import cloud.palmbiz.common.utils.StringUtil;
 import nl.bitwalker.useragentutils.UserAgent;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;

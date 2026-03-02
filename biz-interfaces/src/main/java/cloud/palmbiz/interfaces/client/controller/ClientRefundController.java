@@ -1,6 +1,6 @@
 package cloud.palmbiz.interfaces.client.controller;
 
-import cloud.palmbiz.common.aftersale.dto.AftersaleDto;
+import cloud.palmbiz.application.aftersale.dto.AftersaleDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.enums.RefundStatusEnum;

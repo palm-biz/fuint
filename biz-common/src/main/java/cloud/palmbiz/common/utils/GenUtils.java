@@ -2,7 +2,6 @@ package cloud.palmbiz.common.utils;
 
 import java.util.Arrays;
 import cloud.palmbiz.infrastructure.model.TGenCode;
-import cloud.palmbiz.common.utils.StringUtil;
 import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.StringUtils;
 

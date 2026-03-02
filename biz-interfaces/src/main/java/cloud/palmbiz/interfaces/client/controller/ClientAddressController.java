@@ -1,6 +1,6 @@
 package cloud.palmbiz.interfaces.client.controller;
 
-import cloud.palmbiz.common.address.dto.AddressDto;
+import cloud.palmbiz.application.address.dto.AddressDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.enums.YesOrNoEnum;

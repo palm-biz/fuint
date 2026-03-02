@@ -63,9 +63,11 @@ business/
                            ▼
                 ┌─────────────────────┐
                 │  biz-application    │  应用层
-                │  - CommandService   │  - 用例编排
+                │  - CommandService   │  - 用例编排（Use Case）
                 │  - QueryService     │  - 事务控制
                 │  - Command/Query    │  - CQRS实现
+                │  - DTO/Assembler    │  - 数据转换
+                │  - Executor         │  - 命令执行器
                 └──────────┬──────────┘
                            │ 依赖
                            ▼
@@ -732,11 +734,34 @@ tail -f app.log
    - 仓储接口只定义，不实现
 
 2. **应用层（biz-application）**
-   - 实现用例编排
-   - CommandService 处理写操作
-   - QueryService 处理读操作
-   - 事务边界在应用服务层
-   - 协调领域对象完成业务用例
+
+   应用层按**业务用例（Use Case）**组织，每个模块包含以下子目录：
+
+   ```
+   application
+   └── {module}
+       ├── command/     # 写操作命令对象（Create/Update/Delete）
+       ├── query/       # 查询条件对象（PageQuery、DetailQuery）
+       ├── dto/         # 数据传输对象（返回给接口层的视图数据）
+       ├── assembler/   # 转换器（Domain ⇆ DTO 互转）
+       ├── executor/    # 命令/查询执行器（拆分大型用例，避免 Service 臃肿）
+       └── service/     # 应用服务入口（CommandService / QueryService）
+   ```
+
+   各子目录职责：
+
+   | 目录 | 职责 | 示例 |
+   |------|------|------|
+   | **command** | 封装写操作的输入参数，表达用户意图 | `CreateOrderCommand`, `UpdateMemberCommand` |
+   | **query** | 封装查询条件参数 | `OrderPageQuery`, `MemberDetailQuery` |
+   | **dto** | 应用层输出的数据结构，返回给接口层 | `OrderDTO`, `MemberDTO` |
+   | **assembler** | 领域对象与 DTO 之间的转换，保持层间隔离 | `OrderAssembler.toDTO(Order)` |
+   | **executor** | 将单个用例拆分为独立执行器，避免 Service 过大 | `CreateOrderCommandExecutor`, `OrderQueryExecutor` |
+   | **service** | 应用服务入口，编排 domain 层，控制事务边界 | `OrderCommandService`, `OrderQueryService` |
+
+   > **核心原则**：应用层按**用例**组织，而不是按技术类型（controller/service/dao）。
+   > Service 只负责编排领域对象，不编写业务规则，业务规则由 domain 层的聚合根和领域服务负责。
+   > 当 Service 方法过多时，将每个用例抽取为独立的 Executor，保持单一职责。
 
 3. **基础设施层（biz-infrastructure）**
    - 实现仓储接口（依赖倒置）
@@ -763,6 +788,58 @@ tail -f app.log
    - 工具类
    - 被所有层依赖
 
+### 模块完整目录结构参考
+
+以 `order`（订单）模块为例，展示生产级 DDD 完整结构：
+
+```
+biz-domain/
+└── domain/order/
+    ├── model/
+    │   ├── Order.java                    # 聚合根
+    │   ├── OrderId.java                  # 值对象（聚合根ID）
+    │   ├── OrderNo.java                  # 值对象（订单编号）
+    │   └── OrderStatus.java              # 值对象（订单状态）
+    ├── repository/
+    │   └── OrderRepository.java          # 仓储接口（DIP）
+    └── service/
+        └── OrderDomainService.java       # 领域服务（跨聚合业务逻辑）
+
+biz-application/
+└── application/order/
+    ├── command/
+    │   ├── CreateOrderCommand.java       # 创建订单命令
+    │   ├── PayOrderCommand.java          # 支付订单命令
+    │   └── CancelOrderCommand.java       # 取消订单命令
+    ├── query/
+    │   ├── OrderDetailQuery.java         # 订单详情查询条件
+    │   └── OrderPageQuery.java           # 订单分页查询条件
+    ├── dto/
+    │   ├── OrderDTO.java                 # 订单数据传输对象
+    │   └── OrderDetailDTO.java           # 订单详情数据传输对象
+    ├── assembler/
+    │   └── OrderAssembler.java           # Order(Domain) ⇆ OrderDTO 转换
+    ├── executor/
+    │   ├── CreateOrderCommandExecutor.java   # 创建订单用例执行器
+    │   ├── PayOrderCommandExecutor.java      # 支付订单用例执行器
+    │   └── OrderQueryExecutor.java           # 订单查询执行器
+    └── service/
+        ├── OrderCommandService.java      # 订单命令服务（写操作入口）
+        └── OrderQueryService.java        # 订单查询服务（读操作入口）
+
+biz-infrastructure/
+└── infrastructure/
+    ├── repository/
+    │   └── OrderRepositoryImpl.java      # 仓储接口实现（DIP实现）
+    └── mapper/
+        └── MtOrderMapper.java            # MyBatis Plus Mapper
+
+biz-interfaces/
+└── interfaces/
+    └── backendApi/controller/
+        └── BackendOrderController.java   # REST Controller（调用应用服务）
+```
+
 ### 命名规范
 
 **领域层（biz-domain）：**
@@ -771,8 +848,11 @@ tail -f app.log
 - 领域服务: `Xxx` + `Service`，如 `PasswordEncryptionService`
 
 **应用层（biz-application）：**
-- 命令: `Xxx` + `Command`，如 `CreateAccountCommand`
-- 查询: `Xxx` + `Query`，如 `AccountPageQuery`
+- 命令对象: `Xxx` + `Command`，如 `CreateOrderCommand`
+- 查询对象: `Xxx` + `Query`，如 `OrderPageQuery`
+- 数据传输: `Xxx` + `DTO`，如 `OrderDTO`
+- 转换器: `Xxx` + `Assembler`，如 `OrderAssembler`
+- 执行器: `Xxx` + `CommandExecutor` / `QueryExecutor`，如 `CreateOrderCommandExecutor`
 - 应用服务: `Xxx` + `CommandService` / `QueryService`
 
 **基础设施层（biz-infrastructure）：**

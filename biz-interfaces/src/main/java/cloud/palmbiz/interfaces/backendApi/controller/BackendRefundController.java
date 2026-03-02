@@ -1,9 +1,9 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.page.dto.ParamDto;
-import cloud.palmbiz.common.aftersale.dto.AftersaleDto;
+import cloud.palmbiz.application.aftersale.dto.AftersaleDto;
 import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.enums.RefundStatusEnum;
 import cloud.palmbiz.common.enums.RefundTypeEnum;

@@ -1,7 +1,7 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.sms.dto.SmsTemplateDto;
 import cloud.palmbiz.common.service.SmsTemplateService;
 import cloud.palmbiz.common.util.TokenUtil;

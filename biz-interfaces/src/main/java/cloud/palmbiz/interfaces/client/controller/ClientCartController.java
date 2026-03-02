@@ -1,6 +1,6 @@
 package cloud.palmbiz.interfaces.client.controller;
 
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.user.dto.UserInfoDto;
 import cloud.palmbiz.common.enums.OrderModeEnum;
 import cloud.palmbiz.common.enums.StatusEnum;

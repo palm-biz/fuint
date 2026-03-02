@@ -1,6 +1,5 @@
 package cloud.palmbiz.common.utils;
 
-import cloud.palmbiz.common.utils.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.text.SimpleDateFormat;

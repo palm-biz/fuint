@@ -4,7 +4,7 @@ import cloud.palmbiz.application.account.command.LoginCommand;
 import cloud.palmbiz.application.account.service.AccountAuthService;
 import cloud.palmbiz.application.account.service.AccountQueryService;
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.domain.TreeNode;
 import cloud.palmbiz.common.enums.AdminRoleEnum;
 import cloud.palmbiz.common.service.DutyService;

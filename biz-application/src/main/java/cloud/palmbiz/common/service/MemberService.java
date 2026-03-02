@@ -2,7 +2,7 @@ package cloud.palmbiz.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.alibaba.fastjson.JSONObject;
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.group.dto.GroupMemberDto;
 import cloud.palmbiz.common.member.dto.MemberTopDto;
 import cloud.palmbiz.common.user.dto.UserDto;

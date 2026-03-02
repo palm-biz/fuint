@@ -1,7 +1,6 @@
 package cloud.palmbiz.interfaces.client.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import cloud.palmbiz.common.dto.*;
 import cloud.palmbiz.common.enums.StatusEnum;
 import cloud.palmbiz.common.enums.YesOrNoEnum;
 import cloud.palmbiz.interfaces.param.GoodsInfoParam;

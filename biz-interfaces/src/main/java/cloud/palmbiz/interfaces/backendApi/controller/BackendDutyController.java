@@ -1,8 +1,8 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.account.dto.AccountDto;
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.role.dto.RoleDto;
 import cloud.palmbiz.common.enums.AdminRoleEnum;
 import cloud.palmbiz.common.service.DutyService;
@@ -221,7 +221,7 @@ public class BackendDutyController extends BaseController {
     @CrossOrigin
     @PreAuthorize("@pms.hasPermission('system:role:delete')")
     public ResponseObject deleteRole(@PathVariable("roleId") Long roleId) throws BusinessCheckException {
-        cloud.palmbiz.common.account.dto.AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
+        AccountInfoDto accountInfo = TokenUtil.getAccountInfo();
         tDutyService.deleteDuty(accountInfo.getMerchantId(), roleId);
         return getSuccessResult(true);
     }

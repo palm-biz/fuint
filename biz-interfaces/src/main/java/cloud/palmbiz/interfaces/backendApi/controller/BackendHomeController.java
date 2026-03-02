@@ -1,6 +1,6 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.user.dto.UserOrderDto;
 import cloud.palmbiz.common.service.MemberService;
 import cloud.palmbiz.common.service.OrderService;

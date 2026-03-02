@@ -1,6 +1,6 @@
 package cloud.palmbiz.module.backendApi.controller;
 
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.util.TokenUtil;
 import cloud.palmbiz.framework.web.BaseController;
 import cloud.palmbiz.framework.web.ResponseObject;

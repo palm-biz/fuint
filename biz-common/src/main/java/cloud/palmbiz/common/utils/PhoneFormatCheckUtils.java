@@ -1,7 +1,5 @@
 package cloud.palmbiz.common.utils;
 
-import cloud.palmbiz.common.utils.StringUtil;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;

@@ -1,6 +1,6 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.interfaces.param.BannerPage;
 import cloud.palmbiz.interfaces.param.StatusParam;
 import cloud.palmbiz.common.service.StoreService;

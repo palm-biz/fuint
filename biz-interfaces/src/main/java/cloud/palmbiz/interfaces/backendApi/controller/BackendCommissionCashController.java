@@ -1,6 +1,6 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.common.commission.dto.CommissionCashDto;
 import cloud.palmbiz.common.page.dto.ParamDto;
 import cloud.palmbiz.common.enums.CommissionCashStatusEnum;

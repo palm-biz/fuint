@@ -1,4 +1,4 @@
-package cloud.palmbiz.utils;
+package cloud.palmbiz.common.utils;
 
 import org.apache.poi.hssf.util.HSSFColor;
 

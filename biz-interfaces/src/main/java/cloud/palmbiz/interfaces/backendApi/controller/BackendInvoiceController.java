@@ -1,7 +1,7 @@
 package cloud.palmbiz.interfaces.backendApi.controller;
 
 import cloud.palmbiz.common.Constants;
-import cloud.palmbiz.common.account.dto.AccountInfoDto;
+import cloud.palmbiz.application.account.dto.AccountInfoDto;
 import cloud.palmbiz.interfaces.param.InvoiceParam;
 import cloud.palmbiz.common.service.InvoiceService;
 import cloud.palmbiz.common.util.TokenUtil;
